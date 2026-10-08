@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Voice Receptionist — agenticrx | AI for HVAC Contractors</title>
+<meta name="description" content="Hear the demo: Ava answers every call in under 3 seconds, triages safety issues, and books the job — 24/7, even at 2 AM on Sundays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ---------- product demo extras ---------- */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:8px}
+@media(max-width:900px){.prod-grid{grid-template-columns:1fr}.prod-grid .demo-phone{margin:0 auto}}
+.call-idle{text-align:center;padding:64px 24px}
+.call-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--orange2),var(--orange));display:flex;align-items:center;justify-content:center;font-size:2.4rem;margin:0 auto 18px;box-shadow:0 10px 30px rgba(255,107,26,.4)}
+.call-name{font-size:1.35rem;font-weight:800;color:#fff}
+.call-sub{color:#8fa1bd;margin:8px 0 28px;font-size:.95rem}
+.call-active{display:none}
+.call-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-size:.85rem}
+.live-dot{display:inline-flex;align-items:center;gap:7px;color:#4ade80;font-weight:800;letter-spacing:.06em;font-size:.75rem}
+.live-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:#4ade80;animation:pulse 1.6s infinite}
+#callTimer{font-variant-numeric:tabular-nums;font-weight:700;color:#c4d0e4}
+.transcript{height:360px;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:13px}
+.tline{font-size:.88rem;line-height:1.55;animation:pop .25s ease}
+.tline .who{display:block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+.tline.ava .who{color:var(--orange2)}
+.tline.caller .who{color:#7dd3fc}
+.tline .txt{color:#e8eef8}
+.typing-caret::after{content:"▍";animation:blink 1s infinite;color:var(--orange2)}
+.call-summary{display:none;padding:22px 18px}
+.sum-card{background:rgba(22,163,74,.1);border:1.5px solid #16a34a;border-radius:14px;padding:18px;font-size:.9rem;color:#dbe4f2;animation:pop .3s ease}
+.sum-card h4{color:#4ade80;margin-bottom:10px;font-size:1rem}
+.sum-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.86rem}
+.sum-card dt{color:#8fa1bd;font-weight:600}
+.sum-card dd{margin:0;color:#e8eef8}
+.flag{display:inline-block;background:#fef3c7;color:#92400e;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.04em}
+.demo-ctrl{text-align:center;margin-top:18px}
+/* ---------- bands ---------- */
+.costband{background:#070d1a;color:#fff;padding:76px 0;text-align:center}
+.costband h2{max-width:780px;margin:0 auto .6em}
+.costband p{color:#aebdd6;max-width:660px;margin:0 auto;font-size:1.08rem}
+.ctaband{background:linear-gradient(135deg,#0a1428 0%,#12305e 100%);color:#fff;padding:84px 0;text-align:center}
+.ctaband h2{margin-bottom:.4em}
+.ctaband p{color:#c4d0e4;max-width:560px;margin:0 auto 30px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">◈</span> agenticrx&nbsp;AI</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="missed-call-textback.html">Missed-call text-back</a>
+      <a href="ai-receptionist.html">AI receptionist</a>
+      <a href="review-engine.html">Review engine</a>
+      <a href="index.html#audit">Free audit</a>
+    </nav>
+    <a class="btn btn-sm" href="index.html#audit">Get my free audit</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Product demo · AI Voice Receptionist</p>
+    <h1>Every call answered in under 3 seconds.<br><span class="accent">Even at 2 AM on Sundays.</span></h1>
+    <p class="lede">Meet Ava — the AI receptionist for Johnson Heating &amp; Air. She triages safety issues, qualifies the job, and books it straight into your calendar. Tap "Answer as Ava" and listen in.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">▶ Answer the call</a>
+      <a class="btn btn-ghost" href="index.html#audit">Get my free audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — tap to answer</p>
+    <h2>Sunday, 2:13 AM.<br>A furnace is banging. Nobody's at the shop.</h2>
+    <p class="section-sub dark">A homeowner calls. Ava picks up before the second ring. Read the live transcript — this is exactly what your callers hear.</p>
+    <div class="prod-grid">
+      <div>
+        <div class="demo-phone">
+          <div class="demo-sitebar"><span>❄️ Johnson Heating &amp; Air</span><span class="demo-live">● Ava online</span></div>
+          <div class="call-idle" id="callIdle">
+            <div class="call-avatar">📞</div>
+            <div class="call-name">Incoming call…</div>
+            <div class="call-sub">(404) 555-0132 · Sunday 2:13 AM</div>
+            <button class="btn" id="answerBtn">Answer as Ava</button>
+          </div>
+          <div class="call-active" id="callActive">
+            <div class="call-top">
+              <span class="live-dot">LIVE</span>
+              <span id="callTimer">00:00</span>
+            </div>
+            <div class="transcript" id="transcript"></div>
+          </div>
+          <div class="call-summary" id="callSummary">
+            <div class="sum-card">
+              <h4>✅ Call summary sent to owner</h4>
+              <dl>
+                <dt>Caller intent</dt><dd>Furnace banging + burning smell</dd>
+                <dt>Safety triage</dt><dd><span class="flag">SAFETY CHECKED</span> — no gas smell, dust burn-off likely</dd>
+                <dt>Booked</dt><dd>Tomorrow 9–11 AM · 88 Lanier Ridge Dr</dd>
+                <dt>Recording</dt><dd>Saved — full transcript emailed</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="demo-ctrl"><button class="btn btn-ghost btn-sm" id="callReplay" style="display:none">↻ Play the call again</button></div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="callReceipt">
+          <li class="dim">Answer the call — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Ava runs on your rules: your services, your prices, your booking windows, your escalation triggers. Safety calls get triaged first, always. You approve every script before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Your best dispatcher. Who never sleeps.</h2>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Ava answers in under 3 seconds</h3><p>Nights, weekends, holidays, the lunch rush — every call picked up before the second ring, on your existing number.</p></div>
+      <div class="step"><span class="num">2</span><h3>She triages like a pro</h3><p>Safety first — gas smells get escalated instantly. Then she qualifies the job, quotes your real time windows, and handles objections.</p></div>
+      <div class="step"><span class="num">3</span><h3>You get the summary</h3><p>Appointment on your calendar, recording and transcript in your inbox, urgent flags texted to you immediately. Nothing falls through.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST OF MISSING OUT ============ -->
+<section class="costband">
+  <div class="wrap">
+    <p class="eyebrow">The cost of missing out</p>
+    <h2>A dispatcher costs thousands a month<br>and still misses the 2 AM calls.</h2>
+    <p>Ava doesn't sleep, doesn't take lunch, and never sends a caller to voicemail. If she books a handful of jobs a month you'd otherwise have missed, the math is obvious. Our 139-site audit found <strong style="color:#fff">zero</strong> shops with AI answering their phones — answer first, win the job.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ctaband">
+  <div class="wrap">
+    <p class="eyebrow">Free AI &amp; website audit</p>
+    <h2>Hear Ava on your own line.</h2>
+    <p>We'll mystery-shop your phones, score your website against the top shops in your metro, and show you the 3 AI fixes with the fastest payback.</p>
+    <a class="btn" href="index.html#audit">Get your free audit</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="brand-mark">◈</span> agenticrx&nbsp;AI</a>
+    <p>AI phone, chat &amp; follow-up systems for HVAC contractors.<br>© <span id="year"></span> agenticrx · Atlanta, GA</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+document.getElementById('year').textContent=new Date().getFullYear();
+
+var CALL=[
+  {who:'ava',label:'Ava',text:"Thanks for calling Johnson Heating & Air, this is Ava. How can I help?"},
+  {who:'caller',label:'Caller',text:"Hi, my furnace is making a banging noise and there's a burning smell."},
+  {who:'ava',label:'Ava',text:"Thanks for letting me know. Quick safety check first — if you smell gas, please step outside right now and call 911. Does it smell like gas, or more like dust burning off?"},
+  {who:'caller',label:'Caller',text:"More like dust, I think. No gas smell."},
+  {who:'ava',label:'Ava',text:"Good — that's common when the heat kicks on after a while. Still, a banging furnace is worth a look today. I have tomorrow 9–11 AM or 1–3 PM — which works better?"},
+  {who:'caller',label:'Caller',text:"9 to 11 works. I'm Dana Whitfield, 88 Lanier Ridge Dr."},
+  {who:'ava',label:'Ava',text:"Perfect, Dana — you're booked tomorrow 9–11 AM at 88 Lanier Ridge Dr for a furnace check. I'll text a confirmation, and the tech will call when en route. Anything else?"},
+  {who:'caller',label:'Caller',text:"That's everything. Thanks!"},
+  {who:'ava',label:'Ava',text:"You're welcome! Talk soon."}
+];
+var RECEIPT=[
+  '📞 <strong>Call answered</strong> — 2.4 seconds, Sunday 2:13 AM',
+  '⚠️ <strong>Safety triage done</strong> — gas smell ruled out before booking',
+  '📅 <strong>Job booked</strong> — furnace check, tomorrow 9–11 AM',
+  '📝 <strong>Summary sent</strong> — recording + transcript to owner'
+];
+
+var idle=document.getElementById('callIdle'),
+    active=document.getElementById('callActive'),
+    summary=document.getElementById('callSummary'),
+    transcript=document.getElementById('transcript'),
+    timerEl=document.getElementById('callTimer'),
+    receipt=document.getElementById('callReceipt'),
+    replayBtn=document.getElementById('callReplay'),
+    runId=0, timerInt=null;
+
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+
+async function typeLine(id,line){
+  var wrap=document.createElement('div');
+  wrap.className='tline '+line.who;
+  wrap.innerHTML='<span class="who">'+line.label+'</span><span class="txt typing-caret"></span>';
+  transcript.appendChild(wrap);
+  transcript.scrollTop=transcript.scrollHeight;
+  var txtEl=wrap.querySelector('.txt'),full=line.text;
+  for(var i=0;i<full.length;i++){
+    await sleep(16);if(id!==runId)return;
+    txtEl.textContent=full.slice(0,i+1);
+    if(i%6===0)transcript.scrollTop=transcript.scrollHeight;
+  }
+  txtEl.classList.remove('typing-caret');
+}
+
+function addReceipt(html){
+  if(receipt.querySelector('.dim'))receipt.innerHTML='';
+  var li=document.createElement('li');li.innerHTML=html;receipt.appendChild(li);
+}
+
+async function playCall(){
+  runId++;var id=runId;
+  idle.style.display='none';summary.style.display='none';replayBtn.style.display='none';
+  active.style.display='block';transcript.innerHTML='';receipt.innerHTML='<li class="dim">Listening…</li>';
+  var secs=0;timerEl.textContent='00:00';
+  clearInterval(timerInt);
+  timerInt=setInterval(function(){secs++;timerEl.textContent=fmt(secs)},1000);
+  await sleep(900);if(id!==runId)return;
+  for(var i=0;i<CALL.length;i++){
+    await typeLine(id,CALL[i]);if(id!==runId)return;
+    if(i<RECEIPT.length)addReceipt(RECEIPT[i]);
+    await sleep(650);if(id!==runId)return;
+  }
+  clearInterval(timerInt);
+  await sleep(700);if(id!==runId)return;
+  active.style.display='none';summary.style.display='block';
+  replayBtn.style.display='inline-block';
+}
+
+document.getElementById('answerBtn').addEventListener('click',playCall);
+replayBtn.addEventListener('click',playCall);
+</script>
+</body>
+</html>

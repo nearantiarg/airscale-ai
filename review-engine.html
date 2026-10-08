@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Engine — agenticrx | AI for HVAC Contractors</title>
+<meta name="description" content="Try the demo: happy customers get routed to Google in one tap, unhappy ones reach the owner privately — before they ever post.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ---------- product demo extras ---------- */
+.re-pills{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
+.re-pill{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);color:#aebdd6;font-weight:700;font-size:.85rem;padding:10px 18px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all .15s}
+.re-pill.active{background:var(--orange);border-color:var(--orange);color:#fff}
+.re-pill.done{border-color:#16a34a;color:#4ade80}
+.re-stage{display:none;animation:pop .3s ease}
+.re-stage.on{display:block}
+.stage-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+@media(max-width:900px){.stage-grid{grid-template-columns:1fr}}
+.jobcard{background:#fff;color:var(--ink);border-radius:16px;padding:24px;max-width:440px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.jobcard h4{font-size:1.05rem;margin-bottom:4px}
+.jobcard .jmeta{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.jobrow{display:flex;justify-content:space-between;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.9rem;margin-bottom:14px}
+.jobrow .ok{color:#16a34a;font-weight:800}
+.re-sms{background:#0d1526;border:10px solid #1e2c47;border-radius:32px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);max-width:400px}
+.re-thread{padding:20px 16px;display:flex;flex-direction:column;gap:10px;min-height:300px}
+.re-bubble{max-width:88%;padding:11px 14px;border-radius:15px;font-size:.86rem;line-height:1.5;animation:pop .25s ease}
+.re-bubble.bot{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-bottom-left-radius:5px;color:#e8eef8;align-self:flex-start}
+.re-bubble.me{background:var(--orange);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.stars{display:flex;gap:9px;margin:14px 0;flex-wrap:wrap}
+.stars button{width:52px;height:52px;border-radius:12px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);font-size:1.35rem;cursor:pointer;color:#8fa1bd;font-family:inherit;transition:all .12s;font-weight:800}
+.stars button:hover:not(:disabled){border-color:var(--orange);transform:scale(1.07);color:#fff}
+.stars button:disabled{cursor:default;opacity:.55}
+.stars button.picked{background:var(--orange);border-color:var(--orange);color:#fff;opacity:1}
+.gbtn{display:inline-block;background:#fff;color:var(--ink);font-weight:800;text-decoration:none;padding:13px 22px;border-radius:12px;border:0;cursor:pointer;font-size:.95rem;font-family:inherit;margin-top:6px}
+.gbtn:hover{background:#f1f5f9}
+.re-success{background:rgba(22,163,74,.12);border:1.5px solid #16a34a;border-radius:14px;padding:16px;font-size:.9rem;color:#dbe4f2;animation:pop .3s ease}
+.re-private{background:rgba(251,191,36,.1);border:1.5px solid #d97706;border-radius:14px;padding:16px;font-size:.9rem;color:#dbe4f2;animation:pop .3s ease}
+.re-reset{background:none;border:0;color:#8fa1bd;font-size:.82rem;cursor:pointer;text-decoration:underline;margin-top:12px;font-family:inherit}
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+@media(max-width:600px){.dash-grid{grid-template-columns:1fr}}
+.dash-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px 18px;text-align:center}
+.dash-card strong{display:block;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1.1}
+.dash-card span{color:#aebdd6;font-size:.85rem}
+.dash-note{font-size:.78rem;color:#7e90ad;text-align:center;margin-top:10px}
+/* ---------- bands ---------- */
+.costband{background:#070d1a;color:#fff;padding:76px 0;text-align:center}
+.costband h2{max-width:780px;margin:0 auto .6em}
+.costband p{color:#aebdd6;max-width:660px;margin:0 auto;font-size:1.08rem}
+.ctaband{background:linear-gradient(135deg,#0a1428 0%,#12305e 100%);color:#fff;padding:84px 0;text-align:center}
+.ctaband h2{margin-bottom:.4em}
+.ctaband p{color:#c4d0e4;max-width:560px;margin:0 auto 30px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">◈</span> agenticrx&nbsp;AI</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="missed-call-textback.html">Missed-call text-back</a>
+      <a href="ai-receptionist.html">AI receptionist</a>
+      <a href="review-engine.html">Review engine</a>
+      <a href="index.html#audit">Free audit</a>
+    </nav>
+    <a class="btn btn-sm" href="index.html#audit">Get my free audit</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Product demo · Review Engine</p>
+    <h1>Your best techs earn 5 stars daily.<br><span class="accent">Most shops just never ask.</span></h1>
+    <p class="lede">The Review Engine asks every customer automatically after every job. Happy ones land on Google in one tap. Unhappy ones reach you privately — before they ever post. Try it below.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">▶ Try the flow</a>
+      <a class="btn btn-ghost" href="index.html#audit">Get my free audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — click through it</p>
+    <h2>From "job done" to 5-star review<br>in under a minute.</h2>
+    <p class="section-sub dark">Walk the exact path your customers take. Pick a star rating in stage 2 — watch what changes.</p>
+
+    <div class="re-pills" id="rePills">
+      <button class="re-pill active" data-stage="1">1 · Job done</button>
+      <button class="re-pill" data-stage="2">2 · The ask</button>
+      <button class="re-pill" data-stage="3">3 · Owner dashboard</button>
+    </div>
+
+    <!-- STAGE 1 -->
+    <div class="re-stage on" id="stage1">
+      <div class="stage-grid">
+        <div>
+          <div class="jobcard">
+            <h4>🔧 Tech app — Johnson Heating &amp; Air</h4>
+            <p class="jmeta">Today's route · Tech: Marcus</p>
+            <div class="jobrow"><span>No-cool diagnostic<br><small style="color:#8fa1bd">1420 Peachtree Hills Ave</small></span><span class="ok">✓ Done</span></div>
+            <button class="btn btn-wide" id="completeJob">Tap to complete job</button>
+          </div>
+        </div>
+        <div class="demo-side">
+          <h3>Stage 1 — Job done</h3>
+          <ul class="demo-receipt">
+            <li>🔧 <strong>Tech taps "Complete"</strong> in the app after the job</li>
+            <li class="dim">That tap is the trigger — the ask fires automatically, 15 minutes later</li>
+          </ul>
+          <div class="demo-note">No front-desk reminder needed. No awkward "could you leave us a review?" at the door. The system handles the timing.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div class="re-stage" id="stage2">
+      <div class="stage-grid">
+        <div>
+          <div class="re-sms">
+            <div class="demo-sitebar"><span>💬 Johnson Heating &amp; Air</span><span class="demo-live">● SMS</span></div>
+            <div class="re-thread" id="askThread">
+              <div class="re-bubble bot">Hi! This is Johnson Heating &amp; Air. How was your service today? Tap your rating:</div>
+              <div class="stars" id="starRow">
+                <button data-stars="1">1</button>
+                <button data-stars="2">2</button>
+                <button data-stars="3">3</button>
+                <button data-stars="4">4</button>
+                <button data-stars="5">5</button>
+              </div>
+              <div id="askResult"></div>
+            </div>
+          </div>
+          <div style="text-align:center"><button class="re-reset" id="askReset">↻ Try a different rating</button></div>
+        </div>
+        <div class="demo-side">
+          <h3>Stage 2 — The ask</h3>
+          <ul class="demo-receipt" id="askReceipt">
+            <li class="dim">Pick a star rating — see the two paths…</li>
+          </ul>
+          <div class="demo-note"><strong style="color:#fff">4–5 stars → Google.</strong> One tap, review posted, reputation grows.<br><strong style="color:#fff">1–3 stars → you, privately.</strong> The owner gets alerted and calls within the hour — the complaint gets fixed, never published.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div class="re-stage" id="stage3">
+      <h3 style="margin-bottom:18px">Stage 3 — Owner dashboard</h3>
+      <div class="dash-grid">
+        <div class="dash-card"><strong>47</strong><span>reviews this month</span></div>
+        <div class="dash-card"><strong>4.9★</strong><span>average rating</span></div>
+        <div class="dash-card"><strong>6</strong><span>at-risk customers recovered</span></div>
+      </div>
+      <p class="dash-note">Sample dashboard — Johnson Heating &amp; Air (illustrative demo data)</p>
+      <div class="demo-note" style="margin-top:22px;max-width:640px">Every recovered customer is a 1-star review that never happened — plus a customer who stays. The dashboard shows you which techs earn the love and which jobs need a callback.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Set it once. Reviews roll in.</h2>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Tech taps complete</h3><p>The ask fires automatically after every finished job — timed, personal, from your business number. Nobody has to remember.</p></div>
+      <div class="step"><span class="num">2</span><h3>Happy customers → Google</h3><p>4 and 5-star ratings get a one-tap review link. Friction near zero, so the reviews actually happen.</p></div>
+      <div class="step"><span class="num">3</span><h3>Unhappy → you, privately</h3><p>1–3 stars never see a public link. You get an instant alert and call within the hour — problems get fixed, not posted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST OF MISSING OUT ============ -->
+<section class="costband">
+  <div class="wrap">
+    <p class="eyebrow">The cost of missing out</p>
+    <h2>Your reputation is written<br>by whoever bothers to post.</h2>
+    <p>And it's usually the angriest 2% of customers. A shop doing hundreds of jobs a month that asks nobody for reviews leaves its star rating to chance. The fix isn't better work — your techs already do great work. It's asking, every time.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ctaband">
+  <div class="wrap">
+    <p class="eyebrow">Free AI &amp; website audit</p>
+    <h2>See what your reviews could look like.</h2>
+    <p>We'll mystery-shop your phones, score your website against the top shops in your metro, and show you the 3 AI fixes with the fastest payback.</p>
+    <a class="btn" href="index.html#audit">Get your free audit</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="brand-mark">◈</span> agenticrx&nbsp;AI</a>
+    <p>AI phone, chat &amp; follow-up systems for HVAC contractors.<br>© <span id="year"></span> agenticrx · Atlanta, GA</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+document.getElementById('year').textContent=new Date().getFullYear();
+
+var pills=document.querySelectorAll('.re-pill'),
+    rated=false;
+
+function showStage(n){
+  document.querySelectorAll('.re-stage').forEach(function(s){s.classList.remove('on')});
+  document.getElementById('stage'+n).classList.add('on');
+  pills.forEach(function(p){
+    var pn=parseInt(p.getAttribute('data-stage'),10);
+    p.classList.toggle('active',pn===n);
+    if(pn<n)p.classList.add('done');else if(pn>n)p.classList.remove('done');
+  });
+}
+pills.forEach(function(p){
+  p.addEventListener('click',function(){showStage(parseInt(p.getAttribute('data-stage'),10))});
+});
+
+document.getElementById('completeJob').addEventListener('click',function(){
+  this.textContent='✓ Job completed — ask scheduled';
+  this.disabled=true;this.style.opacity='.75';this.style.cursor='default';
+  pills[0].classList.add('done');
+  setTimeout(function(){showStage(2)},900);
+});
+
+function mk(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
+function receipt(html){
+  var r=document.getElementById('askReceipt');
+  if(r.querySelector('.dim'))r.innerHTML='';
+  r.appendChild(mk('<li>'+html+'</li>'));
+}
+
+document.querySelectorAll('#starRow button').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    if(rated)return;rated=true;
+    var s=parseInt(btn.getAttribute('data-stars'),10);
+    btn.classList.add('picked');
+    document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=true});
+    var res=document.getElementById('askResult');
+    var thread=document.getElementById('askThread');
+    thread.appendChild(mk('<div class="re-bubble me">'+s+' star'+(s>1?'s':'')+'</div>'));
+    setTimeout(function(){
+      if(s>=4){
+        thread.appendChild(mk('<div class="re-bubble bot">Glad to hear it! Would you mind sharing that on Google? It takes 20 seconds:</div>'));
+        var g=mk('<div style="align-self:flex-start;animation:pop .25s ease"><button class="gbtn" id="googleBtn">⭐ Review on Google</button></div>');
+        thread.appendChild(g);
+        document.getElementById('googleBtn').addEventListener('click',function(){
+          this.disabled=true;this.textContent='Opening Google…';
+          var self=this;
+          setTimeout(function(){
+            res.appendChild(mk('<div class="re-success">✅ <strong>Review posted.</strong> Thanks for helping Johnson Heating &amp; Air grow!</div>'));
+            receipt('⭐ <strong>'+s+'-star review posted</strong> to Google — reputation +1');
+            receipt('📈 <strong>Ask-to-review rate</strong> — tracked per tech, per job');
+            pills[1].classList.add('done');
+            self.textContent='✓ Done';
+          },900);
+        });
+        receipt('😊 <strong>Happy customer</strong> ('+s+' stars) — routed to Google');
+      }else{
+        thread.appendChild(mk('<div class="re-bubble bot">We&rsquo;re sorry it wasn&rsquo;t 5 stars. The owner will call you personally within the hour to make it right.</div>'));
+        setTimeout(function(){
+          res.appendChild(mk('<div class="re-private">🔒 <strong>Negative feedback kept private.</strong> Owner alerted — no public review link sent.</div>'));
+          receipt('🔒 <strong>'+s+'-star feedback kept private</strong> — owner alerted instantly');
+          receipt('📞 <strong>Save in progress</strong> — owner calls within the hour');
+          pills[1].classList.add('done');
+        },900);
+      }
+    },800);
+  });
+});
+
+document.getElementById('askReset').addEventListener('click',function(){
+  rated=false;
+  document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=false;b.classList.remove('picked')});
+  document.getElementById('askResult').innerHTML='';
+  var thread=document.getElementById('askThread');
+  thread.querySelectorAll('.re-bubble.me').forEach(function(b){b.remove()});
+  var extra=thread.querySelectorAll('.re-bubble.bot');
+  for(var i=1;i<extra.length;i++)extra[i].remove();
+  var gb=thread.querySelector('.gbtn');
+  if(gb)gb.parentElement.remove();
+  document.getElementById('askReceipt').innerHTML='<li class="dim">Pick a star rating — see the two paths…</li>';
+  pills[1].classList.remove('done');
+});
+</script>
+</body>
+</html>
