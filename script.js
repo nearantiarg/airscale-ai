@@ -1,4 +1,4 @@
-/* AirScale AI — front-end behavior
+/* agenticrx — front-end behavior
    ------------------------------------------------------------------
    LEAD FORM SETUP (owner: do this once before sharing the site):
    1. Go to https://formsubmit.co and activate YOUR email address.
@@ -8,7 +8,7 @@
    LEAD_EMAIL_FALLBACK so no lead is ever lost.
 */
 const LEAD_ENDPOINT = "";
-const LEAD_EMAIL_FALLBACK = "hello@airscale.ai";
+const LEAD_EMAIL_FALLBACK = "agenticrx@gmail.com";
 
 const _yr = document.getElementById("year");
 if (_yr) _yr.textContent = new Date().getFullYear();
