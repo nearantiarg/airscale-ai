@@ -23,7 +23,7 @@ links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => links
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
 }), { threshold: 0.12 });
-document.querySelectorAll(".card,.step,.kpi,.ba-col,.phone-frame,.calc-out,.audit-form").forEach(el => {
+document.querySelectorAll(".prod,.feed-item,.tstep,.step,.calc-out,.audit-form,.hv-card").forEach(el => {
   el.classList.add("reveal"); io.observe(el);
 });
 
@@ -122,7 +122,7 @@ form.addEventListener("submit", async ev => {
   if (!chat) return;
 
   const CFG = Object.assign({
-    company: "Johnson Heating & Air",
+    company: "Sample Heating & Air",
     botName: "Ava"
   }, (typeof window !== "undefined" && window.DEMO_CONFIG) || {});
   let dState = "start";
