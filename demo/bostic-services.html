@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bostic Services, Inc. — Concept Demo with agenticrx | Jacksonville, FL</title>
+<meta name="description" content="Concept demo: what Bostic Services' website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .concept-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#1f2937;font-weight:800}
+  .b-hero{background:linear-gradient(135deg,#0a1428,#12305e 55%,#1d4d8f);color:#fff;padding:110px 0 90px}
+  .b-hero h1{font-size:clamp(2.4rem,5.6vw,4rem)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-contact{background:linear-gradient(135deg,#0a1428,#12305e);color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#c4d0e4;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#fff}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Bostic Services, Inc.</strong>. Imagine this live on bosticservicesinc.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">❄️</span> Bostic&nbsp;Services</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19047339225">📞 (904) 733-9225</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="b-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Jacksonville, FL · Serving Northeast Florida since 1991</p>
+    <h1>Bostic Services, Inc.,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same family-owned crew, same three decades of expertise. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+19047339225">📞 (904) 733-9225</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ Family-owned since 1991</span><span>✓ FL license CAC1819049</span><span>✓ Commercial refrigeration &amp; ice machines</span><span>✓ Financing available</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is bosticservicesinc.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Jacksonville homeowner's AC just died. They tap <strong>Bostic Services'</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Bostic Services, Inc.</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Bostic Services' real services — heating, A/C, commercial refrigeration, and ice machines — and their Northeast Florida service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Bostic Services does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Sales &amp; Service</h3><p>Selling, servicing, and installing air conditioning systems — from residential homes to industrial applications.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating Services</h3><p>Heating system sales, service, and installation for North Florida homes and businesses.</p></div>
+      <div class="card"><div class="icon">🧊</div><h3>Commercial Refrigeration</h3><p>Commercial refrigeration systems — sales, service, and installation for businesses across Northeast Florida.</p></div>
+      <div class="card"><div class="icon">🧊</div><h3>Commercial Ice Machines</h3><p>Commercial ice machine sales, service, and installation — keep your business running cold.</p></div>
+      <div class="card"><div class="icon">💳</div><h3>Financing Available</h3><p>Financing options are now available at Bostic Services — ask about them on your next call or booking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Jacksonville already trusts Bostic.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>5.0</strong><small>average · 13 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Bostic Services has maintained my Heat/AC equipment for many years. They are professional, honest and fair. I recommend them to everyone I know."</p>
+        <div class="who">Customer review<span>via Birdeye</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Professional and overall super helpful. Will use them from now on."</p>
+        <div class="who">Customer review<span>via Birdeye</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Quick and reliable serivice."</p>
+        <div class="who">Customer review<span>via Birdeye</span></div>
+      </div>
+    </div>
+    <p class="review-note">Reviews shown from public review profiles — pulled automatically, never typed in by hand.</p>
+  </div>
+</section>
+
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Bostic Services.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+19047339225">(904) 733-9225</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>2750 Dawn Rd<br>Jacksonville, Florida 32207</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="brand-mark">❄️</span> Bostic&nbsp;Services <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#7e90ad">agenticrx</a> for Bostic Services, Inc. · Jacksonville, FL<br>All company info © Bostic Services, Inc. (bosticservicesinc.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Bostic Services, Inc.", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
