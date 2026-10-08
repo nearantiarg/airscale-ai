@@ -10,7 +10,8 @@
 const LEAD_ENDPOINT = "";
 const LEAD_EMAIL_FALLBACK = "hello@airscale.ai";
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const _yr = document.getElementById("year");
+if (_yr) _yr.textContent = new Date().getFullYear();
 
 /* ---------- mobile nav ---------- */
 const toggle = document.getElementById("navToggle");
@@ -43,7 +44,8 @@ const cio = new IntersectionObserver(es => es.forEach(e => {
 }), { threshold: 0.6 });
 document.querySelectorAll("[data-count]").forEach(el => cio.observe(el));
 
-/* ---------- ROI calculator ---------- */
+/* ---------- ROI calculator (main page only) ---------- */
+if (document.getElementById("rJob")) {
 const fmt$ = n => "$" + Math.round(n).toLocaleString("en-US");
 const rJob = document.getElementById("rJob"),   oJob = document.getElementById("oJob");
 const rMissed = document.getElementById("rMissed"), oMissed = document.getElementById("oMissed");
@@ -71,10 +73,12 @@ function calc() {
 }
 [rJob, rMissed, rClose, rRec].forEach(r => r.addEventListener("input", calc));
 calc();
+} // end ROI calculator guard
 
-/* ---------- audit form ---------- */
+/* ---------- audit form (pages that have it) ---------- */
 const form = document.getElementById("auditForm");
 const note = document.getElementById("formNote");
+if (form) {
 form.addEventListener("submit", async ev => {
   ev.preventDefault();
   if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -102,6 +106,7 @@ form.addEventListener("submit", async ev => {
 
   function done(msg) { note.textContent = msg; note.classList.add("ok"); }
 });
+} // end audit form guard
 
 /* ================================================================
    LIVE DEMO CHAT — scripted "Ava" AI receptionist demo.
@@ -116,6 +121,10 @@ form.addEventListener("submit", async ev => {
   const receipt = document.getElementById("demoReceipt");
   if (!chat) return;
 
+  const CFG = Object.assign({
+    company: "Johnson Heating & Air",
+    botName: "Ava"
+  }, (typeof window !== "undefined" && window.DEMO_CONFIG) || {});
   let dState = "start";
   let dSlot = "Wed 9–11 AM";
   const log = [];
@@ -257,7 +266,7 @@ form.addEventListener("submit", async ev => {
 
   // kick off
   setTimeout(() => {
-    bot("Hi! 👋 Thanks for reaching <strong>Johnson Heating &amp; Air</strong> — I'm Ava, the AI assistant. What can I help with tonight?", MENU);
+    bot("Hi! 👋 Thanks for reaching <strong>" + CFG.company + "</strong> — I'm " + CFG.botName + ", the AI assistant. What can I help with tonight?", MENU);
     dState = "menu";
     R("✓ <strong>Answered in 8 seconds</strong> — 11:04 PM, no human needed");
   }, 1200);
