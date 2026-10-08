@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AirScale AI — Never Miss Another Service Call | AI for HVAC Contractors</title>
-<meta name="description" content="AirScale AI answers every call, texts back every missed call, and books jobs into your calendar 24/7 — built for HVAC contractors.">
+<title>AirScale AI — Every Missed Call Is a Job for Your Competitor | AI for HVAC Contractors</title>
+<meta name="description" content="AirScale AI answers every call in seconds, texts back missed calls, and books jobs into your calendar 24/7 — built for HVAC contractors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,8 +16,9 @@
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="brand-mark">◈</span> AirScale&nbsp;AI</a>
     <nav class="nav-links" id="navLinks">
+      <a href="#leak">The leak</a>
+      <a href="#calculator">Calculator</a>
       <a href="#services">Services</a>
-      <a href="#how">How it works</a>
       <a href="#audit">Free audit</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -23,67 +27,165 @@
   </div>
 </header>
 
+<!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="wrap hero-inner">
     <p class="eyebrow">AI built for HVAC contractors</p>
-    <h1>Your phones ring.<br>Nobody answers.<br><span class="accent">We fix that.</span></h1>
-    <p class="lede">AirScale AI answers every call, texts back every missed call, and books jobs straight into your calendar — 24/7, even at 2&nbsp;AM on a Saturday in July.</p>
+    <h1>Every missed call is<br>a job for <span class="accent">your competitor.</span></h1>
+    <p class="lede">AirScale AI answers every call in seconds, texts back every missed call, and books jobs straight into your calendar — 24/7, even at 2&nbsp;AM on a Saturday in July.</p>
     <div class="cta-row">
-      <a class="btn" href="#audit">Get my free AI audit</a>
-      <a class="btn btn-ghost" href="#services">See what it does</a>
+      <a class="btn" href="#calculator">See what it's costing you</a>
+      <a class="btn btn-ghost" href="#audit">Get my free AI audit</a>
     </div>
-    <p class="micro">Free 15-minute audit · No contracts · You approve every word it says</p>
+    <div class="hero-stats">
+      <div class="hstat"><strong data-count="139">0</strong><span>HVAC websites audited<br>across Georgia &amp; Florida</span></div>
+      <div class="hstat"><strong data-count="35">0</strong><span>scored under 3.5&nbsp;/&nbsp;5<br>on the basics</span></div>
+      <div class="hstat"><strong data-count="0">0</strong><span>had AI answering<br>their phones</span></div>
+    </div>
+    <p class="micro">We read every site ourselves — design, booking ease, mobile experience, trust signals.</p>
   </div>
 </section>
 
-<section class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat"><strong>139</strong><span>HVAC websites audited<br>across Georgia &amp; Florida</span></div>
-    <div class="stat"><strong>35</strong><span>scored under 3.5&nbsp;/&nbsp;5 on basics like mobile booking &amp; trust signals</span></div>
-    <div class="stat"><strong>0</strong><span>had AI answering their phones or chats</span></div>
+<!-- ============ BEFORE / AFTER STORY ============ -->
+<section class="leak" id="leak">
+  <div class="wrap">
+    <p class="eyebrow">The leak</p>
+    <h2>Tuesday, 8:47 PM.<br>The Johnsons' AC dies in July.</h2>
+    <p class="section-sub">Same customer. Same night. Two different endings.</p>
+    <div class="ba-grid">
+      <div class="ba-col before">
+        <div class="ba-tag">Without AirScale</div>
+        <ol class="timeline">
+          <li><span class="t">8:47 PM</span><p>The Johnsons Google "AC repair near me" and tap <strong>your</strong> site.</p></li>
+          <li><span class="t">8:49 PM</span><p>No online booking. Phone number buried. They call — it rings out. Your techs are off the clock.</p></li>
+          <li><span class="t">8:52 PM</span><p>Voicemail. They hang up and tap the next result.</p></li>
+          <li class="lost"><span class="t">9:15 PM</span><p>A competitor books them for Wednesday 9 AM.<br><strong>Job gone: ~$450.</strong></p></li>
+        </ol>
+      </div>
+      <div class="ba-col after">
+        <div class="ba-tag">With AirScale AI</div>
+        <ol class="timeline">
+          <li><span class="t">8:47 PM</span><p>Same search. Same tap. Same Johnsons.</p></li>
+          <li><span class="t">8:48 PM</span><p>AI answers in seconds: <em>"Sorry about the AC — I can get a tech out Wednesday 9–11 AM. Does that work?"</em></p></li>
+          <li><span class="t">8:49 PM</span><p><strong>Booked.</strong> Confirmation text sent. You get a summary — not a 2 AM wake-up.</p></li>
+          <li class="won"><span class="t">Next week</span><p>Automated review request → ★★★★★<br><strong>The next Johnsons pick you.</strong></p></li>
+        </ol>
+      </div>
+    </div>
   </div>
-  <p class="wrap stats-note">We read every site ourselves — design, booking ease, mobile experience. The gap is wide open for the contractors who move first.</p>
 </section>
 
+<!-- ============ ROI CALCULATOR ============ -->
+<section class="calc" id="calculator">
+  <div class="wrap">
+    <p class="eyebrow">Do your own math</p>
+    <h2>What are missed calls<br>costing you?</h2>
+    <p class="section-sub dark">Drag the sliders to your numbers. No email required, no sales pitch — just arithmetic.</p>
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <div class="slider-row">
+          <div class="slider-head"><label>Average job value</label><output id="oJob">$450</output></div>
+          <input type="range" id="rJob" min="150" max="2500" step="25" value="450">
+        </div>
+        <div class="slider-row">
+          <div class="slider-head"><label>Missed calls per week</label><output id="oMissed">8</output></div>
+          <input type="range" id="rMissed" min="0" max="40" step="1" value="8">
+        </div>
+        <div class="slider-row">
+          <div class="slider-head"><label>Jobs you'd close from those calls</label><output id="oClose">40%</output></div>
+          <input type="range" id="rClose" min="10" max="80" step="5" value="40">
+        </div>
+        <div class="slider-row">
+          <div class="slider-head"><label>Share AI could recover</label><output id="oRec">70%</output></div>
+          <input type="range" id="rRec" min="20" max="95" step="5" value="70">
+        </div>
+      </div>
+      <div class="calc-out">
+        <p class="co-label">Revenue walking out the door</p>
+        <div class="co-big" id="coAnnual">$0</div>
+        <p class="co-sub">per year</p>
+        <div class="co-rows">
+          <div><span>Per week</span><strong id="coWeek">$0</strong></div>
+          <div><span>Per month</span><strong id="coMonth">$0</strong></div>
+        </div>
+        <div class="co-recover">
+          <p>Recoverable with AirScale AI</p>
+          <strong id="coRec">$0 / yr</strong>
+        </div>
+        <a class="btn btn-wide" href="#audit">Plug the leak — free audit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KPI DASHBOARD ============ -->
+<section class="kpis">
+  <div class="wrap">
+    <p class="eyebrow">What the system delivers</p>
+    <h2>Numbers your dispatcher<br>will feel in week one</h2>
+    <div class="kpi-grid">
+      <div class="kpi"><strong>&lt;<span data-count="10">0</span>s</strong><span>average time to answer<br>every call, day or night</span></div>
+      <div class="kpi"><strong><span data-count="100">0</span>%</strong><span>of calls answered<br>24 / 7 / 365</span></div>
+      <div class="kpi"><strong>&lt;<span data-count="60">0</span>s</strong><span>lead response time<br>on every web inquiry</span></div>
+      <div class="kpi"><strong><span data-count="0">0</span></strong><span>jobs lost<br>to voicemail</span></div>
+    </div>
+    <p class="kpi-note">Product capabilities — measured on your own calls once live, and you see every transcript.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
 <section class="services" id="services">
   <div class="wrap">
     <p class="eyebrow">The AI stack</p>
     <h2>One system that catches every job<br>you're currently losing</h2>
     <div class="cards">
-      <div class="card">
-        <div class="icon">📞</div>
-        <h3>AI Receptionist</h3>
-        <p>Answers every call in seconds, 24/7 — quotes service windows, checks your real schedule, and books the job. After-hours and weekends included.</p>
+      <div class="card"><div class="icon">📞</div><h3>AI Receptionist</h3><p>Answers every call in seconds, 24/7 — quotes service windows, checks your real schedule, and books the job. After-hours and weekends included.</p></div>
+      <div class="card"><div class="icon">💬</div><h3>Missed-Call Text-Back</h3><p>On a roof or under a house when the phone rings? The caller instantly gets a text. Most reply. You book them.</p></div>
+      <div class="card"><div class="icon">🖥️</div><h3>Website Chat That Books</h3><p>Your website stops being a brochure and starts closing — answers "how much for a tune-up?" and turns visitors into scheduled estimates.</p></div>
+      <div class="card"><div class="icon">⭐</div><h3>Review Engine</h3><p>Automatically asks happy customers for Google reviews and drafts replies to every review — the trust signals most local sites are missing.</p></div>
+      <div class="card"><div class="icon">🔁</div><h3>Estimate Follow-Up</h3><p>Unsent quotes stop dying in a drawer. Polite, persistent follow-ups go out automatically until the homeowner says yes or no.</p></div>
+      <div class="card"><div class="icon">🚨</div><h3>After-Hours Triage</h3><p>No-cool calls at midnight get sorted: true emergencies reach your on-call tech, everything else books for morning. You sleep.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEBSITE BEFORE / AFTER ============ -->
+<section class="mockups">
+  <div class="wrap">
+    <p class="eyebrow">Your website, before &amp; after</p>
+    <h2>Most contractor sites don't sell.<br>Ours do.</h2>
+    <p class="section-sub dark">Illustrative mockups based on patterns from our 139-site audit.</p>
+    <div class="phones">
+      <div class="phone-frame">
+        <div class="phone-tag bad">Before — typical 2.x site</div>
+        <div class="phone bad-site">
+          <div class="ps-head">❄️ Johnson Heating &amp; Air <span class="ps-burger">☰</span></div>
+          <div class="ps-hero-img">YOUR TRUSTED HVAC COMPANY<br>SINCE 1998</div>
+          <p class="ps-text">Welcome to our website. We provide quality heating and air conditioning services for residential customers. Call us today for all your HVAC needs…</p>
+          <p class="ps-tiny">📞 (404) 555-01<span class="ps-cut">…</span></p>
+          <div class="ps-form">Contact us<br><span class="ps-field"></span><span class="ps-field"></span><span class="ps-btn">Submit</span></div>
+          <p class="ps-wait">We typically respond within 24–48 hours.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="icon">💬</div>
-        <h3>Missed-Call Text-Back</h3>
-        <p>On a roof or under a house when the phone rings? The caller instantly gets a text: "Sorry we missed you — what do you need?" Most reply. You book them.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🖥️</div>
-        <h3>Website Chat That Books</h3>
-        <p>Your website stops being a brochure and starts being a salesperson — answers "how much for a tune-up?" and turns visitors into scheduled estimates.</p>
-      </div>
-      <div class="card">
-        <div class="icon">⭐</div>
-        <h3>Review Engine</h3>
-        <p>Automatically asks happy customers for Google reviews and drafts replies to every review — the trust signals your competitors' sites are missing.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🔁</div>
-        <h3>Estimate Follow-Up</h3>
-        <p>Unsent quotes don't die in a drawer anymore. Polite, persistent follow-ups go out automatically until the homeowner says yes or no.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🚨</div>
-        <h3>After-Hours Triage</h3>
-        <p>No-cool calls at midnight get sorted: true emergencies reach your on-call tech, everything else gets booked for morning. You sleep.</p>
+      <div class="phone-frame">
+        <div class="phone-tag good">After — with AirScale</div>
+        <div class="phone good-site">
+          <div class="ps-head">❄️ Johnson Heating &amp; Air</div>
+          <a class="ps-call" href="#audit">📞 Tap to call — we answer 24/7</a>
+          <div class="ps-chat">
+            <div class="bubble bot">Hi! 👋 Looking for AC repair? I can book you right now — what's going on?</div>
+            <div class="bubble me">AC stopped blowing cold</div>
+            <div class="bubble bot">Got it — I have <strong>Wed 9–11 AM</strong> open. Shall I lock it in?</div>
+            <div class="chips"><span>Book it ✓</span><span>Get estimate</span></div>
+          </div>
+          <div class="ps-reviews">★★★★★ <strong>4.9</strong> · 1,200+ Google reviews</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ HOW IT WORKS ============ -->
 <section class="how" id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
@@ -96,12 +198,13 @@
   </div>
 </section>
 
+<!-- ============ AUDIT FORM ============ -->
 <section class="audit" id="audit">
   <div class="wrap audit-inner">
     <div class="audit-copy">
       <p class="eyebrow">Free AI &amp; website audit</p>
       <h2>Where is your business<br>leaking calls?</h2>
-      <p>We audited 139 HVAC company websites across Georgia and Florida and scored each one 1–5 on design, booking ease, mobile experience, and trust signals. <strong>Get your own scorecard</strong> — plus a recording-ready plan for what AI would recover for you.</p>
+      <p>We scored 139 HVAC company websites across Georgia and Florida, 1–5, on design, booking ease, mobile experience, and trust signals. <strong>Get your own scorecard</strong> — plus a plan for what AI would recover for you.</p>
       <ul class="checklist">
         <li>Your website score vs. the top shops in your metro</li>
         <li>How many after-hours calls you're likely missing</li>
@@ -120,6 +223,7 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
 <section class="faq" id="faq">
   <div class="wrap">
     <p class="eyebrow">Straight answers</p>
