@@ -7,26 +7,83 @@
 <meta name="description" content="Concept demo: what Florida Comfort Cooling's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Squada+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  .concept-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .concept-bar a{color:#1f2937;font-weight:800}
-  .w-hero{background:linear-gradient(135deg,#0a1428,#12305e);color:#fff;padding:110px 0 90px}
-  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem)}
+  /* ── Florida Comfort Cooling brand identity (mirrors floridacomfortcooling.com) ── */
+  :root{
+    --brand:#ff7800;            /* their orange accent / button color */
+    --brand-dark:#00294c;       /* their deep navy */
+    --brand-deeper:#011a32;     /* darker navy for gradients */
+    --brand-slate:#244460;      /* their slate-blue band */
+    --brand-font:'Squada One','Open Sans',serif;
+    --brand-body:'Open Sans','Inter',sans-serif;
+  }
+  body{font-family:var(--brand-body)}
+  h1,h2,h3{font-family:var(--brand-font);font-weight:400;letter-spacing:.01em}
+
+  /* Honesty banner — clearly visible, restyled to theme, never removed */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px;letter-spacing:.02em;border-bottom:3px solid var(--brand)}
+  .concept-bar a{color:var(--brand);font-weight:800;text-decoration:none}
+  .concept-bar a:hover{text-decoration:underline}
+  .concept-bar strong{color:#fff}
+
+  /* Header echoes theirs: deep-navy bar, white Squada One lockup, orange phone CTA */
+  header.nav{background:var(--brand-dark);border-bottom:3px solid var(--brand)}
+  header.nav .brand{font-family:var(--brand-font);font-size:1.55rem;letter-spacing:.03em;color:#fff}
+  header.nav .brand-mark{color:var(--brand)}
+  header.nav .nav-links a{color:#d7e4f2;font-weight:600}
+  header.nav .nav-links a:hover{color:var(--brand)}
+  header.nav .nav-toggle{color:#fff}
+
+  /* Buttons: their signature orange, white text */
+  .btn{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:800;font-family:var(--brand-body)}
+  .btn:hover{background:#e66d00;border-color:#e66d00;color:#fff}
+  .btn-ghost{background:transparent;border:2px solid #fff;color:#fff}
+  .btn-ghost:hover{background:#fff;border-color:#fff;color:var(--brand-dark)}
+
+  .eyebrow{color:var(--brand);font-weight:800}
+
+  /* Hero: navy wash like their banner, white Squada One headline w/ hard shadow, orange accents */
+  .w-hero{background:linear-gradient(135deg,var(--brand-deeper),var(--brand-dark) 60%,#123a63);color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.6rem,6vw,4.4rem);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.55);line-height:1.05}
+  .w-hero .accent{color:var(--brand)}
+  .w-hero .eyebrow{color:var(--brand)}
+  .w-hero .lede{color:#e5edf2}
   .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .w-trust span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .w-trust span{background:rgba(0,41,76,.55);border:1px solid var(--brand);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:#fff}
+
+  /* Demo section accents */
+  .demo .eyebrow{color:var(--brand)}
+  .demo h2{color:var(--brand-dark)}
+  .demo-side h3{color:var(--brand-dark)}
+  .demo-note{border-left:4px solid var(--brand)}
+
+  /* Services: Squada One navy headings, orange eyebrows, card icons on orange */
   .w-services{padding:88px 0;background:var(--paper)}
-  .w-contact{background:linear-gradient(135deg,#0a1428,#12305e);color:#fff;padding:88px 0}
-  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
-  .contact-cards .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff}
-  .contact-cards .card h3{color:#fff}
-  .contact-cards .card p,.contact-cards .card a{color:#c4d0e4;text-decoration:none;font-size:1.05rem;font-weight:600}
-  .contact-cards .card a:hover{color:#fff}
+  .w-services h2,.w-reviews h2{color:var(--brand-dark);text-shadow:1px 1px 0 rgba(0,41,76,.08)}
+  .w-services .icon,.w-contact .icon{background:var(--brand);color:#fff}
+
+  /* Reviews placeholder: keep verbatim, theme accents */
   .w-reviews{padding:88px 0;background:var(--paper)}
-  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px}
   .review-badge small{color:var(--muted);display:block;font-size:.85rem;line-height:1.5}
   .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+
+  /* Contact band: deep navy like their footer region, orange icon cards */
+  .w-contact{background:linear-gradient(135deg,var(--brand-deeper),var(--brand-dark));color:#fff;padding:88px 0}
+  .w-contact h2{color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.5)}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,120,0,.45);border-radius:var(--radius);color:#fff;padding:26px}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#cfe0f2;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand)}
+
+  /* Footer: navy, orange top border, white lockup */
+  footer{background:var(--brand-deeper);border-top:3px solid var(--brand)}
+  footer .brand{font-family:var(--brand-font);font-size:1.4rem;color:#fff}
+  footer p,footer a{color:#9db6cf}
+  footer a:hover{color:var(--brand)}
   @media(max-width:900px){.contact-cards{grid-template-columns:1fr}}
 </style>
 </head>

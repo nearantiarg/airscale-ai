@@ -7,31 +7,79 @@
 <meta name="description" content="Concept demo: what Alton Services' website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  .concept-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .concept-bar a{color:#1f2937;font-weight:800}
-  .w-hero{background:linear-gradient(135deg,#07121f 0%,#0d2a4d 55%,#144a7c 100%);color:#fff;padding:110px 0 90px}
-  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem)}
+  /* ===== Alton Services theme — mirrors altonservices.com ===== */
+  :root{
+    --brand:#3b7abd;          /* primary blue: footer bands + row accents */
+    --brand-deep:#285a8f;     /* deep blue: gradients, eyebrow on light */
+    --brand-dark:#14161a;     /* near-black: header + footer (matches logo) */
+    --brand-accent:#01d9ff;   /* bright cyan: highlight band */
+    --brand-accent2:#7dd2ff;  /* light blue: link hovers */
+    --brand-red:#f80000;      /* red: logo wave stripes */
+  }
+  body{font-family:'PT Sans',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+  h1,h2,h3{font-family:'Oswald',sans-serif}
+  h1,h2{text-transform:uppercase;letter-spacing:.01em}
+
+  /* honesty banner — kept clearly visible, restyled to theme */
+  .concept-bar{background:#101317;color:var(--brand-accent);text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em;border-bottom:2px solid var(--brand)}
+  .concept-bar a{color:#fff;font-weight:800}
+  .concept-bar strong{color:#fff}
+
+  /* header echoes theirs: dark bar, logo left, nav right, blue accent rule */
+  .nav{background:var(--brand-dark);border-bottom:3px solid var(--brand)}
+  .brand img{height:46px;width:auto;display:block}
+  .nav-links a{color:#d7e3f2}
+  .nav-links a:hover{color:var(--brand-accent)}
+
+  /* buttons in their blue */
+  .btn{background:linear-gradient(180deg,#4a8bcd,var(--brand));box-shadow:0 10px 24px rgba(59,122,189,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(59,122,189,.5)}
+  .btn-ghost{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.35);color:#fff;box-shadow:none}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12);box-shadow:none;transform:translateY(-2px)}
+
+  /* eyebrows + accents: blue on light, cyan on dark */
+  .eyebrow{color:var(--brand-deep)}
+  .w-hero .eyebrow,.demo .eyebrow,.w-contact .eyebrow{color:var(--brand-accent)}
+  .accent{color:var(--brand-accent)}
+
+  /* hero wears their palette: blue band, white headline w/ their text-shadow */
+  .w-hero{background:linear-gradient(115deg,#0e2c4d 0%,var(--brand-deep) 55%,var(--brand) 100%);color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);text-shadow:-1px 2px 7px rgba(0,0,0,.65)}
+  .w-hero .lede{color:#e8f1fa}
   .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
   .w-trust span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+
+  /* demo section tinted to their blues */
+  .demo{background:linear-gradient(150deg,#0c1a2e 0%,#12345c 70%,#0c1a2e 100%)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow input:focus{outline:none;border-color:var(--brand-accent)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-sitebar span:first-child{color:#fff}
+
   .hours-gap{background:#fff;border-top:1px solid var(--line);padding:88px 0}
   .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
   .gap-card{border-radius:var(--radius);padding:34px 30px;border:1px solid var(--line)}
-  .gap-card.closed{border-top:5px solid var(--red);background:#fff}
-  .gap-card.open{border-top:5px solid var(--green);background:#f0fdf4}
+  .gap-card.closed{border-top:5px solid var(--brand-red);background:#fff}
+  .gap-card.open{border-top:5px solid var(--brand);background:#eef5fc}
   .gap-card h3{font-size:1.25rem;margin-bottom:10px}
   .gap-card .big{font-size:2rem;font-weight:900;letter-spacing:-.02em;margin:8px 0}
   .gap-card p{color:var(--muted)}
-  .gap-card.open p{color:#15803d}
+  .gap-card.open p{color:var(--brand-deep)}
   .w-services{padding:88px 0;background:var(--paper)}
-  .w-contact{background:linear-gradient(135deg,#0a1428,#12305e);color:#fff;padding:88px 0}
+  .w-services .card .icon{color:var(--brand)}
+
+  /* contact section mirrors their blue footer */
+  .w-contact{background:linear-gradient(135deg,#2f66a3,var(--brand));color:#fff;padding:88px 0}
   .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
-  .contact-cards .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff}
+  .contact-cards .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}
   .contact-cards .card h3{color:#fff}
-  .contact-cards .card p,.contact-cards .card a{color:#c4d0e4;text-decoration:none;font-size:1.05rem;font-weight:600}
-  .contact-cards .card a:hover{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e8f1fa;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-accent)}
+  .w-contact-hours{margin-top:26px;color:#e8f1fa}
+
   .w-reviews{padding:88px 0;background:var(--paper)}
   .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px}
   .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
@@ -44,6 +92,14 @@
   .review-card .who{font-weight:700;font-size:.88rem}
   .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
   .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+
+  /* footer: dark like their header, blue accent rule */
+  footer{background:var(--brand-dark);color:#c9d6e8;border-top:3px solid var(--brand);padding:48px 0}
+  footer .brand{color:#fff}
+  footer p{font-size:.88rem}
+  footer a{color:var(--brand-accent2)}
+  footer a:hover{color:#fff}
+
   @media(max-width:900px){.gap-grid,.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -53,7 +109,7 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="brand-mark">❄️</span> Alton&nbsp;Services</a>
+    <a class="brand" href="#top"><img src="assets/alton-services-1.jpg" alt="Alton Services"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#demo">AI Demo</a>
       <a href="#services">Services</a>
@@ -183,14 +239,14 @@
       <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:asi@altonservices.com">asi@altonservices.com</a></p></div>
       <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>1613 East Church St<br>Jacksonville, Florida</p></div>
     </div>
-    <p style="margin-top:26px;color:#8fa1bd">Office hours: Mon – Fri, 8:00 AM – 5:00 PM · AI answers 24/7</p>
+    <p class="w-contact-hours">Office hours: Mon – Fri, 8:00 AM – 5:00 PM · AI answers 24/7</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top"><span class="brand-mark">❄️</span> Alton&nbsp;Services <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
-    <p>Concept demo built by <a href="../" style="color:#7e90ad">agenticrx</a> for Alton Services, Inc. · Jacksonville, FL<br>All company info © Alton Services, Inc. (altonservices.com)</p>
+    <a class="brand" href="#top"><span class="brand-mark">❄️</span> Alton&nbsp;Services <span style="font-weight:400;font-size:.8rem;color:#8fa4c2">concept demo</span></a>
+    <p>Concept demo built by <a href="../">agenticrx</a> for Alton Services, Inc. · Jacksonville, FL<br>All company info © Alton Services, Inc. (altonservices.com)</p>
   </div>
 </footer>
 
