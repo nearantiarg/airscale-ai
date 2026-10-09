@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empire Heating &amp; Air Conditioning — Concept Demo with agenticrx | Decatur, GA</title>
+<meta name="description" content="Concept demo: what Empire Heating & Air Conditioning's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Empire Heating & Air Conditioning brand theme (from empirehvac.com) ===== */
+  :root{
+    --brand:#15446F;        /* primary blue — from their site */
+    --brand-dark:#0C2B47;   /* deep navy for gradients/footer */
+    --brand-accent:#E50031; /* CTA red — from their site */
+    --brand-sky:#428BCA;    /* light blue accent */
+    --brand-ink:#333333;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.01em}
+  /* honesty banner — navy, never hidden */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#ffd166;font-weight:800}
+  /* header echoes theirs: white bar, logo left, red phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:48px;width:auto;display:block;background:#fff;border-radius:6px;padding:4px}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#f2304f,var(--brand-accent));box-shadow:0 8px 20px rgba(229,0,49,.3)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(229,0,49,.45)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: photo band with navy overlay */
+  .w-hero{background:linear-gradient(rgba(12,43,71,.88),rgba(12,43,71,.55)),url('assets/empire-heating-air-1.jpg') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:#ffd166}
+  .w-hero .accent{color:#ffd166}
+  .w-hero .btn{background:linear-gradient(180deg,#f2304f,var(--brand-accent));box-shadow:0 10px 24px rgba(229,0,49,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(229,0,49,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#0C2B47 0%,#15446F 65%,#0C2B47 100%)}
+  .demo .eyebrow{color:#ffd166}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:#ffd166}
+  .demo-note{border-left-color:#ffd166}
+  .demo-phone{border-color:#081c30}
+  .demo-sitebar{background:#081c30}
+  .hours-gap{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+  .gap-card{border-radius:var(--radius);padding:34px 30px;border:1px solid var(--line)}
+  .gap-card.closed{border-top:5px solid var(--brand-accent);background:#fff}
+  .gap-card.open{border-top:5px solid var(--brand);background:#f0f5fa}
+  .gap-card h3{font-size:1.25rem;margin-bottom:10px}
+  .gap-card .big{font-size:2rem;font-weight:900;letter-spacing:-.02em;margin:8px 0}
+  .gap-card p{color:var(--muted)}
+  .gap-card.open p{color:var(--brand)}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e3edf6;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .team-strip{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+  .team-card{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--paper)}
+  .team-card h3{font-size:1.1rem;margin-bottom:4px}
+  .team-card .role{color:var(--brand);font-weight:700;font-size:.85rem}
+  .team-card p{color:var(--muted);font-size:.9rem;margin-top:10px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e0ecf6;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#ffd166}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(255,209,102,.16);color:#ffd166;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#c3d4e3}
+  footer p{color:#9db4ca}
+  @media(max-width:900px){.gap-grid,.contact-cards,.team-grid{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Empire Heating &amp; Air Conditioning</strong>. Imagine this live on empirehvac.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/empire-heating-air-logo.svg" alt="Empire Heating &amp; Air Conditioning logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+14042940900">📞 (404) 294-0900</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Decatur, GA · Dependable HVAC in Metro Atlanta since 1985</p>
+    <h1>Empire Heating &amp; Air,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Always fast, friendly and professional — for 40 years. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+14042940900">📞 (404) 294-0900</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ Since 1985</span><span>✓ NATE-certified senior techs</span><span>✓ Mon–Sat 8–5 · AI 24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is empirehvac.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Decatur homeowner's AC just died. They tap <strong>Empire's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Empire Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Empire's real services — AC, heating, indoor air quality, maintenance — and the Metro Atlanta service area. The team approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS GAP -->
+<section class="hours-gap">
+  <div class="wrap">
+    <p class="eyebrow">Why this matters for Empire</p>
+    <h2>Your office hours vs.<br>your customers' emergencies.</h2>
+    <div class="gap-grid">
+      <div class="gap-card closed">
+        <h3>🏢 Empire office</h3>
+        <div class="big">Mon–Fri 8–5 · Sat 9–12</div>
+        <p>Saturdays end at noon, Sundays are dark. Solid — and exactly when most Atlanta AC emergencies <em>don't</em> happen.</p>
+      </div>
+      <div class="gap-card open">
+        <h3>🤖 Empire + agenticrx</h3>
+        <div class="big">24 / 7 / 365</div>
+        <p>Every call answered in seconds, every missed call texted back, every website visitor booked — nights, weekends, August heatwaves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Empire does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>Air Conditioning</h3><p>AC repair, replacement, and installation — keeping Atlanta cool no matter how hot it gets.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating</h3><p>Furnaces, heat pumps, and boilers — serviced, repaired, and installed by certified techs.</p></div>
+      <div class="card"><div class="icon">💧</div><h3>Indoor Air Quality</h3><p>A full line of IAQ products so your family breathes easier at home.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Planned Maintenance</h3><p>The comprehensive maintenance program that keeps equipment running at its best.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Installation &amp; Design</h3><p>Free replacement estimates and full system design for residential and light commercial.</p></div>
+      <div class="card"><div class="icon">💬</div><h3>Ask a Tech</h3><p>Questions about your home comfort system? Get an answer in seconds — any hour.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-strip">
+  <div class="wrap">
+    <p class="eyebrow">The people behind the work</p>
+    <h2>Still Empire's team.<br>Just never closed.</h2>
+    <div class="team-grid">
+      <div class="team-card"><h3>Mason Hoover</h3><div class="role">General Manager</div><p>Sets the escalation rules the AI follows — every script approved by leadership.</p></div>
+      <div class="team-card"><h3>Chris Adolph</h3><div class="role">Sales Manager</div><p>Trains the AI on Empire's replacement estimates and financing options.</p></div>
+      <div class="team-card"><h3>Cindy Salonus</h3><div class="role">Office Manager</div><p>Gets a one-line summary of every after-hours conversation — never a 2 AM wake-up.</p></div>
+    </div>
+    <p class="section-sub" style="margin-top:24px">The AI doesn't replace the team Atlanta trusts — it makes sure no customer ever hits voicemail again.</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Decatur already trusts Empire.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.9</strong><small>average · 1,392 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Very efficient. Knew exactly what I needed and did it quickly."</p>
+        <div class="who">Customer review<span>via loc8nearme · Sep 2026</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Zeke was great — friendly, knowledgeable, efficient, and patient answering my questions. He spent a long time and clearly wanted to get it right."</p>
+        <div class="who">Customer review<span>via loc8nearme · Aug 2026</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Empire.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+14042940900">(404) 294-0900</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>783 Dekalb Industrial Way<br>Decatur, GA 30033</p></div>
+      <div class="card"><div class="icon">🕐</div><h3>Hours</h3><p>Mon–Fri 8:00–5:00<br>Sat 9:00–12:00</p></div>
+    </div>
+    <p style="margin-top:26px;color:#e0ecf6">AI answers 24/7 · Free estimates on replacement equipment</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/empire-heating-air-logo.svg" alt="Empire Heating &amp; Air Conditioning logo" style="height:36px"> <span style="font-weight:400;font-size:.8rem;color:#9db4ca">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#9db4ca">agenticrx</a> for Empire Heating &amp; Air Conditioning · Decatur, GA<br>All company info © Empire Heating &amp; Air Conditioning (empirehvac.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Empire Heating & Air Conditioning", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

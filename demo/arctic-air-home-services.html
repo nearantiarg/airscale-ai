@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Air Home Services — Concept Demo with agenticrx | Sarasota, FL</title>
+<meta name="description" content="Concept demo: what Arctic Air Home Services' website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Arctic Air Home Services brand theme (from arcticair4me.com) ===== */
+  :root{
+    --brand:#265ca6;        /* brand blue */
+    --brand-dark:#244294;   /* deep blue for gradients/footer */
+    --brand-accent:#f47222; /* orange CTA */
+    --brand-gold:#fba600;   /* gold highlight */
+    --brand-ink:#212529;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{letter-spacing:-.01em}
+  /* honesty banner — blue, never hidden */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header echoes theirs: white bar, logo left, orange phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:56px;width:auto;display:block}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#f68b48,var(--brand-accent));box-shadow:0 8px 20px rgba(244,114,34,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(244,114,34,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: deep-blue gradient with real tech photo card */
+  .w-hero{background:linear-gradient(135deg,#16295e 0%,var(--brand-dark) 50%,var(--brand) 100%);color:#fff;padding:100px 0 90px}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .hero-photo img{width:100%;max-width:420px;border-radius:20px;border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 60px rgba(0,0,0,.35);display:block}
+  .w-hero h1{font-size:clamp(2.3rem,5vw,3.8rem);font-weight:900}
+  .w-hero .eyebrow{color:#9fc0e8}
+  .w-hero .accent{color:var(--brand-gold)}
+  .w-hero .btn{background:linear-gradient(180deg,#f68b48,var(--brand-accent));box-shadow:0 10px 24px rgba(244,114,34,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(244,114,34,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#16295e 0%,#265ca6 65%,#16295e 100%)}
+  .demo .eyebrow{color:var(--brand-gold)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:var(--brand-gold)}
+  .demo-note{border-left-color:var(--brand-gold)}
+  .demo-phone{border-color:#16295e}
+  .demo-sitebar{background:#0f1f4a}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e6eefb;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .w-contact{background:linear-gradient(135deg,#16295e,var(--brand-dark));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#d3e2f7;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-gold)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(244,114,34,.16);color:#fba765;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:#16295e;color:#b9cdf0}
+  footer p{color:#8ba6d4}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-photo img{margin:0 auto}.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Arctic Air Home Services</strong>. Imagine this live on arcticair4me.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/arctic-air-home-services-logo.svg" alt="Arctic Air Home Services logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19412530980">📞 (941) 253-0980</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Sarasota, FL · HVAC + plumbing</p>
+      <h1>Arctic Air Home Services,<br><span class="accent">now answering 24/7.</span></h1>
+      <p class="lede">Same people-first team. Same 100% satisfaction guarantee. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">See it work — live demo ↓</a>
+        <a class="btn btn-ghost" href="tel:+19412530980">📞 (941) 253-0980</a>
+      </div>
+      <div class="w-trust">
+        <span>✓ Serving since 2008</span><span>✓ 24/7 service · 365 days</span><span>✓ Trane Comfort Specialist</span>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="assets/arctic-air-home-services-1.jpg" alt="Arctic Air Home Services technician at work"></div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is arcticair4me.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Sarasota homeowner's AC just died. They tap <strong>Arctic Air's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Arctic Air Home Services</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Arctic Air's real services — HVAC and plumbing — and the Sarasota / Manatee County service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Arctic Air does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>AC Repair</h3><p>Expert repair for all brands — comfort restored fast.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>AC Replacement</h3><p>Efficient new systems with upfront pricing and financing options.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating Repair</h3><p>Heating service for the cold snaps Southwest Florida does get.</p></div>
+      <div class="card"><div class="icon">🚿</div><h3>Plumbing Repair</h3><p>Prompt plumbing repair — leaks, lines, and everything between.</p></div>
+      <div class="card"><div class="icon">♨️</div><h3>Water Heaters</h3><p>Water heater replacement and repair for endless hot water.</p></div>
+      <div class="card"><div class="icon">💧</div><h3>Water Filtration</h3><p>Filtration and treatment for the region's hard water.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Sarasota already trusts Arctic Air.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.9</strong><small>average · 7,610 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Thanks so much to Sam Snyder for coming on by today so last minute! He gave us enough time to prepare for his arrival, he gave us options to work with."</p>
+        <div class="who">Dana M.<span>Customer review · via arcticair4me.com</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Mat McCrobie was our AC maintenance technician. He's fantastic, professional, friendly and clearly knew what he was doing."</p>
+        <div class="who">Shari B.<span>Customer review · via arcticair4me.com</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Arctic Air.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+19412530980">(941) 253-0980</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>6870 26th Ct E<br>Sarasota, FL 34243</p></div>
+      <div class="card"><div class="icon">🗺️</div><h3>Service area</h3><p>Sarasota &amp; Manatee County<br>Southwest Florida</p></div>
+    </div>
+    <p style="margin-top:26px;color:#b9cdf0">Open 24 hours a day · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/arctic-air-home-services-logo.svg" alt="Arctic Air Home Services logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#8ba6d4">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#8ba6d4">agenticrx</a> for Arctic Air Home Services · Sarasota, FL<br>All company info © Arctic Air Home Services (arcticair4me.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Arctic Air Home Services", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

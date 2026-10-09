@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Repair LLC — Concept Demo with agenticrx | Fort Myers, FL</title>
+<meta name="description" content="Concept demo: what Air Repair LLC's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Air Repair LLC theme (site unreachable — professional best-effort theme) ===== */
+  :root{
+    --brand:#0E3A5D;        /* deep HVAC navy — primary */
+    --brand-dark:#082A44;   /* darker navy for gradients/footer */
+    --brand-accent:#F97316; /* orange CTA */
+    --brand-gold:#FFC531;
+    --brand-ink:#1f2937;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.01em}
+  /* honesty banner — navy, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:var(--brand-gold);font-weight:800}
+  /* header: white bar, wordmark left, orange phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand-accent)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-size:1.15rem}
+  .brand .mark{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--brand);color:#fff;font-size:1.2rem;margin-right:10px}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#fb923c,var(--brand-accent));box-shadow:0 8px 20px rgba(249,115,22,.3);color:#fff}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(249,115,22,.45)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: navy treatment, gradient (site assets unavailable) */
+  .w-hero{background:radial-gradient(900px 480px at 15% 10%,rgba(249,115,22,.22),transparent 55%),linear-gradient(120deg,var(--brand-dark),var(--brand));color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:var(--brand-gold)}
+  .w-hero .accent{color:var(--brand-gold)}
+  .w-hero .btn{background:linear-gradient(180deg,#fb923c,var(--brand-accent));box-shadow:0 10px 24px rgba(249,115,22,.4);color:#fff}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(249,115,22,.55)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand-accent)}
+  .demo{background:linear-gradient(150deg,#082A44 0%,#0E3A5D 65%,#082A44 100%)}
+  .demo .eyebrow{color:var(--brand-gold)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand-accent)}
+  .demo-inputrow input:focus{border-color:var(--brand-gold)}
+  .demo-note{border-left-color:var(--brand-accent)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#051c30}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e6eef5;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .owner-strip{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .owner-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;max-width:860px}
+  .owner-grid .mono{width:220px;height:220px;border-radius:50%;border:6px solid #e6eef5;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:4rem;font-weight:900}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e8eef5;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-gold)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(255,197,49,.16);color:var(--brand-gold);font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#cfe0ef}
+  footer p{color:#a8bccd}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}.owner-grid{grid-template-columns:1fr;text-align:center}.owner-grid .mono{margin:0 auto}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Air Repair LLC</strong>. Imagine this live on goairrepair.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark">❄️</span> Air Repair LLC</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+12393615071">📞 (239) 361-5071</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Fort Myers, FL · Residential &amp; commercial HVAC</p>
+    <h1>Air Repair LLC,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same crew Southwest Florida rates 5 stars. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+12393615071">📞 (239) 361-5071</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ 5.0★ across 117 reviews</span><span>✓ Install · repair · maintenance</span><span>✓ Mon–Fri 9–6 · AI 24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is goairrepair.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Fort Myers homeowner's AC just died. They tap <strong>Air Repair LLC</strong>. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Air Repair LLC</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Air Repair's real services — install, replacement, repair, ducts — and the Fort Myers service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Air Repair does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Repair</h3><p>Fast diagnosis and honest repairs for all major brands.</p></div>
+      <div class="card"><div class="icon">🆕</div><h3>New Installation</h3><p>Full system installs sized right for Southwest Florida homes.</p></div>
+      <div class="card"><div class="icon">🔁</div><h3>System Replacement</h3><p>Old unit out, efficient new unit in — with haul-away.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Ducts &amp; Vents</h3><p>Duct installation, replacement, and airflow fixes.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Maintenance</h3><p>Tune-ups that keep systems efficient and warranties valid.</p></div>
+      <div class="card"><div class="icon">🏢</div><h3>Residential &amp; Commercial</h3><p>Homes, condos, and light-commercial properties served.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER -->
+<section class="owner-strip">
+  <div class="wrap owner-grid">
+    <div class="mono">SH</div>
+    <div>
+      <p class="eyebrow">Locally owned &amp; operated</p>
+      <h2>Still Shean Hicks's crew.<br>Just never closed.</h2>
+      <p class="section-sub">The AI doesn't replace the team Fort Myers trusts — it makes sure no customer ever hits voicemail again. Every script approved by the owner. Every escalation rule set by the owner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Fort Myers already trusts Air Repair.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>5.0</strong><small>average · 75 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Sean with Air Repair was amazing. My A/C unit wasn't working and he came to my house the same afternoon that I called him."</p>
+        <div class="who">Tim N.<span>Customer review · via Thumbtack</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Sean and his guys are great!! I wouldn't use any other AC company again. They were extremely professional and quick."</p>
+        <div class="who">Amanda S.<span>Customer review · via Thumbtack</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Air Repair.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+12393615071">(239) 361-5071</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>1521 Lynwood Ave<br>Fort Myers, FL 33901</p></div>
+      <div class="card"><div class="icon">🕐</div><h3>Hours</h3><p>Mon – Fri, 9:00 AM – 6:00 PM<br>Closed weekends · AI 24/7</p></div>
+    </div>
+    <p style="margin-top:26px;color:#cfe0ef">Office hours: Mon – Fri, 9:00 AM – 6:00 PM · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="mark" style="width:34px;height:34px;font-size:1rem">❄️</span> <span style="font-weight:400;font-size:.8rem;color:#a8bccd">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#a8bccd">agenticrx</a> for Air Repair LLC · Fort Myers, FL<br>All company info © Air Repair LLC (goairrepair.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Air Repair LLC", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allman Mechanical Services — Concept Demo with agenticrx | Orlando, FL</title>
+<meta name="description" content="Concept demo: what Allman Mechanical Services' website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Allman Mechanical Services brand theme (from allmanmechanicalservices.com) ===== */
+  :root{
+    --brand:#C30801;        /* logo red — primary brand */
+    --brand-dark:#0F192D;   /* deep navy for gradients/footer */
+    --brand-blue:#1E5AA8;   /* logo blue */
+    --brand-orange:#FF6900; /* accent orange */
+    --brand-light:#F2F5FA;  /* light section bg */
+    --brand-ink:#333;
+  }
+  body{font-family:'Rubik',sans-serif}            /* their body font */
+  h1,h2,h3{font-family:'Poppins',sans-serif;letter-spacing:-.01em} /* their headline font */
+  /* honesty banner — navy, never hidden */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:var(--brand-orange);font-weight:800}
+  /* header echoes theirs: white bar, logo left, red phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:48px;width:auto;display:block}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#e30c06,var(--brand));box-shadow:0 8px 20px rgba(195,8,1,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(195,8,1,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: home banner photo with navy overlay */
+  .w-hero{background:linear-gradient(rgba(15,25,45,.85),rgba(15,25,45,.55)),url('assets/allman-mechanical-2.jpg') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:800}
+  .w-hero .eyebrow{color:var(--brand-orange)}
+  .w-hero .accent{color:var(--brand-orange)}
+  .w-hero .btn{background:linear-gradient(180deg,#e30c06,var(--brand));box-shadow:0 10px 24px rgba(195,8,1,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(195,8,1,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#0F192D 0%,#1a2942 65%,#0F192D 100%)}
+  .demo .eyebrow{color:var(--brand-orange)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:var(--brand-orange)}
+  .demo-note{border-left-color:var(--brand-orange)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#080f1d}
+  .hours-gap{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+  .gap-card{border-radius:var(--radius);padding:34px 30px;border:1px solid var(--line)}
+  .gap-card.closed{border-top:5px solid var(--brand);background:#fff}
+  .gap-card.open{border-top:5px solid var(--brand-blue);background:var(--brand-light)}
+  .gap-card h3{font-size:1.25rem;margin-bottom:10px}
+  .gap-card .big{font-size:2rem;font-weight:900;letter-spacing:-.02em;margin:8px 0}
+  .gap-card p{color:var(--muted)}
+  .gap-card.open p{color:var(--brand-blue)}
+  .w-services{padding:88px 0;background:var(--brand-light)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#fff;color:var(--brand);font-size:1.5rem;margin-bottom:14px;box-shadow:0 4px 12px rgba(15,25,45,.08)}
+  .owner-strip{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .owner-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;max-width:860px}
+  .owner-grid img{width:220px;height:220px;object-fit:contain;border-radius:50%;border:6px solid var(--brand-light);background:#fff;padding:10px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),#1a2942);color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#dfe8f5;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-orange)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(195,8,1,.18);color:#ff7a4d;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#b9c8e0}
+  footer p{color:#8ea3c2}
+  @media(max-width:900px){.gap-grid,.contact-cards{grid-template-columns:1fr}.owner-grid{grid-template-columns:1fr;text-align:center}.owner-grid img{margin:0 auto}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Allman Mechanical Services</strong>. Imagine this live on allmanmechanicalservices.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/allman-mechanical-1.jpg" alt="Allman Mechanical Services logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+14078931785">📞 407-893-1785</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Orlando, FL · HVAC, plumbing &amp; refrigeration · 30+ years</p>
+    <h1>Allman Mechanical,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same crew Ernie's customers trust. Same "We make it happen." Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+14078931785">📞 407-893-1785</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ 30+ years in Central Florida</span><span>✓ Armstrong Air &amp; Jenn-Air</span><span>✓ Mon–Sat 7:30–5 · AI 24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is allmanmechanicalservices.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">An Orlando homeowner's AC just died on a Sunday. They tap <strong>Allman's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔥 Allman Mechanical</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Allman's real services — AC repair, plumbing, drain cleaning, refrigeration — and the Central Florida service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS GAP -->
+<section class="hours-gap">
+  <div class="wrap">
+    <p class="eyebrow">Why this matters for Allman</p>
+    <h2>Your office hours vs.<br>your customers' emergencies.</h2>
+    <div class="gap-grid">
+      <div class="gap-card closed">
+        <h3>🏢 Allman office</h3>
+        <div class="big">Mon–Sat · 7:30–5:00</div>
+        <p>Closed Thursdays and Sundays. Solid weekday coverage — and exactly when most AC emergencies <em>don't</em> happen.</p>
+      </div>
+      <div class="gap-card open">
+        <h3>🤖 Allman + agenticrx</h3>
+        <div class="big">24 / 7 / 365</div>
+        <p>Every call answered in seconds, every missed call texted back, every website visitor booked — nights, weekends, Florida summers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Allman does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>AC Repair</h3><p>Fast diagnosis and repair for all air conditioning systems, residential and commercial.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Plumbing</h3><p>Leaks, water heaters, and full plumbing service from experienced pros.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Drain Cleaning</h3><p>Stubborn clogs cleared quickly — before they become emergencies.</p></div>
+      <div class="card"><div class="icon">🧊</div><h3>Refrigeration</h3><p>Commercial refrigeration service that keeps businesses running.</p></div>
+      <div class="card"><div class="icon">🔁</div><h3>AC Installation</h3><p>High-efficiency system installations done right the first time.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Maintenance Programs</h3><p>Preventative plans that extend equipment life and cut surprise breakdowns.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER -->
+<section class="owner-strip">
+  <div class="wrap owner-grid">
+    <img src="assets/allman-mechanical-1.jpg" alt="Allman Mechanical Services logo">
+    <div>
+      <p class="eyebrow">Locally owned &amp; operated</p>
+      <h2>Still Ernie's crew.<br>Just never closed.</h2>
+      <p class="section-sub">The AI doesn't replace the team Central Florida has trusted for 30+ years — it makes sure no customer ever hits voicemail again. Every script approved by the owner. Every escalation rule set by the owner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Orlando already trusts Allman.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.8</strong><small>average · 76 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Allman did a great job for us. Ernie and his team were efficient and knowledgeable… they made it happen within 24hrs and for a very fair price."</p>
+        <div class="who">Ashley D.<span>Customer review</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"The best! Incredibly knowledgeable, professional, and efficient staff. Ernie and his crew quickly diagnosed our problem and got our family the right AC unit, just in time for summer."</p>
+        <div class="who">Jon B.<span>Customer review</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Allman.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+14078931785">407-893-1785</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:info@allmanhvac.com">info@allmanhvac.com</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>185 Drennen Road, Suite 339<br>Orlando, FL 32806</p></div>
+    </div>
+    <p style="margin-top:26px;color:#b9c8e0">Hours: Mon–Sat 7:30 AM – 5:00 PM (closed Thu &amp; Sun) · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/allman-mechanical-1.jpg" alt="Allman Mechanical Services logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#8ea3c2">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#8ea3c2">agenticrx</a> for Allman Mechanical Services · Orlando, FL<br>All company info © Allman Mechanical Services (allmanmechanicalservices.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Allman Mechanical Services", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrenn Heating &amp; Air — Concept Demo with agenticrx | North Augusta, SC</title>
+<meta name="description" content="Concept demo: what Wrenn Heating & Air's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Wrenn Heating & Air brand theme (from wrennheating.com) ===== */
+  :root{
+    --brand:#0673C1;        /* logo blue — primary brand */
+    --brand-dark:#044E86;   /* deep blue for gradients/footer */
+    --brand-accent:#E8232A; /* logo red — CTA */
+    --brand-ink:#333333;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.01em} /* stand-in for their Montserrat headlines */
+  /* honesty banner — blue, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header echoes theirs: white bar, logo left, red phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:52px;width:auto;display:block}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#f2464d,var(--brand-accent));box-shadow:0 8px 20px rgba(232,35,42,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(232,35,42,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: gradient + white headline, like their brand colors */
+  .w-hero{background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 55%,#0a5ea8 100%);color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:#ffd166}
+  .w-hero .accent{color:#ffd166}
+  .w-hero .btn{background:linear-gradient(180deg,#f2464d,var(--brand-accent));box-shadow:0 10px 24px rgba(232,35,42,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(232,35,42,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#044E86 0%,#0673C1 65%,#044E86 100%)}
+  .demo .eyebrow{color:#ffd166}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:#ffd166}
+  .demo-note{border-left-color:#ffd166}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#033556}
+  .hours-gap{background:#fff;border-top:1px solid var(--line);padding:88px 0}
+  .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+  .gap-card{border-radius:var(--radius);padding:34px 30px;border:1px solid var(--line)}
+  .gap-card.closed{border-top:5px solid var(--brand-accent);background:#fff}
+  .gap-card.open{border-top:5px solid var(--brand);background:#f2f8fd}
+  .gap-card h3{font-size:1.25rem;margin-bottom:10px}
+  .gap-card .big{font-size:2rem;font-weight:900;letter-spacing:-.02em;margin:8px 0}
+  .gap-card p{color:var(--muted)}
+  .gap-card.open p{color:var(--brand)}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e3f1fc;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e3f0fa;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#ffd166}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(255,209,102,.16);color:#ffd166;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#cfe4f3}
+  footer p{color:#a8c9e0}
+  @media(max-width:900px){.gap-grid,.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Wrenn Heating &amp; Air</strong>. Imagine this live on wrennheating.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/wrenn-heating-air-1.jpg" alt="Wrenn Heating &amp; Air logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+18032794064">📞 (803) 279-4064</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">North Augusta, SC · Serving the CSRA since 1974</p>
+    <h1>Wrenn Heating &amp; Air,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">We send a repairman, not a salesman. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+18032794064">📞 (803) 279-4064</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ Older systems welcome</span><span>✓ Residential &amp; small commercial</span><span>✓ Mon–Fri 8–5 · AI 24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is wrennheating.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A North Augusta homeowner's AC just died. They tap <strong>Wrenn's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Wrenn Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Wrenn's real services — repairs, replacements, maintenance, ductwork — and the CSRA service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS GAP -->
+<section class="hours-gap">
+  <div class="wrap">
+    <p class="eyebrow">Why this matters for Wrenn</p>
+    <h2>Your office hours vs.<br>your customers' emergencies.</h2>
+    <div class="gap-grid">
+      <div class="gap-card closed">
+        <h3>🏢 Wrenn office</h3>
+        <div class="big">Mon–Fri · 8:00–5:00</div>
+        <p>45 hours a week of human coverage. Solid — and exactly when most CSRA AC emergencies <em>don't</em> happen.</p>
+      </div>
+      <div class="gap-card open">
+        <h3>🤖 Wrenn + agenticrx</h3>
+        <div class="big">24 / 7 / 365</div>
+        <p>Every call answered in seconds, every missed call texted back, every website visitor booked — nights, weekends, August heatwaves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Wrenn does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Repair</h3><p>Repairs for all air conditioning systems — including the older units other companies won't touch.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating &amp; Furnace Service</h3><p>Heat pumps and gas furnaces — serviced and repaired by techs who know their vintage.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Replacement &amp; New Installs</h3><p>Full system replacements and new installations for homes and small businesses.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Preventive Maintenance</h3><p>Keep your system in peak condition with scheduled tune-ups and inspections.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Ductwork</h3><p>Duct repair and replacement so conditioned air actually reaches every room.</p></div>
+      <div class="card"><div class="icon">🚨</div><h3>Emergency Service</h3><p>When the air quits on the hottest day of the year — help that answers first.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>The CSRA already trusts Wrenn.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real Google reviews — currently only shown in a small widget. The Review Engine grows them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via the site's own Google reviews widget</small>
+      </div>
+      <div><strong>5.0</strong><small>average · 7 Google reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Best HVAC service in the CSRA! I've been using them for 30 years and they are the best. Great service, fair pricing and stand behind their work."</p>
+        <div class="who">Kris F.<span>Customer review</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Awesome service, they were able to come out and fix my AC within an hour after calling!"</p>
+        <div class="who">Aaron B.<span>Customer review</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating and quoted reviews from Wrenn's published Google reviews, as shown on wrennheating.com.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Wrenn.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+18032794064">(803) 279-4064</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:scott@wrennheating.com">scott@wrennheating.com</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>10383 Atomic Road<br>North Augusta, SC 29841</p></div>
+    </div>
+    <p style="margin-top:26px;color:#e3f0fa">Office hours: Mon – Fri, 8:00 AM – 5:00 PM · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/wrenn-heating-air-1.jpg" alt="Wrenn Heating &amp; Air logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#a8c9e0">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#a8c9e0">agenticrx</a> for Wrenn Heating &amp; Air · North Augusta, SC<br>All company info © Wrenn Heating &amp; Air (wrennheating.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Wrenn Heating & Air", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC Repair West Palm Beach Pros — Concept Demo with agenticrx | West Palm Beach, FL</title>
+<meta name="description" content="Concept demo: what AC Repair West Palm Beach Pros' website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== AC Repair West Palm Beach Pros brand theme (from acrepairwestpalmbeach.pro) ===== */
+  :root{
+    --brand:#00695C;        /* teal — primary brand */
+    --brand-dark:#004D40;   /* deep teal for gradients/footer */
+    --brand-accent:#BF360C; /* burnt orange CTA */
+    --brand-brown:#4E342E;  /* dark brown secondary */
+    --brand-light:#EFEBE9;  /* warm light section bg */
+    --brand-ink:#374151;
+  }
+  body{font-family:'Inter',sans-serif}            /* their body font */
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em}
+  /* honesty banner — teal, never hidden */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#fff;font-weight:800}
+  /* header echoes theirs: white bar, logo left, orange phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:48px;width:auto;display:block;border-radius:8px}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#d64a12,var(--brand-accent));box-shadow:0 8px 20px rgba(191,54,12,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(191,54,12,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: tech photo with teal overlay, like their service imagery */
+  .w-hero{background:linear-gradient(rgba(0,77,64,.88),rgba(0,77,64,.6)),url('assets/ac-repair-wpb-pros-2.jpg') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:#80cbc4}
+  .w-hero .accent{color:#ffab91}
+  .w-hero .btn{background:linear-gradient(180deg,#d64a12,var(--brand-accent));box-shadow:0 10px 24px rgba(191,54,12,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(191,54,12,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#004D40 0%,#00695C 65%,#004D40 100%)}
+  .demo .eyebrow{color:#80cbc4}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand-accent)}
+  .demo-inputrow input:focus{border-color:var(--brand-accent)}
+  .demo-note{border-left-color:var(--brand-accent)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#03312a}
+  .w-services{padding:88px 0;background:var(--brand-light)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#fff;color:var(--brand-accent);font-size:1.5rem;margin-bottom:14px;box-shadow:0 4px 12px rgba(78,52,46,.1)}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e0f2ef;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#ffab91}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(191,54,12,.18);color:#ffab91;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-empty{background:#fff;border:1px dashed #c9cfd6;border-radius:var(--radius);padding:34px 30px;max-width:680px}
+  .review-empty h3{font-size:1.15rem;margin-bottom:8px}
+  .review-empty p{color:var(--muted);font-size:.95rem}
+  footer{background:var(--brand-dark);color:#bcd8d3}
+  footer p{color:#93b8b1}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>AC Repair West Palm Beach Pros</strong>. Imagine this live on acrepairwestpalmbeach.pro. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/ac-repair-wpb-pros-1.jpg" alt="AC Repair West Palm Beach Pros logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+15617172759">📞 (561) 717-2759</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">West Palm Beach, FL · 24/7 emergency AC service</p>
+    <h1>AC Repair West Palm Beach Pros,<br><span class="accent">now booking 24/7.</span></h1>
+    <p class="lede">Same fast emergency team across Palm Beach County. Now every call, text, and website visitor gets an answer in seconds — and a booked slot, not a "we'll call you back."</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+15617172759">📞 (561) 717-2759</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ 24/7 emergency service</span><span>✓ Free estimates</span><span>✓ West Palm Beach + 20 cities</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is acrepairwestpalmbeach.pro at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A West Palm Beach homeowner's AC just died in October heat. They tap the site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ AC Repair WPB Pros</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on their real services — emergency repair, installs, duct cleaning, maintenance — and the 20-city Palm Beach County service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What they do</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">🚨</div><h3>Emergency AC Repair</h3><p>24/7 rapid response when your cooling fails without warning.</p></div>
+      <div class="card"><div class="icon">❄️</div><h3>AC Installation</h3><p>Energy-efficient systems sized and installed for your property.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Preventative Maintenance</h3><p>Maintenance plans that keep your unit running and catch issues early.</p></div>
+      <div class="card"><div class="icon">🌬️</div><h3>Air Quality Assessment</h3><p>Indoor air evaluation with solutions for a healthier home or office.</p></div>
+      <div class="card"><div class="icon">🔁</div><h3>AC Replacement</h3><p>Guided replacement options when repair no longer makes sense.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Duct Cleaning</h3><p>Thorough duct cleaning that removes dust and allergens for easier breathing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Reviews worth showing.<br>None verified — yet.</h2>
+    <p class="section-sub">We couldn't verify a public review profile for this business, so this demo shows nothing invented. The Review Engine would start collecting real reviews automatically, reply to every one, and put them here where new customers decide.</p>
+    <div class="review-empty">
+      <h3>⭐ No verified reviews yet</h3>
+      <p>When the first real 5-star lands, it appears here automatically — with the source, the count, and a reply from the owner. Until then, an honest empty space beats a borrowed badge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to the Pros.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+15617172759">(561) 717-2759</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:info@acrepairwestpalmbeach.pro">info@acrepairwestpalmbeach.pro</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Areas</h3><p>West Palm Beach · Boca Raton<br>+ 20 Palm Beach County cities</p></div>
+    </div>
+    <p style="margin-top:26px;color:#bcd8d3">24/7 emergency service · AI answers online 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/ac-repair-wpb-pros-1.jpg" alt="AC Repair West Palm Beach Pros logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#93b8b1">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#93b8b1">agenticrx</a> for AC Repair West Palm Beach Pros · West Palm Beach, FL<br>All company info © AC Repair West Palm Beach Pros (acrepairwestpalmbeach.pro)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "AC Repair West Palm Beach Pros", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

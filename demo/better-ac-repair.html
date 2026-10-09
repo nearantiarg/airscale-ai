@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Better AC Repair — Concept Demo with agenticrx | Fort Myers, FL</title>
+<meta name="description" content="Concept demo: what Better AC Repair's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Better AC Repair brand theme (from betteracrepair.com) ===== */
+  :root{
+    --brand:#0A2A4E;        /* deep navy — primary brand */
+    --brand-dark:#061C36;   /* darker navy for gradients/footer */
+    --brand-accent:#F59E0B; /* amber — CTA + highlights */
+    --brand-amber2:#FFBC7D; /* light amber accent */
+    --brand-ink:#343A40;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.01em}
+  /* honesty banner — navy, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:var(--brand-amber2);font-weight:800}
+  /* header echoes theirs: white bar, wordmark left, amber phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:900;font-size:1.25rem;display:flex;align-items:center;gap:10px}
+  .brand .snow{color:var(--brand-accent)}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand-accent)}
+  header.nav .btn{background:linear-gradient(180deg,#ffbe33,var(--brand-accent));box-shadow:0 8px 20px rgba(245,158,11,.3);color:#231a03}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(245,158,11,.45)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: white headline over the photo, navy scrim */
+  .w-hero{background:linear-gradient(rgba(6,28,54,.86),rgba(10,42,78,.6)),url('assets/better-ac-repair-1.png') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:var(--brand-amber2)}
+  .w-hero .accent{color:var(--brand-amber2)}
+  .w-hero .btn{background:linear-gradient(180deg,#ffbe33,var(--brand-accent));box-shadow:0 10px 24px rgba(245,158,11,.35);color:#231a03}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(245,158,11,.5)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand-accent)}
+  .demo{background:linear-gradient(150deg,#061C36 0%,#0A2A4E 65%,#061C36 100%)}
+  .demo .eyebrow{color:var(--brand-amber2)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand-accent);color:#231a03}
+  .demo-inputrow input:focus{border-color:var(--brand-accent)}
+  .demo-note{border-left-color:var(--brand-accent)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#041224}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#fff6e5;color:var(--brand-accent);font-size:1.5rem;margin-bottom:14px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e7eef8;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-amber2)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(245,158,11,.16);color:var(--brand-amber2);font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-empty{background:#fff;border:1px dashed var(--line);border-radius:var(--radius);padding:34px 30px;max-width:640px}
+  .review-empty p{color:var(--muted);margin:0}
+  footer{background:var(--brand-dark);color:#c8d6e8}
+  footer p{color:#93a7c0}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Better AC Repair</strong>. Imagine this live on betteracrepair.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="snow">❄</span> Better AC Repair</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+12396281519">📞 (239) 628-1519</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Fort Myers, FL · Heating &amp; cooling</p>
+    <h1>Better AC Repair,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same fast, no-pressure service. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, Florida heatwaves.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+12396281519">📞 (239) 628-1519</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ AC repair &amp; installation</span><span>✓ Heating services</span><span>✓ Air quality &amp; maintenance</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is betteracrepair.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Fort Myers homeowner's AC just died. They tap <strong>Better AC Repair's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Better AC Repair</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Better AC Repair's real services — AC, heating, air quality, and maintenance programs. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Better AC Repair does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>AC Repair &amp; Installation</h3><p>Fast, reliable repairs when your system breaks down — and precision new-system installs.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating Services</h3><p>Expert heating service and upgrades to keep you warm all season.</p></div>
+      <div class="card"><div class="icon">💨</div><h3>Air Quality Services</h3><p>Duct cleaning, filter programs, and purifiers for healthier indoor air.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Preventative Maintenance</h3><p>AC tune-ups and heater check-ups that prevent expensive repairs down the road.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Your reviews should<br>work this hard.</h2>
+    <p class="section-sub">The Review Engine collects every review automatically, replies to each one, and puts them front and center where new customers decide — instead of leaving them scattered across the web.</p>
+    <div class="review-empty">
+      <p>⭐ No verified aggregate rating was found on the company's public review profiles at the time of this demo. The live version pulls your real Google/Birdeye rating in here automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Better AC Repair.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+12396281519">(239) 628-1519</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Call or Chat</h3><p>Free, no-pressure estimates</p></div>
+      <div class="card"><div class="icon">📍</div><h3>Serving</h3><p>North Fort Myers, FL<br>&amp; surrounding areas</p></div>
+    </div>
+    <p style="margin-top:26px;color:#c8d6e8">AI answers 24/7 — even when the shop is closed</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="snow">❄</span> Better AC Repair <span style="font-weight:400;font-size:.8rem;color:#93a7c0">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#93a7c0">agenticrx</a> for Better AC Repair · Fort Myers, FL<br>All company info © Better AC Repair (betteracrepair.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Better AC Repair", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

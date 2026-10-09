@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West Palm Beach Heating and Cooling — Concept Demo with agenticrx | West Palm Beach, FL</title>
+<meta name="description" content="Concept demo: what West Palm Beach Heating and Cooling's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== West Palm Beach Heating and Cooling brand theme (from westpalmbeachcoolingandheating.com) ===== */
+  :root{
+    --brand:#0c6582;        /* theme teal-blue */
+    --brand-dark:#111111;   /* site dark background */
+    --brand-darker:#0a0a0a;
+    --brand-gold:#e5af00;   /* primary CTA gold */
+    --brand-gold-light:#fed756;
+    --brand-magenta:#8e0f74;
+    --brand-ink:#e8e8e8;
+    --line-dark:rgba(255,255,255,.1);
+  }
+  body{font-family:'Inter',sans-serif;background:#151515;color:#e8e8e8}
+  h1,h2,h3{font-family:'Aladin',cursive;color:#fff;font-weight:400;letter-spacing:.01em} /* echoes their Aladin display font */
+  /* honesty banner — dark, never hidden */
+  .concept-bar{background:var(--brand-dark);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em;border-bottom:2px solid var(--brand-gold)}
+  .concept-bar a{color:var(--brand-gold-light);font-weight:800}
+  /* header echoes theirs: black bar, gold phone CTA */
+  .nav{background:#0a0a0a;border-bottom:3px solid var(--brand-gold)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:#fff;text-decoration:none;font-weight:800;display:flex;align-items:center;gap:10px;font-size:1.02rem}
+  .brand-mark{font-size:1.5rem}
+  .nav-links a{color:#ddd}
+  .nav-links a:hover{color:var(--brand-gold-light)}
+  header.nav .btn{background:linear-gradient(180deg,var(--brand-gold-light),var(--brand-gold));color:#1a1a1a;box-shadow:0 8px 20px rgba(229,175,0,.25)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(229,175,0,.4)}
+  .nav-toggle{color:var(--brand-gold-light)}
+  /* hero: technician photo, dark overlay like their banner */
+  .p-hero{background:linear-gradient(rgba(10,10,10,.82),rgba(10,10,10,.5)),url('assets/wpb-heating-cooling-1.jpg') center/cover;color:#fff;padding:110px 0 90px;border-bottom:6px solid var(--brand-gold)}
+  .p-hero h1{font-size:clamp(2.6rem,6vw,4.2rem)}
+  .p-hero .eyebrow{color:var(--brand-gold-light)}
+  .p-hero .accent{color:var(--brand-gold-light)}
+  .p-hero .lede{color:#ddd}
+  .p-hero .btn{background:linear-gradient(180deg,var(--brand-gold-light),var(--brand-gold));color:#1a1a1a;box-shadow:0 10px 24px rgba(229,175,0,.3)}
+  .p-hero .btn:hover{box-shadow:0 14px 30px rgba(229,175,0,.45)}
+  .p-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45);color:#fff}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#fff}
+  .eyebrow{color:var(--brand-gold)}
+  .demo{background:linear-gradient(150deg,#0a0a0a 0%,#1b1b1b 65%,#0a0a0a 100%)}
+  .demo h2{color:#fff}
+  .demo h3{color:#fff}
+  .demo .eyebrow{color:var(--brand-gold-light)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:linear-gradient(180deg,var(--brand-gold-light),var(--brand-gold));color:#1a1a1a}
+  .demo-inputrow input{background:#222;border-color:#444;color:#fff}
+  .demo-inputrow input:focus{border-color:var(--brand-gold)}
+  .demo-note{border-left-color:var(--brand-gold);color:#cfcfcf;background:#1b1b1b;border:1px solid var(--line-dark);border-left-width:3px}
+  .demo-side h3{color:#fff}
+  .demo-receipt li{color:#cfcfcf}
+  .demo-phone{border-color:#000}
+  .demo-sitebar{background:#000}
+  .w-services{padding:88px 0;background:#151515}
+  .w-services h2{color:#fff}
+  .w-services .card{background:#1e1e1e;border:1px solid var(--line-dark)}
+  .w-services .card h3{color:#fff}
+  .w-services .card p{color:#bdbdbd}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(229,175,0,.12);color:var(--brand-gold-light);font-size:1.5rem;margin-bottom:14px}
+  .section-sub{color:#bdbdbd}
+  .w-contact{background:linear-gradient(135deg,#0a0a0a,#1c2b33);color:#fff;padding:88px 0;border-top:6px solid var(--brand-gold)}
+  .w-contact h2{color:#fff}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.05);border:1px solid var(--line-dark);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#ddd;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-gold-light)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(229,175,0,.12);color:var(--brand-gold-light);font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:#151515}
+  .w-reviews h2{color:#fff}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#1e1e1e;border:1px solid var(--line-dark);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand-gold)}
+  .review-badge small{color:#9a9a9a;display:block;font-size:.85rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:#9a9a9a}
+  footer{background:#0a0a0a;color:#9a9a9a;border-top:1px solid var(--line-dark)}
+  footer .brand{color:#fff}
+  footer p{color:#777}
+  footer a{color:#9a9a9a}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>West Palm Beach Heating and Cooling</strong>. Imagine this live on westpalmbeachcoolingandheating.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">❄️</span> West&nbsp;Palm&nbsp;Beach Heating&nbsp;&amp;&nbsp;Cooling</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+15612575916">📞 (561) 257-5916</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="p-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">West Palm Beach, FL · Your local heating &amp; cooling expert</p>
+    <h1>West Palm Beach Heating and Cooling,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same trusted techs. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, August heatwaves.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+15612575916">📞 (561) 257-5916</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ AC repair &amp; replacement</span><span>✓ Ductwork &amp; air quality</span><span>✓ Free estimates</span><span>✓ Serving zips 33401–33422</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is westpalmbeachcoolingandheating.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A West Palm Beach homeowner's AC just died. They tap <strong>your</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ WPB Heating &amp; Cooling</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on WPB Heating and Cooling's real services — AC repair, replacements, ductwork, air duct cleaning — and West Palm Beach zips 33401–33422. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What WPB Heating and Cooling does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Repair</h3><p>Certified, insured techs repair any AC system — fast.</p></div>
+      <div class="card"><div class="icon">🔄</div><h3>System Replacement</h3><p>Swap your worn, inefficient system for a modern one.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating &amp; Furnace</h3><p>Heating and furnace repair, replacement, and upkeep.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Ductwork Services</h3><p>Duct repair and replacement for proper airflow and efficiency.</p></div>
+      <div class="card"><div class="icon">🌬️</div><h3>Air Duct Cleaning</h3><p>Cleaner ducts, filters, and indoor air for the whole family.</p></div>
+      <div class="card"><div class="icon">🛡️</div><h3>Preventative Maintenance</h3><p>Scheduled maintenance plans that catch failures early.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>West Palm Beach will trust you.<br>The website should show it first.</h2>
+    <p class="section-sub">No verified public reviews found to display yet. The Review Engine collects every review automatically, replies to each one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div><small>Your reviews, collected automatically — this section fills itself in once public reviews exist.</small></div>
+    </div>
+    <p class="review-note">Concept demo — review collection activates with the owner's approval. No verified public reviews were found to display at build time.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to WPB Heating and Cooling.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+15612575916">(561) 257-5916</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>516 S Dixie Hwy<br>West Palm Beach, FL 33401</p></div>
+      <div class="card"><div class="icon">🗺️</div><h3>Service area</h3><p>West Palm Beach, FL<br>Zips 33401 – 33422</p></div>
+    </div>
+    <p style="margin-top:26px;color:#9a9a9a">Free estimates · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><span class="brand-mark">❄️</span> WPB Heating <span style="font-weight:400;font-size:.8rem;color:#777">concept demo</span></a>
+    <p>Concept demo built by <a href="../">agenticrx</a> for West Palm Beach Heating and Cooling · West Palm Beach, FL<br>All company info © West Palm Beach Heating and Cooling (westpalmbeachcoolingandheating.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "West Palm Beach Heating and Cooling", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

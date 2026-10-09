@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momentum AC &amp; Electric — Concept Demo with agenticrx | Tampa, FL</title>
+<meta name="description" content="Concept demo: what Momentum AC & Electric's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Momentum AC & Electric — clean generic contractor theme (no site assets used) ===== */
+  :root{
+    --brand:#1e5aa8;        /* contractor blue */
+    --brand-dark:#143d73;   /* deep blue for gradients/footer */
+    --brand-accent:#f97316; /* CTA orange */
+    --brand-ink:#1f2937;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{letter-spacing:-.01em}
+  /* honesty banner — blue, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header: white bar, wordmark left, orange phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:900;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+  .brand .bolt{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;font-size:1.3rem}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#fb923c,var(--brand-accent));box-shadow:0 8px 20px rgba(249,115,22,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(249,115,22,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: deep-blue gradient, no site imagery */
+  .w-hero{background:linear-gradient(135deg,#0e2c52 0%,var(--brand-dark) 45%,var(--brand) 100%);color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:#bfdbfe}
+  .w-hero .accent{color:#fdba74}
+  .w-hero .btn{background:linear-gradient(180deg,#fb923c,var(--brand-accent));box-shadow:0 10px 24px rgba(249,115,22,.35)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(249,115,22,.48)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#143d73 0%,#1e5aa8 65%,#143d73 100%)}
+  .demo .eyebrow{color:#fdba74}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:var(--brand-accent)}
+  .demo-note{border-left-color:var(--brand-accent)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#0e2c52}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e3edf9;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#dbe7f7;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#fdba74}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(249,115,22,.16);color:#fdba74;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#c8d9f0}
+  footer p{color:#9db8dd}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Momentum AC &amp; Electric</strong>. Imagine this live on momentumacpro.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="bolt">⚡</span> Momentum AC &amp; Electric</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+18778484822">📞 (877) 848-4822</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Tampa, FL · HVAC + electrical</p>
+    <h1>Momentum AC &amp; Electric,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same award-winning crew. Same free estimates and second opinions. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+18778484822">📞 (877) 848-4822</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ 4.9★ · 1,662 reviews</span><span>✓ HVAC + electrical</span><span>✓ Free estimates &amp; second opinions</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is momentumacpro.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Tampa homeowner's AC just died. They tap <strong>Momentum's</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>⚡ Momentum AC &amp; Electric</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Momentum's real services — from AC installs to electrical work — and the Tampa Bay service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Momentum does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Repair</h3><p>Fast, transparent repairs for all major air conditioning brands.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>A/C Installation</h3><p>Same-week installs with free estimates and second opinions.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Heating Services</h3><p>Furnace and boiler heating service and repair.</p></div>
+      <div class="card"><div class="icon">⚡</div><h3>Electrical Services</h3><p>Panel work, outlets, EV chargers, and full electrical installs.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Duct &amp; Coil Cleaning</h3><p>Air duct and AC coil cleaning for healthier, efficient airflow.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Maintenance Plans</h3><p>Annual tune-ups and maintenance agreements that keep systems running.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Tampa already trusts Momentum.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.9</strong><small>average · 1,662 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Dominic was highly professional, even though the AC unit was more difficult than expected he kept working till the job was done and AC was working. I would recommend his service and that of the company he works for again."</p>
+        <div class="who">Marcus A.<span>Customer review · via Wanderlog</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Marco was the absolute best to work with. Always going the extra mile to get things done. 5 stars from me."</p>
+        <div class="who">Published customer<span>Customer review · from the company's reviews</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Momentum.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+18778484822">(877) 848-4822</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>3113 N Armenia Ave<br>Tampa, FL 33607</p></div>
+      <div class="card"><div class="icon">🗺️</div><h3>Service area</h3><p>Tampa · Hillsborough<br>&amp; Pinellas Counties</p></div>
+    </div>
+    <p style="margin-top:26px;color:#c8d9f0">AI answers 24/7 — nights, weekends, heatwaves.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top" style="color:#fff;font-size:1rem"><span class="bolt" style="width:34px;height:34px;font-size:1.1rem">⚡</span> Momentum AC &amp; Electric <span style="font-weight:400;font-size:.8rem;color:#9db8dd">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#9db8dd">agenticrx</a> for Momentum AC &amp; Electric · Tampa, FL<br>All company info © Momentum AC &amp; Electric (momentumacpro.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Momentum AC & Electric", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

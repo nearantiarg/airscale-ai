@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Better AC Repair (3.0/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited betteracrepair.com: 3.0/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{background:#0a1122;color:#e8eef8}
+  h1,h2,h3{color:#fff}
+  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#1f2937;font-weight:800}
+  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
+  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
+  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
+  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
+  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
+  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
+  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
+  .finding p strong{color:#e8eef8}
+  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
+  .fix strong{color:#4ade80}
+  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
+  .rev-empty{background:#111c33;border:1px dashed rgba(255,255,255,.18);border-radius:16px;padding:30px 28px;max-width:640px}
+  .rev-empty p{color:#8fa1bd;font-size:.95rem;margin:0}
+  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .a-cta .wrap{max-width:720px}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
+  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
+  .foot-inner a{color:#8fa1bd}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Better AC Repair</strong> · Score: 3.0/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">📋 Audit: Better AC Repair</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+12396281519">📞 (239) 628-1519</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Website audit · Fort Myers, FL</p>
+    <h1>We audited betteracrepair.com.</h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.0<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A Fort Myers AC shop with an 888 number, no listed hours, no address — and a site that makes every visitor pick up the phone or leave.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 139 HVAC sites audited across GA &amp; FL</span>
+      <span>📉 35 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Four findings.<br>Four fixes.</h2>
+    <p class="section-sub dark">What the audit found on betteracrepair.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>Every conversion path is "give us a call"</h3>
+        <p>The site's only call to action is a phone call for a "no pressure estimate" — <strong>no online booking, no instant quote, no callback in seconds</strong>. A homeowner with a dead AC at 10 PM can leave a message — or call someone who answers.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, triages the issue, and books the slot — nights, weekends, heatwaves. The owner gets a one-line summary.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>An 888 number, not a Fort Myers one</h3>
+        <p>The headline number on the site is a <strong>toll-free (888) number</strong> — no local area code anywhere. Fort Myers homeowners pick the shop that feels local; an 888 number makes you feel like a call center.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> a local number on every page — with AI answering every call so "local" never goes to voicemail.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>One page lists North Fort Myers, Pflugerville TX, and Marietta GA</h3>
+        <p>The service-area copy names <strong>three states on one page</strong>. A North Fort Myers visitor can't tell if you're their neighborhood shop or a national template — and "near me" searches reward the shop that looks local.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> one clear service-area story per page — "Fort Myers first" — with the call handled locally even when the team is on a job.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No hours, no address, anywhere</h3>
+        <p>The site lists <strong>neither hours nor a street address</strong>. Customers can't tell when you're open, where you're based, or whether to expect an answer tonight — so they guess, and guessers call the next listing.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> clear hours plus AI that answers 24/7 — the "open" question stops mattering, and every after-hours caller still becomes a job.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub dark">This is betteracrepair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the dead AC.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Better AC Repair</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Better AC Repair's real services — AC, heating, air quality, and maintenance programs. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The reviews are missing.<br>That's the finding.</h2>
+    <p class="section-sub dark">No verifiable aggregate rating was found on Better AC Repair's public review profiles — so there is nothing for a new customer to see when they decide.</p>
+    <div class="rev-empty">
+      <p>⭐ No verifiable aggregate rating found at the time of this audit. The fixed site pulls your real Google/Birdeye rating into the homepage automatically — and the Review Engine collects new ones after every job.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Better%20AC%20Repair%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Better AC Repair (betteracrepair.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top">📋 Audit: Better AC Repair <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Better AC Repair · Fort Myers, FL</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Better AC Repair", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenkins Heating &amp; Air — Concept Demo with agenticrx | Jacksonville, FL</title>
+<meta name="description" content="Concept demo: what Jenkins Heating & Air's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Jenkins Heating & Air brand theme (from jenkinsheatingandair.com) ===== */
+  :root{
+    --brand:#D92323;        /* logo red — primary brand */
+    --brand-dark:#8E1414;   /* deep red for gradients/footer */
+    --brand-blue:#1E3A9E;   /* logo wave blue */
+    --brand-ink:#393939;
+  }
+  body{font-family:'Raleway',sans-serif}        /* their actual body font */
+  h1,h2,h3{font-family:'Raleway',sans-serif;letter-spacing:-.01em}
+  /* honesty banner — red, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header echoes theirs: white bar, logo left, red phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:52px;width:auto;display:block}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#ef4444,var(--brand));box-shadow:0 8px 20px rgba(217,35,35,.28)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(217,35,35,.42)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: photo band with red overlay, white headline */
+  .w-hero{background:linear-gradient(rgba(142,20,20,.88),rgba(217,35,35,.55)),url('assets/jenkins-heating-air-2.jpg') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:#ffdf80}
+  .w-hero .accent{color:#ffdf80}
+  .w-hero .btn{background:linear-gradient(180deg,#ef4444,var(--brand));box-shadow:0 10px 24px rgba(142,20,20,.45)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(142,20,20,.55)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#6b0f0f 0%,#a31616 65%,#6b0f0f 100%)}
+  .demo .eyebrow{color:#ffdf80}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:#ffdf80}
+  .demo-note{border-left-color:#ffdf80}
+  .demo-phone{border-color:#5c0c0c}
+  .demo-sitebar{background:#4a0a0a}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#fde8e8;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .dealer-strip{background:#fff;border-top:1px solid var(--line);padding:64px 0;text-align:center}
+  .dealer-grid{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .dealer-card{border:1px solid var(--line);border-radius:var(--radius);padding:26px 34px;background:var(--paper);font-weight:800;font-size:1.05rem;color:var(--brand-ink)}
+  .dealer-card span{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:6px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#fdecec;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:#ffdf80}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(255,223,128,.14);color:#ffdf80;font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#eccaca}
+  footer p{color:#d9a5a5}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Jenkins Heating &amp; Air</strong>. Imagine this live on jenkinsheatingandair.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/jenkins-heating-air-1.png" alt="Jenkins Heating &amp; Air logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19042689904">📞 (904) 268-9904</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Jacksonville, FL · Family-owned Carrier dealer</p>
+    <h1>Jenkins Heating &amp; Air,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same family-owned team Jacksonville trusts. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+19042689904">📞 (904) 268-9904</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ Carrier dealer</span><span>✓ NATE-certified techs</span><span>✓ 24/7 emergency service · AI 24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is jenkinsheatingandair.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">A Jacksonville homeowner's AC just died. They tap <strong>Jenkins'</strong> site. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>❄️ Jenkins Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Jenkins' real services — repair, installation, maintenance, ductwork — and the Jacksonville service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Jenkins does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>AC Repair</h3><p>Expert repair for heating and cooling systems — advanced equipment, honest diagnosis.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Installation &amp; Replacement</h3><p>New Carrier systems installed right — over 3,000 Carrier installs across NE Florida.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Maintenance</h3><p>Service and maintenance plans that keep your system running year-round.</p></div>
+      <div class="card"><div class="icon">🌀</div><h3>Duct Repair</h3><p>Duct inspection and repair so your system delivers the comfort you're paying for.</p></div>
+      <div class="card"><div class="icon">🏠</div><h3>Residential &amp; Light Commercial</h3><p>New construction, replacements, and retrofits for homes and businesses.</p></div>
+      <div class="card"><div class="icon">🚨</div><h3>24/7 Emergency Service</h3><p>When the air quits at midnight — an answer in seconds, not voicemail.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEALER -->
+<section class="dealer-strip">
+  <div class="wrap">
+    <p class="eyebrow">Factory credentials</p>
+    <h2>Certified to back the name.</h2>
+    <div class="dealer-grid">
+      <div class="dealer-card">Carrier<span>Authorized dealer — as shown on jenkinsheatingandair.com</span></div>
+      <div class="dealer-card">NATE Certified<span>Technician certification — as shown on jenkinsheatingandair.com</span></div>
+      <div class="dealer-card">Family-Owned<span>Locally owned &amp; operated in Jacksonville</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Jacksonville already trusts Jenkins.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.8</strong><small>average · 911 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Same day call-out, Tim ID the issue and fixed it in 45 minutes. Explained what he was doing and the cost before starting. Saved the day for sure."</p>
+        <div class="who">Daniel S.<span>Customer review</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"The technician showed up on time, inspected and performed maintenance quickly and left everything clean and in good order."</p>
+        <div class="who">Matt M.<span>Customer review</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Jenkins.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+19042689904">(904) 268-9904</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:info@jenkinsheatingandair.com">info@jenkinsheatingandair.com</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>11361-1 Trade Ct<br>Jacksonville, FL 32256</p></div>
+    </div>
+    <p style="margin-top:26px;color:#fdecec">Office: Mon – Fri, 8:00 AM – 4:30 PM · Emergency service 24/7 · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/jenkins-heating-air-1.png" alt="Jenkins Heating &amp; Air logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#d9a5a5">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#d9a5a5">agenticrx</a> for Jenkins Heating &amp; Air · Jacksonville, FL<br>All company info © Jenkins Heating &amp; Air (jenkinsheatingandair.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Jenkins Heating & Air", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

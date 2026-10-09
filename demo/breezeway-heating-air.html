@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breezeway Heating &amp; Air — Concept Demo with agenticrx | Atlanta, GA</title>
+<meta name="description" content="Concept demo: what Breezeway Heating & Air's website could do with agenticrx — 24/7 AI answering, booking, and follow-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ===== Breezeway Heating & Air brand theme (from breezewayheatandair.com) ===== */
+  :root{
+    --brand:#243F90;        /* logo royal blue — primary brand */
+    --brand-dark:#16275E;   /* deep blue for gradients/footer */
+    --brand-accent:#F26554; /* coral CTA */
+    --brand-gold:#FFC531;
+    --brand-sky:#1DB6E8;
+    --brand-ink:#313131;
+  }
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.01em}
+  /* honesty banner — blue, never hidden */
+  .concept-bar{background:var(--brand);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .concept-bar a{color:var(--brand-gold);font-weight:800}
+  /* header echoes theirs: white bar, logo left, coral phone CTA */
+  .nav{background:#fff;border-bottom:3px solid var(--brand)}
+  .nav-inner{padding:10px 24px}
+  .brand{color:var(--brand);text-decoration:none;font-weight:800;display:flex;align-items:center}
+  .brand img{height:48px;width:auto;display:block}
+  .nav-links a{color:var(--brand-ink)}
+  .nav-links a:hover{color:var(--brand)}
+  header.nav .btn{background:linear-gradient(180deg,#ff7f6d,var(--brand-accent));box-shadow:0 8px 20px rgba(242,101,84,.3)}
+  header.nav .btn:hover{box-shadow:0 12px 26px rgba(242,101,84,.45)}
+  .nav-toggle{color:var(--brand)}
+  /* hero: white headline over the photo, like their homepage band */
+  .w-hero{background:linear-gradient(rgba(22,39,94,.88),rgba(36,63,144,.62)),url('assets/breezeway-heating-air-1.jpg') center/cover;color:#fff;padding:110px 0 90px}
+  .w-hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:900}
+  .w-hero .eyebrow{color:var(--brand-gold)}
+  .w-hero .accent{color:var(--brand-gold)}
+  .w-hero .btn{background:linear-gradient(180deg,#ff7f6d,var(--brand-accent));box-shadow:0 10px 24px rgba(242,101,84,.4)}
+  .w-hero .btn:hover{box-shadow:0 14px 30px rgba(242,101,84,.55)}
+  .w-hero .btn-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.45)}
+  .w-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .w-trust span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600}
+  .eyebrow{color:var(--brand)}
+  .demo{background:linear-gradient(150deg,#16275E 0%,#243F90 65%,#16275E 100%)}
+  .demo .eyebrow{color:var(--brand-gold)}
+  .demo-chat .bubble.me{background:var(--brand)}
+  .demo-inputrow button{background:var(--brand)}
+  .demo-inputrow input:focus{border-color:var(--brand-gold)}
+  .demo-note{border-left-color:var(--brand-accent)}
+  .demo-phone{border-color:var(--brand-dark)}
+  .demo-sitebar{background:#0e1a40}
+  .w-services{padding:88px 0;background:var(--paper)}
+  .w-services .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:#e4e9f7;color:var(--brand);font-size:1.5rem;margin-bottom:14px}
+  .w-contact{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;padding:88px 0}
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .contact-cards .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff}
+  .contact-cards .card h3{color:#fff}
+  .contact-cards .card p,.contact-cards .card a{color:#e6ebfa;text-decoration:none;font-size:1.05rem;font-weight:600}
+  .contact-cards .card a:hover{color:var(--brand-gold)}
+  .contact-cards .icon{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:rgba(255,197,49,.16);color:var(--brand-gold);font-size:1.5rem;margin-bottom:14px}
+  .w-reviews{padding:88px 0;background:var(--paper)}
+  .review-badge{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 28px;max-width:640px;margin:6px 0 26px;border-top:5px solid var(--brand)}
+  .review-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .review-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .review-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .review-card .stars{color:#f59e0b;letter-spacing:.12em}
+  .review-card p{font-size:.95rem;flex:1}
+  .review-card .who{font-weight:700;font-size:.88rem}
+  .review-card .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+  .review-note{margin-top:20px;font-size:.82rem;color:var(--muted)}
+  footer{background:var(--brand-dark);color:#ccd6f2}
+  footer p{color:#a3b0d6}
+  @media(max-width:900px){.contact-cards{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">✨ CONCEPT DEMO — built by <a href="../">agenticrx</a> for <strong>Breezeway Heating &amp; Air</strong>. Imagine this live on breezewayheatandair.com. <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/breezeway-heating-air-2.jpg" alt="Breezeway Heating &amp; Air logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#demo">AI Demo</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+16785679809">📞 (678) 567-9809</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="w-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Atlanta, GA · Bryant dealer · NATE-certified techs</p>
+    <h1>Breezeway Heating &amp; Air,<br><span class="accent">now answering 24/7.</span></h1>
+    <p class="lede">Same licensed crew metro Atlanta recommends to friends and family. Now every call, text, and website visitor gets an answer in seconds — nights, weekends, holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="#demo">See it work — live demo ↓</a>
+      <a class="btn btn-ghost" href="tel:+16785679809">📞 (678) 567-9809</a>
+    </div>
+    <div class="w-trust">
+      <span>✓ Bryant dealer</span><span>✓ NATE-certified techs</span><span>✓ 40+ metro Atlanta cities</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>This is breezewayheatandair.com at 11:04 PM<br>with AI working it.</h2>
+    <p class="section-sub dark">An Atlanta homeowner's AC just died. They tap <strong>Breezeway Heating &amp; Air</strong>. Type below like you're them.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🌬️ Breezeway Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Breezeway's real services — repair, install, maintenance agreements — and the metro Atlanta service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="w-services" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What Breezeway does</p>
+    <h2>Real services. Now bookable<br>around the clock.</h2>
+    <div class="cards">
+      <div class="card"><div class="icon">❄️</div><h3>A/C Repair</h3><p>Fast, honest AC repair from licensed technicians.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Furnace Service</h3><p>Heating maintenance and repair to keep winters comfortable.</p></div>
+      <div class="card"><div class="icon">🆕</div><h3>System Installation</h3><p>Full HVAC replacement, sized and installed by certified pros.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Maintenance Agreements</h3><p>Twice-a-year service with monthly payment options.</p></div>
+      <div class="card"><div class="icon">🏷️</div><h3>Bryant Systems</h3><p>Factory-authorized Bryant dealer — sales, service, and support.</p></div>
+      <div class="card"><div class="icon">🗺️</div><h3>40+ Cities Served</h3><p>From Acworth to Woodstock — all across metro Atlanta.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="w-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Customer reviews</p>
+    <h2>Atlanta already trusts Breezeway.<br>Now the website shows it.</h2>
+    <p class="section-sub">Real reviews — currently scattered across the web. The Review Engine collects them automatically, replies to every one, and puts them front and center where new customers decide.</p>
+    <div class="review-badge">
+      <div>
+        <div class="stars">★★★★☆</div>
+        <small>via Birdeye review profile</small>
+      </div>
+      <div><strong>4.6</strong><small>average · 154 reviews</small></div>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"I can't rave enough about the excellent job Field Tech Josh did. My entire experience with Breezeway Heating and Air was top-tier… everything was handled professionally."</p>
+        <div class="who">Jay<span>Customer review · via Google</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"I appreciate their updated maintenance agreements; I can now pay monthly for the maintenance service that I receive twice a year… they really care to help!"</p>
+        <div class="who">Julia<span>Customer review · via Google</span></div>
+      </div>
+    </div>
+    <p class="review-note">Aggregate rating via Birdeye; quoted reviews from the company's published customer reviews.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="w-contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Talk to Breezeway.</h2>
+    <div class="contact-cards">
+      <div class="card"><div class="icon">📞</div><h3>Phone</h3><p><a href="tel:+16785679809">(678) 567-9809</a></p></div>
+      <div class="card"><div class="icon">📍</div><h3>Visit</h3><p>2400 Church Road SE<br>Atlanta, GA 30339</p></div>
+      <div class="card"><div class="icon">🕐</div><h3>Hours</h3><p>Mon – Fri, 8:00 AM – 5:00 PM<br>Weekends: emergency hours · AI 24/7</p></div>
+    </div>
+    <p style="margin-top:26px;color:#ccd6f2">Office hours: Mon – Fri, 8:00 AM – 5:00 PM · AI answers 24/7</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top"><img src="assets/breezeway-heating-air-2.jpg" alt="Breezeway Heating &amp; Air logo" style="height:40px"> <span style="font-weight:400;font-size:.8rem;color:#a3b0d6">concept demo</span></a>
+    <p>Concept demo built by <a href="../" style="color:#a3b0d6">agenticrx</a> for Breezeway Heating &amp; Air · Atlanta, GA<br>All company info © Breezeway Heating &amp; Air (breezewayheatandair.com)</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Breezeway Heating & Air", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
