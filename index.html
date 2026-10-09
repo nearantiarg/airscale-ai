@@ -17,7 +17,7 @@
     <a class="brand" href="#top"><span class="brand-mark">◈</span> agenticrx</a>
     <nav class="nav-links" id="navLinks">
       <a href="#products">Products</a>
-      <a href="#demo">Live demo</a>
+      <a href="#why">Why us</a>
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -78,7 +78,7 @@
           <li>Quotes your windows and your prices</li>
           <li>True emergencies reach your on-call tech; the rest book for morning</li>
         </ul>
-        <a class="prod-link" href="ai-receptionist.html">Watch it take a call →</a>
+        <a class="prod-link" href="#voice">Watch it take a call →</a>
       </article>
 
       <article class="prod">
@@ -91,7 +91,7 @@
           <li>You see every thread; jump in anytime</li>
           <li>Works when you're on a job, not just after hours</li>
         </ul>
-        <a class="prod-link" href="missed-call-textback.html">See a 47-second save →</a>
+        <a class="prod-link" href="#textback">See a 47-second save →</a>
       </article>
 
       <article class="prod">
@@ -104,7 +104,7 @@
           <li>Drafts a reply to every review for your approval</li>
           <li>Your best reviews, showcased where customers decide</li>
         </ul>
-        <a class="prod-link" href="review-engine.html">Try the review flow →</a>
+        <a class="prod-link" href="#reviews">Try the review flow →</a>
       </article>
     </div>
 
@@ -118,10 +118,194 @@
   </div>
 </section>
 
-<!-- ============ LIVE DEMO ============ -->
+<!-- ============ PRODUCT 01: VOICE ============ -->
+<section class="pdemo" id="voice">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Product 01 — agenticrx Voice</p>
+    <h2>Every call answered in under 3 seconds.<br><span class="accent">Even at 2 AM on Sundays.</span></h2>
+    <p class="section-sub dark">Meet Ava — your AI receptionist. She triages safety issues, qualifies the job, and books it straight into your calendar. Tap "Answer as Ava" and listen in.</p>
+    <ul class="pf-list">
+      <li>Answers in seconds — nights, weekends, holidays</li>
+      <li>Safety triaged first, always</li>
+      <li>Books straight into your real calendar</li>
+      <li>True emergencies reach your on-call tech</li>
+    </ul>
+    <div class="pdemo-grid">
+      <div>
+        <div class="demo-phone">
+          <div class="demo-sitebar"><span>❄️ Johnson Heating &amp; Air</span><span class="demo-live">● Ava online</span></div>
+          <div class="call-idle" id="callIdle">
+            <div class="call-avatar">📞</div>
+            <div class="call-name">Incoming call…</div>
+            <div class="call-sub">(404) 555-0132 · Sunday 2:13 AM</div>
+            <button class="btn" id="answerBtn">Answer as Ava</button>
+          </div>
+          <div class="call-active" id="callActive">
+            <div class="call-top">
+              <span class="call-live">LIVE</span>
+              <span id="callTimer">00:00</span>
+            </div>
+            <div class="transcript" id="transcript"></div>
+          </div>
+          <div class="call-summary" id="callSummary">
+            <div class="sum-card">
+              <h4>✅ Call summary sent to owner</h4>
+              <dl>
+                <dt>Caller intent</dt><dd>Furnace banging + burning smell</dd>
+                <dt>Safety triage</dt><dd><span class="flag">SAFETY CHECKED</span> — no gas smell, dust burn-off likely</dd>
+                <dt>Booked</dt><dd>Tomorrow 9–11 AM · 88 Lanier Ridge Dr</dd>
+                <dt>Recording</dt><dd>Saved — full transcript emailed</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="demo-ctrl"><button class="btn btn-ghost btn-sm" id="callReplay" style="display:none">↻ Play the call again</button></div>
+      </div>
+      <div class="demo-side">
+        <h3>What the owner sees</h3>
+        <ul class="demo-receipt" id="callReceipt">
+          <li class="dim">Answer the call — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Ava runs on your rules: your services, your prices, your booking windows, your escalation triggers. You approve every script before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT 02: TEXT-BACK ============ -->
+<section class="pdemo alt" id="textback">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Product 02 — agenticrx Text-Back</p>
+    <h2>Missed call at 9:42 PM.<br><span class="accent">Booked job by 9:43.</span></h2>
+    <p class="section-sub dark">agenticrx watches your line 24/7 and texts back every missed call in seconds — from your own number, in your voice — before the caller dials your competitor. Watch it play out below.</p>
+    <ul class="pf-list">
+      <li>Texts back in under a minute, from your number</li>
+      <li>Keeps the conversation going until they're booked</li>
+      <li>You see every thread; jump in anytime</li>
+      <li>Works on a roof or under a house — not just after hours</li>
+    </ul>
+    <div class="pdemo-grid">
+      <div>
+        <div class="demo-phone">
+          <div class="demo-sitebar"><span>💬 (404) 555-0132</span><span class="demo-live">● AI online</span></div>
+          <div class="demo-chat" id="tbChat" style="min-height:380px"></div>
+        </div>
+        <div class="demo-ctrl"><button class="btn btn-ghost btn-sm" id="tbReplay">↻ Replay demo</button></div>
+      </div>
+      <div class="demo-side">
+        <h3>What the owner sees</h3>
+        <ul class="demo-receipt" id="tbOwner">
+          <li class="dim" id="tbOwnerEmpty">Nothing yet — the demo fills this in live…</li>
+        </ul>
+        <div class="demo-note">Every step is real product behavior — your number, your services, your booking rules. You approve the script before it ever texts a customer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT 03: REVIEWS ============ -->
+<section class="pdemo" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Product 03 — agenticrx Reviews</p>
+    <h2>Your best techs earn 5 stars daily.<br><span class="accent">Most shops just never ask.</span></h2>
+    <p class="section-sub dark">The Review Engine asks every customer automatically after every job. Happy ones land on Google in one tap. Unhappy ones reach you privately — before they ever post. Click through it.</p>
+    <ul class="pf-list">
+      <li>Automatically asks after every job</li>
+      <li>Unhappy customers reach you privately first</li>
+      <li>Drafts a reply to every review for your approval</li>
+      <li>Your best reviews, showcased where customers decide</li>
+    </ul>
+
+    <div class="re-pills" id="rePills" style="margin-top:36px">
+      <button class="re-pill active" data-stage="1">1 · Job done</button>
+      <button class="re-pill" data-stage="2">2 · The ask</button>
+      <button class="re-pill" data-stage="3">3 · Owner dashboard</button>
+    </div>
+
+    <div class="re-stage on" id="stage1">
+      <div class="stage-grid">
+        <div>
+          <div class="jobcard">
+            <h4>🔧 Tech app — Johnson Heating &amp; Air</h4>
+            <p class="jmeta">Today's route · Tech: Marcus</p>
+            <div class="jobrow"><span>No-cool diagnostic<br><small style="color:#8fa1bd">1420 Peachtree Hills Ave</small></span><span class="ok">✓ Done</span></div>
+            <button class="btn btn-wide" id="completeJob">Tap to complete job</button>
+          </div>
+        </div>
+        <div class="demo-side">
+          <h3>Stage 1 — Job done</h3>
+          <ul class="demo-receipt">
+            <li>🔧 <strong>Tech taps "Complete"</strong> in the app after the job</li>
+            <li class="dim">That tap is the trigger — the ask fires automatically, 15 minutes later</li>
+          </ul>
+          <div class="demo-note">No front-desk reminder needed. No awkward "could you leave us a review?" at the door. The system handles the timing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="re-stage" id="stage2">
+      <div class="stage-grid">
+        <div>
+          <div class="re-sms">
+            <div class="demo-sitebar"><span>💬 Johnson Heating &amp; Air</span><span class="demo-live">● SMS</span></div>
+            <div class="re-thread" id="askThread">
+              <div class="re-bubble bot">Hi! This is Johnson Heating &amp; Air. How was your service today? Tap your rating:</div>
+              <div class="stars" id="starRow">
+                <button data-stars="1">1</button>
+                <button data-stars="2">2</button>
+                <button data-stars="3">3</button>
+                <button data-stars="4">4</button>
+                <button data-stars="5">5</button>
+              </div>
+              <div id="askResult"></div>
+            </div>
+          </div>
+          <div style="text-align:center"><button class="re-reset" id="askReset">↻ Try a different rating</button></div>
+        </div>
+        <div class="demo-side">
+          <h3>Stage 2 — The ask</h3>
+          <ul class="demo-receipt" id="askReceipt">
+            <li class="dim">Pick a star rating — see the two paths…</li>
+          </ul>
+          <div class="demo-note"><strong style="color:#fff">4–5 stars → Google.</strong> One tap, review posted, reputation grows.<br><strong style="color:#fff">1–3 stars → you, privately.</strong> The owner gets alerted and calls within the hour — the complaint gets fixed, never published.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="re-stage" id="stage3">
+      <h3 style="margin-bottom:18px">Stage 3 — Owner dashboard</h3>
+      <div class="dash-grid">
+        <div class="dash-card"><strong>47</strong><span>reviews this month</span></div>
+        <div class="dash-card"><strong>4.9★</strong><span>average rating</span></div>
+        <div class="dash-card"><strong>6</strong><span>at-risk customers recovered</span></div>
+      </div>
+      <p class="dash-note">Sample dashboard — Johnson Heating &amp; Air (illustrative demo data)</p>
+      <div class="demo-note" style="margin-top:22px;max-width:640px">Every recovered customer is a 1-star review that never happened — plus a customer who stays. The dashboard shows you which techs earn the love and which jobs need a callback.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY AGENTICRX ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <p class="eyebrow">Why agenticrx</p>
+    <h2>Expect every call handled<br>like your best dispatcher would.</h2>
+    <p class="section-sub">Not an answering service that takes messages — a system that books jobs.</p>
+    <div class="why-grid">
+      <div class="why-card"><span>⚡</span><h3>Answered in seconds</h3><p>Nights, weekends, holidays. No caller ever listens to your voicemail greeting again.</p></div>
+      <div class="why-card"><span>💬</span><h3>Every missed call texted back</h3><p>Under a minute, from your own number, in your voice — before they dial your competitor.</p></div>
+      <div class="why-card"><span>✅</span><h3>You approve everything</h3><p>Every script, every text, every escalation rule — signed off by you before a single customer hears it.</p></div>
+      <div class="why-card"><span>📝</span><h3>Every word recorded</h3><p>Full transcripts and recordings, searchable. Know exactly what was said on every call.</p></div>
+      <div class="why-card"><span>🚨</span><h3>Safety triaged first</h3><p>Gas smells and true emergencies escalate to your on-call tech instantly — per your rules.</p></div>
+      <div class="why-card"><span>🔓</span><h3>No contracts</h3><p>Month to month. If it doesn't book jobs that pay for itself many times over, cancel.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVE DEMO: WEBSITE CHAT ============ -->
 <section class="demo" id="demo">
   <div class="wrap">
-    <p class="eyebrow pulse">● Live interactive demo</p>
+    <p class="eyebrow pulse">● Live demo — website chat</p>
     <h2>Don't take our word for it.<br>Take it for a spin.</h2>
     <p class="section-sub dark">This is what your customer experiences at 11 PM on a site running agenticrx. Type like you're the homeowner — the receipt fills in live.</p>
     <div class="demo-grid">
@@ -277,7 +461,228 @@
   </div>
 </footer>
 
+<div class="sticky-cta"><a class="btn btn-wide" href="#audit">Book my free walkthrough</a></div>
+
 <script>window.DEMO_CONFIG = { company: "Sample Heating & Air", botName: "Ava" };</script>
 <script src="script.js"></script>
+<script>
+/* ============ DEMO 1: missed-call text-back (auto-plays on scroll) ============ */
+(function(){
+var chat=document.getElementById('tbChat'),
+    ownerList=document.getElementById('tbOwner'),
+    ownerEmpty=document.getElementById('tbOwnerEmpty'),
+    runId=0, played=false;
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function mk(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
+function scrollChat(){chat.scrollTop=chat.scrollHeight}
+function addSys(html,cls){chat.appendChild(mk('<div class="sms-sys'+(cls?' '+cls:'')+'">'+html+'</div>'));scrollChat()}
+function addMsg(who,text){
+  var badge=who==='ai'?'<span class="ai-badge">AI</span>':'';
+  chat.appendChild(mk('<div class="sms-row '+who+'">'+badge+'<div class="sms-bubble">'+text+'</div></div>'));
+  scrollChat();
+}
+function addCard(){
+  chat.appendChild(mk('<div class="sms-card">✅ <strong>Booked — No-cool diagnostic</strong><br>Tomorrow 8–10 AM · 1420 Peachtree Hills Ave<br><span class="sms-card-sub">Confirmation text sent to customer</span></div>'));
+  scrollChat();
+}
+function ownerItem(html){ownerEmpty.style.display='none';ownerList.appendChild(mk('<li>'+html+'</li>'))}
+async function runScript(id){
+  var pill=mk('<div class="sms-sys timer">agenticrx responding in <strong id="tbCd">8</strong>s…</div>');
+  chat.appendChild(pill);scrollChat();
+  for(var s=7;s>=0;s--){
+    await sleep(900);if(id!==runId)return;
+    var n=document.getElementById('tbCd');if(n)n.textContent=s;
+  }
+  if(id!==runId)return;pill.remove();
+  addMsg('ai','Hi, this is Johnson Heating &amp; Air — sorry we missed you! Is this about a repair or a new install?');
+  ownerItem('🔔 <strong>Lead captured</strong> — (404) 555-0132 texted back automatically at 9:42 PM');
+  await sleep(1900);if(id!==runId)return;
+  addMsg('me','AC stopped cooling, house is 84 degrees');
+  await sleep(1700);if(id!==runId)return;
+  addMsg('ai','Got it — a no-cool call. I can get a tech out first thing tomorrow. What&rsquo;s the service address?');
+  await sleep(1900);if(id!==runId)return;
+  addMsg('me','1420 Peachtree Hills Ave');
+  await sleep(1700);if(id!==runId)return;
+  addMsg('ai','You&rsquo;re booked: <strong>tomorrow 8–10 AM</strong>. The tech will text when en route. Anything else I can help with?');
+  ownerItem('📅 <strong>Job booked</strong> — no-cool diagnostic, tomorrow 8–10 AM');
+  ownerItem('💰 <strong>Est. value</strong> — ~$350 diagnostic');
+  await sleep(1900);if(id!==runId)return;
+  addMsg('me','That&rsquo;s it, thanks');
+  await sleep(1500);if(id!==runId)return;
+  addMsg('ai','You&rsquo;re welcome! We&rsquo;ll see you in the morning.');
+  addCard();
+  ownerItem('⏱ <strong>Time to book</strong> — 47 seconds from missed call');
+  ownerItem('😴 <strong>You</strong> — asleep. Zero effort.');
+}
+function startDemo(){
+  runId++;var id=runId;
+  chat.innerHTML='';ownerList.innerHTML='';
+  ownerEmpty=mk('<li class="dim">Nothing yet — the demo fills this in live…</li>');
+  ownerList.appendChild(ownerEmpty);
+  (async function(){
+    addSys('📵 Missed call · (404) 555-0132 · 9:42 PM');
+    await sleep(1300);if(id!==runId)return;
+    await runScript(id);
+  })();
+}
+document.getElementById('tbReplay').addEventListener('click',startDemo);
+var io2=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting&&!played){played=true;startDemo();io2.disconnect()}
+  });
+},{threshold:0.25});
+io2.observe(document.getElementById('textback'));
+})();
+
+/* ============ DEMO 2: AI voice receptionist (tap to answer) ============ */
+(function(){
+var CALL=[
+  {who:'ava',label:'Ava',text:"Thanks for calling Johnson Heating & Air, this is Ava. How can I help?"},
+  {who:'caller',label:'Caller',text:"Hi, my furnace is making a banging noise and there's a burning smell."},
+  {who:'ava',label:'Ava',text:"Thanks for letting me know. Quick safety check first — if you smell gas, please step outside right now and call 911. Does it smell like gas, or more like dust burning off?"},
+  {who:'caller',label:'Caller',text:"More like dust, I think. No gas smell."},
+  {who:'ava',label:'Ava',text:"Good — that's common when the heat kicks on after a while. Still, a banging furnace is worth a look today. I have tomorrow 9–11 AM or 1–3 PM — which works better?"},
+  {who:'caller',label:'Caller',text:"9 to 11 works. I'm Dana Whitfield, 88 Lanier Ridge Dr."},
+  {who:'ava',label:'Ava',text:"Perfect, Dana — you're booked tomorrow 9–11 AM at 88 Lanier Ridge Dr for a furnace check. I'll text a confirmation, and the tech will call when en route. Anything else?"},
+  {who:'caller',label:'Caller',text:"That's everything. Thanks!"},
+  {who:'ava',label:'Ava',text:"You're welcome! Talk soon."}
+];
+var RECEIPT=[
+  '📞 <strong>Call answered</strong> — 2.4 seconds, Sunday 2:13 AM',
+  '⚠️ <strong>Safety triage done</strong> — gas smell ruled out before booking',
+  '📅 <strong>Job booked</strong> — furnace check, tomorrow 9–11 AM',
+  '📝 <strong>Summary sent</strong> — recording + transcript to owner'
+];
+var idle=document.getElementById('callIdle'),
+    active=document.getElementById('callActive'),
+    summary=document.getElementById('callSummary'),
+    transcript=document.getElementById('transcript'),
+    timerEl=document.getElementById('callTimer'),
+    receipt=document.getElementById('callReceipt'),
+    replayBtn=document.getElementById('callReplay'),
+    runId=0, timerInt=null;
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+async function typeLine(id,line){
+  var wrap=document.createElement('div');
+  wrap.className='tline '+line.who;
+  wrap.innerHTML='<span class="who">'+line.label+'</span><span class="txt typing-caret"></span>';
+  transcript.appendChild(wrap);
+  transcript.scrollTop=transcript.scrollHeight;
+  var txtEl=wrap.querySelector('.txt'),full=line.text;
+  for(var i=0;i<full.length;i++){
+    await sleep(16);if(id!==runId)return;
+    txtEl.textContent=full.slice(0,i+1);
+    if(i%6===0)transcript.scrollTop=transcript.scrollHeight;
+  }
+  txtEl.classList.remove('typing-caret');
+}
+function addReceipt(html){
+  if(receipt.querySelector('.dim'))receipt.innerHTML='';
+  var li=document.createElement('li');li.innerHTML=html;receipt.appendChild(li);
+}
+async function playCall(){
+  runId++;var id=runId;
+  idle.style.display='none';summary.style.display='none';replayBtn.style.display='none';
+  active.style.display='block';transcript.innerHTML='';receipt.innerHTML='<li class="dim">Listening…</li>';
+  var secs=0;timerEl.textContent='00:00';
+  clearInterval(timerInt);
+  timerInt=setInterval(function(){secs++;timerEl.textContent=fmt(secs)},1000);
+  await sleep(900);if(id!==runId)return;
+  for(var i=0;i<CALL.length;i++){
+    await typeLine(id,CALL[i]);if(id!==runId)return;
+    if(i<RECEIPT.length)addReceipt(RECEIPT[i]);
+    await sleep(650);if(id!==runId)return;
+  }
+  clearInterval(timerInt);
+  await sleep(700);if(id!==runId)return;
+  active.style.display='none';summary.style.display='block';
+  replayBtn.style.display='inline-block';
+}
+document.getElementById('answerBtn').addEventListener('click',playCall);
+replayBtn.addEventListener('click',playCall);
+})();
+
+/* ============ DEMO 3: review engine (click-through) ============ */
+(function(){
+var pills=document.querySelectorAll('#rePills .re-pill'),
+    rated=false;
+function showStage(n){
+  document.querySelectorAll('.re-stage').forEach(function(s){s.classList.remove('on')});
+  document.getElementById('stage'+n).classList.add('on');
+  pills.forEach(function(p){
+    var pn=parseInt(p.getAttribute('data-stage'),10);
+    p.classList.toggle('active',pn===n);
+    if(pn<n)p.classList.add('done');else if(pn>n)p.classList.remove('done');
+  });
+}
+pills.forEach(function(p){
+  p.addEventListener('click',function(){showStage(parseInt(p.getAttribute('data-stage'),10))});
+});
+document.getElementById('completeJob').addEventListener('click',function(){
+  this.textContent='✓ Job completed — ask scheduled';
+  this.disabled=true;this.style.opacity='.75';this.style.cursor='default';
+  pills[0].classList.add('done');
+  setTimeout(function(){showStage(2)},900);
+});
+function mk(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
+function addNote(html){
+  var r=document.getElementById('askReceipt');
+  if(r.querySelector('.dim'))r.innerHTML='';
+  r.appendChild(mk('<li>'+html+'</li>'));
+}
+document.querySelectorAll('#starRow button').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    if(rated)return;rated=true;
+    var s=parseInt(btn.getAttribute('data-stars'),10);
+    btn.classList.add('picked');
+    document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=true});
+    var res=document.getElementById('askResult');
+    var thread=document.getElementById('askThread');
+    thread.appendChild(mk('<div class="re-bubble me">'+s+' star'+(s>1?'s':'')+'</div>'));
+    setTimeout(function(){
+      if(s>=4){
+        thread.appendChild(mk('<div class="re-bubble bot">Glad to hear it! Would you mind sharing that on Google? It takes 20 seconds:</div>'));
+        var g=mk('<div style="align-self:flex-start;animation:pop .25s ease"><button class="gbtn" id="googleBtn">⭐ Review on Google</button></div>');
+        thread.appendChild(g);
+        document.getElementById('googleBtn').addEventListener('click',function(){
+          this.disabled=true;this.textContent='Opening Google…';
+          var self=this;
+          setTimeout(function(){
+            res.appendChild(mk('<div class="re-success">✅ <strong>Review posted.</strong> Thanks for helping Johnson Heating &amp; Air grow!</div>'));
+            addNote('⭐ <strong>'+s+'-star review posted</strong> to Google — reputation +1');
+            addNote('📈 <strong>Ask-to-review rate</strong> — tracked per tech, per job');
+            pills[1].classList.add('done');
+            self.textContent='✓ Done';
+          },900);
+        });
+        addNote('😊 <strong>Happy customer</strong> ('+s+' stars) — routed to Google');
+      }else{
+        thread.appendChild(mk('<div class="re-bubble bot">We&rsquo;re sorry it wasn&rsquo;t 5 stars. The owner will call you personally within the hour to make it right.</div>'));
+        setTimeout(function(){
+          res.appendChild(mk('<div class="re-private">🔒 <strong>Negative feedback kept private.</strong> Owner alerted — no public review link sent.</div>'));
+          addNote('🔒 <strong>'+s+'-star feedback kept private</strong> — owner alerted instantly');
+          addNote('📞 <strong>Save in progress</strong> — owner calls within the hour');
+          pills[1].classList.add('done');
+        },900);
+      }
+    },800);
+  });
+});
+document.getElementById('askReset').addEventListener('click',function(){
+  rated=false;
+  document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=false;b.classList.remove('picked')});
+  document.getElementById('askResult').innerHTML='';
+  var thread=document.getElementById('askThread');
+  thread.querySelectorAll('.re-bubble.me').forEach(function(b){b.remove()});
+  var extra=thread.querySelectorAll('.re-bubble.bot');
+  for(var i=1;i<extra.length;i++)extra[i].remove();
+  var gb=thread.querySelector('.gbtn');
+  if(gb)gb.parentElement.remove();
+  document.getElementById('askReceipt').innerHTML='<li class="dim">Pick a star rating — see the two paths…</li>';
+  pills[1].classList.remove('done');
+});
+})();
+</script>
 </body>
 </html>
