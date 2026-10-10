@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Solutions Heating &amp; Cooling (3.0/5) &mdash; agenticrx</title>
+<meta name="description" content="agenticrx audited heatandacsolutions.com: 3.0/5. The findings, and what the fixed version looks like &mdash; live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1b57a6;--teal:#b57e00;--orange:#ff5a1f;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Poppins',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#3a1c08;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#3a1c08;font-weight:800}
+  /* header */
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block;}
+  .logo-word{font-size:1.3rem;font-weight:900;color:var(--navy);letter-spacing:-.01em;text-decoration:none;line-height:1.1}
+  .logo-word small{display:block;font-size:.68rem;font-weight:700;color:var(--teal);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Poppins',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  /* hero */
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  /* scorecard */
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  /* demo */
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#fff;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  /* reviews */
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  /* cta */
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#eaf3f8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#dbe7ee}
+  /* footer */
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px;}
+  .foot-word{font-size:1.05rem;font-weight:900;color:#fff;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">&#128203; WEBSITE AUDIT &mdash; built by <a href="../">agenticrx</a> for <strong>Solutions Heating &amp; Cooling</strong> &middot; Score: 3.0/5 &middot; <a href="../">&larr; Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/png;base64,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" alt="Solutions Heating &amp; Cooling"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+14347710977">&#128222; (434) 771-0977</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded &middot; Lynchburg, VA</p>
+    <h1>We audited heatandacsolutions.com. <span class="grade">Here&rsquo;s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.0<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A 5.0-rated Halifax/Lynchburg shop with real online booking — showing a different phone number than the one customers call.</p>
+    </div>
+    <div class="audit-meta">
+      <span>&#128269; 139 HVAC sites audited across GA &amp; FL</span>
+      <span>&#128201; 35 scored under 3.5</span>
+      <span>&#129302; 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website &mdash; not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on heatandacsolutions.com &mdash; and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">&#128308; Costing you jobs</span>
+        <h3>Your site shows a different phone number</h3>
+        <p>The website lists <strong>(434) 404-4461</strong> — not the <strong>(434) 771-0977</strong> customers are given. Two numbers, one business: every mismatch costs trust and jobs.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One number everywhere on the site, with missed-call text-back catching anything the line misses.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>Booking exists — answering doesn’t</h3>
+        <p>Housecall Pro online booking takes requests around the clock, but there is <strong>no live chat and no AI answering</strong>. After-hours requests queue until morning.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, books the slot, and texts a confirmation — overnight, weekends, holidays.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>5.0 stars, 780 ratings — visible to Google, invisible to humans</h3>
+        <p>The site&rsquo;s own markup carries a <strong>5.0-star aggregate rating (780 ratings)</strong> — but the homepage shows no review feed, no quotes, no stars.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A live review feed with real names and stars, auto-replies, and post-job review requests by text.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>“Free Online Quote” = a long form</h3>
+        <p>The quote funnel is a <strong>multi-field form</strong> — no instant answer, no conversational path, no estimate until someone calls back.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat-based quote capture — address, system age, preferred time — with instant acknowledgment and a booked slot.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>“Same-Day Service Guaranteed” — via form submission</h3>
+        <p>Same-day service is promised, but claiming it means <strong>submitting a form and waiting</strong>. The guarantee deserves an instant path.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava confirms the same-day slot in the chat itself — the guarantee, kept in real time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">&#9679; Live demo &mdash; go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is heatandacsolutions.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you&rsquo;re the homeowner with no heat.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>&#128736; Solutions Heating &amp; Cooling</span><span class="demo-live">&#9679; AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message&hellip;" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">&#10148;</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting &mdash; this receipt fills in live&hellip;</li>
+        </ul>
+        <div class="demo-note">Trained on Solutions Heating &amp; Cooling&rsquo;s real services &mdash; heating and cooling, duct cleaning, ductless systems, waterproofing, and 24/7 emergency repair &mdash; and the Lynchburg, VA service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The rating exists.<br>Humans can&rsquo;t see it.</h2>
+    <p class="section-sub">Carried in the site&rsquo;s own page markup — the same proof the fixed homepage would showcase.</p>
+    <div class="rev-badge">
+      <div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <small>via heatandacsolutions.com&rsquo;s own page markup</small>
+      </div>
+      <div><strong>5.0</strong><small>average &middot; 780 ratings</small></div>
+    </div>
+    <p class="rev-note">Aggregate rating in the site&rsquo;s own markup (5.0/5, 780 ratings) — but no reviews are displayed on the homepage. No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We&rsquo;ll walk through every finding above and show you exactly what the rebuilt site does &mdash; then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20%E2%80%94%20Solutions%20Heating%20%26%20Cooling%20audit">Book a 15-minute walkthrough &rarr;</a>
+    </div>
+    <p class="disclosure">Interactive concept &mdash; not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info &copy; Solutions Heating &amp; Cooling (heatandacsolutions.com) &middot; Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/png;base64,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" alt="Solutions Heating &amp; Cooling">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Solutions Heating &amp; Cooling &middot; Lynchburg, VA &middot; <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Solutions Heating & Cooling", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
