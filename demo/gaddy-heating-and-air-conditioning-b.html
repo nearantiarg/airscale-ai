@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Gaddy Heating and Air Conditioning (2.9/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited gaddyair.com: 2.9/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1F3A54;--teal:#0170B9;--orange:#F26B1D;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Open Sans',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#ffffff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .wordmark{font-weight:900;font-size:1.25rem;letter-spacing:.04em;color:#1F3A54;text-decoration:none;line-height:1.1}
+  .wordmark small{display:block;font-size:.62rem;font-weight:700;letter-spacing:.28em;color:#0170B9}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:#1F3A54;font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Open Sans',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:#1F3A54;cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.05),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f6;border:1px solid #d7dee5;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f4f8fa;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#8fe3b0;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#eef4f8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#d7e2ea}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;;border-radius:10px;padding:6px 12px}
+  .foot-wordmark{font-weight:900;font-size:1.05rem;letter-spacing:.05em;color:#fff;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#ffffff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Gaddy Heating and Air Conditioning</strong> · Score: 2.9/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" style="text-decoration:none"><img class="logo-img" src="data:image/webp;base64,UklGRtgcAABXRUJQVlA4WAoAAAAwAAAArwAAlQAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZBTFBIXg4AAAnwh23bK6XZ/x0uWYqMkjGCgOjEeWyQxBJRqSmYiKZgGawR4yApikQ0TUFfY8feYotRwN6JaDBKEsmTgEoeMNWaghJBmgbBQXBw8ccapmWxtvfPiJgAHNt1Ulgn5I8A7pcCD7CyDZ1dgZZwbU8GqrD/2UURT1vsKw+NioqKirY2Kiqwb9++fZ9++umo4x+og2Q9zrukvxrw6oMTtx6kBhS81wfLR3gpUdkZp2rrTCO+WzX7+Pm0ce6Kw+xcZ1py4Uza8vlTXwmUh4QEejnAa11HQD/54E+fdFWasuhCJ2odGDF59sKtmedycnJyvv/+XO6ZT+YvT9uTtjzE3d2ra1cvwYogPZb18TvdFYYbb1c5T9OCi4uLiyAI3SLiF86eHD15dvZPP/3y88/XjxhfCQzs1csd6wf6KA05t5zPjq30+o7u7u6G1C+ysn745qfl7hUNVrTpoDgPTQpgZQt3d3df/eyldQ+scNEqjoQCTx2KtTrFsack/etcFrWx5inluSeTko41kRsTGRnT8C/DxcWaIOW5BNTHJk+IySosLcyKeSnt1KnrLv826328FGdjIaXj0jCnDQ1+IXhoWh0I90qVxKub4twY/eFLGcjLrpUhly69cExBXPooDhdXX8Lma6NjfpMkSRl4SnnsnBb6bEi8Qjzp2jxQfe5/+/KVoddjzQRI1cZd5Urg5dtswCXj4GJ7FCeNHz8+3yH1knUufZoRuJRnj+nJhw4dGvOl3RqgtWAdAc2KsKbGtuILADcMI3fV2McF259sVqRzhhobavKnl8moyzBOqrGLPfVezQl8nWxVw6aBIRk0nZHsJL7dmhfOWFM4+t1rZqxNKXaOViHNTHGxpYb8D4MzsLHsc+cguJkpW1JDTX76x4HPri7D5jXpzhHm1bywbeCrA1+MWnSxDjveGPOl/Rqt6fhyM8O1U9eqsbe01l6NtLCGyObGsb/m26MRWmB9WFcVUbak0Q4tsLnjaBVBxnrbGrGy0RLjRBVB0lmbWljTook+z6uJuthCW+zaapqgIrgxq9E+DVbxWj81QcZK+7hY1ypaVbDgS7vYOrGrqqgb/+GXhVY02qfjDFVB9epXgtObamEfYp5SFUDZmodN2Fs7VW3w298O4mUvtXE/x1F6X7UhXXCU0EVt8Iuj6KQ6/ix3lOoUHjhMozakh/cc1UZt0ApHd1Mdbbwd5aM6uukd1clVbfQUHNX5CbXxAo7W+qkM9wCH8bzKePpJxw1xVRchguOeDFMXQTheiFYVgrcTMKKrmmj5mDNo31AVOOU0LxXxmIdTeI9SEd06OgVGV/XQU3COwP7qoQtyyWGMVg+WhQaHDXFXDZkSIOHiML9BquHibAuOdwlRDawemZWHM0YIqoGMofNcnOEpnXqAqTij9gUV4RXqFAxWEV3bO4mXahBwUt8A1SBVPXAOnlcN/H7NSbqpB2mbk3ipByG90Dn0XVWDVL3FOXwXCWoB9hQ6BZMGq4eyNOdgqqAaOFblHEGe6uHSSefw7a0e2O0cDFAROTnO4asi6lY7h4+KICOuuLjYcV5qgq0BAWcdpzLLyvh/73uqq1x1pec4rEFtXHo1KMtBd9QG1f9LdFCt6oC7xY65pz6kB3cdU6w+uHvPMfdUiLnQMTdVCJcd0lCqRr5zSO1dNXIxxxE3VUndwgYH3HmgRvh6RoP9/jarEraGfWu3y6hTIS8irthOv6gUCfPWF/fYxXxHpcivvRHTYIcHZSoG0nLs8FWRqnHF9l8/kFRN3Q82/TrkBuo2w2zL1jJU7oVcW0pQvWds8Vc90kmzDUNd1Q5Xcm3o0Er1SEttuPNA9XA20bofzEohuMs1iiStjPnVUrWZ6kMooqdh0/Gf/vjjjyunj2yYadQpDVLaoMRqKE6MGJn48kUl8Ey+eGx6JNevF9eHjZ6xLjVQcaBuecim+QHL804tP4cCRubN6Uzq4N5hYc8EDlpaCZXWuQpWCO6inUR30S4a0YLgLgBcendxGaK7gAK+fVAPc6dkm4CKgnnP/US1Va5fT7Giw7y9B/ak7DmQmZl5YsN844Cmun+690BKyp5DmZmZRza8b9BZGn8880DKnkMn53WQGTMPpRw4Pq+jAgzb5AYpy7AscWVqZQurokPfc23qzqqVgdEx0eOH9Ok3bMbC1K++j9VY+GP2saiYmOixIf0GjZ6x+ljBiUjZkfltxsdEj/VPuSPL/HFsTNjqTeX/Pu1aEapWYW1efgdrxOn4RzclVRRkA0T7+fedfgVt2I4zfjJz0ee3gMqQrt0Gzi3BI/LEDi1UF7xeCOh7S7I7fagckl0k/fvG+gMXrlvF53esGdUPjK5NAI2ym6bqK1uePwqEntJhsQ64XWSuzl/20o9A7GeuQGkcwEKtLCKSuVdRwjcACiTrdly0QpwKhEZaY22FMRvQfyrKHtUDtAS4MrIQGP0RwOndgP8MQPyI7FSUUPeUrATrJakpISwMYJpgF0yJtcCwUTLrby0HmKUDmF0IzPKDUeG1iWZF6KaR1dpgrfSRWAmERdiHvC8AomyTDhcC2jGy0mWA9kNcE1mXhyK2F2VNanSeGouenoJMCB5WOKkKxDjBPsIxWW+tTVSdAhgkY1c2MCkwul/hapTUzVKXt3fmnDlz8kzOllEtZdJMTp7OAiID7SP9aQY8fWzjF5mvKDPPrQVxWxLLqpRB+Mcs62VBuJ4cfz80NDy0dVyqWRb4mnk/qQDvCXYRKkyAC7YLRbLGVjLO7wD66X/aizJKt02y3qJMkkxFRwHOVZiRv+2WkcfpLGBEoF0kTS3wj8k2Cfk/JgusqQTYW6cQ/HlD9kw3GSA8ktVh0c/AH+Hh4b8D4pt2oVELlNy2TWgnK8TyrfOyb1FK8+cy7dgmpJayR5amaZlz9uzZ6QAGP7v4uAHfmm2TfGVfNiHVA2aTYpBWCfCWzhJmmWXd61RVys2AdpqlOuv6A1V7afpRE4QCud80QWuUtShR1vlTV0tWGz3ME3r07t27x0Qz8LrOgqtMsCSMBNZdtcKjCd0LYH7f3JTi7lgKMGyXp4V6K7yN5JyuKi0trTqSA3gYLQgyD0vzwmB3MvKWrYG2bhbENR7wUR5N1ysN896pBMb+N1YnIPaxYqKebVjeBvCWt0wj+8hfFET/HQth8ztmC61cAe08T0EQw78YTdX09Vjprjhsf25zIfjv+PmniwUzAPMlRP+EZOjjp7FwoRLovGuAVhs+WBb2c0HBjcux5EbF1wGIusl6gOmXCwr+OhtRdfSlLTQpeBvCAPGDATpBObgS/8K45TlX7vt08SnM2/lOSCod3hiwfePGTpO7WPDcv3Hz5s3lxoiIiSc3bty8N+sijX/tnTUwPB2LGkP/zRs3ph7M+rtl/eXN74SMKaDpNuNfObRx6cbNGA1tFASKDic+27d/QEDvXkFvbs83U5o4KT4hYUridQsFCQnx8fGT4g8ffnNKQkL8pKFBffo/O2l9vhnLVevfjE9ImDJhaP8+QUPjt1/BWtP6N6ckzE+IfzN+vUlR5OaKoqJSMzZKFv79Es49wGhw9TMatVqjMS7OE8RgMCQYjXEJugFGg6gbABqDQYPGkJQUp7PgGgyCLgA0BoM23GiMi9RYEoOBAKNBozMaE8I1FryNSUkGEc/YpCQ/0A0AjcGgDTcaYw2eCOHGodrYOKMxwehtMAaA/8ykWA0E6EBnDHc1GAcQoAOdMVxAF5uUFOsqpo6qK101w2Sa8anQqQOE7dMJemK3azv66lL9zP5fjcH0/LgHum8mnD8/IMjC8J1aJP/TBkzPT65umxpeP/f7QAsv7tMBqSMePFz8punMRlnwubDzV8dp/f6rP+91fgy+XxkwDZxQTWo4s74JljxSA9y9xO0J93U1o1JNxGaWnI//Rse4037cmfqfh4NT22E47c/tqX2lYbn6rKsR+n/M9Z7uNb+bzabivcl/w0T9GGnNhvONKXPzTJhAe3gmhX9IqwLfzc6ekiUTov1HAx7HZlJ0Waokd+fYLts0sgn6MVBRWyXV1NzZkdcfEFeJ07LTE2pX+iRnzyrcokV7bCZ/lEg15O0c036neIuqW8t2VBTtXGK6V3vHe+u3h7PjAheD/1fhppvlUgn3wT8r3HznivjZzXn56ZOLMA1esaazFmq9PklxI9iUMkcLoEUCeDw7d11SQz1ht6qEgMhuIhD1y8n3XHn8dO66+cjdKMrv1wEILkmdqcVifY+3mQp0GHTTDKVuzxSCdM6jG6ez1yW3BBApPevvI4GEmxtIAAPF2/BL1UA4zBeRNeW0A8SDnImsfti9czGa8CFd0Jx9791bgFvZ9A9reKt3W4/RCFALYIaKoSeXJpoo9+oodToxygxMCmjrHwnXXzu5cE4ZUAvmqofA1P7tOo+1RH1oIEDdvSdEoLZG7wZtqHC9/crROR/fAVpAQ+0dAXktlkvoDlAKxyPunhgKNcATuSPLTgTWmMy+mF4+0QPxblVNO08Q2/tqOgY8s+lQ4cfeUpdWbqBBoHVbU1RqJ9gsLtaW8A8w7PHPDlYlie16VkVt9nADdEJ48JJSCOi288Ct/9PgBniUxtxK94Oq5Z1Xe2qHiWu1CaJu+O6i9r51r2/u1BrQCwERK0yPIQKerYDH3Nr8eHRUOK9qt9LhmSsRP3UGDY3gUzAkR8+traFxItz2yXqk7XL+orf2tx/eT/J99rvj6cuKn9PeyPIBlyx3batSnXnK3CJ2RLVf8kbWJdCGnUrfvu7+MP70NscvLaFLVp85E+esAc2r3x9NX1j8qmdWrbbDj7c7vlIwzRvWjPPbsubluh3jBi76aF2c0L5YZ47/uBifLP2imIWLcM/SaNCdvu2N672sbpJx1awlw4Yf8XxQorkSkXJPNGX5aO83ul6N3Iw0e9aIRfqj5VZQOCCEDAAAsDkAnQEqsACWAD5tMpVHpCMiISTzzEiADYlN26voJtfpPcOZ67p5z9pfq/4X6Io7XqV7o/tfuc7UvmAfqT0rvMB+yf67e0B+wHuA/Zj2AP5v/fP//2C/oD/tb6aHsj/t1+3ntO5sH/gO4P/Xfjf57+Yr5CgdaAv5/vl4ATqtjo/xvQn6/+aF6K/8vwoPqv+n9gD+g/2X/lf332PM671n7A37Aem56+f3F9jL9av/+aZ8BK62pMkE+8k41TxRRlsovjCK19fnXSBBzMP8qh4jku2M8iiCi0boms2EFc0k0gdJ95QXKZjUO5ibAxLzfIksEWO1P6v6k0/h46uZuyRTE49iEwceT8V3jPg2TU7etLxvCz+3+TbJLxCJLRvNaISATj2HMqaceD3n/xCOgTgck8XS7vucc5+HDxiwQVhSanhlGYK/nPgjcgrR66P/H3oTGy4P5UZ4FS9kELo51T8uFG0kNBKxonAvzi4FNIZNMz0FyIFJTl59XtjWYHHxwAzAJyQL6oUonmGwXAz/5jFSGKoxTCeCd+y9YbjUwztGH7dY9LVKtGZMxv/L8wXcgcoP1JrEM41K0ofif9OqF9qoQ6pW+bbH6HnJ/lzw/3m7IcNmNS4Y3oAA/vz4vLRfG2xTGY7wgHuuJMKVrW668baXBxgmrWdgT9J/MY/e73yhHTI+EX9iH0WBeC/iQ8kARgwPQjTZQmaPpTJDEpiSfjbsGz0lBuNwcAYyBx1EC7nBIL6wA6lB2NwtBW2Mu8Wj7FG3IrztlKBAuWx07hwXrNiagRhCGh3DSyORnAUnMjGsOrUWaMlvSUENfsOpi/gvCMFptGmhoiuP+P9/MHS6kHQRyYe5jEn7m7JjtaFvGzbc6T2wps5Jq0ejVFU45bQXDlxHV+cy3/e2hU8VRT9dY5qdq93ZZagCZAA9ghVTpcfPvZ+yFSnkOgiV4+M/ss+KLAWFeM++UT2eCfM4cLeUdD8t0TSYQv/9JtVBE4mxl//y69RjFDfnq3CS97j//za//+a/v//NP8DSEAEGJ5TcuRm5FyyzBztBMKkv0/IgOH8rKgqwOLF+EI0T9fc1/t8m8E1hx+cFXht+RYZYmje/42u3oCT7cBUk97WFB5ztWbji3Uw/j03Letxy0zZ6m+BrTvtVV0PWrP+TPx14kX+Q1GgB/280lE2KiDSQBg2COJZet/6H0/3Z/Zog2ucDkEYl7grw2q38mvhLEmRlPC3EIOZgKtWytr1W7oFsSdB6XmjpMX08A0+yiloPTpl03ua78PUvr8maqw4G98CdOHu/Mx6PBFNcEIT+xCMq7gjUDCgTRnDd6OOIiPRl5B670bAZnRspbeXLueS2vIdXntyrusPEv218Ye2saLhT87b/yPux8D3rMmWqF6oJYXQ/zwt3qGqxdWSeSdy+UPyZJi9k9YI/1bbPkQpY/jg4sSAACgQlEJaS5j1LIQveOAxXfQtNnewJEShEips2iC+3E47VPQUFeDUfijWlqzG656dZNoNDzwg38PB1N2eU+ui3nWkgW/X5zQp4zFYx9dJnicVouCRXdwVIgTBVQZnTyGUTD56fR/+CIFxQaPdWIJL5mwiW/uwAzM9HfQQuHUW0yp9xKCGREETbGaMJ4KAPLMPYxdbvvYf97AZS8yVVERd30LTEKKS/Qo/pO+d3s6IhRLFANmQWcn+uIVczDPyscEkrujlXKFMpn/YGnTL/2GTXkprggyNjPcxxzb5mp03YXptLC/uI/1f0jp0IgIIeVAyVFjyeFaFBiQBPaWHczudPf5iABoRQKGEfdtzXuMvOnt2NWJ+sJzPhwMWqTJm3+GIMbXjD74NOlW1CJQcf6cLbXvzuvz1jx5lT3H4WsuhtkrwncULtOJ9JjFoWeeYH+6E3ScTFvWhhRTPwTSKHtQXKuYE2uh7io1zUh4rR0w9LNk5ghqTtgPVJYKXbyUjA2XEenFza4Il1WSVNgXWQGdBkCY0IEMQwho23zyfyZ5SZjB8fGuLqZ12StNwOBLPG1W7+QwQMq4NghPIEi/vsQH/LwQHF238/eBBjfmEG1p28c8UnZJYaK7TIgQU+ri9z76d1blx0cjvn6EnGWQNn8KfAJwTLWSvPCf21m6sSfn8HtWyHzATaDwGjeOmsAtmzjkUnFyqfa/er/7ULWzp6NvJDqsUzbbF6fOvpvXywymUYsq3AMYL6Tlj9iQ02gkGYDZAx31m1hSZ5IRelQL7gMz+DICqzbWfAJX6Bt9E2EoGYTFdPx+94knQn923QDv0I8bs3qp5a8R7U1TAnRNs2D6EmgeZEPDTLmcegjamPsp6cbbJR3iR4+Uqdkqw3XZU2erkOS5VLgu49tvbdSgOKpJNCpmJPhYCdvPQ0kIL94IFo2hKpE6V01vJoZ3JN8Jjf/RXcX0/mjT+NLx4l5bC2H48/+E+lP/O0W2xd97uNqVCZYwwzy0S6Af1usPqOCCjqpDuaAqy4hgzToYi9O+RJr9z8TWtolsXxkBQjCjkdQYCawIsln30ycL9olddqwYSADTCrDgpLA9BDEF+Juf5lukwV1G7euOZIJf4UEgLeMKDuz1EAGCQM320DDdsWKfLels+qLdf2qNkNPJ/Tvw+v9PDYbiC0YwmkH1bj2pCsp5TMzXC3niHMfO5DfgfMfK3Cc8nySXOs6lbArdBEXyfv7L/s+7QwBsEZOau+wZORmOAbjJHSYjyaMlIfrwbqgGXMh/yvKmUKOFnPMxpoc6zp1tVd49SiasX7A1rpx7inbvCKY0d4TY43D9Rla7XunuogeinX7lCyaW6aTOyL0/GVy5SRntuE0VC+RvZ9LcNXIwLW/+rwC9EGaMUc+lNr6WES7KuXN4lR6USz9phtsOkC+3rJkp9ICNdRwPnre82RCmAias2vp6gHz8q0/2kYn6/8b36UxlHPLstealGgO/kpvCtxXoXK2HKYjgqwFXq3CtC9qSSRCCxG+0WhB4zVYJLuzvzINiNALlrDhkoOcqbPR+zdC/HdMtMqReRC5X3RzUXgGo+sFUu9poaAJq5PKaYJYisWhGSqJnAxeALoQ2NqM8TDap/UVVTedgjzelH0DtuSuLvtPJj7bZ0NOdeWaPUESLcCx+bxD/IlDGKnjpTAn0Tq+b5hj8bKfc5bW/3BqyEvklfbaTB7MAHkTwh0wXChHVw32EAcYyAC72hnxW4KJwi14Yuot7aVkEjK+PH7mkMsKu7pGSUyb41hjVMSGBv1iBYoogQFLq420tc9T4652MDp9bgBaLI1oaycNIWC+5ZoJOaQl+n6ZbcTRRA7GYWz3ydjkDav1zYaAfH6jvM4gTwo4gtys1kAbvv/EOKYlJVrWihRLCA2NKv79Ydvvk/kDD7GksPrheHvhJ/W5+2ZSECcBaD2HapiZXxI2elGv1naThhGvgCyP3pHWnYdXaaOxOTxnOApt6RzlkW9N0IlHqNt0a/0Y8LPrPDqp7uOyegIRXZoCKQfWc3SYKfhaWss7pGpPDBpdn1mJ3NsHkuIDYpu+4i7WGfvIFOMDbXqYTe2oDtftQyYYY9YXC3uwLud0jw4CxLwbGJjMHXVHaU4GtABSg584ravE9frVpbncgWuDYiCdx5xpVB4qqO9swK5e263iIvAxXXeS1ilG2C38sTpbFFsaXib/YC25t1ocY41piKDYgFMVKWAlTVKYIv2zirIPiV3Mwg5tnB+nWAKdJfI8IwKezGT0CqknWjtiQftpTnrPiLzUYzi7E4vGlsy6ZV68P4K2XmaV8w50tTx3pXFDUcWTV9AP3RbKfkJFE1TYFP3A8Pf5t2LkdilPT2bYh7jrihTTqykWpue+mHa5ejkzLP+UOVdSH0c5/UZljsGF/m0io/kG+wJi+Ho8KgYC9PjMP1tGPn4a6Dt304hCYs3t2N7k0OOjYNm4XfP8xmknnap9MUQ7c4/1hpIrQhTEoo57tzhciEtBPiMGvO0GAzVFsO8J0KsoQopi+SMVLdxlGcIvUXYCNr/8A/uPb/anew3Iy1QoImPMtQ7ggdFkIklhVjr+nooAqcHI0069W2XnhuarxNhyxKHp0gipTFqxiaZqH5sUnbw3Go/Gv88hiQOtJaBXkD3vggDhROqlglnipBsBVsfP2z+3rFqiY2xMMFMe7DPLkgjQ5Boa4V1TnbDE2iY+oITzZMybSkWL+1Aw6wq9i8ALGMqyaxhcPUInIwNtAP8KWh1ECdJdUK67wAt93xm8K7K2n9kHeDuIL5NIpNxWOpytH5FiaPMlZuGUGYbAMBiKGNwAAAA" alt="Gaddy Heating and Air Conditioning"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19045801619">📞 (904) 580-1619</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Jacksonville, FL</p>
+    <h1>We audited gaddyair.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.9<small>/5</small></div>
+        <div class="score-bar"><i style="width:58%"></i></div>
+      </div>
+      <p class="verdict">A Jacksonville shop with a full service menu and a reviews page — but booking is a request form and the proof never reaches the homepage.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 700+ HVAC sites reviewed across GA, FL, AL, TN, SC &amp; NC</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on gaddyair.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>“Schedule an appointment now” opens a form</h3>
+        <p>The schedule button leads to a <strong>request form</strong> — no live calendar, no instant confirmation, no time locked in.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Real booking in chat: pick a slot, get a confirmation text, tech window the morning of.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No hours published</h3>
+        <p><strong>No office hours</strong> appear on the site. Visitors can't tell when a call gets answered versus when it goes to voicemail.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Always-on answering with honest expectations set up front — booked now, confirmed in minutes.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>The reviews page exists — the homepage hides it</h3>
+        <p>There's a Reviews page linking out to Google, but the homepage shows <strong>no star rating and no quotes</strong>. Proof is a click away from the decision.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A live review feed on the homepage and review requests texted after every completed job.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No chat, no AI — a form and a prayer</h3>
+        <p>After hours, the visitor gets a form and silence. Nobody answers, nobody confirms, nobody follows up until morning.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, captures the job details, and the office wakes up to a booked calendar.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Financing buried in the nav</h3>
+        <p>Financing and maintenance plans exist but live deep in navigation — <strong>never meeting the visitor</strong> at the moment of need.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> The fixed flow surfaces financing right when the price question comes up — in the same conversation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:#8fe3b0">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is gaddyair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with no AC.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Gaddy Heating and Air Conditioning</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Gaddy Heating and Air Conditioning's real services — AC repair and installation, heating, ductless systems and indoor air quality — and the Jacksonville service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Reviews live one click away.<br>They should live here.</h2>
+    <p class="section-sub">The site links out to Google reviews — the fixed homepage showcases them where decisions happen.</p>
+    <p class="rev-note">The site's Reviews page links to its Google profile; no rating appeared in the site's markup at build time. The fixed version displays real reviews live.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Gaddy%20Heating%20and%20Air%20Conditioning%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Gaddy Heating and Air Conditioning (gaddyair.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/webp;base64,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" alt="Gaddy Heating and Air Conditioning">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Gaddy Heating and Air Conditioning · Jacksonville, FL · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Gaddy Heating and Air Conditioning", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
