@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: HVAC Service Corporation (3.2/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited hvacservicecorp.com: 3.2/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#0B2A4A;--teal:#35B5D8;--orange:#F5820B;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#3a1c08;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#3a1c08;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block;}
+  .logo-text{font-weight:900;font-size:1.5rem;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
+  .logo-text em{font-style:normal;color:var(--orange)}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Inter',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(0,0,0,.05),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,58,93,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:#0e7d8c}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#7dffd4;font-size:.82rem;font-weight:700}
+  .demo-chat{min-height:220px;max-height:320px;overflow-y:auto;padding:18px;color:var(--ink)}
+  .demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 10px}
+  .demo-quick button{border:1px solid var(--teal);background:#f0f9fb;color:var(--navy);border-radius:999px;padding:7px 14px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit}
+  .demo-inputrow{display:flex;gap:10px;padding:12px 18px 18px}
+  .demo-inputrow input{flex:1;border:1px solid #d7e8ed;border-radius:999px;padding:12px 18px;font-size:.95rem;font-family:inherit;color:var(--ink)}
+  .demo-inputrow button{background:var(--orange);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer;flex-shrink:0}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#7dffd4}
+  .lede{color:#eaf3f8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#cfe0ea}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-text{font-weight:900;font-size:1.2rem;color:#fff;background:rgba(255,255,255,.08);border-radius:10px;padding:8px 14px}
+  .foot-text em{font-style:normal;color:var(--orange)}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.demo-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>HVAC Service Corporation</strong> · Score: 3.2/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8yIiB2aWV3Qm94PSIwIDAgMjMyIDYwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4uY2xzLTF7ZmlsbDojMjUzOGIzO30uY2xzLTJ7ZmlsbDojZjQyOTE5O308L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03Ny4yNCwyOC43MWgtNC45Nmw0LjA4LTQuMDhjLjQ5LS40OS40OS0xLjI5LDAtMS43OC0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMGwtNS44Niw1Ljg2aC0xMS4wOGMtLjIyLTEuNDEtLjc5LTIuNzEtMS42MS0zLjgxbDYuNi02LjZjLjQ5LS40OS40OS0xLjI5LDAtMS43OC0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMGwtNi42MSw2LjYxYy0xLjEtLjgxLTIuNDEtMS4zNy0zLjgyLTEuNTh2LTEwLjk0bDYtNmMuNDktLjQ5LjQ5LTEuMjksMC0xLjc4LS40OS0uNDktMS4yOS0uNDktMS43OCwwbC00LjIyLDQuMjJWMS45NWMwLS43LS41Ni0xLjI2LTEuMjYtMS4yNnMtMS4yNi41Ni0xLjI2LDEuMjZ2NC45NmwtNC4wOC00LjA4Yy0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMC0uNDkuNDktLjQ5LDEuMjksMCwxLjc4bDUuODYsNS44NnYxMS4wOGMtMS40NC4yMS0yLjc2Ljc4LTMuODcsMS42MWwtNi42NC02LjY0Yy0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMHMtLjQ5LDEuMjksMCwxLjc4bDYuNjQsNi42NGMtMS4wNSwxLjQzLTEuNjgsMy4xOS0xLjY4LDUuMDksMCw0LjM1LDMuMjYsNy45Niw3LjQ2LDguNTF2MTAuODVsLTYsNmMtLjQ5LjQ5LS40OSwxLjI5LDAsMS43OC4yNS4yNS41Ny4zNy44OS4zN3MuNjQtLjEyLjg5LS4zN2w0LjIyLTQuMjJ2NS4xYzAsLjcuNTYsMS4yNiwxLjI2LDEuMjZzMS4yNi0uNTYsMS4yNi0xLjI2di00Ljk2bDQuMDgsNC4wOGMuMjUuMjUuNTcuMzcuODkuMzdzLjY0LS4xMi44OS0uMzdjLjQ5LS40OS40OS0xLjI5LDAtMS43OGwtNS44Ni01Ljg2di0xMS4wM2MxLjM3LS4yMiwyLjYzLS43NywzLjctMS41Nmw2LjYsNi42Yy4yNS4yNS41Ny4zNy44OS4zN3MuNjQtLjEyLjg5LS4zN2MuNDktLjQ5LjQ5LTEuMjksMC0xLjc4bC02LjU5LTYuNTljLjg1LTEuMTMsMS40Mi0yLjQ4LDEuNjItMy45NGgxMC45M2w2LDZjLjI1LjI1LjU3LjM3Ljg5LjM3cy42NC0uMTIuODktLjM3Yy40OS0uNDkuNDktMS4yOSwwLTEuNzhsLTQuMjItNC4yMmg1LjFjLjcsMCwxLjI2LS41NiwxLjI2LTEuMjZzLS41Ni0xLjI2LTEuMjYtMS4yNlpNNDMuMDksMzAuMDNjMC0zLjM1LDIuNzItNi4wNyw2LjA3LTYuMDdzNi4wNywyLjcyLDYuMDcsNi4wNy0yLjQ3LDUuOC01LjU5LDYuMDVjLS4xMS0uMDMtLjIyLS4wNS0uMzMtLjA1LS4xMywwLS4yNi4wMi0uMzguMDYtMy4yMy0uMTMtNS44Mi0yLjgtNS44Mi02LjA2WiI+PC9wYXRoPgogIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQzLjg1LDM3LjM2YzAsMTEuODgtOS42MywyMS41Mi0yMS41MiwyMS41MlMuODIsNDkuMjUuODIsMzcuMzZjMC01LjI4LDEuOS0xMC4xMSw1LjA2LTEzLjg2LS4wOSwxLjU5LjM0LDUuMywxLjE2LDcuNTMsMi4xLDUuNzIsNy40NSwxMC4zLDExLjM5LDkuMzksMS44My0uNDIsMi41OS0xLjE3LDMuMTItMy4wNy4yOC0xLjAxLjI3LTIuOTQtMS4wMi00LjQ4LTEuOTEtMi4yNy0yLjgyLTMuNjQtNC40Mi01Ljc4LTIuODEtMy43NC0yLjg2LTguMS0yLjg4LTkuMjRoMGMtLjA0LTMuNDcsMS4wNy02LjA0LDEuNjktNy40MywxLjY1LTMuNzEsNS41Mi03LjExLDguNjEtOS42MS4wNCwyLjA4LjAxLDUuNDMsMS45Miw4LjcsMy40OCw1Ljk1LDcuOTcsOS4xNiw5Ljg3LDEwLjY4LDUuMTksMy45Myw4LjU0LDEwLjE2LDguNTQsMTcuMTdaIj48L3BhdGg+CiAgPHBhdGggZD0iTTg2LjUzLDguMjNoMy4yOHY3LjQ1aDMuNTF2LTcuNDVoMy4yOHYxOC4zNmgtMy4yOHYtOGgtMy41MXY4aC0zLjI4VjguMjNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTk5LjIyLDIzLjMxaDMuMjh2My4yOGgtMy4yOHYtMy4yOFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTAyLjcxLDguMjNoMy4zM2wyLjEyLDE0LjI3LDIuMTUtMTQuMjdoMy4wN2wtMy4xNywxOC4zM2gtNC4zM2wtMy4xNy0xOC4zM1oiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTEzLjYsMjMuMzFoMy4yOHYzLjI4aC0zLjI4di0zLjI4WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xMjYuMjQsMjMuMTNoLTMuNzJsLS41NSwzLjQ2aC0zLjA3bDMuMzgtMTguMzZoNC40M2wzLjQxLDE4LjM2aC0zLjMzbC0uNTUtMy40NlpNMTI1Ljc3LDIwLjNsLTEuMzktOC43My0xLjM5LDguNzNoMi43OFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTMyLjE0LDIzLjMxaDMuMjh2My4yOGgtMy4yOHYtMy4yOFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTM3LjUyLDIxLjk1di05LjA4YzAtMy4xMiwxLjctNC45LDQuODMtNC45czQuOCwxLjc4LDQuOCw0Ljl2MS42M2gtMy4xdi0xLjc4YzAtMS4yOS0uNi0xLjg5LTEuNjMtMS44OXMtMS42My42LTEuNjMsMS44OXY5LjM5YzAsMS4yOS42LDEuODksMS42MywxLjg5czEuNjMtLjYsMS42My0xLjg5di0yLjMzaDMuMXYyLjE4YzAsMy4xMi0xLjY4LDQuOS00LjgsNC45cy00LjgzLTEuNzgtNC44My00LjlaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE0OS4yNywyMy4zMWgzLjI4djMuMjhoLTMuMjh2LTMuMjhaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE1OS4wNSwyMi4wM3YtLjk0aDMuMXYxLjA1YzAsMS4yMS41OCwxLjg2LDEuNywxLjg2LDEuMDIsMCwxLjctLjYsMS43LTEuODksMC0xLjU1LS42My0yLjItMi44MS0zLjY1LTIuNzgtMS44NC0zLjY1LTMuMzgtMy42NS01LjcyLDAtMi45NCwxLjY4LTQuNzcsNC44NS00Ljc3czQuNzUsMS44NCw0Ljc1LDQuODN2LjY2aC0zLjF2LS43M2MwLTEuMjMtLjUyLTEuODktMS42My0xLjg5LTEuMDIsMC0xLjYzLjYtMS42MywxLjgxLDAsMS4zNi42OCwyLjA1LDIuODYsMy40NiwyLjgzLDEuODQsMy42MiwzLjQxLDMuNjIsNS44NSwwLDMuMDQtMS43Myw0LjktNC45Niw0LjlzLTQuODMtMS44Ni00LjgzLTQuODNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE3MC43OCw4LjIzaDguOTR2Mi45MWgtNS42N3Y0LjU0aDQuNTF2Mi45MWgtNC41MXY1LjA5aDUuNjd2Mi45MWgtOC45NFY4LjIzWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xODEuNjEsOC4yM2g0Ljg1YzMuMzMsMCw0Ljg1LDEuNDQsNC44NSw0LjQzdi45MmMwLDEuOTEtLjY4LDMuMTItMi4xMiwzLjd2LjA4YzEuNTUuNDUsMi4xNSwxLjgxLDIuMTUsNC4xNHYyLjdjMCwuOTQuMDUsMS42NS4zNywyLjM5aC0zLjMzYy0uMTgtLjUtLjI5LS43Ni0uMjktMi40MXYtMi44OWMwLTEuNzMtLjU1LTIuMzEtMi4wNy0yLjMxaC0xLjEzdjcuNjFoLTMuMjhWOC4yM1pNMTg2LjEsMTYuMDdjMS4yOSwwLDEuOTQtLjU1LDEuOTQtMS45OXYtMS4wOGMwLTEuMjktLjUtMS44Ni0xLjYzLTEuODZoLTEuNTJ2NC45M2gxLjIxWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xOTIuNjgsOC4yM2gzLjMzbDIuMTIsMTQuMjcsMi4xNS0xNC4yN2gzLjA3bC0zLjE3LDE4LjMzaC00LjMzbC0zLjE3LTE4LjMzWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0yMDUuMDMsOC4yM2gzLjI4djE4LjM2aC0zLjI4VjguMjNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTIxMC41OSwyMS45NXYtOS4wOGMwLTMuMTIsMS43LTQuOSw0LjgzLTQuOXM0LjgsMS43OCw0LjgsNC45djEuNjNoLTMuMXYtMS43OGMwLTEuMjktLjYtMS44OS0xLjYzLTEuODlzLTEuNjMuNi0xLjYzLDEuODl2OS4zOWMwLDEuMjkuNiwxLjg5LDEuNjMsMS44OXMxLjYzLS42LDEuNjMtMS44OXYtMi4zM2gzLjF2Mi4xOGMwLDMuMTItMS42OCw0LjktNC44LDQuOXMtNC44My0xLjc4LTQuODMtNC45WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0yMjIuMjQsOC4yM2g4Ljk0djIuOTFoLTUuNjd2NC41NGg0LjUxdjIuOTFoLTQuNTF2NS4wOWg1LjY3djIuOTFoLTguOTRWOC4yM1oiPjwvcGF0aD4KICA8cGF0aCBkPSJNODYuMjksNDcuMTN2LTkuMDhjMC0zLjEyLDEuNy00LjksNC44My00LjlzNC44LDEuNzgsNC44LDQuOXYxLjYzaC0zLjF2LTEuNzhjMC0xLjI5LS42LTEuODktMS42My0xLjg5cy0xLjYzLjYtMS42MywxLjg5djkuMzljMCwxLjI5LjYsMS44OSwxLjYzLDEuODlzMS42My0uNiwxLjYzLTEuODl2LTIuMzNoMy4xdjIuMThjMCwzLjEyLTEuNjgsNC45LTQuOCw0LjlzLTQuODMtMS43OC00LjgzLTQuOVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNOTcuNzUsNDcuMDh2LTguOTdjMC0zLjE1LDEuNzYtNC45Niw0Ljk2LTQuOTZzNC45OCwxLjgxLDQuOTgsNC45NnY4Ljk3YzAsMy4xMi0xLjc2LDQuOTYtNC45OCw0Ljk2cy00Ljk2LTEuODQtNC45Ni00Ljk2Wk0xMDQuNDIsNDcuMjN2LTkuMjljMC0xLjI5LS42My0xLjg5LTEuNy0xLjg5cy0xLjY4LjYtMS42OCwxLjg5djkuMjljMCwxLjI2LjYsMS44OSwxLjY4LDEuODlzMS43LS42MywxLjctMS44OVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTA5Ljk1LDMzLjQxaDQuODVjMy4zMywwLDQuODUsMS40NCw0Ljg1LDQuNDN2LjkyYzAsMS45MS0uNjgsMy4xMi0yLjEyLDMuN3YuMDhjMS41NS40NSwyLjE1LDEuODEsMi4xNSw0LjE0djIuN2MwLC45NC4wNSwxLjY1LjM3LDIuMzloLTMuMzNjLS4xOC0uNS0uMjktLjc2LS4yOS0yLjQxdi0yLjg5YzAtMS43My0uNTUtMi4zMS0yLjA3LTIuMzFoLTEuMTN2Ny42MWgtMy4yOHYtMTguMzZaTTExNC40NCw0MS4yNWMxLjI5LDAsMS45NC0uNTUsMS45NC0xLjk5di0xLjA4YzAtMS4yOS0uNS0xLjg2LTEuNjMtMS44NmgtMS41MnY0LjkzaDEuMjFaIj48L3BhdGg+CiAgPHBhdGggZD0iTTEyMi4wNCwzMy40MWg0LjgzYzMuMywwLDQuODgsMS42LDQuODgsNC44djEuNDRjMCwzLjItMS41Nyw0LjgzLTQuODgsNC44M2gtMS41NXY3LjI5aC0zLjI4di0xOC4zNlpNMTI2Ljg3LDQxLjU3YzEuMSwwLDEuNi0uNSwxLjYtMS44MXYtMS42NWMwLTEuMzEtLjUtMS43OC0xLjYtMS43OGgtMS41NXY1LjI1aDEuNTVaIj48L3BhdGg+CiAgPHBhdGggZD0iTTEzMy4zNyw0Ny4wOHYtOC45N2MwLTMuMTUsMS43Ni00Ljk2LDQuOTYtNC45NnM0Ljk4LDEuODEsNC45OCw0Ljk2djguOTdjMCwzLjEyLTEuNzYsNC45Ni00Ljk4LDQuOTZzLTQuOTYtMS44NC00Ljk2LTQuOTZaTTE0MC4wNCw0Ny4yM3YtOS4yOWMwLTEuMjktLjYzLTEuODktMS43LTEuODlzLTEuNjguNi0xLjY4LDEuODl2OS4yOWMwLDEuMjYuNiwxLjg5LDEuNjgsMS44OXMxLjctLjYzLDEuNy0xLjg5WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xNDUuNTcsMzMuNDFoNC44NWMzLjMzLDAsNC44NSwxLjQ0LDQuODUsNC40M3YuOTJjMCwxLjkxLS42OCwzLjEyLTIuMTIsMy43di4wOGMxLjU1LjQ1LDIuMTUsMS44MSwyLjE1LDQuMTR2Mi43YzAsLjk0LjA1LDEuNjUuMzcsMi4zOWgtMy4zM2MtLjE4LS41LS4yOS0uNzYtLjI5LTIuNDF2LTIuODljMC0xLjczLS41NS0yLjMxLTIuMDctMi4zMWgtMS4xM3Y3LjYxaC0zLjI4di0xOC4zNlpNMTUwLjA2LDQxLjI1YzEuMjksMCwxLjk0LS41NSwxLjk0LTEuOTl2LTEuMDhjMC0xLjI5LS41LTEuODYtMS42My0xLjg2aC0xLjUydjQuOTNoMS4yMVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTY0LjI1LDQ4LjMxaC0zLjcybC0uNTUsMy40NmgtMy4wN2wzLjM4LTE4LjM2aDQuNDNsMy40MSwxOC4zNmgtMy4zM2wtLjU1LTMuNDZaTTE2My43Nyw0NS40OGwtMS4zOS04LjczLTEuMzksOC43M2gyLjc4WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xNzEuMDEsMzYuMzJoLTMuNDF2LTIuOTFoMTAuMTJ2Mi45MWgtMy40NHYxNS40NWgtMy4yOHYtMTUuNDVaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE3OS40MywzMy40MWgzLjI4djE4LjM2aC0zLjI4di0xOC4zNloiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTg0Ljk5LDQ3LjA4di04Ljk3YzAtMy4xNSwxLjc2LTQuOTYsNC45Ni00Ljk2czQuOTgsMS44MSw0Ljk4LDQuOTZ2OC45N2MwLDMuMTItMS43Niw0Ljk2LTQuOTgsNC45NnMtNC45Ni0xLjg0LTQuOTYtNC45NlpNMTkxLjY2LDQ3LjIzdi05LjI5YzAtMS4yOS0uNjMtMS44OS0xLjctMS44OXMtMS42OC42LTEuNjgsMS44OXY5LjI5YzAsMS4yNi42LDEuODksMS42OCwxLjg5czEuNy0uNjMsMS43LTEuODlaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE5Ny4xOSwzMy40MWg0LjA3bDMuMjgsMTAuODF2LTEwLjgxaDIuOTR2MTguMzZoLTMuM2wtNC4wNC0xMy4yNXYxMy4yNWgtMi45NHYtMTguMzZaIj48L3BhdGg+Cjwvc3ZnPgo=" alt="HVAC Service Corporation"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19809253600">📞 (980) 925-3600</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Gastonia, NC</p>
+    <h1>We audited hvacservicecorp.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.2<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A Gastonia commercial HVAC specialist — chillers, building automation, schools — with no after-hours path for the facilities manager whose system just failed.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 700+ HVAC sites reviewed across GA, FL, AL, TN, SC &amp; NC</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on hvacservicecorp.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No emergency or after-hours info anywhere</h3>
+        <p>We searched the site for <strong>emergency, 24/7, and after-hours — nothing</strong>. A facilities manager with a chiller down at midnight has no path and no number for it.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> an AI that answers around the clock, triages the urgency, and routes it to the right on-call tech.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>“Book Now” with no clear booking behind it</h3>
+        <p>The CTA is there — but the site is <strong>brochure-first</strong>: service pages, industries served, careers. The booking action doesn't end in a confirmed time.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> one tap in chat → slot offered → name → booked. The receipt fills in live, and the dispatcher gets a one-line summary.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No chat or AI for urgent commercial calls</h3>
+        <p>Chillers, building automation, schools, healthcare — <strong>high-stakes systems</strong> with no instant contact path. A form can wait; a failed chiller can't.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> chat-based intake that captures the facility, the system, and the urgency — routed instantly.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>Testimonials exist — no rating badge</h3>
+        <p>There's a testimonials page, but the homepage carries <strong>no star rating, no review count, no badge</strong>. Proof buried a click deep gets skimmed past.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> a live review feed on the homepage, auto-replies to every review, and review requests texted after every job.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No office hours published</h3>
+        <p>Nothing says when the office is staffed. For a commercial client deciding whether to call now or Monday, that's the whole decision.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> the AI answers regardless of hours, and quotes your real availability from the calendar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:#7dffd4">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is hvacservicecorp.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the chiller alarm at a school building.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 HVAC Service Corp</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on HVAC Service Corporation's real services — commercial HVAC, equipment changeouts, chillers, building automation — across Gastonia, NC. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Chillers. BAS. Schools.<br>No rating shown.</h2>
+    <p class="section-sub">A commercial specialist — with no packaged proof on the homepage. Here's what the fixed version would showcase instead.</p>
+    <p class="rev-note">No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20%E2%80%94%20HVAC%20Service%20Corporation%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © HVAC Service Corporation (hvacservicecorp.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8yIiB2aWV3Qm94PSIwIDAgMjMyIDYwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4uY2xzLTF7ZmlsbDojMjUzOGIzO30uY2xzLTJ7ZmlsbDojZjQyOTE5O308L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03Ny4yNCwyOC43MWgtNC45Nmw0LjA4LTQuMDhjLjQ5LS40OS40OS0xLjI5LDAtMS43OC0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMGwtNS44Niw1Ljg2aC0xMS4wOGMtLjIyLTEuNDEtLjc5LTIuNzEtMS42MS0zLjgxbDYuNi02LjZjLjQ5LS40OS40OS0xLjI5LDAtMS43OC0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMGwtNi42MSw2LjYxYy0xLjEtLjgxLTIuNDEtMS4zNy0zLjgyLTEuNTh2LTEwLjk0bDYtNmMuNDktLjQ5LjQ5LTEuMjksMC0xLjc4LS40OS0uNDktMS4yOS0uNDktMS43OCwwbC00LjIyLDQuMjJWMS45NWMwLS43LS41Ni0xLjI2LTEuMjYtMS4yNnMtMS4yNi41Ni0xLjI2LDEuMjZ2NC45NmwtNC4wOC00LjA4Yy0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMC0uNDkuNDktLjQ5LDEuMjksMCwxLjc4bDUuODYsNS44NnYxMS4wOGMtMS40NC4yMS0yLjc2Ljc4LTMuODcsMS42MWwtNi42NC02LjY0Yy0uNDktLjQ5LTEuMjktLjQ5LTEuNzgsMHMtLjQ5LDEuMjksMCwxLjc4bDYuNjQsNi42NGMtMS4wNSwxLjQzLTEuNjgsMy4xOS0xLjY4LDUuMDksMCw0LjM1LDMuMjYsNy45Niw3LjQ2LDguNTF2MTAuODVsLTYsNmMtLjQ5LjQ5LS40OSwxLjI5LDAsMS43OC4yNS4yNS41Ny4zNy44OS4zN3MuNjQtLjEyLjg5LS4zN2w0LjIyLTQuMjJ2NS4xYzAsLjcuNTYsMS4yNiwxLjI2LDEuMjZzMS4yNi0uNTYsMS4yNi0xLjI2di00Ljk2bDQuMDgsNC4wOGMuMjUuMjUuNTcuMzcuODkuMzdzLjY0LS4xMi44OS0uMzdjLjQ5LS40OS40OS0xLjI5LDAtMS43OGwtNS44Ni01Ljg2di0xMS4wM2MxLjM3LS4yMiwyLjYzLS43NywzLjctMS41Nmw2LjYsNi42Yy4yNS4yNS41Ny4zNy44OS4zN3MuNjQtLjEyLjg5LS4zN2MuNDktLjQ5LjQ5LTEuMjksMC0xLjc4bC02LjU5LTYuNTljLjg1LTEuMTMsMS40Mi0yLjQ4LDEuNjItMy45NGgxMC45M2w2LDZjLjI1LjI1LjU3LjM3Ljg5LjM3cy42NC0uMTIuODktLjM3Yy40OS0uNDkuNDktMS4yOSwwLTEuNzhsLTQuMjItNC4yMmg1LjFjLjcsMCwxLjI2LS41NiwxLjI2LTEuMjZzLS41Ni0xLjI2LTEuMjYtMS4yNlpNNDMuMDksMzAuMDNjMC0zLjM1LDIuNzItNi4wNyw2LjA3LTYuMDdzNi4wNywyLjcyLDYuMDcsNi4wNy0yLjQ3LDUuOC01LjU5LDYuMDVjLS4xMS0uMDMtLjIyLS4wNS0uMzMtLjA1LS4xMywwLS4yNi4wMi0uMzguMDYtMy4yMy0uMTMtNS44Mi0yLjgtNS44Mi02LjA2WiI+PC9wYXRoPgogIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQzLjg1LDM3LjM2YzAsMTEuODgtOS42MywyMS41Mi0yMS41MiwyMS41MlMuODIsNDkuMjUuODIsMzcuMzZjMC01LjI4LDEuOS0xMC4xMSw1LjA2LTEzLjg2LS4wOSwxLjU5LjM0LDUuMywxLjE2LDcuNTMsMi4xLDUuNzIsNy40NSwxMC4zLDExLjM5LDkuMzksMS44My0uNDIsMi41OS0xLjE3LDMuMTItMy4wNy4yOC0xLjAxLjI3LTIuOTQtMS4wMi00LjQ4LTEuOTEtMi4yNy0yLjgyLTMuNjQtNC40Mi01Ljc4LTIuODEtMy43NC0yLjg2LTguMS0yLjg4LTkuMjRoMGMtLjA0LTMuNDcsMS4wNy02LjA0LDEuNjktNy40MywxLjY1LTMuNzEsNS41Mi03LjExLDguNjEtOS42MS4wNCwyLjA4LjAxLDUuNDMsMS45Miw4LjcsMy40OCw1Ljk1LDcuOTcsOS4xNiw5Ljg3LDEwLjY4LDUuMTksMy45Myw4LjU0LDEwLjE2LDguNTQsMTcuMTdaIj48L3BhdGg+CiAgPHBhdGggZD0iTTg2LjUzLDguMjNoMy4yOHY3LjQ1aDMuNTF2LTcuNDVoMy4yOHYxOC4zNmgtMy4yOHYtOGgtMy41MXY4aC0zLjI4VjguMjNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTk5LjIyLDIzLjMxaDMuMjh2My4yOGgtMy4yOHYtMy4yOFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTAyLjcxLDguMjNoMy4zM2wyLjEyLDE0LjI3LDIuMTUtMTQuMjdoMy4wN2wtMy4xNywxOC4zM2gtNC4zM2wtMy4xNy0xOC4zM1oiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTEzLjYsMjMuMzFoMy4yOHYzLjI4aC0zLjI4di0zLjI4WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xMjYuMjQsMjMuMTNoLTMuNzJsLS41NSwzLjQ2aC0zLjA3bDMuMzgtMTguMzZoNC40M2wzLjQxLDE4LjM2aC0zLjMzbC0uNTUtMy40NlpNMTI1Ljc3LDIwLjNsLTEuMzktOC43My0xLjM5LDguNzNoMi43OFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTMyLjE0LDIzLjMxaDMuMjh2My4yOGgtMy4yOHYtMy4yOFoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTM3LjUyLDIxLjk1di05LjA4YzAtMy4xMiwxLjctNC45LDQuODMtNC45czQuOCwxLjc4LDQuOCw0Ljl2MS42M2gtMy4xdi0xLjc4YzAtMS4yOS0uNi0xLjg5LTEuNjMtMS44OXMtMS42My42LTEuNjMsMS44OXY5LjM5YzAsMS4yOS42LDEuODksMS42MywxLjg5czEuNjMtLjYsMS42My0xLjg5di0yLjMzaDMuMXYyLjE4YzAsMy4xMi0xLjY4LDQuOS00LjgsNC45cy00LjgzLTEuNzgtNC44My00LjlaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE0OS4yNywyMy4zMWgzLjI4djMuMjhoLTMuMjh2LTMuMjhaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE1OS4wNSwyMi4wM3YtLjk0aDMuMXYxLjA1YzAsMS4yMS41OCwxLjg2LDEuNywxLjg2LDEuMDIsMCwxLjctLjYsMS43LTEuODksMC0xLjU1LS42My0yLjItMi44MS0zLjY1LTIuNzgtMS44NC0zLjY1LTMuMzgtMy42NS01LjcyLDAtMi45NCwxLjY4LTQuNzcsNC44NS00Ljc3czQuNzUsMS44NCw0Ljc1LDQuODN2LjY2aC0zLjF2LS43M2MwLTEuMjMtLjUyLTEuODktMS42My0xLjg5LTEuMDIsMC0xLjYzLjYtMS42MywxLjgxLDAsMS4zNi42OCwyLjA1LDIuODYsMy40NiwyLjgzLDEuODQsMy42MiwzLjQxLDMuNjIsNS44NSwwLDMuMDQtMS43Myw0LjktNC45Niw0LjlzLTQuODMtMS44Ni00LjgzLTQuODNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE3MC43OCw4LjIzaDguOTR2Mi45MWgtNS42N3Y0LjU0aDQuNTF2Mi45MWgtNC41MXY1LjA5aDUuNjd2Mi45MWgtOC45NFY4LjIzWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xODEuNjEsOC4yM2g0Ljg1YzMuMzMsMCw0Ljg1LDEuNDQsNC44NSw0LjQzdi45MmMwLDEuOTEtLjY4LDMuMTItMi4xMiwzLjd2LjA4YzEuNTUuNDUsMi4xNSwxLjgxLDIuMTUsNC4xNHYyLjdjMCwuOTQuMDUsMS42NS4zNywyLjM5aC0zLjMzYy0uMTgtLjUtLjI5LS43Ni0uMjktMi40MXYtMi44OWMwLTEuNzMtLjU1LTIuMzEtMi4wNy0yLjMxaC0xLjEzdjcuNjFoLTMuMjhWOC4yM1pNMTg2LjEsMTYuMDdjMS4yOSwwLDEuOTQtLjU1LDEuOTQtMS45OXYtMS4wOGMwLTEuMjktLjUtMS44Ni0xLjYzLTEuODZoLTEuNTJ2NC45M2gxLjIxWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xOTIuNjgsOC4yM2gzLjMzbDIuMTIsMTQuMjcsMi4xNS0xNC4yN2gzLjA3bC0zLjE3LDE4LjMzaC00LjMzbC0zLjE3LTE4LjMzWiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0yMDUuMDMsOC4yM2gzLjI4djE4LjM2aC0zLjI4VjguMjNaIj48L3BhdGg+CiAgPHBhdGggZD0iTTIxMC41OSwyMS45NXYtOS4wOGMwLTMuMTIsMS43LTQuOSw0LjgzLTQuOXM0LjgsMS43OCw0LjgsNC45djEuNjNoLTMuMXYtMS43OGMwLTEuMjktLjYtMS44OS0xLjYzLTEuODlzLTEuNjMuNi0xLjYzLDEuODl2OS4zOWMwLDEuMjkuNiwxLjg5LDEuNjMsMS44OXMxLjYzLS42LDEuNjMtMS44OXYtMi4zM2gzLjF2Mi4xOGMwLDMuMTItMS42OCw0LjktNC44LDQuOXMtNC44My0xLjc4LTQuODMtNC45WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0yMjIuMjQsOC4yM2g4Ljk0djIuOTFoLTUuNjd2NC41NGg0LjUxdjIuOTFoLTQuNTF2NS4wOWg1LjY3djIuOTFoLTguOTRWOC4yM1oiPjwvcGF0aD4KICA8cGF0aCBkPSJNODYuMjksNDcuMTN2LTkuMDhjMC0zLjEyLDEuNy00LjksNC44My00LjlzNC44LDEuNzgsNC44LDQuOXYxLjYzaC0zLjF2LTEuNzhjMC0xLjI5LS42LTEuODktMS42My0xLjg5cy0xLjYzLjYtMS42MywxLjg5djkuMzljMCwxLjI5LjYsMS44OSwxLjYzLDEuODlzMS42My0uNiwxLjYzLTEuODl2LTIuMzNoMy4xdjIuMThjMCwzLjEyLTEuNjgsNC45LTQuOCw0LjlzLTQuODMtMS43OC00LjgzLTQuOVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNOTcuNzUsNDcuMDh2LTguOTdjMC0zLjE1LDEuNzYtNC45Niw0Ljk2LTQuOTZzNC45OCwxLjgxLDQuOTgsNC45NnY4Ljk3YzAsMy4xMi0xLjc2LDQuOTYtNC45OCw0Ljk2cy00Ljk2LTEuODQtNC45Ni00Ljk2Wk0xMDQuNDIsNDcuMjN2LTkuMjljMC0xLjI5LS42My0xLjg5LTEuNy0xLjg5cy0xLjY4LjYtMS42OCwxLjg5djkuMjljMCwxLjI2LjYsMS44OSwxLjY4LDEuODlzMS43LS42MywxLjctMS44OVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTA5Ljk1LDMzLjQxaDQuODVjMy4zMywwLDQuODUsMS40NCw0Ljg1LDQuNDN2LjkyYzAsMS45MS0uNjgsMy4xMi0yLjEyLDMuN3YuMDhjMS41NS40NSwyLjE1LDEuODEsMi4xNSw0LjE0djIuN2MwLC45NC4wNSwxLjY1LjM3LDIuMzloLTMuMzNjLS4xOC0uNS0uMjktLjc2LS4yOS0yLjQxdi0yLjg5YzAtMS43My0uNTUtMi4zMS0yLjA3LTIuMzFoLTEuMTN2Ny42MWgtMy4yOHYtMTguMzZaTTExNC40NCw0MS4yNWMxLjI5LDAsMS45NC0uNTUsMS45NC0xLjk5di0xLjA4YzAtMS4yOS0uNS0xLjg2LTEuNjMtMS44NmgtMS41MnY0LjkzaDEuMjFaIj48L3BhdGg+CiAgPHBhdGggZD0iTTEyMi4wNCwzMy40MWg0LjgzYzMuMywwLDQuODgsMS42LDQuODgsNC44djEuNDRjMCwzLjItMS41Nyw0LjgzLTQuODgsNC44M2gtMS41NXY3LjI5aC0zLjI4di0xOC4zNlpNMTI2Ljg3LDQxLjU3YzEuMSwwLDEuNi0uNSwxLjYtMS44MXYtMS42NWMwLTEuMzEtLjUtMS43OC0xLjYtMS43OGgtMS41NXY1LjI1aDEuNTVaIj48L3BhdGg+CiAgPHBhdGggZD0iTTEzMy4zNyw0Ny4wOHYtOC45N2MwLTMuMTUsMS43Ni00Ljk2LDQuOTYtNC45NnM0Ljk4LDEuODEsNC45OCw0Ljk2djguOTdjMCwzLjEyLTEuNzYsNC45Ni00Ljk4LDQuOTZzLTQuOTYtMS44NC00Ljk2LTQuOTZaTTE0MC4wNCw0Ny4yM3YtOS4yOWMwLTEuMjktLjYzLTEuODktMS43LTEuODlzLTEuNjguNi0xLjY4LDEuODl2OS4yOWMwLDEuMjYuNiwxLjg5LDEuNjgsMS44OXMxLjctLjYzLDEuNy0xLjg5WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xNDUuNTcsMzMuNDFoNC44NWMzLjMzLDAsNC44NSwxLjQ0LDQuODUsNC40M3YuOTJjMCwxLjkxLS42OCwzLjEyLTIuMTIsMy43di4wOGMxLjU1LjQ1LDIuMTUsMS44MSwyLjE1LDQuMTR2Mi43YzAsLjk0LjA1LDEuNjUuMzcsMi4zOWgtMy4zM2MtLjE4LS41LS4yOS0uNzYtLjI5LTIuNDF2LTIuODljMC0xLjczLS41NS0yLjMxLTIuMDctMi4zMWgtMS4xM3Y3LjYxaC0zLjI4di0xOC4zNlpNMTUwLjA2LDQxLjI1YzEuMjksMCwxLjk0LS41NSwxLjk0LTEuOTl2LTEuMDhjMC0xLjI5LS41LTEuODYtMS42My0xLjg2aC0xLjUydjQuOTNoMS4yMVoiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTY0LjI1LDQ4LjMxaC0zLjcybC0uNTUsMy40NmgtMy4wN2wzLjM4LTE4LjM2aDQuNDNsMy40MSwxOC4zNmgtMy4zM2wtLjU1LTMuNDZaTTE2My43Nyw0NS40OGwtMS4zOS04LjczLTEuMzksOC43M2gyLjc4WiI+PC9wYXRoPgogIDxwYXRoIGQ9Ik0xNzEuMDEsMzYuMzJoLTMuNDF2LTIuOTFoMTAuMTJ2Mi45MWgtMy40NHYxNS40NWgtMy4yOHYtMTUuNDVaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE3OS40MywzMy40MWgzLjI4djE4LjM2aC0zLjI4di0xOC4zNloiPjwvcGF0aD4KICA8cGF0aCBkPSJNMTg0Ljk5LDQ3LjA4di04Ljk3YzAtMy4xNSwxLjc2LTQuOTYsNC45Ni00Ljk2czQuOTgsMS44MSw0Ljk4LDQuOTZ2OC45N2MwLDMuMTItMS43Niw0Ljk2LTQuOTgsNC45NnMtNC45Ni0xLjg0LTQuOTYtNC45NlpNMTkxLjY2LDQ3LjIzdi05LjI5YzAtMS4yOS0uNjMtMS44OS0xLjctMS44OXMtMS42OC42LTEuNjgsMS44OXY5LjI5YzAsMS4yNi42LDEuODksMS42OCwxLjg5czEuNy0uNjMsMS43LTEuODlaIj48L3BhdGg+CiAgPHBhdGggZD0iTTE5Ny4xOSwzMy40MWg0LjA3bDMuMjgsMTAuODF2LTEwLjgxaDIuOTR2MTguMzZoLTMuM2wtNC4wNC0xMy4yNXYxMy4yNWgtMi45NHYtMTguMzZaIj48L3BhdGg+Cjwvc3ZnPgo=" alt="HVAC Service Corporation">
+    <p>Audit demo built by <a href="../">agenticrx</a> for HVAC Service Corporation · Gastonia, NC · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "HVAC Service Corporation", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

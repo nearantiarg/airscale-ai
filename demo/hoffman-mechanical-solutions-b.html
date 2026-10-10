@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Hoffman Mechanical Solutions (3.1/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited hoffmech.com: 3.1/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#0B2447;--teal:#0B74BB;--orange:#F59E0B;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .wordmark{font-weight:900;font-size:1.5rem;color:var(--navy);letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+  .wordmark em{font-style:normal;color:var(--teal)}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Inter',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(0,0,0,.05),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:62%%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#7dffd4;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#eaf3f8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#d7e8f0}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-wordmark{font-weight:900;font-size:1.2rem;color:#fff;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Hoffman Mechanical Solutions</strong> · Score: 3.1/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/webp;base64,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" alt="Hoffman Mechanical Solutions"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+14234028599">📞 (423) 402-8599</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Johnson City, TN</p>
+    <h1>We audited hoffmech.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.1<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A Southeast commercial HVAC operation with 24/7 emergency response — where the quote request is a form in a queue.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 700+ HVAC sites reviewed across GA, FL, AL, TN, SC &amp; NC</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on hoffmech.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The quote request enters a queue</h3>
+        <p>“Request a Quote” is a form. A facilities manager gets <strong>no instant acknowledgement, no ETA</strong> — just the hope someone reads it soon.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Instant acknowledgement in chat — scope captured, ETA promised, owner notified in one line.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No after-hours capture for a 24/7 promise</h3>
+        <p><strong>24/7 emergency response is advertised</strong> — with no chat, no AI, no texting to receive the call. Commercial emergencies don’t keep office hours.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, captures the facility, the symptom, and the urgency — then dispatches.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Commercial proof, consumer funnel</h3>
+        <p>Projects and case work exist on the site — but the quote path is <strong>one generic form for every service line</strong>, from chillers to controls.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Service-specific intake in chat — maintenance agreements, retrofits, and emergency each get their own track.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>No reviews anywhere</h3>
+        <p>A multi-state commercial operation with <strong>no testimonials or ratings</strong> on the site. For a facilities manager vetting vendors, that’s a gap.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Verified client logos and quoted outcomes on the homepage — collected and published automatically.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The podcast doesn’t convert</h3>
+        <p>The “HVAC-ology” podcast builds real authority — with <strong>no attached lead capture</strong>. Listeners learn; nobody books.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Every episode ends with one action — and the site captures the listener the moment they’re convinced.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is hoffmech.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with no AC.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Hoffman Mechanical Solutions</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Hoffman Mechanical Solutions’s real services — commercial HVAC service, maintenance, retrofits, and VRV systems — and the Southeast service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The rating exists.<br>Your site doesn’t show it.</h2>
+    <p class="section-sub">Pulled from the company’s public review profile — the same one the fixed homepage would showcase.</p>
+        <p class="rev-note">No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20%E2%80%94%20Hoffman%20Mechanical%20Solutions%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Hoffman Mechanical Solutions (hoffmech.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/webp;base64,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" alt="Hoffman Mechanical Solutions">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Hoffman Mechanical Solutions · Johnson City, TN · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Hoffman Mechanical Solutions", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
