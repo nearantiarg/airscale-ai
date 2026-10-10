@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dempsey Orthodontics — AI Voice Receptionist Demo · agenticrx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Pinyon+Script&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --blue:#4c84b7; --blue-light:#7cb7ed; --navy:#00324e; --navy-deep:#001d4c; --ink:#3e3e3e; --muted:#666666; --bg:#f6f6f6; --card:#ffffff; --line:#e3e3e3; --tint:#eef4fb; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Merriweather',Georgia,serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  .strip { background:var(--navy); color:#cfe1f3; font-size:12.5px; padding:8px 0; }
+  .strip .wrap { display:flex; align-items:center; justify-content:space-between; }
+  .strip a { color:#fff; text-decoration:none; font-weight:700; }
+  .topbar { background:#fff; border-bottom:1px solid var(--line); padding:12px 0; position:sticky; top:0; z-index:10; box-shadow:0 1px 6px rgba(0,50,78,.08); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; }
+  .topbar img.logo { height:46px; width:auto; }
+  .tag { font-family:'Pinyon Script',cursive; font-size:22px; color:var(--blue); }
+  .hero { background:linear-gradient(160deg,#ffffff 0%,var(--tint) 100%); padding:56px 0 48px; text-align:center; border-bottom:1px solid var(--line); }
+  .hero .kicker { display:inline-block; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--navy); background:#dbe9f7; padding:7px 16px; border-radius:999px; margin-bottom:20px; font-family:'Merriweather',serif; }
+  .hero h1 { font-family:'Oranienbaum',serif; font-size:42px; line-height:1.15; letter-spacing:.5px; margin-bottom:8px; font-weight:400; }
+  .hero h1 .pname { color:var(--navy); }
+  .hero .headline { font-family:'Oranienbaum',serif; font-size:26px; margin:12px 0 14px; color:var(--blue); }
+  .hero p.sub { color:var(--muted); font-size:16px; max-width:540px; margin:0 auto; }
+  .tooth { width:52px; height:52px; margin:0 auto 14px; display:block; }
+  section { padding:42px 0; }
+  section h2 { font-family:'Oranienbaum',serif; font-size:30px; font-weight:400; letter-spacing:.4px; color:var(--navy); margin-bottom:6px; }
+  section .lede { color:var(--muted); font-size:15px; margin-bottom:22px; }
+  .call { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 8px 28px rgba(76,132,183,.10); }
+  .call-head { background:var(--blue); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; font-weight:700; font-size:14px; font-family:Georgia,serif; }
+  .call-head .dot { width:9px; height:9px; border-radius:50%; background:#bde3ff; animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .call-body { padding:18px; }
+  .msg { display:flex; margin-bottom:14px; gap:10px; }
+  .msg .who { flex-shrink:0; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; padding-top:8px; width:86px; font-family:Georgia,serif; }
+  .msg.ai .who { color:var(--navy); }
+  .msg.caller .who { color:#7c6cf0; }
+  .msg .bubble { background:#f1f5f9; border-radius:4px 14px 14px 14px; padding:10px 14px; font-size:14.5px; flex:1; font-family:Georgia,serif; }
+  .msg.ai .bubble { background:var(--tint); }
+  .msg .t { font-size:11px; color:#94a3b8; margin-top:4px; font-family:Georgia,serif; }
+  .fine { font-size:12px; color:#94a3b8; padding:0 18px 16px; font-family:Georgia,serif; }
+  .bullets { list-style:none; }
+  .bullets li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px 14px 48px; margin-bottom:10px; position:relative; font-size:15px; }
+  .bullets li::before { content:""; position:absolute; left:16px; top:18px; width:20px; height:20px; background:var(--blue); border-radius:50%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size:12px; background-repeat:no-repeat; background-position:center; }
+  .steps { display:grid; gap:12px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; gap:14px; }
+  .step .n { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:Georgia,serif; }
+  .step b { display:block; margin-bottom:2px; font-family:Georgia,serif; }
+  .step p { font-size:14px; color:var(--muted); }
+  .numbers { background:var(--navy-deep); color:#e8f1fa; border-radius:14px; padding:28px 24px; }
+  .numbers h2 { color:#fff; }
+  .numbers .row { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
+  .numbers .stat { flex:1; min-width:150px; background:rgba(255,255,255,.06); border:1px solid rgba(124,183,237,.25); border-radius:12px; padding:16px; }
+  .numbers .stat b { display:block; font-size:20px; color:var(--blue-light); font-family:Georgia,serif; }
+  .numbers .stat span { font-size:13px; color:#a9c4dd; }
+  .cta { text-align:center; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:42px 24px; }
+  .cta h2 { margin-bottom:10px; }
+  .cta p { color:var(--muted); margin-bottom:8px; }
+  .cta .btn { display:inline-block; margin-top:14px; background:var(--blue); color:#fff; font-weight:700; padding:14px 32px; border-radius:999px; text-decoration:none; font-size:16px; font-family:Georgia,serif; }
+  .cta .btn:hover { background:var(--navy); }
+  .cta .sign { margin-top:18px; font-size:14px; color:var(--muted); }
+  footer { background:var(--navy); color:#b9d2e8; padding:30px 20px 42px; font-size:12.5px; text-align:center; font-family:Georgia,serif; }
+  footer .fname { font-family:'Oranienbaum',serif; font-size:18px; color:#fff; margin-bottom:6px; letter-spacing:.5px; }
+  footer .fineprint { margin-top:12px; font-size:11.5px; color:#8ba9c4; }
+  @media (max-width:520px) { .hero h1 { font-size:32px; } .hero .headline { font-size:21px; } .tag { font-size:17px; } }
+</style>
+</head>
+<body>
+<div class="strip"><div class="wrap">
+  <div>Orthodontist in Buford, GA · Free Consultations</div>
+  <div><a href="tel:+17702710833">(770) 271-0833</a></div>
+</div></div>
+<div class="topbar"><div class="wrap">
+  <img class="logo" src="assets/dempsey-orthodontics-logo.png" alt="Dempsey Orthodontics">
+  <div class="tag">AI voice receptionist demo</div>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <svg class="tooth" viewBox="0 0 64 64" fill="none"><path d="M32 8c-8 0-10 3-16 3C9 11 6 16 8 24c2 7 6 10 7 17 1 6 2 15 7 15 4 0 3-9 5-14 1-3 2-5 5-5s4 2 5 5c2 5 1 14 5 14 5 0 6-9 7-15 1-7 5-10 7-17 2-8-1-13-8-13-6 0-8-3-16-3z" fill="#4c84b7" opacity=".9"/></svg>
+  <div class="kicker">Personal demo · made for your practice</div>
+  <h1><span class="pname">Dempsey Orthodontics</span></h1>
+  <div class="headline">Never miss another patient call.</div>
+  <p class="sub">An AI voice receptionist that answers every call, books new patients, handles reschedules, and takes after-hours messages — on your real schedule.</p>
+</div></div>
+
+<div class="wrap">
+<section>
+  <h2>Hear it in action</h2>
+  <p class="lede">A sample conversation with the receptionist, built around Dempsey Orthodontics's actual hours and services.</p>
+  <div class="call">
+    <div class="call-head"><span class="dot"></span> Incoming call · sample conversation</div>
+    <div class="call-body">
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thanks for calling Dempsey Orthodontics — this is Ava, your virtual receptionist. How can I help?</div><div class="t">0:04</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Hi, my son is 12 and I think he needs braces. Do you do free consultations?</div><div class="t">0:12</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">We do — consultations are free. Is he interested in traditional braces, or have you looked into clear aligners?</div><div class="t">0:21</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">He&#x27;d probably want whatever&#x27;s less noticeable. What do you recommend for kids his age?</div><div class="t">0:28</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Both work well at 12 — the orthodontist will recommend the best fit at the consult, and we use digital iTero scanning instead of goopy impressions, which kids prefer. When works for an after-school visit?</div><div class="t">0:42</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Tuesday or Thursday after 4?</div><div class="t">0:46</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thursday at 4:30 is open. Can I get your name and a callback number?</div><div class="t">0:53</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Lisa Hammond, 770-555-0123.</div><div class="t">0:58</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Done, Lisa — free consultation Thursday at 4:30 for your son. I&#x27;ll text a confirmation. He&#x27;ll get the full scan and a treatment plan at that visit!</div><div class="t">1:08</div></div></div>
+    </div>
+    <div class="fine">Illustrative transcript for demo purposes — not a recording of a real call.</div>
+  </div>
+</section>
+
+<section>
+  <h2>What it handles for Dempsey Orthodontics</h2>
+  <p class="lede">Configured around how your practice actually runs.</p>
+  <ul class="bullets">
+      <li>Books free consultations for braces and clear aligners — your highest-value calls</li>
+      <li>Answers parent calls after school and work hours, when most ortho inquiries happen</li>
+      <li>Explains iTero digital scanning, metal vs. clear options, and what to expect</li>
+      <li>Takes new-patient intake: child&#x27;s age, concerns, insurance</li>
+      <li>Reschedules and cancels without tying up your front desk</li>
+      <li>Takes after-hours messages with callback booking for the next business day</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>We configure it on your real schedule</b><p>Takes 3–5 days. Your hours, services, and booking rules — built in and tested.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Test call with you</b><p>You call it yourself and try to trip it up. We tune it until you're happy.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Goes live</b><p>On your existing number or a new one — your choice. After-hours first, or full-time.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="numbers">
+    <h2>Honest numbers</h2>
+    <div class="row">
+      <div class="stat"><b>~$0.13/min</b><span>all-in operating cost per minute of talk time</span></div>
+      <div class="stat"><b>HIPAA-ready</b><span>signed Business Associate Agreement before go-live</span></div>
+      <div class="stat"><b>3–5 days</b><span>from your go-ahead to a tested, working agent</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Try it on your real schedule</h2>
+    <p>Reply to our email to get a <b>free trial week</b> on your real schedule — configured for Dempsey Orthodontics, no commitment.</p>
+    <a class="btn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Reply to start your trial</a>
+    <div class="sign">— the agenticrx team</div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="fname">Dempsey Orthodontics</div>
+  <div>2973 Vinson Court, Buford, GA 30518 · (770) 271-0833</div>
+  <div class="fineprint">© 2026 agenticrx · Sample transcript for illustration only. No patient data involved.<br>This demo page mirrors the practice's branding for illustration.</div>
+</footer>
+</body>
+</html>

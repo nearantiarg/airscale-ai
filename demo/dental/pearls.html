@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pearls Dentistry — AI Voice Receptionist Demo · agenticrx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --teal:#0f5f58; --teal-dark:#0b4a45; --gold:#c9a765; --gold-soft:#e8dcc0; --ink:#2e3a38; --muted:#5e706c; --bg:#f6f4ef; --card:#ffffff; --line:#e7e0d2; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Albert Sans',-apple-system,'Segoe UI',sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  h1, h2, h3 { font-family:'Fraunces',Georgia,serif; font-weight:500; }
+  .topbar { background:var(--teal-dark); padding:12px 0; position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(201,167,101,.35); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .toplogo { display:flex; align-items:center; gap:14px; }
+  .toplogo img { height:46px; width:auto; display:block; }
+  .toptag { font-size:12px; color:#cfe0dc; font-weight:600; border-left:1px solid rgba(255,255,255,.25); padding-left:14px; }
+  .topcta { display:flex; align-items:center; gap:14px; }
+  .call-link { font-weight:600; color:#fff; text-decoration:none; font-size:15px; white-space:nowrap; }
+  .call-link b { color:var(--gold); }
+  .bookbtn { background:var(--gold); color:var(--teal-dark); font-weight:700; padding:10px 22px; border-radius:999px; text-decoration:none; font-size:14px; }
+  .bookbtn:hover { background:var(--gold-soft); }
+  .hero { background:linear-gradient(160deg,#fffdf8 0%,#f0e9db 100%); padding:56px 0 44px; text-align:center; border-bottom:1px solid var(--line); }
+  .hero .kicker { display:inline-block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); background:#e4ecea; padding:6px 14px; border-radius:999px; margin-bottom:18px; font-family:'Albert Sans',sans-serif; }
+  .hero h1 { font-size:38px; line-height:1.2; letter-spacing:-.5px; margin-bottom:6px; }
+  .hero h1 .pname { color:var(--teal); }
+  .hero .headline { font-family:'Fraunces',Georgia,serif; font-size:23px; font-weight:500; margin:10px 0 12px; }
+  .hero p.sub { color:var(--muted); font-size:16px; max-width:520px; margin:0 auto; }
+  .tooth { width:52px; height:52px; margin:0 auto 14px; display:block; }
+  section { padding:40px 0; }
+  section h2 { font-size:26px; letter-spacing:-.3px; margin-bottom:6px; }
+  section .lede { color:var(--muted); font-size:15px; margin-bottom:20px; }
+  .call { background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 8px 28px rgba(15,95,88,.08); }
+  .call-head { background:var(--teal); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; font-weight:600; font-size:14px; }
+  .call-head .dot { width:9px; height:9px; border-radius:50%; background:var(--gold-soft); animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .call-body { padding:18px; }
+  .msg { display:flex; margin-bottom:14px; gap:10px; }
+  .msg .who { flex-shrink:0; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; padding-top:8px; width:86px; }
+  .msg.ai .who { color:var(--teal); }
+  .msg.caller .who { color:var(--gold); }
+  .msg .bubble { background:#f2eee3; border-radius:4px 14px 14px 14px; padding:10px 14px; font-size:14.5px; flex:1; }
+  .msg.ai .bubble { background:#e5edea; }
+  .msg .t { font-size:11px; color:#a09a88; margin-top:4px; }
+  .fine { font-size:12px; color:#a09a88; padding:0 18px 16px; }
+  .bullets { list-style:none; }
+  .bullets li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px 14px 48px; margin-bottom:10px; position:relative; font-size:15px; }
+  .bullets li::before { content:""; position:absolute; left:16px; top:16px; width:20px; height:20px; background:var(--teal); border-radius:50%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size:12px; background-repeat:no-repeat; background-position:center; }
+  .steps { display:grid; gap:12px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; gap:14px; }
+  .step .n { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--gold); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-family:'Albert Sans',sans-serif; }
+  .step b { display:block; margin-bottom:2px; }
+  .step p { font-size:14px; color:var(--muted); }
+  .numbers { background:var(--teal-dark); color:#eaf4f1; border-radius:18px; padding:28px 24px; }
+  .numbers h2 { color:#fff; }
+  .numbers .row { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
+  .numbers .stat { flex:1; min-width:150px; background:rgba(255,255,255,.07); border-radius:12px; padding:16px; }
+  .numbers .stat b { display:block; font-size:20px; color:var(--gold); }
+  .numbers .stat span { font-size:13px; color:#a7c4c0; }
+  .cta { text-align:center; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:40px 24px; }
+  .cta h2 { margin-bottom:10px; }
+  .cta p { color:var(--muted); margin-bottom:8px; }
+  .cta .btn { display:inline-block; margin-top:14px; background:var(--teal); color:#fff; font-weight:700; padding:14px 30px; border-radius:999px; text-decoration:none; font-size:16px; }
+  .cta .btn:hover { background:var(--teal-dark); }
+  .cta .sign { margin-top:18px; font-size:14px; color:var(--muted); }
+  .sitefooter { background:var(--teal-dark); color:#cfe0dc; padding:40px 0 28px; margin-top:20px; font-size:14px; border-top:1px solid rgba(201,167,101,.35); }
+  .sitefooter .cols { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-bottom:28px; }
+  .sitefooter h4 { color:#fff; font-family:'Fraunces',Georgia,serif; font-size:17px; margin-bottom:10px; }
+  .sitefooter p, .sitefooter li { color:#b8ccc8; font-size:13.5px; }
+  .sitefooter ul { list-style:none; }
+  .sitefooter li { margin-bottom:6px; }
+  .sitefooter .copy { border-top:1px solid rgba(255,255,255,.12); padding-top:18px; font-size:12px; color:#8aa6a1; text-align:center; }
+  @media (max-width:560px) { .hero h1 { font-size:30px; } .hero .headline { font-size:20px; } .sitefooter .cols { grid-template-columns:1fr; } .toptag { display:none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="toplogo">
+    <img src="assets/pearls-logo.png" alt="Pearls Dentistry logo">
+    <div class="toptag">AI voice receptionist · for dental offices</div>
+  </div>
+  <div class="topcta">
+    <a class="call-link" href="tel:14707809700">Call <b>(470) 780-9700</b></a>
+    <a class="bookbtn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Book a trial</a>
+  </div>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <svg class="tooth" viewBox="0 0 64 64" fill="none"><path d="M32 8c-8 0-10 3-16 3C9 11 6 16 8 24c2 7 6 10 7 17 1 6 2 15 7 15 4 0 3-9 5-14 1-3 2-5 5-5s4 2 5 5c2 5 1 14 5 14 5 0 6-9 7-15 1-7 5-10 7-17 2-8-1-13-8-13-6 0-8-3-16-3z" fill="#0f5f58" opacity=".9"/></svg>
+  <div class="kicker">Personal demo · made for your practice</div>
+  <h1><span class="pname">Pearls Dentistry</span></h1>
+  <div class="headline">Never miss another patient call.</div>
+  <p class="sub">An AI voice receptionist that answers every call, books new patients, handles reschedules, and takes after-hours messages — on your real schedule.</p>
+</div></div>
+
+<div class="wrap">
+<section>
+  <h2>Hear it in action</h2>
+  <p class="lede">A sample conversation with the receptionist, built around Pearls Dentistry's actual hours and services.</p>
+  <div class="call">
+    <div class="call-head"><span class="dot"></span> Incoming call · sample conversation</div>
+    <div class="call-body">
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thanks for calling Pearls Dentistry — this is Ava, your virtual receptionist. How can I help?</div><div class="t">0:04</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Hi, do you have any Saturday appointments? I can&#x27;t get off work during the week.</div><div class="t">0:12</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">We do — we&#x27;re open Saturdays 8 AM to 5 PM, which a lot of our families love. Is this for you or your kids?</div><div class="t">0:22</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">My daughter — she&#x27;s 7, needs a checkup. And honestly I probably need one too.</div><div class="t">0:29</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Perfect — we see kids and adults. This Saturday I have 10:00 and 11:30 back-to-back for the two of you. Does 10:00 work?</div><div class="t">0:40</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">10:00 works. I&#x27;m Priya Nair, 470-555-0135.</div><div class="t">0:46</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Booked, Priya — Saturday 10:00 for you and your daughter. I&#x27;ll text a confirmation with our address and parking info. See you Saturday!</div><div class="t">0:57</div></div></div>
+    </div>
+    <div class="fine">Illustrative transcript for demo purposes — not a recording of a real call.</div>
+  </div>
+</section>
+
+<section>
+  <h2>What it handles for Pearls Dentistry</h2>
+  <p class="lede">Configured around how your practice actually runs.</p>
+  <ul class="bullets">
+      <li>Books your Saturday appointments — the slots working parents call about most</li>
+      <li>Handles pediatric and family bookings in a single call</li>
+      <li>Triages same-day emergencies and gets urgent patients in fast</li>
+      <li>Answers every call Monday–Saturday, plus after-hours messages on Sundays</li>
+      <li>Takes new-patient intake: names, ages, insurance, reason for visit</li>
+      <li>Reschedules and cancels without pulling your team off the schedule</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>We configure it on your real schedule</b><p>Takes 3–5 days. Your hours, services, and booking rules — built in and tested.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Test call with you</b><p>You call it yourself and try to trip it up. We tune it until you're happy.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Goes live</b><p>On your existing number or a new one — your choice. After-hours first, or full-time.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="numbers">
+    <h2>Honest numbers</h2>
+    <div class="row">
+      <div class="stat"><b>~$0.13/min</b><span>all-in operating cost per minute of talk time</span></div>
+      <div class="stat"><b>HIPAA-ready</b><span>signed Business Associate Agreement before go-live</span></div>
+      <div class="stat"><b>3–5 days</b><span>from your go-ahead to a tested, working agent</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Try it on your real schedule</h2>
+    <p>Reply to our email to get a <b>free trial week</b> on your real schedule — configured for Pearls Dentistry, no commitment.</p>
+    <a class="btn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Reply to start your trial</a>
+    <div class="sign">— the agenticrx team</div>
+  </div>
+</section>
+</div>
+
+<div class="sitefooter"><div class="wrap">
+  <div class="cols">
+    <div><h4>Visit us</h4><p>4850 Golden Parkway, Suite E<br>Buford, GA 30518<br>Off Golden Parkway near I-985</p></div>
+    <div><h4>Office hours</h4><p>Monday – Saturday<br>8:00am – 5:00pm</p><p>Sunday · Closed</p><p style="color:#c9a765">Open Saturdays — rare for the area</p></div>
+    <div><h4>Areas we serve</h4><p>Buford · Flowery Branch · Sugar Hill<br>Hamilton Mill · Braselton · Suwanee</p><p style="color:#8aa6a1">AI voice receptionist demo by agenticrx</p></div>
+  </div>
+  <div class="copy">© 2026 Pearls Dentistry, Buford, GA · Sample transcript for illustration only. No patient data involved.</div>
+</div></div>
+</body>
+</html>

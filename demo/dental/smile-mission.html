@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Smile Mission — Georgia — AI Voice Receptionist Demo · agenticrx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#003473; --navy-deep:#002451; --teal:#06b6d4; --sky:#84acdb; --light:#f3f7fb; --ink:#374151; --muted:#555555; --bg:#ffffff; --card:#ffffff; --line:#e6eef8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
+  h1,h2,h3 { font-family:'Noto Serif',Georgia,serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  .topbar { background:#fff; border-bottom:1px solid var(--line); padding:12px 0; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(0,52,115,.08); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .topbar img.logo { height:44px; width:auto; }
+  .callbtn { background:var(--teal); color:#fff; font-weight:700; font-size:14px; padding:11px 22px; border-radius:8px; text-decoration:none; white-space:nowrap; }
+  .callbtn:hover { background:var(--navy); }
+  .hero { background:linear-gradient(150deg,#ffffff 0%,#e9f4fd 55%,#d8ecfb 100%); padding:60px 0 52px; text-align:center; border-bottom:1px solid var(--line); }
+  .hero .kicker { display:inline-block; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--navy); background:#d9ecfd; padding:7px 16px; border-radius:999px; margin-bottom:20px; }
+  .hero h1 { font-size:38px; line-height:1.22; margin-bottom:8px; font-weight:600; }
+  .hero h1 .pname { color:var(--navy); }
+  .hero .headline { font-size:24px; font-weight:600; margin:12px 0 14px; color:var(--teal); }
+  .hero p.sub { color:var(--muted); font-size:16.5px; max-width:540px; margin:0 auto; }
+  .tooth { width:52px; height:52px; margin:0 auto 14px; display:block; }
+  section { padding:44px 0; }
+  section h2 { font-size:29px; font-weight:600; color:var(--navy); margin-bottom:6px; }
+  section .lede { color:var(--muted); font-size:15.5px; margin-bottom:22px; }
+  .call { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(6,182,212,.10); }
+  .call-head { background:linear-gradient(120deg,var(--navy),#0a5cb8); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; font-weight:600; font-size:14px; }
+  .call-head .dot { width:9px; height:9px; border-radius:50%; background:#7de3f7; animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .call-body { padding:18px; }
+  .msg { display:flex; margin-bottom:14px; gap:10px; }
+  .msg .who { flex-shrink:0; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; padding-top:8px; width:86px; }
+  .msg.ai .who { color:var(--navy); }
+  .msg.caller .who { color:#0a7bb8; }
+  .msg .bubble { background:#f1f5f9; border-radius:4px 14px 14px 14px; padding:10px 14px; font-size:14.5px; flex:1; }
+  .msg.ai .bubble { background:#e8f6fd; }
+  .msg .t { font-size:11px; color:#94a3b8; margin-top:4px; }
+  .fine { font-size:12px; color:#94a3b8; padding:0 18px 16px; }
+  .bullets { list-style:none; }
+  .bullets li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px 14px 48px; margin-bottom:10px; position:relative; font-size:15px; }
+  .bullets li::before { content:""; position:absolute; left:16px; top:16px; width:20px; height:20px; background:var(--teal); border-radius:50%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size:12px; background-repeat:no-repeat; background-position:center; }
+  .steps { display:grid; gap:12px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; gap:14px; }
+  .step .n { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .step b { display:block; margin-bottom:2px; }
+  .step p { font-size:14px; color:var(--muted); }
+  .numbers { background:var(--navy-deep); color:#e3f0ff; border-radius:16px; padding:28px 24px; }
+  .numbers h2 { color:#fff; }
+  .numbers .row { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
+  .numbers .stat { flex:1; min-width:150px; background:rgba(255,255,255,.06); border:1px solid rgba(6,182,212,.35); border-radius:12px; padding:16px; }
+  .numbers .stat b { display:block; font-size:20px; color:#7de3f7; }
+  .numbers .stat span { font-size:13px; color:#a9c4e8; }
+  .cta { text-align:center; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:42px 24px; }
+  .cta h2 { margin-bottom:10px; }
+  .cta p { color:var(--muted); margin-bottom:8px; }
+  .cta .btn { display:inline-block; margin-top:14px; background:var(--teal); color:#fff; font-weight:700; padding:14px 32px; border-radius:8px; text-decoration:none; font-size:16px; }
+  .cta .btn:hover { background:var(--navy); }
+  .cta .sign { margin-top:18px; font-size:14px; color:var(--muted); }
+  footer { background:var(--navy-deep); color:#bcd3ef; padding:34px 20px 44px; font-size:13px; text-align:center; }
+  footer .fname { font-family:'Noto Serif',serif; font-size:19px; font-weight:600; color:#fff; margin-bottom:8px; }
+  footer a { color:#7de3f7; text-decoration:none; }
+  footer .fineprint { margin-top:14px; font-size:11.5px; color:#8aa9cf; }
+  @media (max-width:520px) { .hero h1 { font-size:29px; } .hero .headline { font-size:20px; } .callbtn { padding:9px 14px; font-size:12.5px; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <img class="logo" src="assets/smile-mission-logo.webp" alt="The Smile Mission">
+  <a class="callbtn" href="tel:+14702024055">Call 470-202-4055</a>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <svg class="tooth" viewBox="0 0 64 64" fill="none"><path d="M32 8c-8 0-10 3-16 3C9 11 6 16 8 24c2 7 6 10 7 17 1 6 2 15 7 15 4 0 3-9 5-14 1-3 2-5 5-5s4 2 5 5c2 5 1 14 5 14 5 0 6-9 7-15 1-7 5-10 7-17 2-8-1-13-8-13-6 0-8-3-16-3z" fill="#06b6d4" opacity=".9"/></svg>
+  <div class="kicker">Personal demo · made for your practice</div>
+  <h1><span class="pname">The Smile Mission – Georgia</span></h1>
+  <div class="headline">Never miss another patient call.</div>
+  <p class="sub">An AI voice receptionist that answers every call, books new patients, handles reschedules, and takes after-hours messages — on your real schedule.</p>
+</div></div>
+
+<div class="wrap">
+<section>
+  <h2>Hear it in action</h2>
+  <p class="lede">A sample conversation with the receptionist, built around The Smile Mission's actual hours and services.</p>
+  <div class="call">
+    <div class="call-head"><span class="dot"></span> Incoming call · sample conversation</div>
+    <div class="call-body">
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thanks for calling The Smile Mission in Georgia — this is Ava, your virtual receptionist. How can I help?</div><div class="t">0:05</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Hi — do you take Delta Dental? And do you guys do payment plans? Money&#x27;s tight right now.</div><div class="t">0:14</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">We work with 100+ insurance plans including Delta Dental, and yes — we offer financing options so treatment stays affordable. What do you need done?</div><div class="t">0:26</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Just a cleaning and checkup. Do you have anything Saturday? I work weekdays.</div><div class="t">0:33</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Saturdays we&#x27;re open 8 AM to 8 PM. I have this Saturday at 11:00 or 3:30 — which works?</div><div class="t">0:43</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">11:00. I&#x27;m Carlos Mendez, 678-555-0156.</div><div class="t">0:49</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Booked, Carlos — Saturday 11:00 for your cleaning and checkup. Bring your insurance card and we&#x27;ll verify your Delta coverage at check-in. Confirmation text is on the way!</div><div class="t">1:00</div></div></div>
+    </div>
+    <div class="fine">Illustrative transcript for demo purposes — not a recording of a real call.</div>
+  </div>
+</section>
+
+<section>
+  <h2>What it handles for The Smile Mission</h2>
+  <p class="lede">Configured around how your practice actually runs.</p>
+  <ul class="bullets">
+      <li>Answers insurance questions across your 100+ plans — the #1 reason patients call</li>
+      <li>Explains financing options clearly so cost never ends the conversation</li>
+      <li>Books straight into your schedule — no online system needed, the phone is the system</li>
+      <li>Covers Saturday evenings until 8 PM and after-hours messages alike</li>
+      <li>Takes new-patient intake with insurance details verified at booking</li>
+      <li>Reschedules and cancels without pulling your team off patients</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>We configure it on your real schedule</b><p>Takes 3–5 days. Your hours, services, and booking rules — built in and tested.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Test call with you</b><p>You call it yourself and try to trip it up. We tune it until you're happy.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Goes live</b><p>On your existing number or a new one — your choice. After-hours first, or full-time.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="numbers">
+    <h2>Honest numbers</h2>
+    <div class="row">
+      <div class="stat"><b>~$0.13/min</b><span>all-in operating cost per minute of talk time</span></div>
+      <div class="stat"><b>HIPAA-ready</b><span>signed Business Associate Agreement before go-live</span></div>
+      <div class="stat"><b>3–5 days</b><span>from your go-ahead to a tested, working agent</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Try it on your real schedule</h2>
+    <p>Reply to our email to get a <b>free trial week</b> on your real schedule — configured for The Smile Mission, no commitment.</p>
+    <a class="btn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Reply to start your trial</a>
+    <div class="sign">— the agenticrx team</div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="fname">The Smile Mission – Georgia</div>
+  <div>4330 S Lee St., Buford, Suite 500, GA 30518<br>Phone: <a href="tel:+14702024055">470-202-4055</a> · <a href="mailto:georgia@thesmilemission.com">georgia@thesmilemission.com</a></div>
+  <div class="fineprint">© 2026 agenticrx · Sample transcript for illustration only. No patient data involved.<br>This demo page mirrors the practice's branding for illustration.</div>
+</footer>
+</body>
+</html>

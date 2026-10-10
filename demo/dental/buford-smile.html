@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buford Smile Dental Care — AI Voice Receptionist Demo · agenticrx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#214084; --navy-dark:#1a3266; --navy-deep:#121f42; --orange:#F26B2D; --orange-dark:#d95a1c; --ink:#1E2023; --muted:#646464; --bg:#F5F8FA; --card:#ffffff; --line:#E2EAFF; --lightblue:#E2EAFF; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Roboto',Arial,Helvetica,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  .topbar { background:#fff; border-bottom:4px solid var(--navy); padding:12px 0; position:sticky; top:0; z-index:10; box-shadow:0 2px 8px rgba(33,64,132,.10); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .logo img { height:52px; width:auto; display:block; }
+  .top-contact { text-align:right; font-size:13px; color:var(--muted); }
+  .top-contact .phone { display:block; font-size:17px; font-weight:700; color:var(--navy); text-decoration:none; }
+  .top-contact .by { font-size:11px; letter-spacing:.5px; }
+  .hero { background:linear-gradient(160deg,#ffffff 0%,var(--lightblue) 100%); padding:56px 0 44px; text-align:center; border-bottom:1px solid var(--line); }
+  .hero .kicker { display:inline-block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:var(--orange); padding:7px 16px; border-radius:999px; margin-bottom:18px; }
+  .hero h1 { font-size:36px; font-weight:900; line-height:1.15; letter-spacing:-.5px; margin-bottom:6px; color:var(--navy); text-transform:uppercase; }
+  .hero .headline { font-size:22px; font-weight:700; margin:10px 0 12px; color:var(--ink); }
+  .hero p.sub { color:var(--muted); font-size:16px; max-width:520px; margin:0 auto; }
+  .tooth { width:52px; height:52px; margin:0 auto 14px; display:block; }
+  section { padding:40px 0; }
+  section h2 { font-size:23px; font-weight:900; letter-spacing:-.3px; margin-bottom:6px; color:var(--navy); }
+  section .lede { color:var(--muted); font-size:15px; margin-bottom:20px; }
+  .call { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 28px rgba(33,64,132,.10); }
+  .call-head { background:var(--navy); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; font-weight:700; font-size:14px; }
+  .call-head .dot { width:9px; height:9px; border-radius:50%; background:var(--orange); animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .call-body { padding:18px; }
+  .msg { display:flex; margin-bottom:14px; gap:10px; }
+  .msg .who { flex-shrink:0; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; padding-top:8px; width:86px; }
+  .msg.ai .who { color:var(--navy); }
+  .msg.caller .who { color:var(--orange-dark); }
+  .msg .bubble { background:#f1f3f7; border-radius:4px 14px 14px 14px; padding:10px 14px; font-size:14.5px; flex:1; }
+  .msg.ai .bubble { background:var(--lightblue); }
+  .msg .t { font-size:11px; color:#a0aec0; margin-top:4px; }
+  .fine { font-size:12px; color:#a0aec0; padding:0 18px 16px; }
+  .bullets { list-style:none; }
+  .bullets li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px 14px 48px; margin-bottom:10px; position:relative; font-size:15px; }
+  .bullets li::before { content:""; position:absolute; left:16px; top:16px; width:20px; height:20px; background:var(--orange); border-radius:50%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size:12px; background-repeat:no-repeat; background-position:center; }
+  .steps { display:grid; gap:12px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; gap:14px; }
+  .step .n { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; display:flex; align-items:center; justify-content:center; }
+  .step b { display:block; margin-bottom:2px; }
+  .step p { font-size:14px; color:var(--muted); }
+  .numbers { background:var(--navy-deep); color:#eef2fb; border-radius:16px; padding:28px 24px; }
+  .numbers h2 { color:#fff; }
+  .numbers .row { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
+  .numbers .stat { flex:1; min-width:150px; background:rgba(255,255,255,.07); border-radius:12px; padding:16px; }
+  .numbers .stat b { display:block; font-size:20px; color:#FFBC7D; }
+  .numbers .stat span { font-size:13px; color:#b9c4de; }
+  .cta { text-align:center; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:40px 24px; }
+  .cta h2 { margin-bottom:10px; }
+  .cta p { color:var(--muted); margin-bottom:8px; }
+  .cta .btn { display:inline-block; margin-top:14px; background:var(--orange); color:#fff; font-weight:700; padding:14px 30px; border-radius:8px; text-decoration:none; font-size:16px; }
+  .cta .btn:hover { background:var(--orange-dark); }
+  .cta .sign { margin-top:18px; font-size:14px; color:var(--muted); }
+  footer { background:var(--navy-dark); color:#c6d2ec; padding:28px 20px 40px; font-size:12.5px; text-align:center; }
+  footer .addr { margin-bottom:8px; }
+  footer .addr b { color:#fff; }
+  footer .demo { margin-top:8px; color:#93a5d4; font-size:11.5px; }
+  @media (max-width:520px) { .hero h1 { font-size:28px; } .hero .headline { font-size:19px; } .logo img { height:40px; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="logo"><img src="assets/buford-smile-logo.png" alt="Buford Smile Dental Care"></div>
+  <div class="top-contact">
+    <span class="phone">+1(470)-466-2888</span>
+    <span class="by">Demo by the agenticrx team</span>
+  </div>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <svg class="tooth" viewBox="0 0 64 64" fill="none"><path d="M32 8c-8 0-10 3-16 3C9 11 6 16 8 24c2 7 6 10 7 17 1 6 2 15 7 15 4 0 3-9 5-14 1-3 2-5 5-5s4 2 5 5c2 5 1 14 5 14 5 0 6-9 7-15 1-7 5-10 7-17 2-8-1-13-8-13-6 0-8-3-16-3z" fill="#214084" opacity=".9"/></svg>
+  <div class="kicker">Personal demo · made for your practice</div>
+  <h1>Buford Smile Dental Care</h1>
+  <div class="headline">Never miss another patient call.</div>
+  <p class="sub">An AI voice receptionist that answers every call, books new patients, handles reschedules, and takes after-hours messages — on your real schedule.</p>
+</div></div>
+
+<div class="wrap">
+<section>
+  <h2>Hear it in action</h2>
+  <p class="lede">A sample conversation with the receptionist, built around Buford Smile's actual hours and services.</p>
+  <div class="call">
+    <div class="call-head"><span class="dot"></span> Incoming call · sample conversation</div>
+    <div class="call-body">
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thanks for calling Buford Smile Dental Care — this is Ava, your virtual receptionist. How can I help?</div><div class="t">0:04</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Hi — I saw you have a $79 new-patient special. What&#x27;s included in that?</div><div class="t">0:12</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Great question — the $79 new-patient special covers your exam, cleaning, and X-rays. Would you like to book one?</div><div class="t">0:21</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Yes please. Also, I&#x27;ve had a toothache for two days — is that something you can look at in the same visit?</div><div class="t">0:30</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Absolutely — we&#x27;ll flag the toothache so the doctor examines it during your visit. We&#x27;re open Monday and Tuesday 8 to 5, Wednesday 8 to 1, and Thursday–Friday 8 to 5. When works for you?</div><div class="t">0:43</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Wednesday morning?</div><div class="t">0:46</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">I have Wednesday at 8:30 or 10:15. Which do you prefer?</div><div class="t">0:52</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">8:30. Name&#x27;s Denise Park, 770-555-0162.</div><div class="t">0:58</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">You&#x27;re booked, Denise — Wednesday 8:30, $79 new-patient visit with the toothache flagged for the doctor. Confirmation text is on its way!</div><div class="t">1:08</div></div></div>
+    </div>
+    <div class="fine">Illustrative transcript for demo purposes — not a recording of a real call.</div>
+  </div>
+</section>
+
+<section>
+  <h2>What it handles for Buford Smile</h2>
+  <p class="lede">Configured around how your practice actually runs.</p>
+  <ul class="bullets">
+      <li>Books your $79 new-patient special callers on the spot — before they call the next office</li>
+      <li>Triages toothache and urgent calls, flagging them for the doctor</li>
+      <li>Answers around the clock — Wednesday afternoons and weekends included</li>
+      <li>Handles fillings, root canal, and extraction scheduling questions</li>
+      <li>Reschedules and cancels without tying up your front desk</li>
+      <li>Takes after-hours messages with callback booking for the next business day</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>We configure it on your real schedule</b><p>Takes 3–5 days. Your hours, services, and booking rules — built in and tested.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Test call with you</b><p>You call it yourself and try to trip it up. We tune it until you're happy.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Goes live</b><p>On your existing number or a new one — your choice. After-hours first, or full-time.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="numbers">
+    <h2>Honest numbers</h2>
+    <div class="row">
+      <div class="stat"><b>~$0.13/min</b><span>all-in operating cost per minute of talk time</span></div>
+      <div class="stat"><b>HIPAA-ready</b><span>signed Business Associate Agreement before go-live</span></div>
+      <div class="stat"><b>3–5 days</b><span>from your go-ahead to a tested, working agent</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Try it on your real schedule</h2>
+    <p>Reply to our email to get a <b>free trial week</b> on your real schedule — configured for Buford Smile, no commitment.</p>
+    <a class="btn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Reply to start your trial</a>
+    <div class="sign">— the agenticrx team</div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="addr"><b>Buford Smile</b> · 4108 Hamilton Mill Road Suite 220, Buford, GA 30519 · Phone: +1(470)-466-2888</div>
+  <div>© 2026 agenticrx</div>
+  <div class="demo">Demo concept for Buford Smile Dental Care · Sample transcript for illustration only. No patient data involved.</div>
+</footer>
+</body>
+</html>

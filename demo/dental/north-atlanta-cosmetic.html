@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North Atlanta Center for Cosmetic &amp; Implant Dentistry — AI Voice Receptionist Demo · agenticrx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root { --brand:#5f2038; --brand-dark:#4a182c; --gold:#b8905a; --gold-light:#d9b98a; --ink:#2b1d22; --muted:#7a6a6e; --bg:#faf7f1; --card:#ffffff; --line:#e9ded4; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Roboto',-apple-system,'Segoe UI',sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  h1, h2, .serif { font-family:'Source Serif 4',Georgia,serif; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  .topbar { background:#fff; border-bottom:3px solid var(--gold); padding:12px 0; position:sticky; top:0; z-index:10; }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .plogo { height:46px; width:auto; }
+  .top-actions { display:flex; align-items:center; gap:12px; }
+  .phone { font-weight:700; color:var(--brand); text-decoration:none; font-size:15px; white-space:nowrap; }
+  .book { background:var(--gold); color:#fff; font-weight:700; font-size:13px; padding:10px 20px; border-radius:4px; text-decoration:none; white-space:nowrap; }
+  .demo-strip { background:var(--brand); color:#f2e9dc; text-align:center; font-size:12px; letter-spacing:.8px; padding:7px 12px; }
+  .demo-strip b { color:var(--gold-light); }
+  .hero { background:linear-gradient(160deg,#ffffff 0%,#f7f1e7 100%); padding:56px 0 44px; text-align:center; border-bottom:1px solid var(--line); }
+  .hero .kicker { display:inline-block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--brand); background:#f0e2cc; padding:6px 14px; border-radius:999px; margin-bottom:18px; }
+  .hero h1 { font-size:34px; line-height:1.25; font-weight:600; margin-bottom:6px; }
+  .hero h1 .pname { color:var(--brand); }
+  .hero .headline { font-size:23px; font-weight:600; margin:10px 0 12px; font-family:'Source Serif 4',Georgia,serif; color:var(--brand-dark); }
+  .hero p.sub { color:var(--muted); font-size:16px; max-width:520px; margin:0 auto; }
+  .tooth { width:52px; height:52px; margin:0 auto 14px; display:block; }
+  section { padding:40px 0; }
+  section h2 { font-size:25px; font-weight:600; margin-bottom:6px; color:var(--brand-dark); }
+  section .lede { color:var(--muted); font-size:15px; margin-bottom:20px; }
+  .call { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(95,32,56,.10); }
+  .call-head { background:var(--brand); color:#fff; padding:14px 18px; display:flex; align-items:center; gap:10px; font-weight:500; font-size:14px; }
+  .call-head .dot { width:9px; height:9px; border-radius:50%; background:var(--gold-light); animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .call-body { padding:18px; }
+  .msg { display:flex; margin-bottom:14px; gap:10px; }
+  .msg .who { flex-shrink:0; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; padding-top:8px; width:86px; }
+  .msg.ai .who { color:var(--brand); }
+  .msg.caller .who { color:#8a7a4e; }
+  .msg .bubble { background:#f4f1ec; border-radius:4px 14px 14px 14px; padding:10px 14px; font-size:14.5px; flex:1; }
+  .msg.ai .bubble { background:#f3e9dc; }
+  .msg .t { font-size:11px; color:#a89a92; margin-top:4px; }
+  .fine { font-size:12px; color:#a89a92; padding:0 18px 16px; }
+  .bullets { list-style:none; }
+  .bullets li { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px 14px 48px; margin-bottom:10px; position:relative; font-size:15px; }
+  .bullets li::before { content:""; position:absolute; left:16px; top:16px; width:20px; height:20px; background:var(--brand); border-radius:50%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size:12px; background-repeat:no-repeat; background-position:center; }
+  .steps { display:grid; gap:12px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:18px; display:flex; gap:14px; }
+  .step .n { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--gold); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .step b { display:block; margin-bottom:2px; }
+  .step p { font-size:14px; color:var(--muted); }
+  .numbers { background:var(--brand-dark); color:#f5ece0; border-radius:10px; padding:28px 24px; border-top:4px solid var(--gold); }
+  .numbers h2 { color:#fff; }
+  .numbers .row { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
+  .numbers .stat { flex:1; min-width:150px; background:rgba(255,255,255,.07); border-radius:8px; padding:16px; }
+  .numbers .stat b { display:block; font-size:20px; color:var(--gold-light); }
+  .numbers .stat span { font-size:13px; color:#cdbfae; }
+  .cta { text-align:center; background:var(--card); border:1px solid var(--line); border-top:4px solid var(--gold); border-radius:10px; padding:40px 24px; }
+  .cta h2 { margin-bottom:10px; }
+  .cta p { color:var(--muted); margin-bottom:8px; }
+  .cta .btn { display:inline-block; margin-top:14px; background:var(--brand); color:#fff; font-weight:700; padding:14px 30px; border-radius:4px; text-decoration:none; font-size:16px; }
+  .cta .sign { margin-top:18px; font-size:14px; color:var(--muted); }
+  footer { background:var(--brand-dark); color:#d9cbb8; padding:40px 20px 32px; font-size:13px; }
+  footer .wrap { display:grid; gap:22px; }
+  footer .fbrand img { height:42px; width:auto; margin-bottom:10px; }
+  footer h4 { color:#fff; font-family:'Source Serif 4',Georgia,serif; font-size:15px; margin-bottom:8px; font-weight:600; }
+  footer a { color:var(--gold-light); text-decoration:none; }
+  footer .fine2 { text-align:center; font-size:12px; color:#a8927e; border-top:1px solid rgba(255,255,255,.12); padding-top:18px; margin-top:6px; }
+  @media (max-width:520px) { .hero h1 { font-size:26px; } .hero .headline { font-size:20px; } .phone { display:none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <img class="plogo" src="assets/north-atlanta-cosmetic-logo.webp" alt="North Atlanta Center for Cosmetic &amp; Implant Dentistry">
+  <div class="top-actions">
+    <a class="phone" href="tel:7709321115">(770) 932-1115</a>
+    <a class="book" href="#">Book an appointment</a>
+  </div>
+</div></div>
+<div class="demo-strip">Personalized demo · <b>AI voice receptionist by agenticrx</b> — a working concept for your practice</div>
+
+<div class="hero"><div class="wrap">
+  <svg class="tooth" viewBox="0 0 64 64" fill="none"><path d="M32 8c-8 0-10 3-16 3C9 11 6 16 8 24c2 7 6 10 7 17 1 6 2 15 7 15 4 0 3-9 5-14 1-3 2-5 5-5s4 2 5 5c2 5 1 14 5 14 5 0 6-9 7-15 1-7 5-10 7-17 2-8-1-13-8-13-6 0-8-3-16-3z" fill="#b8905a" opacity=".9"/></svg>
+  <div class="kicker">Personal demo · made for your practice</div>
+  <h1><span class="pname">North Atlanta Center for Cosmetic &amp; Implant Dentistry</span></h1>
+  <div class="headline">Never miss another patient call.</div>
+  <p class="sub">An AI voice receptionist that answers every call, books new patients, handles reschedules, and takes after-hours messages — on your real schedule.</p>
+</div></div>
+
+<div class="wrap">
+<section>
+  <h2>Hear it in action</h2>
+  <p class="lede">A sample conversation with the receptionist, built around North Atlanta's actual hours and services.</p>
+  <div class="call">
+    <div class="call-head"><span class="dot"></span> Incoming call · sample conversation</div>
+    <div class="call-body">
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Thanks for calling North Atlanta Center for Cosmetic and Implant Dentistry — this is Ava, the virtual receptionist. How can I help you today?</div><div class="t">0:04</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Hi — do you guys do veneers? I&#x27;ve been thinking about getting them.</div><div class="t">0:11</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">We do — veneers are one of our specialties, along with implants, crowns, and Invisalign. Would you like to book a consultation?</div><div class="t">0:19</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Yeah. Are you open Fridays? That&#x27;s the only day I&#x27;m free.</div><div class="t">0:26</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">We&#x27;re here Monday through Thursday, 8 AM to 5 PM, and closed Friday and Saturday — but I can get you in first thing Thursday morning. Would 8:30 Thursday work?</div><div class="t">0:36</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">Thursday&#x27;s tough… what about next week Monday?</div><div class="t">0:42</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Monday works — I have 9:15 or 2:40. Which is better?</div><div class="t">0:48</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">9:15. Name&#x27;s Rachel Torres, number is 770-555-0148.</div><div class="t">0:55</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">Got it, Rachel — Monday at 9:15 for a veneers consultation. I&#x27;ll text a confirmation to 770-555-0148. Anything else I can help with?</div><div class="t">1:04</div></div></div>
+      <div class="msg caller"><div class="who">Caller</div><div><div class="bubble">That&#x27;s it, thanks!</div><div class="t">1:07</div></div></div>
+      <div class="msg ai"><div class="who">AI receptionist</div><div><div class="bubble">You&#x27;re welcome — see you Monday!</div><div class="t">1:10</div></div></div>
+    </div>
+    <div class="fine">Illustrative transcript for demo purposes — not a recording of a real call.</div>
+  </div>
+</section>
+
+<section>
+  <h2>What it handles for North Atlanta</h2>
+  <p class="lede">Configured around how your practice actually runs.</p>
+  <ul class="bullets">
+      <li>Books veneer, implant, and Invisalign consultations straight into your schedule — no phone tag</li>
+      <li>Answers every call Monday–Thursday, and takes messages with callback booking when you&#x27;re closed Fri–Sun</li>
+      <li>Handles emergency calls and routes urgent cases per your protocol</li>
+      <li>Takes new-patient intake: name, number, reason for visit, insurance</li>
+      <li>Reschedules and cancels without tying up your front desk</li>
+      <li>Answers common questions — services, location, what to expect at a first visit</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>We configure it on your real schedule</b><p>Takes 3–5 days. Your hours, services, and booking rules — built in and tested.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Test call with you</b><p>You call it yourself and try to trip it up. We tune it until you're happy.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Goes live</b><p>On your existing number or a new one — your choice. After-hours first, or full-time.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="numbers">
+    <h2>Honest numbers</h2>
+    <div class="row">
+      <div class="stat"><b>~$0.13/min</b><span>all-in operating cost per minute of talk time</span></div>
+      <div class="stat"><b>HIPAA-ready</b><span>signed Business Associate Agreement before go-live</span></div>
+      <div class="stat"><b>3–5 days</b><span>from your go-ahead to a tested, working agent</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Try it on your real schedule</h2>
+    <p>Reply to our email to get a <b>free trial week</b> on your real schedule — configured for North Atlanta, no commitment.</p>
+    <a class="btn" href="mailto:?subject=Free%20trial%20week%20—%20AI%20voice%20receptionist">Reply to start your trial</a>
+    <div class="sign">— the agenticrx team</div>
+  </div>
+</section>
+</div>
+
+<footer><div class="wrap">
+  <div class="fbrand">
+    <img src="assets/north-atlanta-cosmetic-logo.webp" alt="North Atlanta Center for Cosmetic &amp; Implant Dentistry">
+    <h4>North Atlanta Center for Cosmetic &amp; Implant Dentistry</h4>
+    <div>Gentle, experienced care for the smile you deserve.</div>
+  </div>
+  <div>
+    <h4>Hours</h4>
+    <div><b>Monday – Thursday:</b> 8 AM – 5 PM</div>
+    <div><b>Friday – Saturday:</b> Closed</div>
+  </div>
+  <div>
+    <h4>Connect with us</h4>
+    <div>Call us <a href="tel:7709321115">(770) 932-1115</a></div>
+    <div>1900 Morningside Dr Suite 201, Buford, GA 30518</div>
+  </div>
+  <div class="fine2">© 2026 agenticrx · Sample transcript for illustration only. No patient data involved.</div>
+</div></footer>
+</body>
+</html>
