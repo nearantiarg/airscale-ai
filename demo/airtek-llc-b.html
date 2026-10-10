@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: AirTek LLC (3.0/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited airtekac.com: 3.0/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1e2a6e;--teal:#3a6fd8;--orange:#e02020;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .logo-word{font-weight:900;font-size:1.35rem;color:#1e2a6e;letter-spacing:.02em;line-height:1;text-decoration:none}
+  .logo-word small{display:block;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:#3a6fd8}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Archivo',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,color-mix(in srgb,var(--teal) 18%,transparent),transparent 60%),radial-gradient(600px 320px at 10% 90%,color-mix(in srgb,var(--orange) 14%,transparent),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),color-mix(in srgb,var(--navy) 60%,#000));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--teal);font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),color-mix(in srgb,var(--navy) 70%,#000));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--teal)}
+  .lede{color:#cfe0ea;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9db4c4}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-word{font-weight:900;font-size:1.1rem;color:#fff}
+  .foot-word small{display:block;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--teal)}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>AirTek LLC</strong> · Score: 3.0/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/jpeg;base64,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" alt="AirTek LLC"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19018966279">📞 (901) 896-6279</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Southaven, MS</p>
+    <h1>We audited airtekac.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.0<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">Greater Memphis coverage with 24/7 service and sharp specials — none of which you can claim online.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 Independent audit of airtekac.com</span>
+      <span>📉 Scored 3.0/5 on after-hours readiness</span>
+      <span>🤖 No AI answering found on the site</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on airtekac.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>Specials with no claim button</h3>
+        <p>The homepage pushes <strong>$69 cooling tune-up, $1,500 off install, $50 off repair</strong> — and offers <strong>no way to claim any of them online</strong>. A deal without a claim path is just decoration.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat claims the special and books the visit in one flow — the offer converts the moment it’s seen.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>24/7 service, phone-only intake</h3>
+        <p>The site states <strong>“Available for 24/7 Service”</strong> — but after hours the only path is calling <strong>(901) 896-6279</strong>. No chat, no AI, no text-back.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, captures the job, and texts a confirmation — overnight, weekends, holidays.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No online booking — contact page only</h3>
+        <p>Service pages for AC, heating, ductless, heat pumps, and plumbing — <strong>zero online booking</strong>. Every job starts with a call or a form.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One tap in chat → slot offered → name → booked. The receipt fills in live.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>“Review on Google” link — but no rating shown</h3>
+        <p>There’s a <strong>“Review on Google”</strong> link — asking for reviews — while the homepage itself displays <strong>no star rating and no review count</strong>. Asking without showing.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> The real rating displayed live, with auto-replies and post-job review requests by text.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Two-city identity, one fuzzy service area</h3>
+        <p>The brand says <strong>“Greater Memphis area”</strong> while the address is <strong>Southaven, MS</strong>. A Memphis homeowner may wonder if you actually come to them.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat confirms the address and books in one breath — service-area doubt resolved instantly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is airtekac.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with the AC struggling in August heat at 10 PM.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 AirTek</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on AirTek’s real services — AC and heating repair, installation, maintenance, ductless, and plumbing — and the Greater Memphis service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Asking for reviews.<br>Not showing them.</h2>
+    <p class="section-sub">What we could verify on the public site — and what the fixed version changes.</p>
+
+    <p class="rev-note">The site links out to “Review on Google” — but the homepage displays no star rating or review count. The fixed version shows the real rating live and collects new reviews automatically.</p>
+  </div>
+</section>
+
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20%E2%80%94%20AirTek%20LLC%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © AirTek LLC (airtekac.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/jpeg;base64,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" alt="AirTek LLC">
+    <p>Audit demo built by <a href="../">agenticrx</a> for AirTek LLC · Southaven, MS · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "AirTek LLC", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

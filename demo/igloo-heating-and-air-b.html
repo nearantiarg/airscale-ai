@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Igloo Heating And Air (2.8/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited iglooheatingandair.com: 2.8/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1c3f60;--teal:#38b6a5;--orange:#f26522;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#3a1c08;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#3a1c08;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Archivo',sans-serif;box-shadow:0 4px 14px rgba(244,126,77,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(244,126,77,.45)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(72,185,199,.18),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(244,126,77,.14),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,58,93,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:#0e7d8c}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),#0a5a86);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--teal);font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),#0a5a86);text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--teal)}
+  .lede{color:#cfe0ea;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9db4c4}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Igloo Heating And Air</strong> · Score: 2.8/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/jpeg;base64,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" alt="Igloo Heating And Air"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+15027773129">📞 (502) 777-3129</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Louisville, KY</p>
+    <h1>We audited iglooheatingandair.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.8<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">Louisville’s on-call HVAC — open 9 to 5, with no online booking even during hours.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 139 HVAC sites audited across GA &amp; FL</span>
+      <span>📉 35 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on iglooheatingandair.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>Open 9–5 — and you still can’t book</h3>
+        <p>Hours are <strong>Mon–Fri, 9 AM–5 PM; weekends by appointment only</strong> — yet there’s no online booking, no form, no chat. Even during hours, it’s call or email.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Real booking in chat with live slots — including those by-appointment weekends.</div>
+      </div>
+
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>“Get a Free Quote” goes to the services page</h3>
+        <p>The quote button links to <strong>/services — not a quote form</strong>. The promise dead-ends on a page of service descriptions.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat-based quote capture — a few questions, an instant confirmation, a real next step.</div>
+      </div>
+
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Contact = a phone number and an email</h3>
+        <p>No contact form, no booking flow, no click-to-text. <strong>Two static contact details</strong> are the entire funnel.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat captures the job in 30 seconds — no phone call required.</div>
+      </div>
+
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No reviews anywhere</h3>
+        <p>No ratings, no testimonials, no review badges — <strong>zero social proof</strong> on the site.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A live review feed on the homepage, auto-replies to every review, and review requests texted after every job.</div>
+      </div>
+
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The same headline, four times</h3>
+        <p>“On-call HVAC to help you get cozy” repeats <strong>four times verbatim</strong> on the homepage — thin, unfinished content.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A rebuilt page with real copy: services, proof, and one clear booking action.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is iglooheatingandair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with the dead AC.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Igloo Heating And Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Igloo’s real services — HVAC repair and maintenance, residential and commercial — and the Louisville area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>No rating to show.<br>That’s the finding.</h2>
+    <p class="section-sub">The fixed homepage would showcase real reviews — collected automatically after every job.</p>
+    <p class="rev-note">No verifiable rating or review count was published on the site at build time — the fixed version collects and displays real reviews automatically. No ratings, counts, or quotes are shown here because none could be verified.</p>
+
+  </div>
+</section>
+
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Igloo%20Heating%20And%20Air%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Igloo Heating And Air (iglooheatingandair.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/jpeg;base64,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" alt="Igloo Heating And Air">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Igloo Heating And Air · Louisville, KY · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Igloo Heating And Air", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

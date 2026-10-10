@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: I.C.E. Heating &amp; Cooling (2.4/5) &mdash; agenticrx</title>
+<meta name="description" content="agenticrx audited iceheatingandcooling.com: 2.4/5. The findings, and what the fixed version looks like &mdash; live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1e3a5f;--teal:#4a90c2;--orange:#e67e22;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#3a1c08;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#3a1c08;font-weight:800}
+  /* header */
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block;}
+  .logo-word{font-size:1.3rem;font-weight:900;color:var(--navy);letter-spacing:-.01em;text-decoration:none;line-height:1.1}
+  .logo-word small{display:block;font-size:.68rem;font-weight:700;color:var(--teal);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Inter',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  /* hero */
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:48%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  /* scorecard */
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  /* demo */
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#fff;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  /* reviews */
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  /* cta */
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#eaf3f8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#dbe7ee}
+  /* footer */
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px;}
+  .foot-word{font-size:1.05rem;font-weight:900;color:#fff;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">&#128203; WEBSITE AUDIT &mdash; built by <a href="../">agenticrx</a> for <strong>I.C.E. Heating &amp; Cooling</strong> &middot; Score: 2.4/5 &middot; <a href="../">&larr; Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><span class="logo-word">I.C.E.<small>HEATING &amp; COOLING</small></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+15406545518">&#128222; (540) 654-5518</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded &middot; Fredericksburg, VA</p>
+    <h1>We audited iceheatingandcooling.com. <span class="grade">Here&rsquo;s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.4<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">25+ years in Fredericksburg — with expired coupons and a broken-looking contact form on the homepage.</p>
+    </div>
+    <div class="audit-meta">
+      <span>&#128269; 139 HVAC sites audited across GA &amp; FL</span>
+      <span>&#128201; 35 scored under 3.5</span>
+      <span>&#129302; 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website &mdash; not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on iceheatingandcooling.com &mdash; and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">&#128308; Costing you jobs</span>
+        <h3>Dark after 4:30 PM on weekdays</h3>
+        <p>Posted hours: <strong>Monday–Friday, 7:30 AM–4:30 PM</strong>. After 4:30, the “24/7 Emergency Service” promise runs through one phone line — no chat, no text, no online path.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ava answers in 8 seconds, captures the job, and texts a confirmation — overnight, weekends, holidays.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">&#128308; Costing you jobs</span>
+        <h3>Three coupons on the homepage are EXPIRED</h3>
+        <p>The coupon section advertises <strong>up to $1,800 in rebates, a free diagnostic ($99 savings), and a $29.99 tune-up</strong> — every one of them marked <strong>EXPIRED</strong>. Dead offers destroy trust instantly.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Live offers managed in one place — Ava quotes only what&rsquo;s current, and expired deals retire themselves.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">&#128308; Costing you jobs</span>
+        <h3>The contact form shows an error on the live page</h3>
+        <p>The contact area displays <strong>“Oops, there was an error sending your message. Please try again later”</strong> — a visitor who just tried to reach you sees failure, not a confirmation.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A chat path that confirms every booking instantly — no silent failures, no dead forms.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>Social icons link to dead ends</h3>
+        <p>The footer links to <strong>Google+</strong> — shut down in 2019 — alongside the live profiles. Dead links signal a site nobody tends.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A rebuilt footer with live profiles only — and review links that actually collect reviews.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">&#128993; Leaving money on the table</span>
+        <h3>No online booking, no live chat</h3>
+        <p>No booking flow and no chat widget — the only digital action is a <strong>contact form</strong> (see above). Everything else is the phone.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One tap in chat → slot offered → name → booked, with a live receipt and an owner summary.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">&#9679; Live demo &mdash; go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is iceheatingandcooling.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you&rsquo;re the homeowner with no heat.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>&#128736; I.C.E. Heating &amp; Cooling</span><span class="demo-live">&#9679; AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message&hellip;" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">&#10148;</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting &mdash; this receipt fills in live&hellip;</li>
+        </ul>
+        <div class="demo-note">Trained on I.C.E. Heating &amp; Cooling&rsquo;s real services &mdash; heating and air conditioning installation, maintenance and repair, commercial service, and custom ductwork &mdash; and the Fredericksburg, VA service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>No reviews on the site.<br>That&rsquo;s the finding.</h2>
+    <p class="section-sub">Nothing verifiable was available at build time.</p>
+    <p class="rev-note">No reviews, ratings, or testimonials appear on iceheatingandcooling.com. The fixed version collects and displays real reviews automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We&rsquo;ll walk through every finding above and show you exactly what the rebuilt site does &mdash; then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20%E2%80%94%20I.C.E.%20Heating%20%26%20Cooling%20audit">Book a 15-minute walkthrough &rarr;</a>
+    </div>
+    <p class="disclosure">Interactive concept &mdash; not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info &copy; I.C.E. Heating &amp; Cooling (iceheatingandcooling.com) &middot; Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="foot-word">I.C.E.</span>
+    <p>Audit demo built by <a href="../">agenticrx</a> for I.C.E. Heating &amp; Cooling &middot; Fredericksburg, VA &middot; <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "I.C.E. Heating & Cooling", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
