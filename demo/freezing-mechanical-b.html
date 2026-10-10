@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Freezing Mechanical (3.3/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited freezingmechanical.com: 3.3/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{background:#0a1122;color:#e8eef8}
+  h1,h2,h3{color:#fff}
+  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#1f2937;font-weight:800}
+  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
+  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
+  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
+  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:66%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
+  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
+  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
+  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
+  .finding p strong{color:#e8eef8}
+  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
+  .fix strong{color:#4ade80}
+  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
+  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
+  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
+  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .a-cta .wrap{max-width:720px}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
+  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
+  .foot-inner a{color:#8fa1bd}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Freezing Mechanical</strong> · Score: 3.3/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">📋 Audit: Freezing</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+13053637021">📞 (305) 363-7021</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Website audit · Miami, FL</p>
+    <h1>We audited freezingmechanical.com.</h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.3<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">Miami's loudest AC shop — 25 years, same-day installs, 4.7★ on Google — undercut by its own homepage copy.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 139 HVAC sites audited across GA &amp; FL</span>
+      <span>📉 35 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub dark">What the audit found on freezingmechanical.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>Your review count argues with itself</h3>
+        <p>The homepage claims <strong>"over 1500 5-star reviews"</strong> in one section and <strong>"600+ Five-Star Reviews"</strong> in another. A shopper who notices both numbers stops believing either — and your best trust asset goes to waste.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> one verified number, pulled live from your review profile and shown in a badge that updates itself.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>A typo on the page that asks for the call</h3>
+        <p>The service-area page reads <strong>"please call us at please call us at 305-363-7021"</strong> — and the footer adds a third number, (305) 563-7843. The panicked caller with a dead AC is staring at three different numbers, unsure which one works.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> one number, one tap-to-call button, one text line — and Ava answers whichever one they choose.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>"Schedule online" means fill out a form</h3>
+        <p>Book-an-estimate and contact forms are the whole online path — <strong>no live slots, no instant confirmation, no text-back</strong>. The midnight caller submits a form into the dark and waits until morning.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> real slots in chat, booked in under a minute, with a text confirmation before they close the tab.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The maintenance plan has no price</h3>
+        <p>The plan page sells <strong>priority service, up-to-20% discounts, and 2–3 annual visits</strong> — but no plan cost. The value pitch ends at "call us," and most shoppers never make the call.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> plan tiers with real prices in chat — the signup closes where the pitch happens.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No SMS path on a 24/7 site</h3>
+        <p>Hours are listed as <strong>Mo–Su 00:00–24:00</strong>, yet contact is call-or-form only — no text line. The homeowner who won't pick up the phone at 1 AM has no way to reach you at all.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> a text line answered by Ava 24/7 — every after-hours message becomes a booked job, not a missed one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub dark">This is freezingmechanical.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Freezing Mechanical</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Freezing Mechanical's real services — AC repair &amp; replacement, heating, and preventative maintenance plans — and the Miami, Fort Lauderdale, Dade &amp; Broward service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The rating exists.<br>The copy around it doesn't add up.</h2>
+    <p class="section-sub dark">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <div class="rev-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via freezingmechanical.com</small>
+      </div>
+      <div><strong>4.7</strong><small>out of 5 on Google · quoted on their site</small></div>
+    </div>
+    <p class="rev-note">4.7-out-of-5 Google rating as quoted on freezingmechanical.com — the same page that also claims 600+ and 1500+ five-star reviews (see Finding 1). No public review quotes were pulled at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Freezing%20Mechanical%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Freezing Mechanical (freezingmechanical.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top">📋 Audit: Freezing <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Freezing Mechanical · Miami, FL</p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Freezing Mechanical", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
