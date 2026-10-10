@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3236.75 825">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #84acdb;
+        stroke: #84acdb;
+      }
+
+      .cls-2 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        isolation: isolate;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-10 {
+        fill: #003473;
+        font-family: GoudyOldStyleT-Regular, 'Goudy Old Style';
+        font-size: 387.853px;
+      }
+
+      .cls-3 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-6, .cls-7, .cls-9 {
+        fill: #231f20;
+        font-family: GoudyOldStyleT-Italic, 'Goudy Old Style';
+        font-size: 189.505px;
+        font-style: italic;
+      }
+
+      .cls-7 {
+        letter-spacing: .01em;
+      }
+
+      .cls-9 {
+        letter-spacing: .01em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.06em;
+      }
+    </style>
+  </defs>
+  <g class="cls-8">
+    <text class="cls-2" transform="translate(190.316 563.154) scale(.974 1)"><tspan x="0" y="0">Smile Moo</tspan></text>
+    <text class="cls-3" transform="translate(1663.604 563.154) scale(.974 1)"><tspan x="0" y="0">r</tspan></text>
+    <text class="cls-5" transform="translate(1771.45 563.154) scale(.974 1)"><tspan x="0" y="0">e Denti</tspan></text>
+    <text class="cls-10" transform="translate(2755.119 563.154) scale(.974 1)"><tspan x="0" y="0">s</tspan></text>
+    <text class="cls-5" transform="translate(2861.305 563.154) scale(.974 1)"><tspan x="0" y="0">t</tspan></text>
+    <text class="cls-4" transform="translate(2956.796 563.154) scale(.974 1)"><tspan x="0" y="0">r</tspan></text>
+    <text class="cls-5" transform="translate(3083.644 563.154) scale(.974 1)"><tspan x="0" y="0">y</tspan></text>
+  </g>
+  <path class="cls-1" d="M644.408,296.017c21.633-117.265,9.672-169.632,9.672-169.632-49.198-175.608-196.3-101.815-223.619-84.001-70.905,46.252-110.899,3.727-110.899,3.727-103.159-107.841-212.716,9.336-212.716,9.336,0,0,105.041-100.172,205.444-3.727,0,0,54.736,60.262,130.908,9.336,0,0,144.592-104.013,196.756,68.032,0,0,22.999,50.661-18.003,243.45"/>
+  <path class="cls-1" d="M167.378,825C-26.941,317.81,2.026,193.583,2.026,193.583c4.369-38.368,23.639-59.732,23.639-59.732,0,0,107.269-125.06,229.083-5.597,46.466,41.274,98.175,7.466,98.175,7.466,174.532-126.93,216.359,56.005,216.359,56.005,0,0-30.912-147.46-199.992-41.059,0,0-59.35,36.435-118.172-13.063,0,0-117.003-119.11-203.832,12.861,0,0-15.764,24.888-16.97,50.598,0,0-29.755,101.878,105.694,524.018"/>
+  <g class="cls-8">
+    <text class="cls-9" transform="translate(258.44 753.948) scale(.974 1)"><tspan x="0" y="0">C</tspan></text>
+    <text class="cls-6" transform="translate(381.694 753.948) scale(.974 1)"><tspan x="0" y="0">r</tspan></text>
+    <text class="cls-7" transform="translate(435.384 753.948) scale(.974 1)"><tspan x="0" y="0">eating beautiful smiles with gentle </tspan></text>
+    <text class="cls-6" transform="translate(2778.363 753.948) scale(.974 1)"><tspan x="0" y="0">s</tspan></text>
+    <text class="cls-7" transform="translate(2832.227 753.948) scale(.974 1)"><tspan x="0" y="0">tyles.</tspan></text>
+  </g>
+</svg>
