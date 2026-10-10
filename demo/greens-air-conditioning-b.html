@@ -10,41 +10,79 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:42%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--gr-navy:#003448;--gr-navy-d:#002a3a;--gr-blue:#009ed8;--gr-blue-d:#006990;--gr-ink:#333;--gr-gray:#f4f7f9}
+  body{background:#fff;color:var(--gr-ink)}
+  h1,h2,h3{color:var(--gr-navy);letter-spacing:-.02em}
+  .audit-bar{background:var(--gr-blue);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px}
+  .audit-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header — plain like theirs, text wordmark */
+  .nav{background:#fff;border-bottom:2px solid var(--gr-blue)}
+  .nav-inner{padding:12px 24px}
+  .wordmark{text-decoration:none;line-height:1.05;display:block}
+  .wordmark .wm-name{display:block;font-weight:900;font-size:1.5rem;letter-spacing:.02em;color:var(--gr-navy)}
+  .wordmark .wm-sub{display:block;font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--gr-blue)}
+  .nav-links a{color:var(--gr-navy);font-weight:600;font-size:.93rem}
+  .nav-links a:hover{color:var(--gr-blue)}
+  .nav-toggle{color:var(--gr-navy)}
+  .btn{background:var(--gr-blue);border-radius:4px;box-shadow:none;font-weight:800}
+  .btn:hover{background:var(--gr-blue-d);box-shadow:0 8px 18px rgba(0,158,216,.35);transform:translateY(-2px)}
+  .btn-sm{padding:11px 20px}
+  /* hero */
+  .a-hero{padding:84px 0 68px;background:linear-gradient(180deg,#e9f4f9 0%,#fff 100%)}
+  .eyebrow{color:var(--gr-blue);letter-spacing:.16em}
+  .hero-kicker{font-weight:700;color:var(--gr-blue-d);font-size:1.05rem;margin-bottom:4px}
+  .a-hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:28px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--gr-navy)}
+  .score-big small{font-size:.32em;color:#8aa2b0;font-weight:700;letter-spacing:0}
+  .score-bar{height:12px;background:#dce8ee;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:42%;background:linear-gradient(90deg,var(--gr-blue),var(--gr-navy));border-radius:99px}
+  .verdict{font-size:1.28rem;font-weight:700;color:var(--gr-navy);max-width:560px}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
+  .audit-meta span{background:#fff;border:1px solid #cfdee6;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:var(--gr-navy)}
+  .fineprint{margin-top:22px;font-size:.92rem;color:#5f7a88;max-width:700px}
+  /* scorecard */
+  .scorecard{padding:84px 0;background:var(--gr-gray)}
+  .scorecard .section-sub{color:#5f7a88}
   .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
+  .finding{background:#fff;border:1px solid #dbe6ec;border-radius:6px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;border-top:5px solid var(--gr-navy)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:4px;text-transform:uppercase}
+  .sev.red{background:#fdeaea;color:#c0392b;border:1px solid #f3c1bc}
+  .sev.amber{background:#fdf3d7;color:#9a6b00;border:1px solid #f0d48a}
   .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-note{margin-top:20px;font-size:.9rem;color:#aebdd6;max-width:640px;line-height:1.7}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .finding p{color:#46566a;font-size:.95rem;margin:0}
+  .finding p strong{color:var(--gr-navy)}
+  .fix{border-left:3px solid var(--gr-blue);padding:12px 14px 12px 16px;color:#46566a;font-size:.92rem;background:#f0f8fc;border-radius:0 6px 6px 0}
+  .fix strong{color:var(--gr-blue-d)}
+  /* demo */
+  .demo{background:linear-gradient(150deg,var(--gr-navy-d) 0%,var(--gr-navy) 70%,var(--gr-navy-d) 100%)}
+  .demo .eyebrow{color:#7fd4f2}
+  .demo h2,.demo-side h3{color:#fff}
+  .demo .section-sub{color:#bcd2dd}
+  .demo-note{border-left-color:var(--gr-blue);color:#9fb9c7}
+  .demo-chat .bubble.me{background:var(--gr-blue)}
+  .demo-inputrow button{background:var(--gr-blue)}
+  .demo-inputrow input:focus{border-color:var(--gr-blue)}
+  .demo-quick button{border-color:var(--gr-blue);color:#7fd4f2;background:rgba(0,158,216,.1)}
+  /* reviews */
+  .a-reviews{padding:84px 0;background:#fff}
+  .a-reviews .section-sub{color:#5f7a88}
+  .rev-note{margin-top:20px;font-size:.9rem;color:#46566a;max-width:680px;line-height:1.7;background:var(--gr-gray);border-left:5px solid var(--gr-blue);border-radius:0 8px 8px 0;padding:20px 22px}
+  /* cta */
+  .a-cta{padding:92px 0;background:linear-gradient(135deg,var(--gr-navy-d),var(--gr-navy));text-align:center}
   .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .a-cta .eyebrow{color:#7fd4f2;justify-content:center}
+  .a-cta h2{color:#fff}
+  .a-cta .lede{color:#bcd2dd}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#8aa9b8}
+  footer{background:var(--gr-navy-d);color:#8aa9b8;padding:36px 0}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{color:#8aa9b8;font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe3ec}
+  .foot-brand{text-decoration:none;line-height:1.05;display:block}
+  .foot-brand .wm-name{display:block;font-weight:900;font-size:1.2rem;color:#fff}
+  .foot-brand .wm-sub{display:block;font-weight:700;font-size:.62rem;letter-spacing:.28em;color:var(--gr-blue)}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{background:#fff}}
 </style>
 </head>
 <body>
@@ -53,7 +91,10 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: Greens</a>
+    <a class="wordmark" href="#top" aria-label="Greens Air Conditioning and Refrigeration — home">
+      <span class="wm-name">GREENS</span>
+      <span class="wm-sub">A/C &amp; REFRIGERATION</span>
+    </a>
     <nav class="nav-links" id="navLinks">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
@@ -69,6 +110,7 @@
 <section class="a-hero" id="top">
   <div class="wrap">
     <p class="eyebrow">Website audit · Daytona Beach, FL</p>
+    <p class="hero-kicker">Committed to serve you — since 1985.</p>
     <h1>We audited greenac-ref.com.</h1>
     <div class="score-wrap">
       <div>
@@ -82,7 +124,7 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fineprint">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
@@ -91,7 +133,7 @@
   <div class="wrap">
     <p class="eyebrow">The scorecard</p>
     <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on greenac-ref.com — and what the agenticrx version does about each one.</p>
+    <p class="section-sub">What the audit found on greenac-ref.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you jobs</span>
@@ -132,7 +174,7 @@
   <div class="wrap">
     <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is greenac-ref.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is greenac-ref.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
         <div class="demo-sitebar"><span>🔧 Greens Air Conditioning &amp; Refrigeration</span><span class="demo-live">● AI online</span></div>
@@ -159,7 +201,7 @@
   <div class="wrap">
     <p class="eyebrow">What customers actually say</p>
     <h2>The reviews are thin.<br>Your site shows nothing.</h2>
-    <p class="section-sub dark">What we could verify about the company's public review profile — and what the fixed version would do about it.</p>
+    <p class="section-sub">What we could verify about the company's public review profile — and what the fixed version would do about it.</p>
     <p class="rev-note">No public review quotes were available at build time — the fixed version collects and displays real quotes automatically. Third-party listings show a small, inconsistent review count (roughly 4.1–4.3 stars across 17–30 reviews), which is exactly why the site needs its own live, growing review feed.</p>
   </div>
 </section>
@@ -179,7 +221,7 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: Greens <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <a class="foot-brand" href="#top"><span class="wm-name">GREENS</span><span class="wm-sub">A/C &amp; REFRIGERATION</span></a>
     <p>Audit demo built by <a href="../">agenticrx</a> for Greens Air Conditioning &amp; Refrigeration · Daytona Beach, FL</p>
   </div>
 </footer>

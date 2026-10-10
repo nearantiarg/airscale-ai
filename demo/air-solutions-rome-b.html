@@ -7,48 +7,84 @@
 <meta name="description" content="agenticrx audited airsolutionsforyou.com: 3.2/5. The findings, and what the fixed version looks like — live.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:64%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--navy:#1B3A6B;--navy-dark:#122847;--red:#D92323;--red-dark:#a81616;--ink:#26313d;--muted:#5d6b7a;--paper:#f5f7fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Open Sans',sans-serif;margin:0}
+  h1,h2,h3{font-family:'Poppins',sans-serif;color:var(--navy-dark);line-height:1.2}
+  .audit-bar{background:var(--red);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:4px solid var(--red);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:24px;padding:10px 0}
+  .wordmark{line-height:1;text-decoration:none}
+  .wordmark .wm1{font-family:'Poppins',sans-serif;font-style:italic;font-weight:900;font-size:1.7rem;color:var(--navy);letter-spacing:.01em;display:block}
+  .wordmark .wm2{font-family:'Poppins',sans-serif;font-weight:800;font-size:.78rem;color:var(--red);letter-spacing:.28em;display:block;margin-top:3px}
+  .nav-links{display:flex;gap:24px;margin-left:auto}
+  .nav-links a{color:var(--navy-dark);font-weight:700;font-size:.92rem;text-decoration:none;font-family:'Poppins',sans-serif}
+  .nav-links a:hover{color:var(--red)}
+  .btn{background:var(--red);color:#fff;border:none;border-radius:8px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Poppins',sans-serif;box-shadow:0 4px 14px rgba(217,35,35,.35)}
+  .btn:hover{background:var(--red-dark);transform:translateY(-2px)}
+  .btn-sm{padding:11px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy-dark);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:linear-gradient(135deg,var(--navy-dark),var(--navy));color:#fff}
+  .eyebrow{color:#ffb3b3;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px;font-family:'Poppins',sans-serif}
+  .a-hero h1{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:#ffb3b3}
+  .slogan{font-family:'Poppins',sans-serif;font-style:italic;font-weight:700;color:#fff;font-size:1.2rem;margin:0 0 6px}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:28px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#fff;font-family:'Poppins',sans-serif}
+  .score-big small{font-size:.32em;color:#b9c9e4;font-weight:700;letter-spacing:0}
+  .score-bar{height:12px;background:rgba(255,255,255,.22);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:64%;background:linear-gradient(90deg,#ff8a8a,var(--red));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:#fff;max-width:560px;margin:0;font-family:'Poppins',sans-serif}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
-  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
+  .audit-meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#fff}
+  .fine{margin-top:22px;font-size:.9rem;color:#b9c9e4}
+  .scorecard{padding:80px 0;background:#fff}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:var(--paper);border:1px solid #dde4f0;border-top:5px solid var(--red);border-radius:12px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
   .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
+  .sev.red{background:#fde8e8;color:var(--red-dark);border:1px solid #f3b5b5}
+  .sev.amber{background:#fff8e6;color:#b45309;border:1px solid #ecd9a0}
   .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
-  .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
-  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--navy);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#eaf0fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy-dark);color:#e3eaf5}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b4c3de}
+  .demo-phone{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .demo-sitebar{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-family:'Poppins',sans-serif}
+  .demo-live{color:#c8f0c8;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:16px 18px;color:#c3d1e8;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:10px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:var(--paper)}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:#fff;border:2px solid var(--navy);border-radius:12px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--red);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy-dark);font-family:'Poppins',sans-serif}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--red-dark),var(--red));text-align:center;color:#fff}
   .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#ffd9d9}
+  .lede{color:#ffe3e3;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .a-cta .btn{background:#fff;color:var(--red-dark)}
+  .a-cta .btn:hover{background:var(--paper)}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#ffcccc}
+  footer{background:var(--navy-dark);padding:36px 0;color:#b4c3de}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#dbe5f5;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#b4c3de}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
 </style>
 </head>
 <body>
@@ -57,7 +93,7 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: Air Solutions</a>
+    <a class="wordmark" href="#top"><span class="wm1">AIR SOLUTIONS</span><span class="wm2">HEATING &amp; AIR CONDITIONING</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
@@ -72,8 +108,9 @@
 <!-- HERO -->
 <section class="a-hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Website audit · Rome, GA</p>
-    <h1>We audited airsolutionsforyou.com.</h1>
+    <p class="eyebrow">Your site, graded · Rome, GA</p>
+    <p class="slogan">"Comfort You Can Trust"</p>
+    <h1>We audited airsolutionsforyou.com. <span class="grade">Here's the score.</span></h1>
     <div class="score-wrap">
       <div>
         <div class="score-big">3.2<small>/5</small></div>
@@ -86,16 +123,16 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
 <!-- SCORECARD -->
 <section class="scorecard" id="scorecard">
   <div class="wrap">
-    <p class="eyebrow">The scorecard</p>
+    <p class="eyebrow" style="color:var(--red)">The scorecard</p>
     <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on airsolutionsforyou.com — and what the agenticrx version does about each one.</p>
+    <p class="section-sub">What the audit found on airsolutionsforyou.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you jobs</span>
@@ -134,9 +171,9 @@
 <!-- SEE IT FIXED -->
 <section class="demo" id="fixed">
   <div class="wrap">
-    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <p class="eyebrow pulse" style="color:#ffcfcf">● Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is airsolutionsforyou.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is airsolutionsforyou.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
         <div class="demo-sitebar"><span>🔧 Air Solutions Heating &amp; Air Conditioning</span><span class="demo-live">● AI online</span></div>
@@ -161,10 +198,10 @@
 <!-- REVIEWS -->
 <section class="a-reviews" id="reviews">
   <div class="wrap">
-    <p class="eyebrow">What customers actually say</p>
+    <p class="eyebrow" style="color:var(--red)">What customers actually say</p>
     <h2>The awards are on the site.<br>The reviews aren't.</h2>
-    <p class="section-sub dark">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
-    <p class="section-sub dark" style="margin-top:6px">Your site shows the Best of Rome 2025 and Best of Georgia 2025 badges — but no aggregate star rating was published on the site at build time. No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <p class="section-sub" style="margin-top:6px">Your site shows the Best of Rome 2025 and Best of Georgia 2025 badges — but no aggregate star rating was published on the site at build time. No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
   </div>
 </section>
 
@@ -173,8 +210,8 @@
   <div class="wrap">
     <p class="eyebrow">Next step</p>
     <h2>Want the fixed version?</h2>
-    <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
-    <div class="cta-row" style="justify-content:center">
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
       <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Air%20Solutions%20Heating%20%26%20Air%20Conditioning%20audit">Book a 15-minute walkthrough →</a>
     </div>
     <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Air Solutions Heating &amp; Air Conditioning (airsolutionsforyou.com) · Audit of the public website only.</p>
@@ -183,8 +220,8 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: Air Solutions <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
-    <p>Audit demo built by <a href="../">agenticrx</a> for Air Solutions Heating &amp; Air Conditioning · Rome, GA</p>
+    <a class="wordmark" href="#top"><span class="wm1" style="color:#fff">AIR SOLUTIONS</span><span class="wm2">HEATING &amp; AIR CONDITIONING</span></a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Air Solutions Heating &amp; Air Conditioning · Rome, GA · <span class="concept">concept demo</span></p>
   </div>
 </footer>
 

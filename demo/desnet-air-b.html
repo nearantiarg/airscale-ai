@@ -10,45 +10,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
+  :root{--d-bg:#040a1a;--d-card:#0a1526;--d-blue:#0574c6;--d-orange:#ff7448;--d-ink:#eef4fc;--d-muted:#8fa3bd;--d-line:rgba(255,255,255,.1)}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--d-bg);color:var(--d-ink)}
+  h1,h2,h3{color:#fff;letter-spacing:-.02em}
+  .audit-bar{background:var(--d-orange);color:#1c0e06;text-align:center;font-size:.8rem;font-weight:700;padding:9px 16px}
+  .audit-bar a{color:#1c0e06;font-weight:800}
+  /* dark header like theirs */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(4,10,26,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--d-line)}
+  .nav-inner{display:flex;align-items:center;gap:28px;padding:10px 24px}
+  .brand-logo{height:50px;width:auto;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
+  .nav-links a{color:#c4d3e8;text-decoration:none;font-size:.94rem;font-weight:600}
+  .nav-links a:hover{color:#fff}
+  .nav-toggle{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer}
+  .btn{display:inline-block;background:var(--d-orange);color:#1c0e06;text-decoration:none;font-weight:800;padding:14px 30px;border-radius:999px;border:0;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(255,116,72,.3)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(255,116,72,.42)}
+  .btn-sm{padding:11px 24px;font-size:.92rem}
+  /* hero — dark with orange glow */
+  .b-hero{padding:88px 0 68px;background:radial-gradient(800px 420px at 80% 10%,rgba(255,116,72,.12),transparent 60%),radial-gradient(700px 420px at 10% 90%,rgba(5,116,198,.22),transparent 60%),var(--d-bg)}
+  .eyebrow{text-transform:uppercase;font-size:.78rem;letter-spacing:.16em;color:var(--d-orange);font-weight:800;margin-bottom:.9em}
+  .b-hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:.1em 0 .3em;font-weight:800;color:#fff}
+  .b-hero h1 .gradetag{color:var(--d-orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.2rem,10vw,6.8rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--d-orange)}
+  .score-big small{font-size:.32em;color:var(--d-muted);font-weight:700;letter-spacing:0}
   .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--d-blue),var(--d-orange));border-radius:99px}
+  .verdict{font-size:1.28rem;font-weight:600;color:#fff;max-width:560px;line-height:1.45}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
-  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .audit-meta span{background:rgba(255,255,255,.05);border:1px solid var(--d-line);border-radius:999px;padding:9px 18px;font-size:.84rem;font-weight:600;color:#c4d3e8}
+  .fineprint{margin-top:20px;font-size:.9rem;color:var(--d-muted)}
+  /* scorecard */
+  .scorecard{padding:80px 0;background:#02060f;border-top:1px solid var(--d-line)}
+  .section-sub{color:var(--d-muted);font-size:1.06rem;max-width:680px;margin-bottom:2.2em}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:var(--d-card);border:1px solid var(--d-line);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:12px}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
   .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
   .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
-  .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
-  .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
+  .finding h3{font-size:1.16rem;margin:0;color:#fff}
+  .finding p{color:#aebdd6;font-size:.95rem;margin:0;line-height:1.6}
+  .finding p strong{color:#eef4fc}
+  .fix{border-left:3px solid var(--d-orange);padding-left:14px;color:#c4d0e4;font-size:.9rem}
+  .fix strong{color:var(--d-orange)}
+  /* reviews */
+  .b-reviews{padding:80px 0;background:var(--d-bg);border-top:1px solid var(--d-line)}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--d-card);border:1px solid var(--d-line);border-radius:16px;padding:24px 28px;max-width:640px;margin:6px 0 24px}
+  .rev-badge .stars{font-size:1.5rem;color:#fbbf24;letter-spacing:.1em}
   .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
-  .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .rev-badge small{color:var(--d-muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:18px;font-size:.84rem;color:var(--d-muted);max-width:640px}
+  /* CTA */
+  .b-cta{padding:88px 0;background:linear-gradient(135deg,#12080a,#3a1508);border-top:1px solid var(--d-line);text-align:center}
+  .b-cta .eyebrow{color:#ffb894}
+  .b-cta h2{color:#fff}
+  .b-cta .lede{font-size:1.12rem;color:#e8d9d2;max-width:640px;margin:0 auto}
+  .cta-row{display:flex;gap:14px;margin:32px 0 24px;flex-wrap:wrap;justify-content:center}
+  .disclosure{margin-top:24px;font-size:.82rem;color:var(--d-muted)}
+  footer{border-top:1px solid var(--d-line);padding:36px 0;background:#02060f}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{color:var(--d-muted);font-size:.85rem;margin:0}
+  .foot-inner a{color:#c4d3e8}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none}.nav-toggle{display:block}}
 </style>
 </head>
 <body>
@@ -57,12 +80,13 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: Desnet Air</a>
+    <a href="#top" aria-label="Desnet Air, Inc."><img class="brand-logo" src="assets/desnet-air-logo.png" alt="Desnet Air Inc."></a>
     <nav class="nav-links" id="navLinks">
-      <a href="#scorecard">Scorecard</a>
+      <a href="#top">Home</a>
+      <a href="#scorecard">Audit</a>
       <a href="#fixed">See it fixed</a>
       <a href="#reviews">Reviews</a>
-      <a href="#cta">Next step</a>
+      <a href="#cta">Contact</a>
     </nav>
     <a class="btn btn-sm" href="tel:+14072222062">📞 (407) 222-2062</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
@@ -70,10 +94,10 @@
 </header>
 
 <!-- HERO -->
-<section class="a-hero" id="top">
+<section class="b-hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Website audit · Saint Cloud, FL</p>
-    <h1>We audited desnetair.com.</h1>
+    <p class="eyebrow">Saint Cloud, FL · Owner-operated · Website audit</p>
+    <h1>We audited desnetair.com. <span class="gradetag">Your site, graded.</span></h1>
     <div class="score-wrap">
       <div>
         <div class="score-big">2.8<small>/5</small></div>
@@ -86,7 +110,7 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fineprint">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
@@ -94,8 +118,8 @@
 <section class="scorecard" id="scorecard">
   <div class="wrap">
     <p class="eyebrow">The scorecard</p>
-    <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on desnetair.com — and what the agenticrx version does about each one.</p>
+    <h2>Five findings. Five fixes.</h2>
+    <p class="section-sub">What the audit found on desnetair.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you jobs</span>
@@ -159,11 +183,11 @@
 </section>
 
 <!-- REVIEWS -->
-<section class="a-reviews" id="reviews">
+<section class="b-reviews" id="reviews">
   <div class="wrap">
     <p class="eyebrow">What customers actually say</p>
     <h2>The 4.8 is on the site.<br>The proof isn't.</h2>
-    <p class="section-sub dark">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
     <div class="rev-badge">
       <div>
         <div class="stars">★★★★★</div>
@@ -176,12 +200,12 @@
 </section>
 
 <!-- CTA -->
-<section class="a-cta" id="cta">
+<section class="b-cta" id="cta">
   <div class="wrap">
     <p class="eyebrow">Next step</p>
     <h2>Want the fixed version?</h2>
-    <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
-    <div class="cta-row" style="justify-content:center">
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
       <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Desnet%20Air,%20Inc.%20audit">Book a 15-minute walkthrough →</a>
     </div>
     <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Desnet Air, Inc. (desnetair.com) · Audit of the public website only.</p>
@@ -190,8 +214,8 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: Desnet Air <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
     <p>Audit demo built by <a href="../">agenticrx</a> for Desnet Air, Inc. · Saint Cloud, FL</p>
+    <p>desnetair.com · concept demo</p>
   </div>
 </footer>
 

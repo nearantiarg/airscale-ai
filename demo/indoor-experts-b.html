@@ -7,48 +7,86 @@
 <meta name="description" content="agenticrx audited indoorexperts.com: 2.9/5. The findings, and what the fixed version looks like — live.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:58%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--ie-navy:#1b2a5b;--ie-navy-d:#111c40;--ie-gold:#f8ba22;--ie-gold-d:#d99a0b;--ie-blue:#4160ab;--ie-ivory:#faf8f2;--ie-ink:#2b3350}
+  body{background:var(--ie-ivory);color:var(--ie-ink);font-family:'Montserrat',-apple-system,'Segoe UI',sans-serif}
+  h1,h2,h3{font-family:'Poppins',sans-serif;color:var(--ie-navy);letter-spacing:-.015em}
+  /* disclosure bar */
+  .audit-bar{background:var(--ie-navy);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:var(--ie-gold);font-weight:700}
+  /* header — mirrors their clean editorial header */
+  .nav{background:rgba(250,248,242,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8e2d4}
+  .nav-inner{padding:12px 24px}
+  .brand-logo{height:44px;width:auto;display:block}
+  .nav-links a{color:var(--ie-navy);font-weight:600;font-size:.92rem}
+  .nav-links a:hover{color:var(--ie-gold-d)}
+  .nav-toggle{color:var(--ie-navy)}
+  .btn{background:var(--ie-gold);color:var(--ie-navy-d);border-radius:999px;box-shadow:0 8px 20px rgba(248,186,34,.35);font-family:'Poppins',sans-serif;font-weight:700}
+  .btn:hover{background:var(--ie-gold-d);color:#fff;box-shadow:0 10px 24px rgba(217,154,11,.45);transform:translateY(-2px)}
+  .btn-sm{padding:11px 22px;font-size:.9rem}
+  /* hero */
+  .a-hero{padding:92px 0 72px;background:linear-gradient(180deg,#fff 0%,var(--ie-ivory) 100%);border-bottom:1px solid #e8e2d4}
+  .eyebrow{color:var(--ie-gold-d);letter-spacing:.22em;font-family:'Poppins',sans-serif}
+  .a-hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:800}
+  .hero-kicker{font-family:'Poppins',sans-serif;font-weight:600;color:var(--ie-blue);font-size:1.05rem;margin-bottom:6px}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ie-navy);font-family:'Poppins',sans-serif}
+  .score-big small{font-size:.32em;color:#9aa3bd;font-weight:600;letter-spacing:0}
+  .score-bar{height:12px;background:#e8e2d4;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:58%;background:linear-gradient(90deg,var(--ie-gold),var(--ie-blue));border-radius:99px}
+  .verdict{font-size:1.28rem;font-weight:600;color:var(--ie-navy);max-width:560px;font-family:'Poppins',sans-serif}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
-  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
-  .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
-  .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
-  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .audit-meta span{background:#fff;border:1px solid #e0d9c6;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:var(--ie-navy)}
+  .fineprint{margin-top:22px;font-size:.92rem;color:#6b7390;max-width:700px}
+  /* scorecard */
+  .scorecard{padding:88px 0;background:#fff;border-top:1px solid #e8e2d4;border-bottom:1px solid #e8e2d4}
+  .scorecard .section-sub{color:#6b7390}
+  .find-num{font-family:'Poppins',sans-serif;font-weight:700;color:var(--ie-gold-d);font-size:.85rem;letter-spacing:.1em}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:var(--ie-ivory);border:1px solid #e8e2d4;border-radius:14px;padding:32px 30px;display:flex;flex-direction:column;gap:12px}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase;font-family:'Poppins',sans-serif}
+  .sev.red{background:#fdeaea;color:#c0392b;border:1px solid #f3c1bc}
+  .sev.amber{background:#fdf3d7;color:#9a6b00;border:1px solid #f0d48a}
+  .finding h3{font-size:1.2rem;margin:0}
+  .finding p{color:#4a5470;font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ie-navy)}
+  .fix{border-left:3px solid var(--ie-gold);padding:12px 14px 12px 16px;color:#4a5470;font-size:.92rem;background:#fff;border-radius:0 10px 10px 0}
+  .fix strong{color:var(--ie-gold-d)}
+  /* demo */
+  .demo{background:linear-gradient(150deg,var(--ie-navy-d) 0%,var(--ie-navy) 70%,var(--ie-navy-d) 100%)}
+  .demo .eyebrow{color:var(--ie-gold)}
+  .demo h2,.demo-side h3{color:#fff}
+  .demo .section-sub{color:#c4cde8}
+  .demo-note{border-left-color:var(--ie-gold);color:#aeb9d6}
+  .demo-chat .bubble.me{background:var(--ie-gold);color:var(--ie-navy-d)}
+  .demo-inputrow button{background:var(--ie-gold);color:var(--ie-navy-d)}
+  .demo-inputrow input:focus{border-color:var(--ie-gold)}
+  .demo-quick button{border-color:var(--ie-gold);color:var(--ie-gold);background:rgba(248,186,34,.1)}
+  .demo-sitebar{background:#141f47}
+  /* reviews */
+  .a-reviews{padding:88px 0;background:var(--ie-ivory)}
+  .a-reviews .section-sub{color:#6b7390}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid #e8e2d4;border-radius:14px;padding:24px 28px;max-width:640px;margin:6px 0 26px;box-shadow:0 8px 22px rgba(27,42,91,.06)}
+  .rev-badge .stars{font-size:1.6rem;color:var(--ie-gold-d);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:800;color:var(--ie-navy);font-family:'Poppins',sans-serif}
+  .rev-badge small{color:#6b7390;display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:#6b7390;max-width:680px}
+  /* cta */
+  .a-cta{padding:96px 0;background:var(--ie-navy);text-align:center}
   .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .a-cta .eyebrow{color:var(--ie-gold);justify-content:center}
+  .a-cta h2{color:#fff}
+  .a-cta .lede{color:#c4cde8}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#8b96bb}
+  footer{background:var(--ie-navy-d);color:#8b96bb;padding:38px 0}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{color:#8b96bb;font-size:.85rem;margin:0}
+  .foot-inner a{color:#c4cde8}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;text-decoration:none;font-family:'Poppins',sans-serif;font-size:.95rem}
+  .foot-brand img{height:32px;width:auto}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{background:var(--ie-ivory)}}
 </style>
 </head>
 <body>
@@ -57,7 +95,7 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: Indoor Experts</a>
+    <a href="#top" aria-label="Indoor Experts Heating and Air Conditioning — home"><img class="brand-logo" src="assets/indoor-experts-logo.svg" alt="Indoor Experts Heating &amp; Air Conditioning logo"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
@@ -73,6 +111,7 @@
 <section class="a-hero" id="top">
   <div class="wrap">
     <p class="eyebrow">Website audit · Atlanta, GA</p>
+    <p class="hero-kicker">The fix that stays fixed — starting with the website.</p>
     <h1>We audited indoorexperts.com.</h1>
     <div class="score-wrap">
       <div>
@@ -86,16 +125,16 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fineprint">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
 <!-- SCORECARD -->
 <section class="scorecard" id="scorecard">
   <div class="wrap">
-    <p class="eyebrow">The scorecard</p>
+    <p class="eyebrow">01 · The scorecard</p>
     <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on indoorexperts.com — and what the agenticrx version does about each one.</p>
+    <p class="section-sub">What the audit found on indoorexperts.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you jobs</span>
@@ -134,9 +173,9 @@
 <!-- SEE IT FIXED -->
 <section class="demo" id="fixed">
   <div class="wrap">
-    <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
+    <p class="eyebrow pulse">02 · Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is indoorexperts.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is indoorexperts.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
         <div class="demo-sitebar"><span>🔧 Indoor Experts Heating &amp; Air Conditioning</span><span class="demo-live">● AI online</span></div>
@@ -161,9 +200,9 @@
 <!-- REVIEWS -->
 <section class="a-reviews" id="reviews">
   <div class="wrap">
-    <p class="eyebrow">What customers actually say</p>
+    <p class="eyebrow">03 · What customers actually say</p>
     <h2>The rating is on your site.<br>Nothing answers when it earns the call.</h2>
-    <p class="section-sub dark">Pulled from the company's public review profile — the same one the fixed homepage would keep front and center.</p>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would keep front and center.</p>
     <div class="rev-badge">
       <div>
         <div class="stars">★★★★☆</div>
@@ -178,7 +217,7 @@
 <!-- CTA -->
 <section class="a-cta" id="cta">
   <div class="wrap">
-    <p class="eyebrow">Next step</p>
+    <p class="eyebrow">04 · Next step</p>
     <h2>Want the fixed version?</h2>
     <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
     <div class="cta-row" style="justify-content:center">
@@ -190,7 +229,7 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: Indoor Experts <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <a class="foot-brand" href="#top"><img src="assets/indoor-experts-logo.svg" alt="Indoor Experts logo"> concept demo</a>
     <p>Audit demo built by <a href="../">agenticrx</a> for Indoor Experts Heating &amp; Air Conditioning · Atlanta, GA</p>
   </div>
 </footer>

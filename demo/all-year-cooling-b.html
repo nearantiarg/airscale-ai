@@ -7,65 +7,88 @@
 <meta name="description" content="agenticrx audited allyearcooling.com: 3.1/5. The findings, and what the fixed version looks like — live.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--ay-red:#d3313a;--ay-red-dk:#a8262d;--ay-navy:#0d3a7d;--ay-ink:#222;--ay-gray:#5a5a5a;--ay-line:#e4e9f0;--ay-soft:#f5f8fc}
+  body{background:#fff;color:var(--ay-ink);font-family:'Open Sans',Helvetica,Arial,sans-serif}
+  h1,h2,h3{color:var(--ay-navy);font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:-.01em}
+  .audit-bar{background:var(--ay-red);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--ay-line)}
+  .site-header .wrap{display:flex;align-items:center;gap:24px;padding:10px 24px}
+  .site-logo img{height:64px;width:auto;display:block}
+  .site-nav{display:flex;gap:24px;margin-left:auto}
+  .site-nav a{color:var(--ay-navy);text-decoration:none;font-weight:700;font-size:.9rem;font-family:'Montserrat',sans-serif}
+  .site-nav a:hover{color:var(--ay-red)}
+  .head-phone{font-weight:800;color:var(--ay-navy);text-decoration:none;font-size:1rem;white-space:nowrap;font-family:'Montserrat',sans-serif}
+  .btn,.btn-sm{display:inline-block;background:var(--ay-red);color:#fff !important;text-decoration:none;font-weight:700;padding:15px 32px;border-radius:8px;border:0;cursor:pointer;font-size:1rem;font-family:'Montserrat',sans-serif;box-shadow:none;transition:background .15s}
+  .btn:hover{background:var(--ay-red-dk);transform:none;box-shadow:none}
+  .btn-sm{padding:11px 22px;font-size:.85rem;white-space:nowrap}
+  .eyebrow{text-transform:uppercase;font-size:.78rem;letter-spacing:.16em;color:var(--ay-red);font-weight:800;margin-bottom:.9em;font-family:'Montserrat',sans-serif}
+  .eyebrow.pulse{animation:pulse 2s infinite}
+  .a-hero{padding:84px 0 70px;background:linear-gradient(180deg,var(--ay-soft) 0%,#fff 100%);border-bottom:1px solid var(--ay-line)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.2rem,10vw,6.8rem);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ay-red);font-family:'Montserrat',sans-serif}
+  .score-big small{font-size:.32em;color:var(--ay-gray);font-weight:600;letter-spacing:0}
+  .score-bar{height:12px;background:#e3e9f2;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--ay-navy),var(--ay-red));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--ay-ink);max-width:560px}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
-  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
-  .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
-  .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
-  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
-  .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
-  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .audit-meta span{background:#fff;border:1px solid var(--ay-line);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:var(--ay-gray)}
+  .scorecard{padding:80px 0;background:#fff}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid var(--ay-line);border-radius:12px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 28px rgba(13,58,125,.07)}
+  .finding h3{font-size:1.15rem;margin:0}
+  .finding p{color:var(--ay-gray);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ay-ink)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase;font-family:'Montserrat',sans-serif}
+  .sev.red{background:rgba(211,49,58,.09);color:var(--ay-red);border:1px solid rgba(211,49,58,.4)}
+  .sev.amber{background:rgba(245,158,11,.12);color:#b45309;border:1px solid rgba(245,158,11,.45)}
+  .fix{border-left:4px solid var(--ay-red);padding:10px 0 10px 14px;color:var(--ay-gray);font-size:.92rem;background:var(--ay-soft);border-radius:0 8px 8px 0}
+  .fix strong{color:var(--ay-navy)}
+  .demo-sec{padding:80px 0;background:var(--ay-soft);border-top:1px solid var(--ay-line)}
+  .demo-phone{border:8px solid var(--ay-navy) !important;box-shadow:0 24px 60px rgba(13,58,125,.2) !important}
+  .demo-sitebar{background:var(--ay-navy) !important;color:#fff !important;border-bottom:0 !important}
+  .demo-live{color:#bfd4f2 !important}
+  .demo-inputrow button{background:var(--ay-red);color:#fff;border:0;border-radius:10px;width:44px;font-size:1.1rem;cursor:pointer}
+  .demo-note{border-left-color:var(--ay-red) !important;color:var(--ay-gray) !important}
+  .demo-side h3{color:var(--ay-navy)}
+  .a-reviews{padding:80px 0;background:#fff;border-top:1px solid var(--ay-line)}
+  .rev-badge{display:flex;align-items:center;gap:16px;background:var(--ay-soft);border:1px solid var(--ay-line);border-radius:12px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--ay-red);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:800;color:var(--ay-navy);font-family:'Montserrat',sans-serif}
+  .rev-badge small{color:var(--ay-gray);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.82rem;color:var(--ay-gray)}
+  .section-sub{color:var(--ay-gray)}
+  .a-cta{padding:88px 0;background:var(--ay-navy);text-align:center}
+  .a-cta h2{color:#fff}
+  .a-cta .lede{color:#d5e2f5;margin:0 auto}
+  .a-cta .eyebrow{justify-content:center;color:#9fc0ec}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9fc0ec}
+  .site-footer{background:#0a2c5e;color:#c9d8f2;padding:44px 0 30px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+  .foot-inner img{height:60px;width:auto;background:#fff;border-radius:10px;padding:4px}
+  .foot-inner p{color:#9fc0ec;font-size:.85rem;margin:8px 0;max-width:540px}
+  .foot-inner a{color:#fff}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.site-nav{display:none}}
 </style>
 </head>
 <body>
 
 <div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>All Year Cooling &amp; Plumbing</strong> · Score: 3.1/5 · <a href="../">← Back to agenticrx</a></div>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: All Year</a>
-    <nav class="nav-links" id="navLinks">
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-logo" href="#top"><img src="assets/all-year-cooling-logo.png" alt="All Year Cooling & Plumbing"></a>
+    <nav class="site-nav">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
       <a href="#reviews">Reviews</a>
-      <a href="#cta">Next step</a>
+      <a href="#cta">Contact</a>
     </nav>
-    <a class="btn btn-sm" href="tel:+18882045554">📞 888.204.5554</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <a class="head-phone" href="tel:+18882045554">888.204.5554</a>
+    <a class="btn btn-sm" href="tel:+18882045554">Book Service Today</a>
   </div>
 </header>
 
@@ -86,7 +109,7 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="section-sub" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
@@ -94,8 +117,8 @@
 <section class="scorecard" id="scorecard">
   <div class="wrap">
     <p class="eyebrow">The scorecard</p>
-    <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on allyearcooling.com — and what the agenticrx version does about each one.</p>
+    <h2>What your customers hit.<br>Five findings, five fixes.</h2>
+    <p class="section-sub">What the audit found on allyearcooling.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you trust</span>
@@ -132,14 +155,14 @@
 </section>
 
 <!-- SEE IT FIXED -->
-<section class="demo" id="fixed">
+<section class="demo demo-sec" id="fixed">
   <div class="wrap">
     <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is allyearcooling.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is allyearcooling.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
-        <div class="demo-sitebar"><span>🔧 All Year Cooling &amp; Plumbing</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-sitebar"><span>All Year Cooling &amp; Plumbing</span><span class="demo-live">● AI online</span></div>
         <div class="demo-chat" id="demoChat"></div>
         <div class="demo-quick" id="demoQuick"></div>
         <div class="demo-inputrow">
@@ -163,7 +186,7 @@
   <div class="wrap">
     <p class="eyebrow">What customers actually say</p>
     <h2>1,873 Google reviews.<br>Summarized by someone else's AI.</h2>
-    <p class="section-sub dark">No verified aggregate star rating appears on the company's own site — so we show none here either.</p>
+    <p class="section-sub">No verified aggregate star rating appears on the company's own site — so we show none here either.</p>
     <p>No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
   </div>
 </section>
@@ -173,7 +196,7 @@
   <div class="wrap">
     <p class="eyebrow">Next step</p>
     <h2>Want the fixed version?</h2>
-    <p class="lede" style="margin:0 auto">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
     <div class="cta-row" style="justify-content:center">
       <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20All%20Year%20Cooling%20%26%20Plumbing%20audit">Book a 15-minute walkthrough →</a>
     </div>
@@ -181,9 +204,12 @@
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: All Year <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <div>
+      <img src="assets/all-year-cooling-logo.png" alt="All Year Cooling & Plumbing">
+      <p>Family owned &amp; operated since 1973 · Serving South Florida 24/7 · <a href="tel:+18882045554">888.204.5554</a></p>
+    </div>
     <p>Audit demo built by <a href="../">agenticrx</a> for All Year Cooling &amp; Plumbing · Fort Lauderdale, FL</p>
   </div>
 </footer>

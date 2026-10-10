@@ -7,48 +7,83 @@
 <meta name="description" content="agenticrx audited americanenergyhvac.com: 2.8/5. The findings, and what the fixed version looks like — live.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--ae-navy:#1b3f8f;--ae-navy-d:#12295f;--ae-red:#e4002b;--ae-ink:#1f2a44;--ae-gray:#f2f5fa}
+  body{background:#fff;color:var(--ae-ink)}
+  h1,h2,h3{color:var(--ae-navy-d);letter-spacing:-.02em}
+  /* disclosure bar */
+  .audit-bar{background:var(--ae-navy-d);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px}
+  .audit-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header — mirrors their white Avada header */
+  .nav{background:#fff;border-bottom:1px solid #e2e8f2;box-shadow:0 2px 10px rgba(18,41,95,.06)}
+  .nav-inner{padding:10px 24px}
+  .brand-logo{height:46px;width:auto;display:block}
+  .nav-links a{color:var(--ae-navy-d);font-weight:700;font-size:.95rem}
+  .nav-links a:hover{color:var(--ae-red)}
+  .nav-toggle{color:var(--ae-navy-d)}
+  .btn{background:var(--ae-red);border-radius:4px;box-shadow:none;font-weight:800;letter-spacing:.01em}
+  .btn:hover{background:#c10025;box-shadow:0 8px 18px rgba(228,0,43,.3);transform:translateY(-2px)}
+  .btn-sm{padding:11px 20px}
+  /* hero */
+  .a-hero{padding:88px 0 70px;background:linear-gradient(180deg,#eef3fb 0%,#fff 100%);border-bottom:4px solid var(--ae-navy)}
+  .eyebrow{color:var(--ae-red);letter-spacing:.14em}
+  .a-hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--ae-navy)}
+  .score-big small{font-size:.32em;color:#8a97b5;font-weight:700;letter-spacing:0}
+  .score-bar{height:12px;background:#dfe6f2;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--ae-navy),var(--ae-red));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--ae-navy-d);max-width:560px}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
+  .audit-meta span{background:#fff;border:1px solid #d5deee;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:var(--ae-navy-d);box-shadow:0 2px 6px rgba(18,41,95,.05)}
+  .fineprint{margin-top:22px;font-size:.92rem;color:#5b6b85;max-width:700px}
+  /* scorecard */
+  .scorecard{padding:84px 0;background:var(--ae-gray)}
+  .scorecard .section-sub{color:#5b6b85}
   .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
-  .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .finding{background:#fff;border:1px solid #e2e8f2;border-top:5px solid var(--ae-navy);border-radius:10px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(18,41,95,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:4px;text-transform:uppercase}
+  .sev.red{background:#fde8ec;color:var(--ae-red);border:1px solid #f5b6c4}
+  .sev.amber{background:#fff6e0;color:#9a6b00;border:1px solid #f0d48a}
+  .finding h3{font-size:1.2rem;margin:0;color:var(--ae-navy-d)}
+  .finding p{color:#46536e;font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ae-navy-d)}
+  .fix{border-left:3px solid var(--ae-navy);padding-left:14px;color:#46536e;font-size:.92rem;background:#f6f9ff;border-radius:0 8px 8px 0;padding:12px 14px 12px 16px}
+  .fix strong{color:var(--ae-navy)}
+  /* demo — their navy, at night */
+  .demo{background:linear-gradient(150deg,var(--ae-navy-d) 0%,var(--ae-navy) 70%,var(--ae-navy-d) 100%)}
+  .demo .eyebrow{color:#ffb3c2}
+  .demo h2{color:#fff}
+  .demo .section-sub{color:#c4d0e4}
+  .demo-note{border-left-color:var(--ae-red)}
+  .demo-chat .bubble.me{background:var(--ae-red)}
+  .demo-inputrow button{background:var(--ae-red)}
+  .demo-inputrow input:focus{border-color:var(--ae-red)}
+  .demo-quick button{border-color:var(--ae-red);color:#ff8ba0;background:rgba(228,0,43,.1)}
+  /* reviews */
+  .a-reviews{padding:84px 0;background:#fff}
+  .a-reviews .section-sub{color:#5b6b85}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--ae-gray);border:1px solid #d5deee;border-left:6px solid var(--ae-navy);border-radius:10px;padding:24px 28px;max-width:640px;margin:6px 0 26px}
   .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
-  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--ae-navy-d)}
+  .rev-badge small{color:#5b6b85;display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:#5b6b85;max-width:680px}
+  /* cta */
+  .a-cta{padding:92px 0;background:linear-gradient(135deg,var(--ae-navy-d),var(--ae-navy));text-align:center}
   .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .a-cta .eyebrow{color:#ffb3c2;justify-content:center}
+  .a-cta h2{color:#fff}
+  .a-cta .lede{color:#c4d0e4}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9fb0d0}
+  footer{background:var(--ae-navy-d);color:#9fb0d0;padding:36px 0}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{color:#9fb0d0;font-size:.85rem;margin:0}
+  .foot-inner a{color:#cdd9f2}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;text-decoration:none}
+  .foot-brand img{height:34px;width:auto;background:#fff;border-radius:4px;padding:2px 6px}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{background:#fff}.nav-links a{color:var(--ae-navy-d)}}
 </style>
 </head>
 <body>
@@ -57,7 +92,7 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: American Energy</a>
+    <a href="#top" aria-label="American Energy Heating and Air — home"><img class="brand-logo" src="assets/american-energy-heating-air-logo.gif" alt="American Energy Heating &amp; Air logo"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
@@ -86,7 +121,7 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fineprint">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
@@ -95,7 +130,7 @@
   <div class="wrap">
     <p class="eyebrow">The scorecard</p>
     <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on americanenergyhvac.com — and what the agenticrx version does about each one.</p>
+    <p class="section-sub">What the audit found on americanenergyhvac.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev red">🔴 Costing you jobs</span>
@@ -136,7 +171,7 @@
   <div class="wrap">
     <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is americanenergyhvac.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is americanenergyhvac.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
         <div class="demo-sitebar"><span>🔧 American Energy Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
@@ -163,7 +198,7 @@
   <div class="wrap">
     <p class="eyebrow">What customers actually say</p>
     <h2>The rating exists.<br>Your site doesn't show it.</h2>
-    <p class="section-sub dark">Pulled from the company's public business listing — the same one the fixed homepage would showcase.</p>
+    <p class="section-sub">Pulled from the company's public business listing — the same one the fixed homepage would showcase.</p>
     <div class="rev-badge">
       <div>
         <div class="stars">★★★★☆</div>
@@ -190,7 +225,7 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: American Energy <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
+    <a class="foot-brand" href="#top"><img src="assets/american-energy-heating-air-logo.gif" alt="American Energy Heating &amp; Air"> <span style="font-weight:400;font-size:.8rem">concept demo</span></a>
     <p>Audit demo built by <a href="../">agenticrx</a> for American Energy Heating &amp; Air · Decatur, GA</p>
   </div>
 </footer>

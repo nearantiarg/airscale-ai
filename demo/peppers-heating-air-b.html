@@ -7,64 +7,112 @@
 <meta name="description" content="agenticrx audited peppersheatingandair.com: 3.4/5. The findings, and what the fixed version looks like — live.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  body{background:#0a1122;color:#e8eef8}
-  h1,h2,h3{color:#fff}
-  .audit-bar{background:#f59e0b;color:#1f2937;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
-  .audit-bar a{color:#1f2937;font-weight:800}
-  .brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
-  .a-hero{padding:96px 0 72px;background:radial-gradient(900px 480px at 18% 0%,rgba(245,158,11,.12),transparent 60%),radial-gradient(800px 500px at 85% 20%,rgba(255,107,26,.1),transparent 60%)}
-  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:34px}
-  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#f59e0b}
-  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:700;letter-spacing:0}
-  .score-bar{height:12px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
-  .score-bar i{display:block;height:100%;width:68%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:99px}
-  .verdict{font-size:1.35rem;font-weight:700;color:#fff;max-width:560px}
+  :root{--pp-navy:#1a2334;--pp-navy-d:#111828;--pp-red:#c7362f;--pp-red-d:#a82a25;--pp-cyan:#2e90d4;--pp-ink:#232a38;--pp-gray:#f4f6f9}
+  body{background:#fff;color:var(--pp-ink)}
+  h1,h2,h3{font-family:'Oswald',sans-serif;color:var(--pp-navy);text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+  /* top utility strip — mirrors theirs */
+  .topstrip{background:var(--pp-navy-d);color:rgba(255,255,255,.85);font-size:.78rem;font-weight:600;letter-spacing:.02em}
+  .topstrip .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px;gap:12px;flex-wrap:wrap}
+  .topstrip a{color:#fff;font-weight:700;text-decoration:none}
+  .topstrip a:hover{color:var(--pp-cyan)}
+  .audit-bar{background:var(--pp-red);color:#fff;text-align:center;font-size:.82rem;font-weight:600;padding:10px 16px}
+  .audit-bar a{color:#fff;font-weight:800;text-decoration:underline}
+  /* header — sticky navy like theirs */
+  .nav{background:var(--pp-navy);border-bottom:3px solid var(--pp-red)}
+  .nav-inner{padding:12px 24px}
+  .brand-logo{height:52px;width:auto;display:block}
+  .nav-links a{color:#fff;font-family:'Oswald',sans-serif;font-weight:500;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+  .nav-links a:hover{color:var(--pp-cyan)}
+  .nav-toggle{color:#fff}
+  .btn{background:var(--pp-red);border-radius:6px;box-shadow:none;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .btn:hover{background:var(--pp-red-d);box-shadow:0 10px 22px rgba(199,54,47,.4);transform:translateY(-2px)}
+  .btn-sm{padding:12px 22px;font-size:.95rem}
+  /* hero */
+  .a-hero{padding:88px 0 72px;background:linear-gradient(160deg,var(--pp-navy-d) 0%,var(--pp-navy) 60%,#24344f 100%);position:relative;overflow:hidden}
+  .a-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 380px at 85% 10%,rgba(46,144,212,.22),transparent 65%);pointer-events:none}
+  .a-hero .wrap{position:relative;z-index:1}
+  .eyebrow{color:var(--pp-cyan);font-family:'Oswald',sans-serif;letter-spacing:.24em;font-size:.8rem}
+  .a-hero h1{color:#fff;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700}
+  .a-hero h1 .accent-red{color:var(--pp-red)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7.5rem);font-weight:700;letter-spacing:-.02em;line-height:1;color:#fff;font-family:'Oswald',sans-serif}
+  .score-big small{font-size:.32em;color:#8fa1bd;font-weight:500;letter-spacing:0}
+  .score-bar{height:12px;background:rgba(255,255,255,.14);border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--pp-cyan),var(--pp-red));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:600;color:#fff;max-width:560px;font-family:'Oswald',sans-serif;text-transform:none;letter-spacing:0}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-  .audit-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#c4d0e4}
-  .scorecard{padding:88px 0;background:#0d1526;border-top:1px solid rgba(255,255,255,.07)}
+  .audit-meta span{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;color:#dbe4f2}
+  .fineprint{margin-top:22px;font-size:.92rem;color:#9fb0c8;max-width:700px}
+  /* scorecard */
+  .scorecard{padding:88px 0;background:var(--pp-gray)}
+  .scorecard .section-sub{color:#5b6b85}
   .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
-  .finding{background:#111c33;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;gap:12px}
-  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
-  .sev.red{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-  .sev.amber{background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.45)}
-  .finding h3{font-size:1.18rem;margin:0}
-  .finding p{color:#aebdd6;font-size:.95rem;margin:0}
-  .finding p strong{color:#e8eef8}
-  .fix{border-left:3px solid #4ade80;padding-left:14px;color:#c4d0e4;font-size:.92rem}
-  .fix strong{color:#4ade80}
-  .a-reviews{padding:88px 0;background:#0a1122;border-top:1px solid rgba(255,255,255,.07)}
-  .rev-badge{display:flex;align-items:center;gap:16px;background:#111c33;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .finding{background:#fff;border:1px solid #e2e8f2;border-radius:10px;padding:32px 30px;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 20px rgba(26,35,52,.06);border-top:4px solid var(--pp-navy)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:6px;text-transform:uppercase;font-family:'Oswald',sans-serif}
+  .sev.red{background:#fdeaea;color:var(--pp-red);border:1px solid #f3c1bc}
+  .sev.amber{background:#fdf3d7;color:#9a6b00;border:1px solid #f0d48a}
+  .finding h3{font-size:1.3rem;margin:0;text-transform:uppercase}
+  .finding p{color:#46536e;font-size:.95rem;margin:0}
+  .finding p strong{color:var(--pp-navy)}
+  .fix{border-left:3px solid var(--pp-cyan);padding:12px 14px 12px 16px;color:#46536e;font-size:.92rem;background:#f2f8fd;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--pp-cyan)}
+  /* demo */
+  .demo{background:linear-gradient(150deg,var(--pp-navy-d) 0%,var(--pp-navy) 70%,var(--pp-navy-d) 100%)}
+  .demo .eyebrow{color:var(--pp-cyan)}
+  .demo h2{color:#fff}
+  .demo .section-sub{color:#c4d0e4}
+  .demo-note{border-left-color:var(--pp-red)}
+  .demo-chat .bubble.me{background:var(--pp-red)}
+  .demo-inputrow button{background:var(--pp-red)}
+  .demo-inputrow input:focus{border-color:var(--pp-red)}
+  .demo-quick button{border-color:#16a34a}
+  /* reviews */
+  .a-reviews{padding:88px 0;background:#fff}
+  .a-reviews .section-sub{color:#5b6b85}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--pp-gray);border:1px solid #e2e8f2;border-left:6px solid var(--pp-red);border-radius:10px;padding:24px 28px;max-width:640px;margin:6px 0 26px}
   .rev-badge .stars{font-size:1.6rem;color:#f59e0b;letter-spacing:.1em}
-  .rev-badge strong{font-size:1.9rem;font-weight:900;color:#fff}
-  .rev-badge small{color:#8fa1bd;display:block;font-size:.8rem}
-  .rev-note{margin-top:20px;font-size:.82rem;color:#8fa1bd}
-  .a-cta{padding:96px 0;background:linear-gradient(135deg,#0a1428,#12305e);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+  .rev-badge strong{font-size:1.9rem;font-weight:700;color:var(--pp-navy);font-family:'Oswald',sans-serif}
+  .rev-badge small{color:#5b6b85;display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:#5b6b85;max-width:680px}
+  /* cta */
+  .a-cta{padding:96px 0;background:linear-gradient(135deg,var(--pp-navy-d),var(--pp-navy));text-align:center}
   .a-cta .wrap{max-width:720px}
-  .disclosure{margin-top:26px;font-size:.82rem;color:#8fa1bd}
-  footer{border-top:1px solid rgba(255,255,255,.07);padding:34px 0}
+  .a-cta .eyebrow{color:var(--pp-cyan);justify-content:center}
+  .a-cta h2{color:#fff}
+  .a-cta .lede{color:#c4d0e4}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9fb0c8}
+  footer{background:var(--pp-navy-d);color:#9fb0c8;padding:40px 0}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot-inner p{color:#8fa1bd;font-size:.85rem;margin:0}
-  .foot-inner a{color:#8fa1bd}
-  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}}
+  .foot-inner p{color:#9fb0c8;font-size:.85rem;margin:0}
+  .foot-inner a{color:#dbe4f2}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Oswald',sans-serif;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:.04em}
+  .foot-brand img{height:36px;width:auto}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{background:var(--pp-navy)}.topstrip .wrap{justify-content:center}}
 </style>
 </head>
 <body>
 
+<div class="topstrip">
+  <div class="wrap">
+    <span>Heating &amp; Air Conditioning in Covington, GA · A family business since 1977</span>
+    <span>Mon–Fri 8–5 · Sat 9–2 &nbsp;·&nbsp; <a href="tel:+17704831282">(770) 483-1282</a></span>
+  </div>
+</div>
 <div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Peppers Heating &amp; Air Conditioning</strong> · Score: 3.4/5 · <a href="../">← Back to agenticrx</a></div>
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">📋 Audit: Peppers</a>
+    <a href="#top" aria-label="Peppers Heating and Air Conditioning — home"><img class="brand-logo" src="assets/peppers-heating-air-logo.webp" alt="Peppers Heating &amp; Air Conditioning logo"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#scorecard">Scorecard</a>
       <a href="#fixed">See it fixed</a>
       <a href="#reviews">Reviews</a>
       <a href="#cta">Next step</a>
     </nav>
-    <a class="btn btn-sm" href="tel:+17704831282">📞 (770) 483-1282</a>
+    <a class="btn btn-sm" href="tel:+17704831282">Schedule Service</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
   </div>
 </header>
@@ -73,7 +121,7 @@
 <section class="a-hero" id="top">
   <div class="wrap">
     <p class="eyebrow">Website audit · Covington, GA</p>
-    <h1>We audited peppersheatingandair.com.</h1>
+    <h1>We audited <span class="accent-red">peppersheatingandair.com</span>.</h1>
     <div class="score-wrap">
       <div>
         <div class="score-big">3.4<small>/5</small></div>
@@ -86,7 +134,7 @@
       <span>📉 35 scored under 3.5</span>
       <span>🤖 0 had AI answering</span>
     </div>
-    <p class="section-sub dark" style="margin-top:22px;margin-bottom:0">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+    <p class="fineprint">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
   </div>
 </section>
 
@@ -94,8 +142,8 @@
 <section class="scorecard" id="scorecard">
   <div class="wrap">
     <p class="eyebrow">The scorecard</p>
-    <h2>Five findings.<br>Five fixes.</h2>
-    <p class="section-sub dark">What the audit found on peppersheatingandair.com — and what the agenticrx version does about each one.</p>
+    <h2>Five findings. Five fixes.</h2>
+    <p class="section-sub">What the audit found on peppersheatingandair.com — and what the agenticrx version does about each one.</p>
     <div class="find-grid">
       <div class="finding">
         <span class="sev amber">🟡 Leaving money on the table</span>
@@ -136,7 +184,7 @@
   <div class="wrap">
     <p class="eyebrow pulse">● Live demo — go ahead, type in it</p>
     <h2>See it fixed.</h2>
-    <p class="section-sub dark">This is peppersheatingandair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
+    <p class="section-sub">This is peppersheatingandair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the burst pipe.</p>
     <div class="demo-grid">
       <div class="demo-phone">
         <div class="demo-sitebar"><span>🔧 Peppers Heating &amp; Air Conditioning</span><span class="demo-live">● AI online</span></div>
@@ -163,7 +211,7 @@
   <div class="wrap">
     <p class="eyebrow">What customers actually say</p>
     <h2>The rating exists.<br>Your site doesn't show it.</h2>
-    <p class="section-sub dark">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
     <div class="rev-badge">
       <div>
         <div class="stars">★★★★★</div>
@@ -190,8 +238,8 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <a class="brand" href="#top">📋 Audit: Peppers <span style="font-weight:400;font-size:.8rem;color:#7e90ad">concept demo</span></a>
-    <p>Audit demo built by <a href="../">agenticrx</a> for Peppers Heating &amp; Air Conditioning · Covington, GA</p>
+    <a class="foot-brand" href="#top"><img src="assets/peppers-heating-air-logo.webp" alt="Peppers Heating &amp; Air"> concept demo</a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Peppers Heating &amp; Air Conditioning · Covington, GA<br>GA License CR108443 · Mon–Fri 8–5 · Sat 9–2</p>
   </div>
 </footer>
 
