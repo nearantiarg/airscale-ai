@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Tidewater Heating &amp; Air Conditioning (2.8/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited tidewaterac.com: 2.8/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1e2a68;--teal:#4a90d9;--orange:#c97a1b;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Merriweather',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#ffffff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .wordmark{font-weight:900;font-size:1.35rem;color:#1e2a68;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+  .wordmark small{display:block;font-size:.62rem;font-weight:700;letter-spacing:.22em;color:var(--teal)}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:#1e2a68;font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Merriweather',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:#1e2a68;cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.05),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef4f8;border:1px solid #d7e2ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f4f8fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#7dffb0;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),var(--teal));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#e8f1f6;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#d5e3ec}
+  footer{background:var(--navy);padding:36px 0;color:#c9d8e2}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#e8f1f6;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-wordmark{font-weight:900;font-size:1.05rem;color:#fff;text-decoration:none}
+  .concept{font-weight:400;font-size:.78rem;color:#c9d8e2}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#ffffff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Tidewater Heating &amp; Air Conditioning</strong> · Score: 2.8/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/webp;base64,UklGRmoZAABXRUJQVlA4IF4ZAACwWwCdASo2AVgAPm0uk0YkIqGhLJQcmIANiWVEdyG95ji6Qy8v95HB7YF9T/ZepTbR+YDzS/SR/Y9903qC/E/Qb3efbvyT86/C75M9of677YmV/qv/y/6r6pfyj7Pfc/61+3v9z9yv9L/aP2y80/hp/LfmL8Av47/Lv8r/XP3L/wP7Rcg7aP/n+oF7c/WP9Z/hf8B+xXpO/1PoP9df959uf2A/yL+gf6j7gfm//eeEJ9+/1/7O/AF/Mv7P/2v8f+aXx4/8H+g/0/7ie336X/7n+W+A7+c/1//jf4H8mfnf9kX7qe0n+2iZcfaqbyuVhPa3hgWc2tyetSj2IqwNEwFWs7//XOUXpFcQ2UXJfcC+v8H7tB1d9MPzGfVddf8vtWnHRWqp+f0t/U+Ppi6Q7S+Su4zZZ9Sh6YTSn1znYKZa5uTkP5a3fbMWBQZgpogl5cFO3Nx3PEpArTDvtDlON71ao/n/Lg8S0+lAWt7Vxe2mB2liIziDHSnnKMukp/PDpDs8eLS+dObZL+jPEuBJ3i2ZT3+vT6wak7CgbLEvSghm/JZm8GieTuKa218/AISoaCuk8hICP+ZBNwDlW8fjFP8vRqhX7AyEHqPoASByDFHLALEhAC//IiMogSaLYF7upASxS24VnGNcDylLGzo9KZ5w12W+3z2AvFma32bnmjj/6bW5RHe9dz/xuHcbjtVYu9uyp72UN0rz/8K7lXWrijf6Izp4csv+Ov1hVnSQLPFMHP8Z9SsjFdvpKKC63yqHP/MYWJGZncYHshyJ+9KmHPFuKTD3JaJ0URCx0Tg1kBhuxTWqsBjRfMWYc2izOjPUgyVUoiKV0ghrdaLMtCRgKMG4v9bBRWLmbcis7kNNrqxOq/5uD6jMOVBZjKln0G22r0kKKQ6ivb33ftjwJRh1AFMxoNNEysNBzQDttmQT9Orzcjc5BX2xeJgr5l631lA2DUcTHY3PcS/7cAyls4irS/axCtAVWVOgAP789BSXWOtwErGP/2tsH46QvU4n9/F+KgD4jFg3BotYO4d0QmJm1dXhWg2w/tz+36aLvDff4WuziVj3EI6pQ+E1XxOD6r6mfszNmNK45CHOjuvtVFfmwuUN4QB/ebHlu3hLz+cgxsjxUlC2aWq9BsgHu6PKZyeoqJLhuIxrd+KJh/h8i5AGaXcE/gC1AX5nU3tAEtBuPceRZoIXPFXEyLZme8UfwzD8gCWylwOqhKtStVUU2JNwbGa0LnIPuP/xlqGsy6yBuOig/OfLIVm+bJnzZYu6/AXtqW/B7seryxN1/gIoHdYoY6JeaKgMSzLgoNwUTOxuAedEhriyACS2E+rKoagCU8nt+M/h4C+dwBwAY9d7nM8Mxxy4hh2zD3+bh6SdqBDk9Kl/TBi/aQ2XpOousMVF33IVr/J1k3dAPe2b/kFWBH89rEIyaWWhk2ErPSlFv3QMLkXISK3yqzFXF8edksMcu2mXksUWDPRtm/6fOC9EmpzuDuYpioJKEkJXyOyS3tBWkT9J3oJ+lObNbePxyaILtbvqor5EQ8+hJi6Gl1S4mHJ3d5bbXY0+Jvg6gp4rG4+iuiUEbZZm38objQXD29TuZmYi8H3MJ1UNIIPNWmOTOg+sO1FSolimMEeg3BNbc+6FEUzic48KcIluU6qcU9IKtPxCTJH1TjlgL8t3NdWUD4o9e6kNRA79AHE1im8/1t2XM1sZWrxeVkj+wJHR8m+1g7iv94m51aYWy/rMOy5OGVj8l2Vr0vlzIPT2FVhrMdWfh+uufB3VTUgL6qkBR1l1PmAC/xfDPjbnwx0SCBHAa0Y7HqYutEseXPJvs8AcSnDHYVjxMZYWQ8YbBJWRIbn51jYUjWEbTNHT2ozzR2APMInEiKp1dpMWl4PfnhOz5TXAROJiJpX13kkiyAzmjZNcuOgx901OD+8ILG3h0jMAAzd+o5xrUPTR7vWtUpqniA3DjNOAoW+QZ8H+kUriUbJQmoW2f+E7XslA5N8NKCtVFaLk905+2nE3PQ4Wf7XYIRK7J7QBPM7MnP5Hs9mqx1dk9xeRiAVlqsfJtZAl18HEPnGjdiLq7d1Z68cU7uWuFGqiLbR2tt7tLXt1NciBfDusxgeVuxL7Sm94Ygrqvzj4AW16ygu9G4VfnMTUQQUlZ7WZAG2eEXFAMpb9JcOyqF1QbDmzlT3SlTAT2/siImOr+M/Wijin/kyJcmOpjGisF7duuLIAOL/wd3oudvcbrzH+zLDYfuDJJmhtRNP1ljRccwQYuY3D7GpPoFLT8BCp/6+kE2Nv4TcgorvPBQOkiNnINAnLf3w5yYJKyTin7e1w/8u3FkbCq8rQjkmFhJVsLGYhKBkZnglg+O9PIO7gxqyig2xPoMLJTkLna2amaQmo0IEToV0N7J9k/cFCUggpRv3YSmIihvesamdOZPs4z0+qW2OySEJEtd9bYmJ9WT7bz6Gy/g3f0Kp6eCVRRHw3+2xVrzIrOta7suEAnpWkvALFSjHvKUXRcszrvlxg8W1OabcwznjyBXPgy59pxSLvxDCqa9KHDZbd1QLHHCto2JT89mKRooS0Zad208m9BovUJcj4G44qtD9zAnLH/Nhk+y9vcKJ9rpOnL6d6iFem1qpp12wQL4Z2WQmg8daNp0kGatpNkemrDuTHCnG6FFFZErLE+1zpZ06U549+XIuhSCOfEcvVRnGroxmCERJY4gVbxjPJD1ZXMhPjJRokSD0WjSZMb2y3SivpSZE7MFC3UrbV8jOKD5RDpyt6pPYRa9QtBa/tRWe/dT8lDf198mjUaZUhb9WAxCM7bhiY43/AoOzqNMGG5eqIxkoFBIVw5SAKAt7k7ev7kOfPFRUi1V+4iqrBRBjfKC5PdQwPMVDhjP4GPHkhEeFvJakpJ3MPGEutuAXyEsPjusMj5xWyp5mRQPQGT3Yg+9hvW9MbA3Af0Np1oGGZeFXukg9C7n8kPkIMWnnuLv6t8/48fL//80+O0JIDvIBQYtDpKlnqa/wV9Za4iHZeZXg4yfCAUE88XQ9j+eyuRjF/OSZXeYYdc4nI8NQ0Bmy1zHiSMrVOa3plnkBRQnsFrLZ77S5z9s/lFwQlmgudVkGPkLogUHA6uVJAFn0+or3a7+Zq6mXka+KrG0L7P10GLpx1f4ZdSTSrk4PPFRb6Q3XJQ2H+SocjZ9bZY2XHJA22RsMH5U6Aj6ZhSyM1m9TQebO6cWg4cIQPptuM8kYZUcjFjZJ9ALhAQ8z3m881D2sQr5vTWpQ4SBAqxeIBequNFrf+/9zxP/fps4sjuB97iJ34jBqUit1isgmixVT10qBc6ZbMHVeslqKfgxZTHz92TBeyIgAEFHEzhwsg62cer8C8S5oqVInFUSatBxB509/NIGun7PDqt/VrvT3/i2sWYw4ntGJkxeDPQXNtScQAf++EeLXJHdMsRKcK+rk9YsIm+9/du+YgO3ywKZEIWzUN59XmdynZJf/HFVPpiRwyu+0IfTOJSSje6IL0ctPaHjk9fntyK929DY1LE1iGdAVAjGXsVDklRIHgl/ppo3Bs/hX0SEwHzggIH6OFJ219T7tFw8anz0rVx/knMl/iOkAq2PLMiDf1KWv86MYM1LTcoZL/GiSDgInULyZ/LxDFIlGQge2t+EwzZJIQbJPJrxD18wT7y05OpWSP7eIyTipSLUUe1AVMS8MyhCJHunpLw03tOPlmLCDP9eB0CedzYaGW80NCZ2frr+0PEQXN3VVawQ+0tmJgEGDwFbN4j3Vp5/ptUHOm/8OvRt/rkRLE1eNMSR1R3uacmc+xdrJ2sOQZdw7M0NKWIv5UMpz1pfsSTyD9ZkRGIvYgCBz5LP52eRpNj/i+iCte2MGPwF2agXyeXLoWLPiQdQdygxQCbm0NqAoLQVpaERnuJYu1JSEvALEv8jun2VhcnyNRgIOBXf3pn4qdfUq1/To9Db5dDR3Lc33qj6TRsyK/ZslFiMQk/lryNiX+2uJWg+kc7hoBqmM471sDGJwr1Fc/2Vf8kpXtW7m7SrWXcese2gP//FdUDHjBq3ioiHjQcuXDpWgIFO9CnHKEVEflwhbifVDLV7hnfIeDCl7c2dFhXFhnpBjmz2IE48xax+MJsGuI/45pf3WSEenEtqoSM5JfNO4IWXeaWWhfhXMATieXy+mAw9AJ5cUjDubAT/lnLrPNQXJg+mGv+C4r7j71toVR9wyLmC8V2K3wElW71OJxEKGENRybatR5IfY8Q4z7VFdTkQqxj3662M2ACsNXW6glPj9fP0ZltulIOGYAYg7PRRSP6FqS/1sFcupzUPrP/aJ9uz5RY8ZP6so5B/YTwjbDvV6uKSRjkvxCCb4ulJz//reS/1JMgWZ3z5QDQ1QVbrH7wY5mWo2qJ03DxeCK37et96KHuj14eXeI9KO2ojtze3x0wNQzfY8KOwTgTrgpEawtkopS2TwjlsOemjkyhzV7AbquUoza6oIA5dVvUlrSJcyInZnRfm0yt72JyL9EU7g2pbE8zfGry+akLIwvJzr8Ag9prIzpkzmqzhULu3TD0B+razjH0kdxzzgSMhL2qzrqdmz5jDEi+SOxc9NxGaLz1oC9/fJbFlb+UkGSYNypwoHtUv0ofEgY/wu1fNQgP/w91vUgu6T21fTiXpPTY6+Dsjjrs/nx8kw04XkNN/jIV+RIrn3ptNZXvk37t2TAACWEpmDh71DDpfyo/l0mRgnjjpZA8tdhHl/K/GxOi1Z3KqPPK4ioOcfR+xCP8EtJSQVNctD92JvG7g4KGdn66IRm38STc1mH7Bmb/pX0nl/LrnE6tvj8nrtwgNDMp2VSBTN3ODjh4Ic95EDO6L/BQC4zXMp5vA2KBywrGeR+NOv4/adUPVC9Z8cQrAfCuX46LGaX7K2L3mDcUrGuuNbVJcSVTElyaV39SMz0irSyR03rKP1bFVOL88EMD2ygk/i7K5Ppgcxf5kBbWmrN7SepgjlElkISW3o1kHgn+KCFAul8sr5uwVczwaV6biBf5sYR+bLJgzZZ70dPfDRqChQwRez3hwl7kjwjlRrqAK2bb41FJBOcOGyOYjk5dOyUsZ9pH17gzkJ4yroQKtqHaUQiXxNePuY8pOcNQr3dA0sSYLnaGOKK6+Cq5iyYgzDsO/Jc1O0khYkgDXzl7wBoWrrK5MchVEGKvbEk09gNPTJhYv7HTWr41Huv0dKq1gfp5lQQfyqn71IhLOxrKWrMDIHQ0RK5BgigmyMl/yci5i/zfT8qK9zR9vS617wuwiu00egnhLP/MczZYqEJLh6eUGMrGyL64kJSmW/p2NEH09zjRtridR3WZtDeCd33dzuuLBk+TGJMni92I/7MI4onSC9wPqXaYN8IvVVduWgr0vZ+NvhQXdUDLhZ9KqeIHEgbLMne2fqV/6OrnJEweY4u325dF42D7uG0B1FI867/L/SptggvrAD24zWaNQVNjt4c2Cp4vMrkZdVTgchQS/5wulXHO/LaZsLx+mH1IVjTBXNkibzQCu7MU7RB2Cg03dT2DBK07JSjcb/J4lIYM7GbHhcpNeVql6KXnOwDGMN/Twie9dcX0uRjK9zjG3riTeYHeZo2tpNMu4Oe2yacLlN3G0InHjzCepnXLVGBBohP7m724EaaJHsqN/MKrkFb+bCIsOsZLTc9MLRXl63pnHQ57zG3q6Pd64Ul7He3LNgQmEQ+lrZV7P9OD3AxhggARqX4DDyHBZ684RIcpDXd/MZ/gAlGKWVw9IbzWUfsKWJ0nZbBb6JdheeTPw6jLUB2lt62tM1Z2UlgBx/ByneS+1+90XMgpNvDk4Hq1fjeLQy4b/HhZyxfBHzPSa8rRm5FE8Tb9qdaet0I89RHCIi7ONXZpdaLr+klt6N08+MtKy+q4q9C7EDl5vbd9//weTKtpFCegZq4CtcxkHd1eGMvUNOEl2zxPxw0shUp5QPRlurzsKdztT+mLp/UNepRFV0gI/TOHAheIS+BH+CUt+2KxtL0y70NxXT2VCw1uuN+kd2QIBsnE/GZQoJof2O5f+rEZlP/p7EhGk9SBeixmSZgWxb828K2gyw+XMvWy/6CqXfjbB4WbTdalSf61AfMIgUyXmdrMWHZlHdtp6zdpDrW5UAJUEJXb28xntfHn+Sddyl6GqKWu2nz7U74wESu+qv/gwhxDH1eqbgzA0Ofbl+Cf6g2TIJSAjRk7Po1MEivuPdnBIm08kVDyVHsTgTldsTCAS8qBUAqgyvAoyd2if07dLAtIf9THUZcftSqyKyf5lvtcFS3Nj+BNJFo5/kG7I/89sur5J4XqRgDe9VqoRY6KnwVr6piyVlz3Dv3hM9cbQwjzJJnj2MKRcxgpxzKdbsvAz6mbY3/SW73XnnCVcBZYefWu2XFR+GMgupjwatMQ8TDQUmiBVV0WNE6zyHOsmlFFxcR6QvkRq9pk/iLkNB8qZzJRsOQ1Dq70cvUYo4iv0fwwrlfoPNi9xmdjIn+s3citU6j1ok113ifEpMe5VCl1afqnGZafKCiUjyXKNhY/6UoPV9aJD8s0Q9TxSCj5IBPetAZAoa97XMUU3hI8WV7LBQbRlwMlp0LS4juHsyjx1SRp0boDOunuA+6kt4qfVcKCpt5GAy1OwDjawJ/JnuzvGVGCpfjZDmo03N3O2Rj+soCLLutww3KP+Ih71s70m3hEtJY6Ayi3s7ODHeoSBgmbv8ze78aaq9F3rGa/onvfdkpl5UYrHMsqQ1bdYX0HVA4IkO4FFcYNl3HjDKTlBO7oH8cWJdBGN38gVOyqwTDHUsi+riV8aKCcRDNsRwlmMlmb0R8jB5WXv0LZcjW2jfG3B9qgwrYFCN3iZHK2XUV+UGAWrPNLBksxAT4hDO8Pb7mGeWDb/i90xocs8R7rP+F8JCqEIVQviKeOegRBXUC1L1MaXc/QxsFEA3Uh65ySusDldwVVpzftpbixNcyJlJK6DD9Rty98sInPKfRQisYBGU74hepPYAPqcmZfLAybOkQp5KPTgm+bNQwHuP4d9NenCCaFv9dwmbF2chEPfze7W9b426TyToCOapwIp/rdk4Iro6Nu8a9sN616/sKbXWLUVqyFtfO7/kvvtatnS4CgW5m6eP32fhthT+Kz8gP0578072c84AB9LeIS1EAzT/yg6DexrfG+NPKsQ/+L6Cjje7vFqZnmZ1WLtxUCqzj80bpQuyXqWq3UbTMh4JIUXKFDJBKdDIN806adXs5H6IoEswpEpOvvgrIylpZVto+DfT1O35NeKGDYeyEWn6FUFbJQwrRFtgrWP89f7yx9MfNAwD7VJV5mktP4Y/6qY2zo7KnOr2YKEsK/PU9l4+BZBZg1MedvNxQwMbNVQb5LpwgsSHnkZULR2AtXSBlWPmI8t9bk97zmexNt3N6pdxleIGHH4xhH/3UIUV0+iLFehCiDpS5sPbb0OTrTaC7ErDZP14EiwNReWKz7hVP40noQ5FA6LCP2/aioc+NVN3Sj104dyXWkbnwhKoTODuDdRZqjtRrp2mCKO4U+6l5ccxFjcuRecfgnzBc0lN7snYjs7nojEgHhbgKXfLBmI8CyoNc6Ob0i1QfZDTuikZ7P88xLlRucR8/Jooa3cOnF2X235VstTA7IlRiW//fLWvcExsMyoCK8ZuymteZ0zfU1G6u2OU2fPvcHX16FpMMVtfksRnyt8btx4J5D8Jcsp2rHnwNTy6xCxcT+neBQBwkNFqf6qkUtL5Xir5jgQcWW/doA9346177OeAeUJ6QifphRvroz0CEQ0DftsAD2KqP0bRRVyMWmxzwsN8ybl0Hk8cdIsBQ73+tgb/364F8HIDzSjFYv0CCImNNPF8SkZLVItIJ893rBJNpuOv+1xNGXuGVK8hXyynUOELUDbakldRgsRdK0bSF6LMZQ35CIg5Hq1vFreJRYuEbU8c/YB9Gm+k/kcaY2+H6t0VnZ2NWyxKzBD+4ZglHMKbyGQwpMn+8axLmIZeKbX4QjCnm1ysO7JK0fH7WCxPRmr0sD3VSzKbLtAmrPv0Yl5EufgLoqQpSabQmN34Ojg6QD0VzeIV7n+KrF47BYL13MG+/qOejbajm3FoxtVQ72+JOX2Wbp5GNEE4MqRKkawUjOUfyiT6Rh24VPTT28QnWp4rMIu5qCDucpGCGqNb2TmTvCBaErJb9l60EImJ23hffhE+nvb4ZDqDR86bNR+yT2FisnkObyHhDm+CMkCPXayTfThMCKiOkaoM7AyLkv7t8DqEFBDR05iiP8AABkZA6O7wLhoQpDD9+bWG+VeIylFYxAfT8FhZWFKlagk+gN/Z/lqcI8rh7MPKDYHmODjZ/PS87d3OWUqrnx82RsU7VzzFZFeSR8iUISyH2sBwJA7E9iJQfd5K42cCWN5bkz5M5GOCs0scL1vQmxUG3sbfoHfumP/uX4lv9Q0eGgvhk+9dTb9kH13+3HrtXS0ujp4yQKwX488r9jU84BIA7SoOuZhd/Wil7iOJfDCUgIrsI4Jh8YQHaR/NhnFuO452yh3Z0N7pEF3ZT7u0HVRdMJGoVtsEpDBC7YC/gU9z4OADmZ+aoOyRZqlNoIj8Oxmce7tN0XCsCfmHK1P8QNstNdYiJ51A7123Vi49Dm8xbS68Fa4znIJXFu+v82zJic4cHlpwRvSn8YgPVcSw0dhwhgZkqCDmcmMP5gZGqHsV1zgAAAA==" alt="Tidewater Heating &amp; Air Conditioning"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19103431234">📞 (910) 343-1234</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Wilmington, NC</p>
+    <h1>We audited tidewaterac.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.8<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">53 years in Wilmington, a real reviews section, 24/7 emergency — and a contact funnel that still ends at 'reach out today' with no booking.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 700+ HVAC sites reviewed across GA, FL, AL, TN, SC &amp; NC</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on tidewaterac.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>Contact form, not booking</h3>
+        <p><strong>'Need Fast & Reliable HVAC Service? Contact Us Today!'</strong> leads to a form — no slots, no confirmation. Fast and reliable shouldn't start with 'we'll get back to you.'</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One tap in chat → slot offered → name → booked. The receipt fills in live, and the owner gets a one-line summary.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Weekends = emergency only</h3>
+        <p><strong>Sat–Sun: 'Emergency Services Available'</strong> — no standard scheduling story for weekends. The Saturday tune-up buyer has nowhere to go.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Weekend slots bookable online — emergencies triaged, routine work scheduled, all automatically.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Reviews section, no aggregate badge</h3>
+        <p>Customer reviews are on the page — but there's <strong>no star-rating summary up top</strong>. The skimmer who decides in four seconds never sees them.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A live rating badge in the hero plus review requests texted after every job.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>53 years, no license number shown</h3>
+        <p>Longevity is claimed — with <strong>no license displayed</strong>. Five decades of trust deserves five seconds of proof.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> License number in the footer and on the contact page — proof where the claim is made.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you trust</span>
+        <h3>Template artifacts on the live page</h3>
+        <p>Service cards carry <strong>placeholder captions</strong> ('Breathtaking colors of our planet') — a sign the site was never finished. Unfinished details make visitors wonder what else was skipped.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A finished page, reviewed line by line with the owner before it ships.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:#7dffb0">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is tidewaterac.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the contact form.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Tidewater Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Tidewater's real services — HVAC, heat pumps, water heaters, and gas lines — and the Wilmington service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Reviews on the page.<br>No badge up top.</h2>
+    <p class="section-sub">Customer reviews are shown — but skimmers never see a star-rating summary.</p>
+<p class="rev-note">The homepage includes a customer reviews section, but no aggregate rating badge. No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=15-minute%20walkthrough%20—%20Tidewater%20Heating%20%26%20Air%20Conditioning%20audit">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Tidewater Heating &amp; Air Conditioning (tidewaterac.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/webp;base64,UklGRmoZAABXRUJQVlA4IF4ZAACwWwCdASo2AVgAPm0uk0YkIqGhLJQcmIANiWVEdyG95ji6Qy8v95HB7YF9T/ZepTbR+YDzS/SR/Y9903qC/E/Qb3efbvyT86/C75M9of677YmV/qv/y/6r6pfyj7Pfc/61+3v9z9yv9L/aP2y80/hp/LfmL8Av47/Lv8r/XP3L/wP7Rcg7aP/n+oF7c/WP9Z/hf8B+xXpO/1PoP9df959uf2A/yL+gf6j7gfm//eeEJ9+/1/7O/AF/Mv7P/2v8f+aXx4/8H+g/0/7ie336X/7n+W+A7+c/1//jf4H8mfnf9kX7qe0n+2iZcfaqbyuVhPa3hgWc2tyetSj2IqwNEwFWs7//XOUXpFcQ2UXJfcC+v8H7tB1d9MPzGfVddf8vtWnHRWqp+f0t/U+Ppi6Q7S+Su4zZZ9Sh6YTSn1znYKZa5uTkP5a3fbMWBQZgpogl5cFO3Nx3PEpArTDvtDlON71ao/n/Lg8S0+lAWt7Vxe2mB2liIziDHSnnKMukp/PDpDs8eLS+dObZL+jPEuBJ3i2ZT3+vT6wak7CgbLEvSghm/JZm8GieTuKa218/AISoaCuk8hICP+ZBNwDlW8fjFP8vRqhX7AyEHqPoASByDFHLALEhAC//IiMogSaLYF7upASxS24VnGNcDylLGzo9KZ5w12W+3z2AvFma32bnmjj/6bW5RHe9dz/xuHcbjtVYu9uyp72UN0rz/8K7lXWrijf6Izp4csv+Ov1hVnSQLPFMHP8Z9SsjFdvpKKC63yqHP/MYWJGZncYHshyJ+9KmHPFuKTD3JaJ0URCx0Tg1kBhuxTWqsBjRfMWYc2izOjPUgyVUoiKV0ghrdaLMtCRgKMG4v9bBRWLmbcis7kNNrqxOq/5uD6jMOVBZjKln0G22r0kKKQ6ivb33ftjwJRh1AFMxoNNEysNBzQDttmQT9Orzcjc5BX2xeJgr5l631lA2DUcTHY3PcS/7cAyls4irS/axCtAVWVOgAP789BSXWOtwErGP/2tsH46QvU4n9/F+KgD4jFg3BotYO4d0QmJm1dXhWg2w/tz+36aLvDff4WuziVj3EI6pQ+E1XxOD6r6mfszNmNK45CHOjuvtVFfmwuUN4QB/ebHlu3hLz+cgxsjxUlC2aWq9BsgHu6PKZyeoqJLhuIxrd+KJh/h8i5AGaXcE/gC1AX5nU3tAEtBuPceRZoIXPFXEyLZme8UfwzD8gCWylwOqhKtStVUU2JNwbGa0LnIPuP/xlqGsy6yBuOig/OfLIVm+bJnzZYu6/AXtqW/B7seryxN1/gIoHdYoY6JeaKgMSzLgoNwUTOxuAedEhriyACS2E+rKoagCU8nt+M/h4C+dwBwAY9d7nM8Mxxy4hh2zD3+bh6SdqBDk9Kl/TBi/aQ2XpOousMVF33IVr/J1k3dAPe2b/kFWBH89rEIyaWWhk2ErPSlFv3QMLkXISK3yqzFXF8edksMcu2mXksUWDPRtm/6fOC9EmpzuDuYpioJKEkJXyOyS3tBWkT9J3oJ+lObNbePxyaILtbvqor5EQ8+hJi6Gl1S4mHJ3d5bbXY0+Jvg6gp4rG4+iuiUEbZZm38objQXD29TuZmYi8H3MJ1UNIIPNWmOTOg+sO1FSolimMEeg3BNbc+6FEUzic48KcIluU6qcU9IKtPxCTJH1TjlgL8t3NdWUD4o9e6kNRA79AHE1im8/1t2XM1sZWrxeVkj+wJHR8m+1g7iv94m51aYWy/rMOy5OGVj8l2Vr0vlzIPT2FVhrMdWfh+uufB3VTUgL6qkBR1l1PmAC/xfDPjbnwx0SCBHAa0Y7HqYutEseXPJvs8AcSnDHYVjxMZYWQ8YbBJWRIbn51jYUjWEbTNHT2ozzR2APMInEiKp1dpMWl4PfnhOz5TXAROJiJpX13kkiyAzmjZNcuOgx901OD+8ILG3h0jMAAzd+o5xrUPTR7vWtUpqniA3DjNOAoW+QZ8H+kUriUbJQmoW2f+E7XslA5N8NKCtVFaLk905+2nE3PQ4Wf7XYIRK7J7QBPM7MnP5Hs9mqx1dk9xeRiAVlqsfJtZAl18HEPnGjdiLq7d1Z68cU7uWuFGqiLbR2tt7tLXt1NciBfDusxgeVuxL7Sm94Ygrqvzj4AW16ygu9G4VfnMTUQQUlZ7WZAG2eEXFAMpb9JcOyqF1QbDmzlT3SlTAT2/siImOr+M/Wijin/kyJcmOpjGisF7duuLIAOL/wd3oudvcbrzH+zLDYfuDJJmhtRNP1ljRccwQYuY3D7GpPoFLT8BCp/6+kE2Nv4TcgorvPBQOkiNnINAnLf3w5yYJKyTin7e1w/8u3FkbCq8rQjkmFhJVsLGYhKBkZnglg+O9PIO7gxqyig2xPoMLJTkLna2amaQmo0IEToV0N7J9k/cFCUggpRv3YSmIihvesamdOZPs4z0+qW2OySEJEtd9bYmJ9WT7bz6Gy/g3f0Kp6eCVRRHw3+2xVrzIrOta7suEAnpWkvALFSjHvKUXRcszrvlxg8W1OabcwznjyBXPgy59pxSLvxDCqa9KHDZbd1QLHHCto2JT89mKRooS0Zad208m9BovUJcj4G44qtD9zAnLH/Nhk+y9vcKJ9rpOnL6d6iFem1qpp12wQL4Z2WQmg8daNp0kGatpNkemrDuTHCnG6FFFZErLE+1zpZ06U549+XIuhSCOfEcvVRnGroxmCERJY4gVbxjPJD1ZXMhPjJRokSD0WjSZMb2y3SivpSZE7MFC3UrbV8jOKD5RDpyt6pPYRa9QtBa/tRWe/dT8lDf198mjUaZUhb9WAxCM7bhiY43/AoOzqNMGG5eqIxkoFBIVw5SAKAt7k7ev7kOfPFRUi1V+4iqrBRBjfKC5PdQwPMVDhjP4GPHkhEeFvJakpJ3MPGEutuAXyEsPjusMj5xWyp5mRQPQGT3Yg+9hvW9MbA3Af0Np1oGGZeFXukg9C7n8kPkIMWnnuLv6t8/48fL//80+O0JIDvIBQYtDpKlnqa/wV9Za4iHZeZXg4yfCAUE88XQ9j+eyuRjF/OSZXeYYdc4nI8NQ0Bmy1zHiSMrVOa3plnkBRQnsFrLZ77S5z9s/lFwQlmgudVkGPkLogUHA6uVJAFn0+or3a7+Zq6mXka+KrG0L7P10GLpx1f4ZdSTSrk4PPFRb6Q3XJQ2H+SocjZ9bZY2XHJA22RsMH5U6Aj6ZhSyM1m9TQebO6cWg4cIQPptuM8kYZUcjFjZJ9ALhAQ8z3m881D2sQr5vTWpQ4SBAqxeIBequNFrf+/9zxP/fps4sjuB97iJ34jBqUit1isgmixVT10qBc6ZbMHVeslqKfgxZTHz92TBeyIgAEFHEzhwsg62cer8C8S5oqVInFUSatBxB509/NIGun7PDqt/VrvT3/i2sWYw4ntGJkxeDPQXNtScQAf++EeLXJHdMsRKcK+rk9YsIm+9/du+YgO3ywKZEIWzUN59XmdynZJf/HFVPpiRwyu+0IfTOJSSje6IL0ctPaHjk9fntyK929DY1LE1iGdAVAjGXsVDklRIHgl/ppo3Bs/hX0SEwHzggIH6OFJ219T7tFw8anz0rVx/knMl/iOkAq2PLMiDf1KWv86MYM1LTcoZL/GiSDgInULyZ/LxDFIlGQge2t+EwzZJIQbJPJrxD18wT7y05OpWSP7eIyTipSLUUe1AVMS8MyhCJHunpLw03tOPlmLCDP9eB0CedzYaGW80NCZ2frr+0PEQXN3VVawQ+0tmJgEGDwFbN4j3Vp5/ptUHOm/8OvRt/rkRLE1eNMSR1R3uacmc+xdrJ2sOQZdw7M0NKWIv5UMpz1pfsSTyD9ZkRGIvYgCBz5LP52eRpNj/i+iCte2MGPwF2agXyeXLoWLPiQdQdygxQCbm0NqAoLQVpaERnuJYu1JSEvALEv8jun2VhcnyNRgIOBXf3pn4qdfUq1/To9Db5dDR3Lc33qj6TRsyK/ZslFiMQk/lryNiX+2uJWg+kc7hoBqmM471sDGJwr1Fc/2Vf8kpXtW7m7SrWXcese2gP//FdUDHjBq3ioiHjQcuXDpWgIFO9CnHKEVEflwhbifVDLV7hnfIeDCl7c2dFhXFhnpBjmz2IE48xax+MJsGuI/45pf3WSEenEtqoSM5JfNO4IWXeaWWhfhXMATieXy+mAw9AJ5cUjDubAT/lnLrPNQXJg+mGv+C4r7j71toVR9wyLmC8V2K3wElW71OJxEKGENRybatR5IfY8Q4z7VFdTkQqxj3662M2ACsNXW6glPj9fP0ZltulIOGYAYg7PRRSP6FqS/1sFcupzUPrP/aJ9uz5RY8ZP6so5B/YTwjbDvV6uKSRjkvxCCb4ulJz//reS/1JMgWZ3z5QDQ1QVbrH7wY5mWo2qJ03DxeCK37et96KHuj14eXeI9KO2ojtze3x0wNQzfY8KOwTgTrgpEawtkopS2TwjlsOemjkyhzV7AbquUoza6oIA5dVvUlrSJcyInZnRfm0yt72JyL9EU7g2pbE8zfGry+akLIwvJzr8Ag9prIzpkzmqzhULu3TD0B+razjH0kdxzzgSMhL2qzrqdmz5jDEi+SOxc9NxGaLz1oC9/fJbFlb+UkGSYNypwoHtUv0ofEgY/wu1fNQgP/w91vUgu6T21fTiXpPTY6+Dsjjrs/nx8kw04XkNN/jIV+RIrn3ptNZXvk37t2TAACWEpmDh71DDpfyo/l0mRgnjjpZA8tdhHl/K/GxOi1Z3KqPPK4ioOcfR+xCP8EtJSQVNctD92JvG7g4KGdn66IRm38STc1mH7Bmb/pX0nl/LrnE6tvj8nrtwgNDMp2VSBTN3ODjh4Ic95EDO6L/BQC4zXMp5vA2KBywrGeR+NOv4/adUPVC9Z8cQrAfCuX46LGaX7K2L3mDcUrGuuNbVJcSVTElyaV39SMz0irSyR03rKP1bFVOL88EMD2ygk/i7K5Ppgcxf5kBbWmrN7SepgjlElkISW3o1kHgn+KCFAul8sr5uwVczwaV6biBf5sYR+bLJgzZZ70dPfDRqChQwRez3hwl7kjwjlRrqAK2bb41FJBOcOGyOYjk5dOyUsZ9pH17gzkJ4yroQKtqHaUQiXxNePuY8pOcNQr3dA0sSYLnaGOKK6+Cq5iyYgzDsO/Jc1O0khYkgDXzl7wBoWrrK5MchVEGKvbEk09gNPTJhYv7HTWr41Huv0dKq1gfp5lQQfyqn71IhLOxrKWrMDIHQ0RK5BgigmyMl/yci5i/zfT8qK9zR9vS617wuwiu00egnhLP/MczZYqEJLh6eUGMrGyL64kJSmW/p2NEH09zjRtridR3WZtDeCd33dzuuLBk+TGJMni92I/7MI4onSC9wPqXaYN8IvVVduWgr0vZ+NvhQXdUDLhZ9KqeIHEgbLMne2fqV/6OrnJEweY4u325dF42D7uG0B1FI867/L/SptggvrAD24zWaNQVNjt4c2Cp4vMrkZdVTgchQS/5wulXHO/LaZsLx+mH1IVjTBXNkibzQCu7MU7RB2Cg03dT2DBK07JSjcb/J4lIYM7GbHhcpNeVql6KXnOwDGMN/Twie9dcX0uRjK9zjG3riTeYHeZo2tpNMu4Oe2yacLlN3G0InHjzCepnXLVGBBohP7m724EaaJHsqN/MKrkFb+bCIsOsZLTc9MLRXl63pnHQ57zG3q6Pd64Ul7He3LNgQmEQ+lrZV7P9OD3AxhggARqX4DDyHBZ684RIcpDXd/MZ/gAlGKWVw9IbzWUfsKWJ0nZbBb6JdheeTPw6jLUB2lt62tM1Z2UlgBx/ByneS+1+90XMgpNvDk4Hq1fjeLQy4b/HhZyxfBHzPSa8rRm5FE8Tb9qdaet0I89RHCIi7ONXZpdaLr+klt6N08+MtKy+q4q9C7EDl5vbd9//weTKtpFCegZq4CtcxkHd1eGMvUNOEl2zxPxw0shUp5QPRlurzsKdztT+mLp/UNepRFV0gI/TOHAheIS+BH+CUt+2KxtL0y70NxXT2VCw1uuN+kd2QIBsnE/GZQoJof2O5f+rEZlP/p7EhGk9SBeixmSZgWxb828K2gyw+XMvWy/6CqXfjbB4WbTdalSf61AfMIgUyXmdrMWHZlHdtp6zdpDrW5UAJUEJXb28xntfHn+Sddyl6GqKWu2nz7U74wESu+qv/gwhxDH1eqbgzA0Ofbl+Cf6g2TIJSAjRk7Po1MEivuPdnBIm08kVDyVHsTgTldsTCAS8qBUAqgyvAoyd2if07dLAtIf9THUZcftSqyKyf5lvtcFS3Nj+BNJFo5/kG7I/89sur5J4XqRgDe9VqoRY6KnwVr6piyVlz3Dv3hM9cbQwjzJJnj2MKRcxgpxzKdbsvAz6mbY3/SW73XnnCVcBZYefWu2XFR+GMgupjwatMQ8TDQUmiBVV0WNE6zyHOsmlFFxcR6QvkRq9pk/iLkNB8qZzJRsOQ1Dq70cvUYo4iv0fwwrlfoPNi9xmdjIn+s3citU6j1ok113ifEpMe5VCl1afqnGZafKCiUjyXKNhY/6UoPV9aJD8s0Q9TxSCj5IBPetAZAoa97XMUU3hI8WV7LBQbRlwMlp0LS4juHsyjx1SRp0boDOunuA+6kt4qfVcKCpt5GAy1OwDjawJ/JnuzvGVGCpfjZDmo03N3O2Rj+soCLLutww3KP+Ih71s70m3hEtJY6Ayi3s7ODHeoSBgmbv8ze78aaq9F3rGa/onvfdkpl5UYrHMsqQ1bdYX0HVA4IkO4FFcYNl3HjDKTlBO7oH8cWJdBGN38gVOyqwTDHUsi+riV8aKCcRDNsRwlmMlmb0R8jB5WXv0LZcjW2jfG3B9qgwrYFCN3iZHK2XUV+UGAWrPNLBksxAT4hDO8Pb7mGeWDb/i90xocs8R7rP+F8JCqEIVQviKeOegRBXUC1L1MaXc/QxsFEA3Uh65ySusDldwVVpzftpbixNcyJlJK6DD9Rty98sInPKfRQisYBGU74hepPYAPqcmZfLAybOkQp5KPTgm+bNQwHuP4d9NenCCaFv9dwmbF2chEPfze7W9b426TyToCOapwIp/rdk4Iro6Nu8a9sN616/sKbXWLUVqyFtfO7/kvvtatnS4CgW5m6eP32fhthT+Kz8gP0578072c84AB9LeIS1EAzT/yg6DexrfG+NPKsQ/+L6Cjje7vFqZnmZ1WLtxUCqzj80bpQuyXqWq3UbTMh4JIUXKFDJBKdDIN806adXs5H6IoEswpEpOvvgrIylpZVto+DfT1O35NeKGDYeyEWn6FUFbJQwrRFtgrWP89f7yx9MfNAwD7VJV5mktP4Y/6qY2zo7KnOr2YKEsK/PU9l4+BZBZg1MedvNxQwMbNVQb5LpwgsSHnkZULR2AtXSBlWPmI8t9bk97zmexNt3N6pdxleIGHH4xhH/3UIUV0+iLFehCiDpS5sPbb0OTrTaC7ErDZP14EiwNReWKz7hVP40noQ5FA6LCP2/aioc+NVN3Sj104dyXWkbnwhKoTODuDdRZqjtRrp2mCKO4U+6l5ccxFjcuRecfgnzBc0lN7snYjs7nojEgHhbgKXfLBmI8CyoNc6Ob0i1QfZDTuikZ7P88xLlRucR8/Jooa3cOnF2X235VstTA7IlRiW//fLWvcExsMyoCK8ZuymteZ0zfU1G6u2OU2fPvcHX16FpMMVtfksRnyt8btx4J5D8Jcsp2rHnwNTy6xCxcT+neBQBwkNFqf6qkUtL5Xir5jgQcWW/doA9346177OeAeUJ6QifphRvroz0CEQ0DftsAD2KqP0bRRVyMWmxzwsN8ybl0Hk8cdIsBQ73+tgb/364F8HIDzSjFYv0CCImNNPF8SkZLVItIJ893rBJNpuOv+1xNGXuGVK8hXyynUOELUDbakldRgsRdK0bSF6LMZQ35CIg5Hq1vFreJRYuEbU8c/YB9Gm+k/kcaY2+H6t0VnZ2NWyxKzBD+4ZglHMKbyGQwpMn+8axLmIZeKbX4QjCnm1ysO7JK0fH7WCxPRmr0sD3VSzKbLtAmrPv0Yl5EufgLoqQpSabQmN34Ojg6QD0VzeIV7n+KrF47BYL13MG+/qOejbajm3FoxtVQ72+JOX2Wbp5GNEE4MqRKkawUjOUfyiT6Rh24VPTT28QnWp4rMIu5qCDucpGCGqNb2TmTvCBaErJb9l60EImJ23hffhE+nvb4ZDqDR86bNR+yT2FisnkObyHhDm+CMkCPXayTfThMCKiOkaoM7AyLkv7t8DqEFBDR05iiP8AABkZA6O7wLhoQpDD9+bWG+VeIylFYxAfT8FhZWFKlagk+gN/Z/lqcI8rh7MPKDYHmODjZ/PS87d3OWUqrnx82RsU7VzzFZFeSR8iUISyH2sBwJA7E9iJQfd5K42cCWN5bkz5M5GOCs0scL1vQmxUG3sbfoHfumP/uX4lv9Q0eGgvhk+9dTb9kH13+3HrtXS0ujp4yQKwX488r9jU84BIA7SoOuZhd/Wil7iOJfDCUgIrsI4Jh8YQHaR/NhnFuO452yh3Z0N7pEF3ZT7u0HVRdMJGoVtsEpDBC7YC/gU9z4OADmZ+aoOyRZqlNoIj8Oxmce7tN0XCsCfmHK1P8QNstNdYiJ51A7123Vi49Dm8xbS68Fa4znIJXFu+v82zJic4cHlpwRvSn8YgPVcSw0dhwhgZkqCDmcmMP5gZGqHsV1zgAAAA==" alt="Tidewater Heating &amp; Air Conditioning">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Tidewater Heating &amp; Air Conditioning · Wilmington, NC · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Tidewater Heating &amp; Air", botName: "Ava" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
