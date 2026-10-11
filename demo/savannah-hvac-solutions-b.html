@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Savannah HVAC Solutions (3.0/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited carolinachillers.com: 3.0/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#1f3a5f;--teal:#ff6b1a;--orange:#ff6b1a;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#231303;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#231303;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Archivo',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,var(--navy),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f7;border:1px solid #d7e2ec;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#f4f8fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#7CFC9A;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),#000);text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--teal)}
+  .lede{color:#cfe0ea;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9db4c4}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-links a{color:var(--navy)}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Savannah HVAC Solutions</strong> · Score: 3.0/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiIHZpZXdCb3g9IjAgMCAyMjguNjY0IDU4LjUwMSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzY2YjM2MDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjMGU0YzhjOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPgogICAgPGc+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIwLjI3MSwyMi40OTljLTYuMTc2LDAtOS40NzItNC42Mi05LjQ3Mi0xMC44M0MxMC43OTksNC45MiwxNC43MTguODQsMjAuMzAxLjg0YzUuMTA3LDAsNy4xMjYsMi4yMiw4LjU1Miw2LjE4bC01LjIyNiwyLjA3Yy0uNzQyLTEuOTUtMS40NTUtMy4xODEtMy4zNTUtMy4xODEtMi40MDUsMC0zLjQ0NCwyLjQzMS0zLjQ0NCw1Ljc2LDAsMy4yMSwxLjAxLDUuNzYsMy41MDQsNS43NiwxLjgxMSwwLDIuNTgzLS45ODksMy43MTEtMi45N2w0Ljg3LDIuNjFjLTEuMzk2LDIuNzYtMy43MTIsNS40My04LjY0MSw1LjQzWiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM4LjYyNiwyMi4xNjl2LTEuMDVjLTEuMDEuNzgtMi4zNzUsMS4zOC0zLjgwMSwxLjM4LTMuMDI5LDAtNS4wNDgtMS44OS01LjA0OC01LjQzLDAtMy4zOSwyLjMxNi01LjEzLDUuNjEyLTUuMTMsMS40MjUsMCwyLjM3NS4yNywzLjIzNy42NnYtLjc4YzAtMS4zOC0uNzQyLTEuODYtMi4xOTctMS44Ni0xLjYwNCwwLTIuODIxLjMwMS00LjMzNSwxLjE0MWwtMS4zOTYtMy41N2MxLjktLjkzLDQuMDA5LTEuNDM5LDYuNzExLTEuNDM5LDQuMzY1LDAsNi4yNjUsMi4xODksNi4yNjUsNS44NXYxMC4yMjloLTUuMDQ4Wk0zOC42MjYsMTUuNzQ5Yy0uNTk0LS4yNy0xLjI3Ny0uNDUtMi4yODctLjQ1LTEuMDk5LDAtMS42NjMuNjAxLTEuNjYzLDEuNjgxLDAsLjk4OS41MDUsMS43MSwxLjY2MywxLjcxLjg5MSwwLDEuNzgyLS4zNiwyLjI4Ny0uNzh2LTIuMTZaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTYsMTIuMzU5Yy0uNjgzLS43NS0xLjQ1NS0xLjMyLTIuNDk1LTEuMzItMS4zMDYsMC0yLjEwOC42My0yLjEwOCwyLjU1djguNThoLTUuMzQ1VjYuNDJoNS4zNDV2MS4xNGMuOTItLjksMS45NTktMS40NywzLjMyNi0xLjQ3LDEuMTI4LDAsMS45LjI3LDIuNTI0LjY2bC0xLjI0Nyw1LjYwOVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik02NC44NTIsMjIuNDk5Yy00LjMwNiwwLTcuMzk0LTIuNzktNy4zOTQtOC4yMiwwLTUuNDksMy4wODgtOC4xODksNy4zOTQtOC4xODlzNy40MjMsMi42OTksNy40MjMsOC4xODljMCw1LjQzLTMuMTE4LDguMjItNy40MjMsOC4yMlpNNjQuODUyLDEwLjQ3Yy0xLjM5NiwwLTIuMTA4LDEuMTQtMi4xMDgsMy44MSwwLDIuNjEuNzEzLDMuODQsMi4xMDgsMy44NHMyLjEwOC0xLjIyOSwyLjEwOC0zLjg0YzAtMi42Ny0uNzEyLTMuODEtMi4xMDgtMy44MVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik03NC4yOTcsMjIuMTY5VjIuNDZsNS4zNDUtMi4xNnYyMS44NjloLTUuMzQ1WiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTg1LjEwNiw1LjI3OWMtMS43NTIsMC0zLjA1OS0xLjAyLTMuMDU5LTIuNjcsMC0xLjUyOSwxLjMwNy0yLjYwOSwzLjA1OS0yLjYwOSwxLjg0MSwwLDMuMTE4LDEuMDgsMy4xMTgsMi42MDksMCwxLjY1LTEuMjc3LDIuNjctMy4xMTgsMi42N1pNODIuNDM0LDIyLjE2OVY2LjQyaDUuMzQ1djE1Ljc0OWgtNS4zNDVaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNOTkuMzYsMjIuMTY5di04LjkzOWMwLTIuMDQtLjY4My0yLjU4LTEuNzgyLTIuNTgtMS4xMjgsMC0xLjgxMS41NC0xLjgxMSwyLjUydjloLTUuMzQ1VjYuNDJoNS4zNDV2MS4wNWMuOTgtLjc1LDIuMDc5LTEuMzgsMy45MTktMS4zOCwzLjQxNSwwLDUuMDQ4LDIuMzEsNS4wNDgsNi40NDl2OS42M2gtNS4zNzVaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTE1LjQyOCwyMi4xNjl2LTEuMDVjLTEuMDEuNzgtMi4zNzUsMS4zOC0zLjgwMSwxLjM4LTMuMDI5LDAtNS4wNDgtMS44OS01LjA0OC01LjQzLDAtMy4zOSwyLjMxNi01LjEzLDUuNjEyLTUuMTMsMS40MjUsMCwyLjM3NS4yNywzLjIzNy42NnYtLjc4YzAtMS4zOC0uNzQyLTEuODYtMi4xOTctMS44Ni0xLjYwNCwwLTIuODIxLjMwMS00LjMzNSwxLjE0MWwtMS4zOTYtMy41N2MxLjktLjkzLDQuMDA5LTEuNDM5LDYuNzExLTEuNDM5LDQuMzY1LDAsNi4yNjUsMi4xODksNi4yNjUsNS44NXYxMC4yMjloLTUuMDQ4Wk0xMTUuNDI4LDE1Ljc0OWMtLjU5NC0uMjctMS4yNzctLjQ1LTIuMjg3LS40NS0xLjA5OSwwLTEuNjYzLjYwMS0xLjY2MywxLjY4MSwwLC45ODkuNTA1LDEuNzEsMS42NjMsMS43MS44OTEsMCwxLjc4Mi0uMzYsMi4yODctLjc4di0yLjE2WiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE0Mi43MjEsMTkuMDJjLTEuNTE0LDIuMDY5LTMuNzcxLDMuNDc5LTYuOCwzLjQ3OS01LjA3OCwwLTguNDAzLTQuNjUtOC40MDMtMTAuOCwwLTYuMjM5LDMuNDc0LTEwLjg1OSw4LjQ5My0xMC44NTksMi44NTEsMCw0Ljk4OCwxLjA4LDYuNjIyLDMuMzU5bC0xLjg0MSwxLjQxYy0xLjMzNi0xLjgzLTIuNTgzLTIuNjQtNC44NC0yLjY0LTMuNTYzLDAtNi4xMTcsMy41Ny02LjExNyw4LjY3LDAsNS4xMywyLjY0Myw4LjcyOSw2LjE0Niw4LjcyOSwyLjI1NywwLDMuODAxLTEuMDIxLDUuMTM3LTIuNzZsMS42MDMsMS40MVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTcuOTU4LDIyLjE2OWgtMi4yMjd2LTkuMjFjMC0zLjM5LTEuMTg4LTQuOTItMy42ODItNC45Mi0yLjE2NywwLTMuODYsMS40NzEtMy44Niw0LjkydjkuMjFoLTIuMjI3VjEuNTZsMi4yMjctMS4yNnY4LjA0Yy44OTEtMS4zMiwyLjM0Ni0yLjI1LDQuMzA2LTIuMjUsMy4yOTYsMCw1LjQ2NCwxLjk0OSw1LjQ2NCw2LjQ3OXY5LjZaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTY0LjgyLDIuMDFjMCwuODctLjcxMiwxLjU5LTEuNTQ0LDEuNTktLjkyLDAtMS42MzMtLjcyLTEuNjMzLTEuNTksMC0uOS43MTMtMS42MiwxLjYzMy0xLjYyLjgzMiwwLDEuNTQ0LjcyLDEuNTQ0LDEuNjJaTTE2NC4zNDUsMjIuMTY5aC0yLjIyN1Y2LjQyaDIuMjI3djE1Ljc0OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNzAuOTY4LDIyLjE2OWgtMi4yMjdWMS41NmwyLjIyNy0xLjI2djIxLjg2OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNzcuNTkxLDIyLjE2OWgtMi4yMjdWMS41NmwyLjIyNy0xLjI2djIxLjg2OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTMuNzE1LDEzLjgyOWMwLC41NC0uMDI5Ljg3LS4wODksMS4yM2gtMTAuMzkzYy4yMDgsMy4zNTksMS43ODEsNS40ODksNC4zMzUsNS40ODksMS44MTIsMCwyLjg4LS41NCw0LjMwNi0xLjVsMS4wNCwxLjYyYy0xLjg3MSwxLjItMy4yMzcsMS44My01LjU4MywxLjgzLTIuODUxLDAtNi4zMjUtMi4xLTYuMzI1LTguMjc5LDAtNS4wMSwyLjczMS04LjEzLDYuNDQzLTguMTMsNC4wNjgsMCw2LjI2NSwzLjIzOSw2LjI2NSw3LjczOVpNMTkxLjYzNywxMy4yMjljLS4xNzgtMy4wNjEtMS40ODUtNS4xOS00LjIxNy01LjE5LTIuMzE2LDAtMy45MTksMS42ODEtNC4xODcsNS4xOWg4LjQwM1oiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMDUuNTY2LDYuNDc5bC0uNTY0LDIuMjhjLS42MjQtLjM2LTEuMzA3LS42MDEtMi4zNDYtLjYwMS0yLjE2NywwLTMuMzg1LDEuNzcxLTMuMzg1LDQuNzcxdjkuMjM5aC0yLjIyN1Y2LjQyaDIuMjI3djEuOTQ5Yy43MTMtMS4yNiwyLjE5OC0yLjI3OSwzLjg2LTIuMjc5LDEuMTU4LDAsMS45LjE0OSwyLjQzNS4zOVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMTcuMzU3LDE4LjA2YzAsMy4wOS0yLjY0Myw0LjQzOS01LjM0NSw0LjQzOS0yLjEzOCwwLTQuMDA4LS44MTEtNS40OTMtMi4wMWwxLjMwNy0xLjY1YzEuMjQ3LDEuMTEsMi43MDIsMS43NCw0LjI0NiwxLjc0LDIuMTM4LDAsMy4xNDctLjksMy4xNDctMi40MywwLTEuMjktLjkyLTIuMDEtMy42ODItMy4yMS0zLjExOC0xLjM1MS00LjQyNC0yLjMxMS00LjQyNC00LjgzLDAtMi4zOTksMi4wNDktNC4wMiw0Ljg3LTQuMDIsMi4xMzgsMCwzLjgwMS42ODksNC45ODksMS42OGwtMS4yNDcsMS42NWMtMS4yMTctLjk2LTIuMjI3LTEuNDEtMy44OS0xLjQxLTEuNjMzLDAtMi41ODMuODEtMi41ODMsMS45NDksMCwxLjMyLjgwMiwxLjg2LDMuNDQ0LDMuMDYxLDIuOTM5LDEuMzUsNC42NjIsMi4yMiw0LjY2Miw1LjA0WiI+PC9wYXRoPgogICAgICA8L2c+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYwLjA4MSw0OC4xNmMyLjE1OC0uMjE5LDQuMzA5LS40NSw2LjQyNy0uNjUxLDYuODMtLjY1LDEzLjYyNS0xLjU0MywyMC4zOTgtMi41NDMsMTMuNDQ1LTEuOTg0LDI2Ljg0Ny00LjE2LDQwLjI4Ni02LjIzMSwyNi45NDgtNC4xNTQsNTIuNTkzLTUuMjMyLDc5LjYyMy0uODE2LDYuOTQ5LDEuMTA4LDE2Ljk1LDMuMTUzLDIxLjg0OCw0LjM5Mi0xMS4zMjItNC4xODgtMzMuNTU1LTguOTQ4LTUxLjE2MS0xMC4wNzYtNS4xODgtLjMzMS0xMC4zOS0uNDQ1LTE1LjU4OS0uMzMxLTExLjc4LjI1OC0yMy42MTYuNzk4LTM1LjMxMiwyLjI3My0yNy4zNDMsMy40NDctNTcuMTUyLDEwLjI5MS04NC44MzEsMTAuOTM1LTEwLjQ3OS4yNDQtMjEuMDYxLTEuMTI5LTMxLjE3OS0zLjYzOS0zLjU5Ny0uODkyLTcuMTU5LTEuOTQ3LTEwLjU5Mi0zLjI5Myw2LjI5LDQuNzg5LDE0LjUxNCw3LjE0NCwyMi4zMjIsOC43MzksOC4xODUsMS42NzMsMTYuNTI4LDIuMTEsMjQuODk0LDIuMDgxLDQuMjA1LS4wMSw4LjU1MS0uNCwxMi44NjUtLjgzOSI+PC9wYXRoPgogICAgICAgIDxnPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTExLjcyNiw1MS44MjFjLS4xNTYtLjQ1Ny0uMzUxLTEuMDgzLS40Mi0xLjM3MS0uMDY5LjI3Ny0uMjYyLjkwNS0uNDMxLDEuMzkxbC0uNzUxLDIuMjY4aDIuMzU0bC0uNzUzLTIuMjg3aDBaTTExMy4yOTgsNTYuNTg0bC0uNTg0LTEuNzcxaC0yLjgyNmwtLjU5NiwxLjc3MWgtLjc4MWwyLjM3NC02Ljk1OGguODQxbDIuMzc0LDYuOTU4aC0uODAyWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTE5LjUwNSw1Ni42OTJjLS45MjYsMC0xLjc1OC0uNDEtMi4yOTUtLjk2NGwuNTA4LS41NzdjLjUxOC41MDcsMS4xMTMuODM1LDEuODE4LjgzNS45MDksMCwxLjQ3NC0uNDU2LDEuNDc0LTEuMTkyLDAtLjY0Ni0uMzc4LTEuMDE0LTEuNjMxLTEuNDcxLTEuNDM2LS41MjgtMS44OTYtLjk4My0xLjg5Ni0xLjk3OSwwLTEuMTEzLjg3LTEuODI5LDIuMDYzLTEuODI5LjkxOSwwLDEuNTI0LjMxLDIuMDgxLjgxNWwtLjQ4OC41ODhjLS40NjgtLjQ1Ny0uOTU3LS42OTYtMS42NDEtLjY5Ni0uODYsMC0xLjI1LjUyOC0xLjI1LDEuMDcxLDAsLjU1OS4yNjIuODg2LDEuNTQxLDEuMzU1LDEuNTI2LjU1NiwxLjk4NCwxLjA3MiwxLjk4NCwyLjEwNiwwLDEuMDk0LS44MzgsMS45MzktMi4yNjcsMS45MzkiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyNS4wMjcsNTEuOWMtLjc2MiwwLTEuMjkuNTU4LTEuMzc3LDEuNzIxaDIuNzY0Yy0uMDU3LTEuMDE1LS40ODgtMS43MjEtMS4zODctMS43MjFNMTI3LjA3Miw1NC4yMjZoLTMuNDIyYy4wNjYsMS4xMTUuNTg0LDEuODIsMS40MjYsMS44Mi41OTUsMCwuOTQ4LS4xODEsMS40MTctLjQ5N2wuMzQuNTM3Yy0uNjE1LjM5Ni0xLjA2Ni42MDUtMS44MzYuNjA1LS45MzksMC0yLjA4MS0uNjk0LTIuMDgxLTIuNzQzLDAtMS42Ni45LTIuNjk0LDIuMTIxLTIuNjk0LDEuMzM5LDAsMi4wNjMsMS4wNzQsMi4wNjMsMi41NjMsMCwuMTgtLjAxMS4yOS0uMDI4LjQwOCI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTMxLjA4Niw1Mi4xMzhjLS4yMDYtLjExNi0uNDMtLjE5Ni0uNzczLS4xOTYtLjcxNiwwLTEuMTE0LjU4NS0xLjExNCwxLjU3OXYzLjA2MmgtLjczM3YtNS4yMmguNzMzdi42NDhjLjIzNS0uNDE4LjcyMi0uNzU3LDEuMjcyLS43NTcuMzgsMCwuNjIzLjA1MS43OTYuMTMxbC0uMTgyLjc1M2gwWiI+PC9wYXRoPgogICAgICAgICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEzNC4yNTkgNTYuNTg0IDEzMy42MTQgNTYuNTg0IDEzMS43NzggNTEuMzY0IDEzMi41NiA1MS4zNjQgMTMzLjg2OSA1NS40NjggMTMzLjk0OCA1NS43MTYgMTM0LjAyOCA1NS40NjggMTM1LjMzNSA1MS4zNjQgMTM2LjEgNTEuMzY0IDEzNC4yNTkgNTYuNTg0IDEzNC4yNTkgNTYuNTg0Ij48L3BvbHlnb24+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xMzcuMzUxLDUxLjM2NGguNzMxdjUuMjJoLS43MzF2LTUuMjJoMFpNMTM3LjgzNSw1MC40MzFjLS4zMDMsMC0uNTM4LS4yNC0uNTM4LS41MjgsMC0uMjk4LjIzNS0uNTM3LjUzOC0uNTM3LjI3NCwwLC41MDcuMjM5LjUwNy41MzcsMCwuMjg4LS4yMzMuNTI4LS41MDcuNTI4Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNDIuODY5LDUyLjQzYy0uMzctLjM0LS43MTEtLjUzLTEuMjMxLS41My0uNzk5LDAtMS40MTUuNzM2LTEuNDE1LDIuMDM4LDAsMS4yODEuNTM2LDIuMTA4LDEuNDQ2LDIuMTA4LjQ5OSwwLC44My0uMjA4LDEuMTgyLS41NTdsLjQzOS40NzhjLS40My40NDYtLjkyOC43MjUtMS42NTIuNzI1LTEuMTI0LDAtMi4xNTktLjg3NS0yLjE1OS0yLjY5NCwwLTEuOTI3LDEuMTMzLTIuNzQzLDIuMjEtMi43NDMuNjkzLDAsMS4yMjIuMjU5LDEuNjIxLjYxNmwtLjQ0Mi41NmgwWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTQ2LjI1OSw1MS45Yy0uNzYyLDAtMS4yOS41NTgtMS4zNzcsMS43MjFoMi43NjRjLS4wNTctMS4wMTUtLjQ4Ni0xLjcyMS0xLjM4Ny0xLjcyMU0xNDguMzAyLDU0LjIyNmgtMy40MmMuMDY3LDEuMTE1LjU4NiwxLjgyLDEuNDI1LDEuODIuNTk2LDAsLjk1MS0uMTgxLDEuNDE5LS40OTdsLjM0MS41MzdjLS42MTguMzk2LTEuMDYyLjYwNS0xLjgzNi42MDUtLjkzOCwwLTIuMDgzLS42OTQtMi4wODMtMi43NDMsMC0xLjY2LjktMi42OTQsMi4xMjItMi42OTQsMS4zMzcsMCwyLjA2MSwxLjA3NCwyLjA2MSwyLjU2MywwLC4xOC0uMDA5LjI5LS4wMjkuNDA4Ij48L3BhdGg+CiAgICAgICAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTUyLjMyNiA1Ni41ODQgMTUyLjMyNiA0OS42MjYgMTUzLjA5IDQ5LjYyNiAxNTMuMDkgNTUuODc2IDE1Ni40NzIgNTUuODc2IDE1Ni40NzIgNTYuNTg0IDE1Mi4zMjYgNTYuNTg0IDE1Mi4zMjYgNTYuNTg0Ij48L3BvbHlnb24+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTguOTYyLDUxLjljLS44ODksMC0xLjQ4NC42ODYtMS40ODQsMi4wNThzLjU5NSwyLjA4OSwxLjQ4NCwyLjA4OSwxLjQ5Ni0uNzE3LDEuNDk2LTIuMDg5LS42MDctMi4wNTgtMS40OTYtMi4wNThNMTU4Ljk0NCw1Ni42OTJjLTEuMjUzLDAtMi4yMTEtLjk0NC0yLjIxMS0yLjcxNXMuOTk3LTIuNzIzLDIuMjQ5LTIuNzIzLDIuMjA4LjkxNSwyLjIwOCwyLjY4NC0uOTk1LDIuNzU0LTIuMjQ1LDIuNzU0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNjUuNjQ2LDUyLjY4NmMtLjI4My0uNDM2LS43ODEtLjc4Ni0xLjM4Ny0uNzg2LS44NDksMC0xLjI3Ljc0Ny0xLjI3LDIuMTQ3LDAsMS4zMTQuNDg5LDEuOTk5LDEuMjk4LDEuOTk5LjU0NywwLC45OTktLjI5OSwxLjM1OS0uNzU3di0yLjYwNGgwWk0xNjMuNzc5LDU4LjUwMWwtLjIzMy0uNTY2YzEuNzA5LS4wNSwyLjEtLjUwNywyLjEtMS43MTl2LS4yNjljLS4zNi4zOTYtLjg0OC43NDUtMS41NDMuNzQ1LTEuMDI2LDAtMS44MzctLjc5Ni0xLjgzNy0yLjYzNCwwLTEuODQ5Ljg2LTIuODA0LDEuOTM1LTIuODA0LjY0NCwwLDEuMDg2LjI3OSwxLjQ0Ni42OTZ2LS41OWguNzMydjQuNzU2YzAsMS41NjktLjY5MywyLjMyMy0yLjYsMi4zODQiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE2OC4wNTEsNTEuMzY0aC43MzN2NS4yMmgtLjczM3YtNS4yMmgwWk0xNjguNTM3LDUwLjQzMWMtLjMwMywwLS41MzgtLjI0LS41MzgtLjUyOCwwLS4yOTguMjM0LS41MzcuNTM4LS41MzcuMjczLDAsLjUwOC4yMzkuNTA4LjUzNywwLC4yODgtLjIzNS41MjgtLjUwOC41MjgiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE3My41NzEsNTIuNDNjLS4zNjktLjM0LS43MTMtLjUzLTEuMjMxLS41My0uOCwwLTEuNDE2LjczNi0xLjQxNiwyLjAzOCwwLDEuMjgxLjUzNywyLjEwOCwxLjQ0NCwyLjEwOC41MDIsMCwuODMzLS4yMDgsMS4xODQtLjU1N2wuNDQuNDc4Yy0uNDMyLjQ0Ni0uOTI2LjcyNS0xLjY1Mi43MjUtMS4xMjUsMC0yLjE1OC0uODc1LTIuMTU4LTIuNjk0LDAtMS45MjcsMS4xMzMtMi43NDMsMi4yMDctMi43NDMuNjk0LDAsMS4yMjMuMjU5LDEuNjIxLjYxNmwtLjQzOS41NmgwWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTgwLjE0OSw1Ni42OTJjLTEuNjcyLDAtMi43NjctMS41NDEtMi43NjctMy41NzksMC0yLjA2OCwxLjE0NC0zLjU5OCwyLjc5NC0zLjU5OC45MzgsMCwxLjY0Mi4zNTksMi4xOCwxLjExM2wtLjYwNi40NjdjLS40NDEtLjYwNS0uODUxLS44NzQtMS41OTMtLjg3NC0xLjE3MiwwLTIuMDExLDEuMTgxLTIuMDExLDIuODczcy44NjksMi44OTIsMi4wMTksMi44OTJjLjc0NCwwLDEuMjU0LS4zMzcsMS42OTItLjkxNWwuNTI5LjQ2OGMtLjUuNjg2LTEuMjQxLDEuMTUzLTIuMjM3LDEuMTUzIj48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xODUuNTEyLDUxLjljLS44ODgsMC0xLjQ4Ni42ODYtMS40ODYsMi4wNThzLjU5OCwyLjA4OSwxLjQ4NiwyLjA4OSwxLjQ5NS0uNzE3LDEuNDk1LTIuMDg5LS42MDYtMi4wNTgtMS40OTUtMi4wNThNMTg1LjQ5Myw1Ni42OTJjLTEuMjUyLDAtMi4yMDktLjk0NC0yLjIwOS0yLjcxNXMuOTk1LTIuNzIzLDIuMjQ3LTIuNzIzLDIuMjA5LjkxNSwyLjIwOSwyLjY4NC0uOTk3LDIuNzU0LTIuMjQ3LDIuNzU0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTUuMDUsNTYuNTg0di0zLjA1MmMwLTEuMTkyLS4zNjEtMS42MzItMS4xMDUtMS42MzItLjY5MywwLTEuMTQyLjQ3OC0xLjE0MiwxLjYzMnYzLjA1MmgtLjczMnYtMy4wNTJjMC0xLjE5Mi0uMzkyLTEuNjMyLTEuMTA3LTEuNjMyLS43MDEsMC0xLjE0Mi40NzgtMS4xNDIsMS42MzJ2My4wNTJoLS43MzF2LTUuMjJoLjczMXYuNjM3Yy4yNjUtLjQ0Ny42OTItLjc0NiwxLjMtLjc0Ni43MjQsMCwxLjE2NC4zOTksMS40MDguODk2LjMwMS0uNDk2LjcyMy0uODk2LDEuNTU2LS44OTYsMS4wNDQsMCwxLjY5OS42MjcsMS42OTksMi4xNDd2My4xODNoLS43MzNaIj48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTkuNDY5LDUxLjljLS41NTEsMC0uOTk3LjMtMS4zNi43NTZ2Mi42MDRjLjI4My40MzguNzgxLjc4NywxLjM4Ny43ODcuODUxLDAsMS4yNzEtLjc0NiwxLjI3MS0yLjE0OCwwLTEuMzExLS40ODctMS45OTgtMS4yOTctMS45OThNMTk5LjU1NCw1Ni42OTJjLS42NDQsMC0xLjA4Mi0uMjc4LTEuNDQ1LS42OTR2Mi4wODVsLS43MzIuNDE4di03LjEzN2guNzMydi42MzdjLjM2My0uMzk4Ljg1LS43NDYsMS41NDMtLjc0NiwxLjAyNywwLDEuODQuNzk2LDEuODQsMi42MzQsMCwxLjg0OS0uODYxLDIuODA0LTEuOTM3LDIuODA0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMDUuNzAxLDU0LjI0OGMtLjMzMi0uMTg5LS42OTMtLjI5OS0xLjMxOC0uMjk5LS43NTMsMC0xLjIwMy4zNjgtMS4yMDMsMS4wMjUsMCwuNzczLjQyLDEuMTExLDEuMDQ1LDEuMTExLjY2NiwwLDEuMTY0LS4zNDksMS40NzctLjc4NXYtMS4wNTNoMFpNMjA1LjcwMSw1Ni41ODJ2LS42MzVjLS4zNjEuMzk4LS44NjkuNzQ1LTEuNjAzLjc0NS0uODAxLDAtMS42NDEtLjQxLTEuNjQxLTEuNjcxLDAtMS4xNzMuOTQ3LTEuNjcsMS45NjMtMS42Ny41MiwwLC45NzkuMTMsMS4yODEuM3YtLjYxNWMwLS43NzgtLjM2MS0xLjE1NC0xLjExMy0xLjE1NC0uNTM3LDAtLjk3Ny4xNDgtMS4zOTguMzk4bC0uMjczLS42MDhjLjQ0OC0uMjUsMS4wNTctLjQxOCwxLjcyLS40MTgsMS4xMDQsMCwxLjc5OS40NzksMS43OTksMS42OXYzLjYzN2gtLjczM1oiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIxMS4yNCw1Ni41ODR2LTMuMDUyYzAtMS4xMjMtLjM4OC0xLjYzMi0xLjIwOS0xLjYzMi0uNzEzLDAtMS4yNzEuNDg4LTEuMjcxLDEuNjMydjMuMDUyaC0uNzMydi01LjIyaC43MzJ2LjYzN2MuMjkxLS40MzcuNzcxLS43NDYsMS40MTgtLjc0NiwxLjA4NCwwLDEuNzk2LjY0NiwxLjc5NiwyLjE0N3YzLjE4M2gtLjczM1oiPjwvcGF0aD4KICAgICAgICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIyMTQuODA4IDU4LjQyIDIxNC4wNzYgNTguNDIgMjE0Ljc4IDU2LjUyMyAyMTIuOTUxIDUxLjM2NCAyMTMuNzIyIDUxLjM2NCAyMTQuOTc1IDU1LjE1MSAyMTUuMTUxIDU1LjY4NyAyMTUuMzI2IDU1LjE2MiAyMTYuNTg3IDUxLjM2NCAyMTcuMzU4IDUxLjM2NCAyMTQuODA4IDU4LjQyIDIxNC44MDggNTguNDIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" alt="Savannah HVAC Solutions"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+112292908502">📞 (229) 290-8502</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Savannah, GA</p>
+    <h1>We audited carolinachillers.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.0<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A commercial &amp; industrial HVAC firm (branded Carolina Chillers) — where an “emergency repair” service is requested through a contact form.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 300+ HVAC sites audited across 8 states</span>
+      <span>📉 4 in 10 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on carolinachillers.com · Site branded Site branded Carolina Chillers — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>“Emergency repair” is a contact form</h3>
+        <p>Emergency repair is listed as a core service — but the after-hours path we found is <strong>a contact form</strong>. A facility manager with a downed chiller at 2 AM fills in fields and waits.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Nina takes the emergency call or chat, captures the site and system details, and triggers your on-call dispatch instantly.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No instant dispatch path for mission-critical clients</h3>
+        <p>Healthcare, mission-critical facilities, manufacturing — the industries page names them — but there's <strong>no priority intake, no SLA clock, nothing faster than a form</strong>.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Priority-client recognition: the AI identifies the account, starts the SLA clock, and pages on-call per your protocol.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Zero customer proof on the site</h3>
+        <p>No testimonials, no case studies, no client logos observed. For six-figure <strong>design-build and retrofit</strong> decisions, buyers get assertions, not evidence.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Case-study and testimonial capture built into project closeout — proof that sells the next job.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Four regional phone numbers, no smart routing</h3>
+        <p>The site lists <strong>separate numbers per region</strong> — (912), (843), (803) — with no indication calls route intelligently after hours.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One AI front door that recognizes the caller's region and routes to the right team, 24/7.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Broad “SC & GA” coverage with no instant check</h3>
+        <p>Service-area claims are static text. A prospect can't <strong>confirm coverage in ten seconds</strong> — they have to ask.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Instant coverage check in chat: ZIP in → “yes, we cover you” → booked.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is carolinachillers.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you&#x27;re the facility manager with a chiller down at 2 AM.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Savannah HVAC Solutions</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Savannah HVAC Solutions's real services — commercial and industrial HVAC, chillers, building controls, and planned maintenance — and the SC &amp; GA service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>No customer proof<br>where it matters.</h2>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <div class="rev-badge">
+      <div><strong style="font-size:1.15rem;font-weight:700">No customer reviews on the homepage we audited</strong><small>ratings · testimonials · review count — none displayed</small></div>
+    </div>
+    <p class="rev-note">The fixed version collects and displays real customer quotes automatically — no invented testimonials, ever.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20Savannah%20HVAC%20Solutions">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Savannah HVAC Solutions (carolinachillers.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#top"><img class="logo-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiIHZpZXdCb3g9IjAgMCAyMjguNjY0IDU4LjUwMSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzY2YjM2MDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjMGU0YzhjOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPgogICAgPGc+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIwLjI3MSwyMi40OTljLTYuMTc2LDAtOS40NzItNC42Mi05LjQ3Mi0xMC44M0MxMC43OTksNC45MiwxNC43MTguODQsMjAuMzAxLjg0YzUuMTA3LDAsNy4xMjYsMi4yMiw4LjU1Miw2LjE4bC01LjIyNiwyLjA3Yy0uNzQyLTEuOTUtMS40NTUtMy4xODEtMy4zNTUtMy4xODEtMi40MDUsMC0zLjQ0NCwyLjQzMS0zLjQ0NCw1Ljc2LDAsMy4yMSwxLjAxLDUuNzYsMy41MDQsNS43NiwxLjgxMSwwLDIuNTgzLS45ODksMy43MTEtMi45N2w0Ljg3LDIuNjFjLTEuMzk2LDIuNzYtMy43MTIsNS40My04LjY0MSw1LjQzWiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM4LjYyNiwyMi4xNjl2LTEuMDVjLTEuMDEuNzgtMi4zNzUsMS4zOC0zLjgwMSwxLjM4LTMuMDI5LDAtNS4wNDgtMS44OS01LjA0OC01LjQzLDAtMy4zOSwyLjMxNi01LjEzLDUuNjEyLTUuMTMsMS40MjUsMCwyLjM3NS4yNywzLjIzNy42NnYtLjc4YzAtMS4zOC0uNzQyLTEuODYtMi4xOTctMS44Ni0xLjYwNCwwLTIuODIxLjMwMS00LjMzNSwxLjE0MWwtMS4zOTYtMy41N2MxLjktLjkzLDQuMDA5LTEuNDM5LDYuNzExLTEuNDM5LDQuMzY1LDAsNi4yNjUsMi4xODksNi4yNjUsNS44NXYxMC4yMjloLTUuMDQ4Wk0zOC42MjYsMTUuNzQ5Yy0uNTk0LS4yNy0xLjI3Ny0uNDUtMi4yODctLjQ1LTEuMDk5LDAtMS42NjMuNjAxLTEuNjYzLDEuNjgxLDAsLjk4OS41MDUsMS43MSwxLjY2MywxLjcxLjg5MSwwLDEuNzgyLS4zNiwyLjI4Ny0uNzh2LTIuMTZaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTYsMTIuMzU5Yy0uNjgzLS43NS0xLjQ1NS0xLjMyLTIuNDk1LTEuMzItMS4zMDYsMC0yLjEwOC42My0yLjEwOCwyLjU1djguNThoLTUuMzQ1VjYuNDJoNS4zNDV2MS4xNGMuOTItLjksMS45NTktMS40NywzLjMyNi0xLjQ3LDEuMTI4LDAsMS45LjI3LDIuNTI0LjY2bC0xLjI0Nyw1LjYwOVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik02NC44NTIsMjIuNDk5Yy00LjMwNiwwLTcuMzk0LTIuNzktNy4zOTQtOC4yMiwwLTUuNDksMy4wODgtOC4xODksNy4zOTQtOC4xODlzNy40MjMsMi42OTksNy40MjMsOC4xODljMCw1LjQzLTMuMTE4LDguMjItNy40MjMsOC4yMlpNNjQuODUyLDEwLjQ3Yy0xLjM5NiwwLTIuMTA4LDEuMTQtMi4xMDgsMy44MSwwLDIuNjEuNzEzLDMuODQsMi4xMDgsMy44NHMyLjEwOC0xLjIyOSwyLjEwOC0zLjg0YzAtMi42Ny0uNzEyLTMuODEtMi4xMDgtMy44MVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik03NC4yOTcsMjIuMTY5VjIuNDZsNS4zNDUtMi4xNnYyMS44NjloLTUuMzQ1WiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTg1LjEwNiw1LjI3OWMtMS43NTIsMC0zLjA1OS0xLjAyLTMuMDU5LTIuNjcsMC0xLjUyOSwxLjMwNy0yLjYwOSwzLjA1OS0yLjYwOSwxLjg0MSwwLDMuMTE4LDEuMDgsMy4xMTgsMi42MDksMCwxLjY1LTEuMjc3LDIuNjctMy4xMTgsMi42N1pNODIuNDM0LDIyLjE2OVY2LjQyaDUuMzQ1djE1Ljc0OWgtNS4zNDVaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNOTkuMzYsMjIuMTY5di04LjkzOWMwLTIuMDQtLjY4My0yLjU4LTEuNzgyLTIuNTgtMS4xMjgsMC0xLjgxMS41NC0xLjgxMSwyLjUydjloLTUuMzQ1VjYuNDJoNS4zNDV2MS4wNWMuOTgtLjc1LDIuMDc5LTEuMzgsMy45MTktMS4zOCwzLjQxNSwwLDUuMDQ4LDIuMzEsNS4wNDgsNi40NDl2OS42M2gtNS4zNzVaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTE1LjQyOCwyMi4xNjl2LTEuMDVjLTEuMDEuNzgtMi4zNzUsMS4zOC0zLjgwMSwxLjM4LTMuMDI5LDAtNS4wNDgtMS44OS01LjA0OC01LjQzLDAtMy4zOSwyLjMxNi01LjEzLDUuNjEyLTUuMTMsMS40MjUsMCwyLjM3NS4yNywzLjIzNy42NnYtLjc4YzAtMS4zOC0uNzQyLTEuODYtMi4xOTctMS44Ni0xLjYwNCwwLTIuODIxLjMwMS00LjMzNSwxLjE0MWwtMS4zOTYtMy41N2MxLjktLjkzLDQuMDA5LTEuNDM5LDYuNzExLTEuNDM5LDQuMzY1LDAsNi4yNjUsMi4xODksNi4yNjUsNS44NXYxMC4yMjloLTUuMDQ4Wk0xMTUuNDI4LDE1Ljc0OWMtLjU5NC0uMjctMS4yNzctLjQ1LTIuMjg3LS40NS0xLjA5OSwwLTEuNjYzLjYwMS0xLjY2MywxLjY4MSwwLC45ODkuNTA1LDEuNzEsMS42NjMsMS43MS44OTEsMCwxLjc4Mi0uMzYsMi4yODctLjc4di0yLjE2WiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE0Mi43MjEsMTkuMDJjLTEuNTE0LDIuMDY5LTMuNzcxLDMuNDc5LTYuOCwzLjQ3OS01LjA3OCwwLTguNDAzLTQuNjUtOC40MDMtMTAuOCwwLTYuMjM5LDMuNDc0LTEwLjg1OSw4LjQ5My0xMC44NTksMi44NTEsMCw0Ljk4OCwxLjA4LDYuNjIyLDMuMzU5bC0xLjg0MSwxLjQxYy0xLjMzNi0xLjgzLTIuNTgzLTIuNjQtNC44NC0yLjY0LTMuNTYzLDAtNi4xMTcsMy41Ny02LjExNyw4LjY3LDAsNS4xMywyLjY0Myw4LjcyOSw2LjE0Niw4LjcyOSwyLjI1NywwLDMuODAxLTEuMDIxLDUuMTM3LTIuNzZsMS42MDMsMS40MVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTcuOTU4LDIyLjE2OWgtMi4yMjd2LTkuMjFjMC0zLjM5LTEuMTg4LTQuOTItMy42ODItNC45Mi0yLjE2NywwLTMuODYsMS40NzEtMy44Niw0LjkydjkuMjFoLTIuMjI3VjEuNTZsMi4yMjctMS4yNnY4LjA0Yy44OTEtMS4zMiwyLjM0Ni0yLjI1LDQuMzA2LTIuMjUsMy4yOTYsMCw1LjQ2NCwxLjk0OSw1LjQ2NCw2LjQ3OXY5LjZaIj48L3BhdGg+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTY0LjgyLDIuMDFjMCwuODctLjcxMiwxLjU5LTEuNTQ0LDEuNTktLjkyLDAtMS42MzMtLjcyLTEuNjMzLTEuNTksMC0uOS43MTMtMS42MiwxLjYzMy0xLjYyLjgzMiwwLDEuNTQ0LjcyLDEuNTQ0LDEuNjJaTTE2NC4zNDUsMjIuMTY5aC0yLjIyN1Y2LjQyaDIuMjI3djE1Ljc0OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNzAuOTY4LDIyLjE2OWgtMi4yMjdWMS41NmwyLjIyNy0xLjI2djIxLjg2OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNzcuNTkxLDIyLjE2OWgtMi4yMjdWMS41NmwyLjIyNy0xLjI2djIxLjg2OVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTMuNzE1LDEzLjgyOWMwLC41NC0uMDI5Ljg3LS4wODksMS4yM2gtMTAuMzkzYy4yMDgsMy4zNTksMS43ODEsNS40ODksNC4zMzUsNS40ODksMS44MTIsMCwyLjg4LS41NCw0LjMwNi0xLjVsMS4wNCwxLjYyYy0xLjg3MSwxLjItMy4yMzcsMS44My01LjU4MywxLjgzLTIuODUxLDAtNi4zMjUtMi4xLTYuMzI1LTguMjc5LDAtNS4wMSwyLjczMS04LjEzLDYuNDQzLTguMTMsNC4wNjgsMCw2LjI2NSwzLjIzOSw2LjI2NSw3LjczOVpNMTkxLjYzNywxMy4yMjljLS4xNzgtMy4wNjEtMS40ODUtNS4xOS00LjIxNy01LjE5LTIuMzE2LDAtMy45MTksMS42ODEtNC4xODcsNS4xOWg4LjQwM1oiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMDUuNTY2LDYuNDc5bC0uNTY0LDIuMjhjLS42MjQtLjM2LTEuMzA3LS42MDEtMi4zNDYtLjYwMS0yLjE2NywwLTMuMzg1LDEuNzcxLTMuMzg1LDQuNzcxdjkuMjM5aC0yLjIyN1Y2LjQyaDIuMjI3djEuOTQ5Yy43MTMtMS4yNiwyLjE5OC0yLjI3OSwzLjg2LTIuMjc5LDEuMTU4LDAsMS45LjE0OSwyLjQzNS4zOVoiPjwvcGF0aD4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMTcuMzU3LDE4LjA2YzAsMy4wOS0yLjY0Myw0LjQzOS01LjM0NSw0LjQzOS0yLjEzOCwwLTQuMDA4LS44MTEtNS40OTMtMi4wMWwxLjMwNy0xLjY1YzEuMjQ3LDEuMTEsMi43MDIsMS43NCw0LjI0NiwxLjc0LDIuMTM4LDAsMy4xNDctLjksMy4xNDctMi40MywwLTEuMjktLjkyLTIuMDEtMy42ODItMy4yMS0zLjExOC0xLjM1MS00LjQyNC0yLjMxMS00LjQyNC00LjgzLDAtMi4zOTksMi4wNDktNC4wMiw0Ljg3LTQuMDIsMi4xMzgsMCwzLjgwMS42ODksNC45ODksMS42OGwtMS4yNDcsMS42NWMtMS4yMTctLjk2LTIuMjI3LTEuNDEtMy44OS0xLjQxLTEuNjMzLDAtMi41ODMuODEtMi41ODMsMS45NDksMCwxLjMyLjgwMiwxLjg2LDMuNDQ0LDMuMDYxLDIuOTM5LDEuMzUsNC42NjIsMi4yMiw0LjY2Miw1LjA0WiI+PC9wYXRoPgogICAgICA8L2c+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYwLjA4MSw0OC4xNmMyLjE1OC0uMjE5LDQuMzA5LS40NSw2LjQyNy0uNjUxLDYuODMtLjY1LDEzLjYyNS0xLjU0MywyMC4zOTgtMi41NDMsMTMuNDQ1LTEuOTg0LDI2Ljg0Ny00LjE2LDQwLjI4Ni02LjIzMSwyNi45NDgtNC4xNTQsNTIuNTkzLTUuMjMyLDc5LjYyMy0uODE2LDYuOTQ5LDEuMTA4LDE2Ljk1LDMuMTUzLDIxLjg0OCw0LjM5Mi0xMS4zMjItNC4xODgtMzMuNTU1LTguOTQ4LTUxLjE2MS0xMC4wNzYtNS4xODgtLjMzMS0xMC4zOS0uNDQ1LTE1LjU4OS0uMzMxLTExLjc4LjI1OC0yMy42MTYuNzk4LTM1LjMxMiwyLjI3My0yNy4zNDMsMy40NDctNTcuMTUyLDEwLjI5MS04NC44MzEsMTAuOTM1LTEwLjQ3OS4yNDQtMjEuMDYxLTEuMTI5LTMxLjE3OS0zLjYzOS0zLjU5Ny0uODkyLTcuMTU5LTEuOTQ3LTEwLjU5Mi0zLjI5Myw2LjI5LDQuNzg5LDE0LjUxNCw3LjE0NCwyMi4zMjIsOC43MzksOC4xODUsMS42NzMsMTYuNTI4LDIuMTEsMjQuODk0LDIuMDgxLDQuMjA1LS4wMSw4LjU1MS0uNCwxMi44NjUtLjgzOSI+PC9wYXRoPgogICAgICAgIDxnPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTExLjcyNiw1MS44MjFjLS4xNTYtLjQ1Ny0uMzUxLTEuMDgzLS40Mi0xLjM3MS0uMDY5LjI3Ny0uMjYyLjkwNS0uNDMxLDEuMzkxbC0uNzUxLDIuMjY4aDIuMzU0bC0uNzUzLTIuMjg3aDBaTTExMy4yOTgsNTYuNTg0bC0uNTg0LTEuNzcxaC0yLjgyNmwtLjU5NiwxLjc3MWgtLjc4MWwyLjM3NC02Ljk1OGguODQxbDIuMzc0LDYuOTU4aC0uODAyWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTE5LjUwNSw1Ni42OTJjLS45MjYsMC0xLjc1OC0uNDEtMi4yOTUtLjk2NGwuNTA4LS41NzdjLjUxOC41MDcsMS4xMTMuODM1LDEuODE4LjgzNS45MDksMCwxLjQ3NC0uNDU2LDEuNDc0LTEuMTkyLDAtLjY0Ni0uMzc4LTEuMDE0LTEuNjMxLTEuNDcxLTEuNDM2LS41MjgtMS44OTYtLjk4My0xLjg5Ni0xLjk3OSwwLTEuMTEzLjg3LTEuODI5LDIuMDYzLTEuODI5LjkxOSwwLDEuNTI0LjMxLDIuMDgxLjgxNWwtLjQ4OC41ODhjLS40NjgtLjQ1Ny0uOTU3LS42OTYtMS42NDEtLjY5Ni0uODYsMC0xLjI1LjUyOC0xLjI1LDEuMDcxLDAsLjU1OS4yNjIuODg2LDEuNTQxLDEuMzU1LDEuNTI2LjU1NiwxLjk4NCwxLjA3MiwxLjk4NCwyLjEwNiwwLDEuMDk0LS44MzgsMS45MzktMi4yNjcsMS45MzkiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyNS4wMjcsNTEuOWMtLjc2MiwwLTEuMjkuNTU4LTEuMzc3LDEuNzIxaDIuNzY0Yy0uMDU3LTEuMDE1LS40ODgtMS43MjEtMS4zODctMS43MjFNMTI3LjA3Miw1NC4yMjZoLTMuNDIyYy4wNjYsMS4xMTUuNTg0LDEuODIsMS40MjYsMS44Mi41OTUsMCwuOTQ4LS4xODEsMS40MTctLjQ5N2wuMzQuNTM3Yy0uNjE1LjM5Ni0xLjA2Ni42MDUtMS44MzYuNjA1LS45MzksMC0yLjA4MS0uNjk0LTIuMDgxLTIuNzQzLDAtMS42Ni45LTIuNjk0LDIuMTIxLTIuNjk0LDEuMzM5LDAsMi4wNjMsMS4wNzQsMi4wNjMsMi41NjMsMCwuMTgtLjAxMS4yOS0uMDI4LjQwOCI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTMxLjA4Niw1Mi4xMzhjLS4yMDYtLjExNi0uNDMtLjE5Ni0uNzczLS4xOTYtLjcxNiwwLTEuMTE0LjU4NS0xLjExNCwxLjU3OXYzLjA2MmgtLjczM3YtNS4yMmguNzMzdi42NDhjLjIzNS0uNDE4LjcyMi0uNzU3LDEuMjcyLS43NTcuMzgsMCwuNjIzLjA1MS43OTYuMTMxbC0uMTgyLjc1M2gwWiI+PC9wYXRoPgogICAgICAgICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEzNC4yNTkgNTYuNTg0IDEzMy42MTQgNTYuNTg0IDEzMS43NzggNTEuMzY0IDEzMi41NiA1MS4zNjQgMTMzLjg2OSA1NS40NjggMTMzLjk0OCA1NS43MTYgMTM0LjAyOCA1NS40NjggMTM1LjMzNSA1MS4zNjQgMTM2LjEgNTEuMzY0IDEzNC4yNTkgNTYuNTg0IDEzNC4yNTkgNTYuNTg0Ij48L3BvbHlnb24+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xMzcuMzUxLDUxLjM2NGguNzMxdjUuMjJoLS43MzF2LTUuMjJoMFpNMTM3LjgzNSw1MC40MzFjLS4zMDMsMC0uNTM4LS4yNC0uNTM4LS41MjgsMC0uMjk4LjIzNS0uNTM3LjUzOC0uNTM3LjI3NCwwLC41MDcuMjM5LjUwNy41MzcsMCwuMjg4LS4yMzMuNTI4LS41MDcuNTI4Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNDIuODY5LDUyLjQzYy0uMzctLjM0LS43MTEtLjUzLTEuMjMxLS41My0uNzk5LDAtMS40MTUuNzM2LTEuNDE1LDIuMDM4LDAsMS4yODEuNTM2LDIuMTA4LDEuNDQ2LDIuMTA4LjQ5OSwwLC44My0uMjA4LDEuMTgyLS41NTdsLjQzOS40NzhjLS40My40NDYtLjkyOC43MjUtMS42NTIuNzI1LTEuMTI0LDAtMi4xNTktLjg3NS0yLjE1OS0yLjY5NCwwLTEuOTI3LDEuMTMzLTIuNzQzLDIuMjEtMi43NDMuNjkzLDAsMS4yMjIuMjU5LDEuNjIxLjYxNmwtLjQ0Mi41NmgwWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTQ2LjI1OSw1MS45Yy0uNzYyLDAtMS4yOS41NTgtMS4zNzcsMS43MjFoMi43NjRjLS4wNTctMS4wMTUtLjQ4Ni0xLjcyMS0xLjM4Ny0xLjcyMU0xNDguMzAyLDU0LjIyNmgtMy40MmMuMDY3LDEuMTE1LjU4NiwxLjgyLDEuNDI1LDEuODIuNTk2LDAsLjk1MS0uMTgxLDEuNDE5LS40OTdsLjM0MS41MzdjLS42MTguMzk2LTEuMDYyLjYwNS0xLjgzNi42MDUtLjkzOCwwLTIuMDgzLS42OTQtMi4wODMtMi43NDMsMC0xLjY2LjktMi42OTQsMi4xMjItMi42OTQsMS4zMzcsMCwyLjA2MSwxLjA3NCwyLjA2MSwyLjU2MywwLC4xOC0uMDA5LjI5LS4wMjkuNDA4Ij48L3BhdGg+CiAgICAgICAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTUyLjMyNiA1Ni41ODQgMTUyLjMyNiA0OS42MjYgMTUzLjA5IDQ5LjYyNiAxNTMuMDkgNTUuODc2IDE1Ni40NzIgNTUuODc2IDE1Ni40NzIgNTYuNTg0IDE1Mi4zMjYgNTYuNTg0IDE1Mi4zMjYgNTYuNTg0Ij48L3BvbHlnb24+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTguOTYyLDUxLjljLS44ODksMC0xLjQ4NC42ODYtMS40ODQsMi4wNThzLjU5NSwyLjA4OSwxLjQ4NCwyLjA4OSwxLjQ5Ni0uNzE3LDEuNDk2LTIuMDg5LS42MDctMi4wNTgtMS40OTYtMi4wNThNMTU4Ljk0NCw1Ni42OTJjLTEuMjUzLDAtMi4yMTEtLjk0NC0yLjIxMS0yLjcxNXMuOTk3LTIuNzIzLDIuMjQ5LTIuNzIzLDIuMjA4LjkxNSwyLjIwOCwyLjY4NC0uOTk1LDIuNzU0LTIuMjQ1LDIuNzU0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNjUuNjQ2LDUyLjY4NmMtLjI4My0uNDM2LS43ODEtLjc4Ni0xLjM4Ny0uNzg2LS44NDksMC0xLjI3Ljc0Ny0xLjI3LDIuMTQ3LDAsMS4zMTQuNDg5LDEuOTk5LDEuMjk4LDEuOTk5LjU0NywwLC45OTktLjI5OSwxLjM1OS0uNzU3di0yLjYwNGgwWk0xNjMuNzc5LDU4LjUwMWwtLjIzMy0uNTY2YzEuNzA5LS4wNSwyLjEtLjUwNywyLjEtMS43MTl2LS4yNjljLS4zNi4zOTYtLjg0OC43NDUtMS41NDMuNzQ1LTEuMDI2LDAtMS44MzctLjc5Ni0xLjgzNy0yLjYzNCwwLTEuODQ5Ljg2LTIuODA0LDEuOTM1LTIuODA0LjY0NCwwLDEuMDg2LjI3OSwxLjQ0Ni42OTZ2LS41OWguNzMydjQuNzU2YzAsMS41NjktLjY5MywyLjMyMy0yLjYsMi4zODQiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE2OC4wNTEsNTEuMzY0aC43MzN2NS4yMmgtLjczM3YtNS4yMmgwWk0xNjguNTM3LDUwLjQzMWMtLjMwMywwLS41MzgtLjI0LS41MzgtLjUyOCwwLS4yOTguMjM0LS41MzcuNTM4LS41MzcuMjczLDAsLjUwOC4yMzkuNTA4LjUzNywwLC4yODgtLjIzNS41MjgtLjUwOC41MjgiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE3My41NzEsNTIuNDNjLS4zNjktLjM0LS43MTMtLjUzLTEuMjMxLS41My0uOCwwLTEuNDE2LjczNi0xLjQxNiwyLjAzOCwwLDEuMjgxLjUzNywyLjEwOCwxLjQ0NCwyLjEwOC41MDIsMCwuODMzLS4yMDgsMS4xODQtLjU1N2wuNDQuNDc4Yy0uNDMyLjQ0Ni0uOTI2LjcyNS0xLjY1Mi43MjUtMS4xMjUsMC0yLjE1OC0uODc1LTIuMTU4LTIuNjk0LDAtMS45MjcsMS4xMzMtMi43NDMsMi4yMDctMi43NDMuNjk0LDAsMS4yMjMuMjU5LDEuNjIxLjYxNmwtLjQzOS41NmgwWiI+PC9wYXRoPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTgwLjE0OSw1Ni42OTJjLTEuNjcyLDAtMi43NjctMS41NDEtMi43NjctMy41NzksMC0yLjA2OCwxLjE0NC0zLjU5OCwyLjc5NC0zLjU5OC45MzgsMCwxLjY0Mi4zNTksMi4xOCwxLjExM2wtLjYwNi40NjdjLS40NDEtLjYwNS0uODUxLS44NzQtMS41OTMtLjg3NC0xLjE3MiwwLTIuMDExLDEuMTgxLTIuMDExLDIuODczcy44NjksMi44OTIsMi4wMTksMi44OTJjLjc0NCwwLDEuMjU0LS4zMzcsMS42OTItLjkxNWwuNTI5LjQ2OGMtLjUuNjg2LTEuMjQxLDEuMTUzLTIuMjM3LDEuMTUzIj48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xODUuNTEyLDUxLjljLS44ODgsMC0xLjQ4Ni42ODYtMS40ODYsMi4wNThzLjU5OCwyLjA4OSwxLjQ4NiwyLjA4OSwxLjQ5NS0uNzE3LDEuNDk1LTIuMDg5LS42MDYtMi4wNTgtMS40OTUtMi4wNThNMTg1LjQ5Myw1Ni42OTJjLTEuMjUyLDAtMi4yMDktLjk0NC0yLjIwOS0yLjcxNXMuOTk1LTIuNzIzLDIuMjQ3LTIuNzIzLDIuMjA5LjkxNSwyLjIwOSwyLjY4NC0uOTk3LDIuNzU0LTIuMjQ3LDIuNzU0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTUuMDUsNTYuNTg0di0zLjA1MmMwLTEuMTkyLS4zNjEtMS42MzItMS4xMDUtMS42MzItLjY5MywwLTEuMTQyLjQ3OC0xLjE0MiwxLjYzMnYzLjA1MmgtLjczMnYtMy4wNTJjMC0xLjE5Mi0uMzkyLTEuNjMyLTEuMTA3LTEuNjMyLS43MDEsMC0xLjE0Mi40NzgtMS4xNDIsMS42MzJ2My4wNTJoLS43MzF2LTUuMjJoLjczMXYuNjM3Yy4yNjUtLjQ0Ny42OTItLjc0NiwxLjMtLjc0Ni43MjQsMCwxLjE2NC4zOTksMS40MDguODk2LjMwMS0uNDk2LjcyMy0uODk2LDEuNTU2LS44OTYsMS4wNDQsMCwxLjY5OS42MjcsMS42OTksMi4xNDd2My4xODNoLS43MzNaIj48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOTkuNDY5LDUxLjljLS41NTEsMC0uOTk3LjMtMS4zNi43NTZ2Mi42MDRjLjI4My40MzguNzgxLjc4NywxLjM4Ny43ODcuODUxLDAsMS4yNzEtLjc0NiwxLjI3MS0yLjE0OCwwLTEuMzExLS40ODctMS45OTgtMS4yOTctMS45OThNMTk5LjU1NCw1Ni42OTJjLS42NDQsMC0xLjA4Mi0uMjc4LTEuNDQ1LS42OTR2Mi4wODVsLS43MzIuNDE4di03LjEzN2guNzMydi42MzdjLjM2My0uMzk4Ljg1LS43NDYsMS41NDMtLjc0NiwxLjAyNywwLDEuODQuNzk2LDEuODQsMi42MzQsMCwxLjg0OS0uODYxLDIuODA0LTEuOTM3LDIuODA0Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMDUuNzAxLDU0LjI0OGMtLjMzMi0uMTg5LS42OTMtLjI5OS0xLjMxOC0uMjk5LS43NTMsMC0xLjIwMy4zNjgtMS4yMDMsMS4wMjUsMCwuNzczLjQyLDEuMTExLDEuMDQ1LDEuMTExLjY2NiwwLDEuMTY0LS4zNDksMS40NzctLjc4NXYtMS4wNTNoMFpNMjA1LjcwMSw1Ni41ODJ2LS42MzVjLS4zNjEuMzk4LS44NjkuNzQ1LTEuNjAzLjc0NS0uODAxLDAtMS42NDEtLjQxLTEuNjQxLTEuNjcxLDAtMS4xNzMuOTQ3LTEuNjcsMS45NjMtMS42Ny41MiwwLC45NzkuMTMsMS4yODEuM3YtLjYxNWMwLS43NzgtLjM2MS0xLjE1NC0xLjExMy0xLjE1NC0uNTM3LDAtLjk3Ny4xNDgtMS4zOTguMzk4bC0uMjczLS42MDhjLjQ0OC0uMjUsMS4wNTctLjQxOCwxLjcyLS40MTgsMS4xMDQsMCwxLjc5OS40NzksMS43OTksMS42OXYzLjYzN2gtLjczM1oiPjwvcGF0aD4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIxMS4yNCw1Ni41ODR2LTMuMDUyYzAtMS4xMjMtLjM4OC0xLjYzMi0xLjIwOS0xLjYzMi0uNzEzLDAtMS4yNzEuNDg4LTEuMjcxLDEuNjMydjMuMDUyaC0uNzMydi01LjIyaC43MzJ2LjYzN2MuMjkxLS40MzcuNzcxLS43NDYsMS40MTgtLjc0NiwxLjA4NCwwLDEuNzk2LjY0NiwxLjc5NiwyLjE0N3YzLjE4M2gtLjczM1oiPjwvcGF0aD4KICAgICAgICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIyMTQuODA4IDU4LjQyIDIxNC4wNzYgNTguNDIgMjE0Ljc4IDU2LjUyMyAyMTIuOTUxIDUxLjM2NCAyMTMuNzIyIDUxLjM2NCAyMTQuOTc1IDU1LjE1MSAyMTUuMTUxIDU1LjY4NyAyMTUuMzI2IDU1LjE2MiAyMTYuNTg3IDUxLjM2NCAyMTcuMzU4IDUxLjM2NCAyMTQuODA4IDU4LjQyIDIxNC44MDggNTguNDIiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" alt="Savannah HVAC Solutions"></a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Savannah HVAC Solutions · Savannah, GA · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = {"company": "Savannah HVAC Solutions", "botName": "Nina"};
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

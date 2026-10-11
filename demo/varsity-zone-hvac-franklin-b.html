@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Varsity Zone HVAC of Franklin (3.1/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited varsityzone.com: 3.1/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--brand:#1E3A8A;--brand-d:#122355;--accent:#C8102E;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Barlow Condensed',sans-serif;margin:0}
+  h1,h2,h3{color:var(--brand);line-height:1.15}
+  .audit-bar{background:var(--accent);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--brand);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0;position:relative}
+  .logo-img{height:52px;width:auto;display:block}
+  .logo-word{font-weight:900;font-size:1.35rem;color:var(--brand);text-decoration:none;letter-spacing:-.01em;line-height:1.05}
+  .logo-word small{display:block;font-size:.68rem;font-weight:700;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--brand);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--brand);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(30,58,138,0.16),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(200,16,46,0.14),transparent 60%),#fff}
+  .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--accent)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--brand);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f7;border:1px solid #d7e2ec;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--brand)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--brand);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--brand);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#f4f7fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--brand)}
+  .demo{padding:80px 0;background:var(--brand-d);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#c9d8e2}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--brand-d),var(--brand));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--accent);font-size:.82rem;font-weight:700}
+  .demo-chat{min-height:220px;max-height:300px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 10px}
+  .demo-quick button{border:1px solid #d7e2ec;background:#f4f7fa;border-radius:999px;padding:8px 14px;font-size:.82rem;font-weight:700;color:var(--brand);cursor:pointer}
+  .demo-inputrow{display:flex;gap:8px;padding:12px 16px 16px}
+  .demo-inputrow input{flex:1;border:1px solid #d7e2ec;border-radius:999px;padding:12px 16px;font-size:.95rem}
+  .demo-inputrow button{background:var(--accent);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--brand);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--accent);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-quote{background:var(--paper);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 16px;max-width:680px}
+  .rev-quote p{margin:0 0 8px;font-size:1rem}
+  .rev-quote cite{font-style:normal;font-weight:700;color:var(--brand);font-size:.88rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--brand-d),var(--brand));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#e6eef4;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#c9d8e2}
+  footer{background:#101c28;padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-word{font-weight:900;color:#fff;font-size:1.05rem}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid,.demo-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Varsity Zone HVAC of Franklin</strong> · Score: 3.1/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><span class="logo-word">Varsity Zone HVAC of Franklin<small>Heating &amp; Air</small></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+16155514186">📞 (615) 551-4186</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Franklin, TN</p>
+    <h1>We audited varsityzone.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.1<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A sports-themed HVAC franchise whose Franklin, TN customer starts at a national ‘Find Your Location’ page — past a carousel of real reviews.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 Independent website audit — varsityzone.com</span>
+      <span>📋 5 findings, 5 fixes below</span>
+      <span>🤖 No AI answering found on the site</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on varsityzone.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>The Franklin customer lands on a national page</h3>
+        <p>The site is a franchise portal: the first action is <strong>“Find Your Location.”</strong> A Franklin homeowner with no AC at 11 PM must navigate a brand site before reaching help — every extra click loses the panicked caller.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Max answers on the Franklin page directly — no location hunt, no portal maze. The local customer gets local help in one tap.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Two phone numbers, no local clarity</h3>
+        <p>The corporate line <strong>(833) 894-8221</strong> and the Franklin number <strong>(615) 551-4186</strong> both circulate. The panicked customer shouldn’t have to choose which one reaches Franklin fastest.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One tap-to-call for the Franklin team, tracked to the source — every call, text, and chat in a single local inbox.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The reviews prove the point — buried in a carousel</h3>
+        <p>Real quotes from Joe M., S. N., and Chris S. exist on the site — but they live in a <strong>rotating carousel</strong> most visitors never sit through. The best proof on the site is the least seen.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A static review feed on the Franklin page: every quote visible, all the time — plus texted review requests after every job.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No chat on the franchise site</h3>
+        <p>The sports-themed experience promises “real-time service updates” for customers — but prospects get no live greeter at all. The pre-sale experience lags the post-sale one.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> AI chat that gives prospects the same real-time feel customers get — instant answers, instant booking.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No text-back path for the after-hours caller</h3>
+        <p>No SMS option was found. The customer who’d text “AC’s out, two kids, 88° inside” at midnight — instead of calling a national line — has no door.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Missed-call text-back plus on-site text chat: the midnight texter becomes a morning booking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--accent)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is varsityzone.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with the AC that quit during a heat wave.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Varsity Zone HVAC of Franklin</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Varsity Zone HVAC of Franklin’s real services — heating and cooling repair, installation, and the Season Ticket Maintenance Plan — and the Franklin, TN service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The reviews are real.<br>They’re stuck in a carousel.</h2>
+    <p class="section-sub">Actual customer quotes on varsityzone.com today — and where they’re hiding.</p>
+    <div class="rev-quote"><p>“Paul did a great job explaining what my unit needed and was very nice to speak with!! Great job!!”</p><cite>— Joe M.</cite></div>
+    <div class="rev-quote"><p>“Nick came out on a Sunday. It was extremely hot that day. He was able to troubleshoot and fix our AC within the first 10 mins of being here. More than reasonably priced and very professional. Highly recommend!”</p><cite>— S. N.</cite></div>
+    <div class="rev-quote"><p>“Nick was on point, he knew his business!”</p><cite>— Chris S.</cite></div>
+    <p class="rev-note">Real customer quotes shown on varsityzone.com today — the same proof the fixed homepage would put front and center instead of a rotating carousel.</p>
+  </div>
+</section>
+
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20Varsity%20Zone%20HVAC%20of%20Franklin">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Varsity Zone HVAC of Franklin (varsityzone.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="foot-word">Varsity Zone HVAC of Franklin</span>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Varsity Zone HVAC of Franklin · Franklin, TN · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Varsity Zone HVAC of Franklin", botName: "Max" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: R&amp;E Home Solutions (3.6/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited randehomesolutions.com: 3.6/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#145c17;--accent:#2fae34;--ink:#1c2b1c;--muted:#5c6b7d;--paper:#f4faf4;--dark:#0b3610;--orange:var(--accent)}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Open Sans',sans-serif;margin:0}
+  h1,h2,h3{color:var(--brand);line-height:1.15}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .audit-bar{background:var(--accent);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .logo-word{font-weight:900;font-size:1.35rem;color:var(--brand);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+  .logo-word .wm-accent{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--brand);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--brand);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),radial-gradient(600px 320px at 10% 90%,color-mix(in srgb,var(--brand) 12%,transparent),transparent 60%),#fff}
+  .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .eyebrow.pulse{animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--accent)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--brand);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:color-mix(in srgb,var(--accent) 8%,#fff);border:1px solid color-mix(in srgb,var(--accent) 25%,#fff);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--brand)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--accent);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--accent);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:color-mix(in srgb,var(--accent) 6%,#fff);border-radius:0 8px 8px 0}
+  .fix strong{color:var(--brand)}
+  .demo{padding:110px 0;background:linear-gradient(150deg,var(--dark) 0%,var(--brand) 70%,var(--dark) 100%);color:#fff}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#c9d8e2}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:8px}
+  .demo-phone{background:#0d1526;border:10px solid #1e2c47;border-radius:36px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);max-width:420px}
+  .demo-sitebar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#13203a;font-weight:800;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.08);color:#fff}
+  .demo-live{font-size:.72rem;font-weight:700;color:#4ade80;letter-spacing:.04em}
+  .demo-chat{height:380px;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+  .demo-chat .bubble{max-width:88%;padding:11px 14px;border-radius:15px;font-size:.86rem;line-height:1.5;animation:pop .25s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .demo-chat .bubble.bot{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-bottom-left-radius:5px;align-self:flex-start;color:#e8eef8}
+  .demo-chat .bubble.me{background:var(--orange);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+  .bubble.typing{display:flex;gap:5px;padding:14px 16px}
+  .bubble.typing span{width:8px;height:8px;border-radius:50%;background:#8fa1bd;animation:blink 1.1s infinite}
+  .bubble.typing span:nth-child(2){animation-delay:.18s}
+  .bubble.typing span:nth-child(3){animation-delay:.36s}
+  @keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+  .demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:4px 16px 12px;min-height:52px}
+  .demo-quick button{background:rgba(22,163,74,.14);border:1.5px solid #16a34a;color:#4ade80;font-size:.78rem;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+  .demo-quick button:hover{background:rgba(22,163,74,.3)}
+  .demo-inputrow{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(255,255,255,.08);background:#0a1122}
+  .demo-inputrow input{flex:1;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;font-family:inherit}
+  .demo-inputrow input:focus{outline:none;border-color:var(--orange)}
+  .demo-inputrow input::placeholder{color:#5b6b85}
+  .demo-inputrow button{background:var(--orange);border:0;color:#fff;width:44px;border-radius:10px;font-size:1.1rem;cursor:pointer}
+  .demo-side h3{font-size:1.35rem;margin-bottom:16px}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--accent);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--accent);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--dark),var(--brand));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--accent)}
+  .lede{color:#e8eef8;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#c9d8e2}
+  footer{background:var(--dark);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-word{font-weight:900;font-size:1.1rem;color:#fff}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.demo-grid{grid-template-columns:1fr}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>R&amp;E Home Solutions</strong> · Score: 3.6/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iTGF5ZXJfMyIgdmlld0JveD0iMCAwIDQ0Ni42OCAxMTQuNjQiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMzAuOTgiIHkxPSIxMy4wNiIgeDI9IjExNy4zMyIgeTI9Ijk5LjQyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNDFjODM5Ij48L3N0b3A+PHN0b3Agb2Zmc2V0PSIuNDkiIHN0b3AtY29sb3I9IiM2NWQzNWYiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMmEwMmMiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSI0NC40OSIgeTE9IjEyLjMyIiB4Mj0iMTI1LjAxIiB5Mj0iOTIuODMiIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQiPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjE2Ljg5IiB5MT0iMTMuOTQiIHgyPSIxMDcuOTIiIHkyPSIxMDQuOTciIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQiPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjI5LjE4IiB5MT0iMTEuOTciIHgyPSIxMTYuMzQiIHkyPSI5OS4xMyIgeGxpbms6aHJlZj0iI2xpbmVhci1ncmFkaWVudCI+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC01IiB4MT0iMzUuMzEiIHkxPSI2LjQxIiB4Mj0iMTI0LjEiIHkyPSI5NS4yIiB4bGluazpocmVmPSIjbGluZWFyLWdyYWRpZW50Ij48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTYiIHgxPSIyOC4xNCIgeTE9Ijg5LjcxIiB4Mj0iMTY4IiB5Mj0iODkuNzEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM5ODk5OWEiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3ZjgwODEiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTciIHgxPSIwIiB5MT0iMTguMDgiIHgyPSI4Mi4yNSIgeTI9IjE4LjA4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjN2Y4MDgxIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOTg5OTlhIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iNzIuNjgiIHk9IjU0Ljc2IiB3aWR0aD0iOS41OCIgaGVpZ2h0PSI5LjU4IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiPjwvcmVjdD48cmVjdCB4PSI4Ni45NCIgeT0iNTQuNzYiIHdpZHRoPSI5LjU4IiBoZWlnaHQ9IjkuNTgiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTIpIj48L3JlY3Q+PHJlY3QgeD0iNzIuNjgiIHk9IjY5LjczIiB3aWR0aD0iOS41OCIgaGVpZ2h0PSI5LjU4IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0zKSI+PC9yZWN0PjxyZWN0IHg9Ijg2Ljk0IiB5PSI2OS43MyIgd2lkdGg9IjkuNTgiIGhlaWdodD0iOS41OCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNCkiPjwvcmVjdD48cGF0aCBkPSJNODMuOTQsMTAuMDZjLTI5LjA3LTIuNzctNTIuMyw0LjEzLTY0LjQ2LDEyLjkzLTExLjMyLDguMi0xNC4zOCwxOC4zMi0xNC4zMywyOC4wOC4xLDE5LjM4LDQwLjY4LDU5LjY0LDEwNi45NCw0MS41NiwwLDAtNDYuMjIsNS4yMS03OS4zMi0xNi45OWw1Mi4zNS00NC41OCw0NS4wOCwzOS41OSwxMi40Mi02LjM1LTQ3LjAyLTQzLjE0YzExLjUyLDIuMDYsMjMuNSw1LjI0LDM0LjU1LDExLjI0LDIxLjg0LDExLjg2LDI0LjA5LDI2LjczLDI0LjA5LDI2LjczbDcuOTEtMS45OXMtNS42NS00MC4xOC03OC4yMi00Ny4wOFpNNDkuODgsNDMuNTd2LTYuOTRoLTEyLjcxdjE4LjE2bC0xNC4zMSwxMi42NGMtMTMuOTEtMTQuNjUtMTEuMzktMzEuMjMsOC4yOC00MC4zMSwxMi4yMS01LjYzLDI4LjU1LTguNjQsNDYuMzMtNy45NGwtMjcuNjEsMjQuMzlaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC01KSI+PC9wYXRoPjxwYXRoIGQ9Ik0xNjgsOTIuNDRsLTQuNzEtMjcuNjctMjYuNTQsMTAuNTQsOS45Niw1LjQ2aDBjLTUuMjksNS44NC0xOC44MSwxNy44OC00OC4xNywyMi4yMS0zOS4xMSw1Ljc3LTcwLjQtMTAuNTQtNzAuNC0xMC41NCwwLDAsMjMuMzQsMjIuMTksNjUuNjcsMjIuMTksNDkuMTUsMCw2NS42Ny0yNi44Niw2NS42Ny0yNi44NmgwbDguNTEsNC42N1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTYpIj48L3BhdGg+PHBhdGggZD0iTTAsMzYuMTZTMTQuMDgtLjM2LDgyLjI1LDMuNDFjMCwwLTIwLjYxLTYuNTktNDUuMzYtMS40NUMxNy4wOCw2LjA4LDMuMjksMTguMDgsMCwzNi4xNloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTcpIj48L3BhdGg+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgMCkgc2tld1goLTEwKSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDFjODM5IiBzdHJva2Utd2lkdGg9IjMuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTk0IDU2IEMxOTggNDQgMjAxIDMyIDIwNCAyMCBNMjAxIDIyIEMyMTUgMTcgMjI1IDIwIDIyMyAyOSBDMjIyIDM3IDIxMSA0MSAxOTkgNDAgTTIxMCA0MCBMMjI0IDU2Ij48L3BhdGg+PHBhdGggZD0iTTI0OSAzMSBDMjQ4IDI0IDI0MSAyMyAyMzcgMjcgQzIzMSAzMyAyMzggNDAgMjQ0IDQ0IEMyNTEgNDkgMjU3IDU0IDI2MyA1NiBNMjU5IDM0IEMyNTUgNDMgMjQ5IDUwIDI0MyA1NCBDMjM3IDU4IDIzMCA1NiAyMzEgNTAgQzIzMiA0NCAyNDAgNDEgMjQ5IDM4Ij48L3BhdGg+PHBhdGggZD0iTTI3NiAyMSBDMjg3IDIwIDI5NiAyMCAzMDUgMjEgTTI4MCAyMSBDMjc4IDMyIDI3NSA0NCAyNzIgNTYgTTI3NyAzOCBDMjg2IDM3IDI5MyAzNyAyOTkgMzcgTTI3MiA1NiBDMjgyIDU1IDI5MCA1NSAyOTggNTYiPjwvcGF0aD48L2c+PHBhdGggZD0iTTIxMS41OCw5MS40NmMtLjctLjQ1LS43OC0uNTMtMS4xMS0uNzhsLjYyLTEuNDgsMS45Ny00LjYzLDEuODktNC41OWMxLjExLTIuNzEsMS4yNy0zLjE2LDEuODQtNC41OWgtMS41MmwtMy41Ny4wOGMtLjg2LDAtMS4zOS4wNC0yLjI1LjA0LTEuMDMuMDQtMS4xNS4wNC0xLjQ4LjA0bC0zLjMyLjEyLTEuNTYuMDQtLjU3LDEuMzEtMS45Myw0LjM5Yy0uNDUsMS4wMi0uODYsMi4wNS0xLjMxLDMuMDctLjM3Ljg2LS42MiwxLjM5LS45LDIuMDVsLTEuODQsNC40N2MtLjA4LjEyLS4yNS41My0uNTcsMS4yMy0uNDEtLjI1LS41My0uMzMtMS4xNS0uNzgtLjQ1LS4zNy0uNjYtLjQ5LTEuMDctLjc4bC42Ni0xLjQ4LDEuNjQtMy42OWMuNy0xLjYsMS4zNS0zLjEyLDEuOTMtNC41MS4zMy0uNy43OC0xLjc2LDEuMDctMi41LjY2LTEuNTIuNjYtMS41NiwxLjE5LTIuNzUtMS4xMS4wNC0xLjUyLjA0LTIuODcuMjEuMDgtLjc0LjEyLTEuMTUuMTItMS42OHYtLjdsLS4wNC0uMzdjLjYyLjA0LjgyLjA0LDEuMzUuMDQuODYsMCwxLjY4LDAsMi41LS4wNGwuNjItMS4zNWMuMjUtLjU3LjQ5LTEuMTEsMS4xMS0yLjU0LjU3LTEuMjcsMS4wMy0yLjM0LDEuMzktMy4yNC41Ny0xLjM1Ljc4LTEuOC45OC0yLjM0bC4zMy0uNzhjLjE2LjEyLjMzLjIxLjM3LjI1bC43OC41Ny43NC40NWMuMDguMDguMjEuMTYuMzcuMjlsLS40MS44NmMtLjQ1LDEuMDctLjk0LDIuMTctMS40MywzLjMybC0xLjM5LDMuMzYtLjQ5LDEuMTVjMi42Ny0uMDQsNC4wMi0uMDgsOC4yNC0uMjFsNC4xLS4xNiwxLjMxLS4wNC42MS0xLjUyLDEuNzItNC4xNGMuOTQtMi4yNSwxLjE5LTIuOTEsMS42NC00LjE4Ljc4LjYxLDEuMDMuNzgsMi4wMSwxLjM1bC4zNy4yMS0uNywxLjZjLTEuNzYsMy45NC0yLjMsNS4yMS00Ljg0LDExLjRsLTIuODMsNi44NWMtLjQ1LDEuMTEtLjksMi4yNS0xLjM5LDMuMzYtLjQxLDEuMDctLjYyLDEuNTYtLjksMi4yNWwtLjksMi4yNmMtLjQ1LS4zMy0uNy0uNDktMS4xMS0uNzhaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTIzMS44OCw4Ny43MmMtMi40MiwzLjU3LTQuODgsNS4zMy03LjM0LDUuMzMtMi4yMSwwLTMuNzMtMS44NC0zLjczLTQuNTEsMC0zLjQ0LDIuMTMtOC43Nyw1LjE3LTEyLjgzLDIuNTQtMy4zNiw0LjYzLTQuODgsNi44MS00Ljg4LDIuMzQsMCwzLjg1LDEuNjgsMy44NSw0LjIyLDAsMy42MS0xLjcyLDguMjQtNC43NiwxMi42N1pNMjMyLjQ1LDczLjVjLTEuMzUsMC0zLjIsMS42NC01LjA0LDQuNDctMi4yNSwzLjQ5LTMuOTQsNy45MS0zLjk0LDEwLjMzLDAsMS4zMS41NywyLjA5LDEuNTIsMi4wOSwxLjQ0LDAsMy4yNC0xLjY0LDUuMjEtNC42NywyLjM0LTMuNjEsMy43Ny03LjYzLDMuNzctMTAuNDEsMC0xLjE5LS41My0xLjgtMS41Mi0xLjhaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTI1NC4xNCw5Mi4wM2wuNTctMS4zNSwxLjUyLTMuNTdjMS4zMS0zLjAzLDIuMy01LjE3LDQuMTgtOC45NGwuNzQtMS40NC0xLjM1LDEuMjNjLTIuNjcsMi4zNC0zLjY1LDMuMjgtNS40MSw1LjA4LTMuNDQsMy40OS00LjY3LDUuMDgtNi41Miw4LjQ5bC0yLjA1LTEuMTEsNS44Ni0xNC4wNmMtMS43MiwxLjI3LTIuNTgsMi4wMS01LjEyLDQuMjYtNS4wNCw0LjU5LTUuNzgsNS40MS04LjY5LDEwLjQxbC0uNDUtLjI1Yy0uOTQtLjQ1LTEuMTktLjU3LTEuODUtLjg2LjI5LS41Ny41My0xLjAyLjY2LTEuMzVsMS42OC0zLjYxLDIuMjEtNC43NiwyLjEzLTQuODRjLjQ1LS45OC45LTEuOTcsMS4zNS0yLjk5LjctMS41Mi43NC0xLjY0LDEuMjctMi44Ny42Ni40NS45OC41NywyLjEzLDEuMTFsLjM3LjE2Yy0uMTYuNDEtLjMzLjc0LS40MS45bC0xLjIzLDIuNTgtMS40OCwzLjA4Yy0uMTYuMzMtLjMzLjY2LS44NiwxLjc2bC0uMjkuNTctLjI5LjYyLS45NCwxLjg5YzIuNzktMi43OSw0LjEtMy45OCw3LjQyLTYuNzZsMi42Mi0yLjI1YzEuMjctMS4wNywxLjcyLTEuNTIsMi40Ni0yLjM4LjM3LjI5LjU3LjQ5LjkuNjZsLjc0LjQ5cy4xNi4wOC4zMy4yMWMtMS4xMSwxLjgtMS42NCwyLjc1LTIuODcsNS41NC0uNDEuOS0xLjIzLDIuNzUtMS43MiwzLjg1LS4yMS40OS0uMzcuOTQtLjgyLDEuOTNsMS4yNy0xLjMxYzMuMDMtMy4yLDUtNS4wNCw4LjY1LTguMTYuNDktLjQxLDEuMDItLjg2LDEuNTItMS4yNy44Ni0uNzQuOS0uNzgsMS42LTEuNDRsLjM3LjI1Yy42MS40NS45NC43LDEuNTIsMS4wN2wuMjUuMTZjLTIuNTgsNC41NS01LjE3LDkuODQtNy4zOCwxNS4yMWwtMS43Niw0LjM5LS4zMy44NmMtMS4yNy0uNy0xLjY4LS45LTIuNS0xLjE5WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0yNjguNTcsOTIuNzdjLTIuMywwLTMuOTQtMi4xMy0zLjk0LTUuMDgsMC00LjE0LDIuNDYtOS4wNiw2LjQ0LTEyLjgzLDIuNzEtMi41NCw1LjQ5LTMuOTgsNy43OS0zLjk4LDEuNiwwLDIuNTguOSwyLjU4LDIuMzgsMCwyLjE3LTEuNzIsNC4zOS01LjI5LDYuODktMi43NSwxLjg5LTQuNTUsMi45MS03LjE4LDQuMDJsLS40OS0xLjg5Yy0uOTQsMi4zNC0xLjI3LDMuNjktMS4yNyw1LjE3LDAsMS42NC43LDIuNzUsMS43NiwyLjc1Ljk4LDAsMi4yNi0uODIsMy42MS0yLjIxLjktLjk4LDEuNDgtMS44LDIuNjctMy42OWwuNDEtLjYyYy4yOS4yOS4zMy4zMy45LjgyLjE2LjEyLjM3LjI5LjYyLjQ5bC4zNy4zM2MtMy4xNiw0Ljg4LTYuMjMsNy40Ni04Ljk4LDcuNDZaTTI3OC42Niw3NC4wM2MwLS4zMy0uMjUtLjU3LS42Mi0uNTctMi4xMywwLTYuODUsNC4xNC05LjIzLDguMTIsNS0yLjA5LDkuODQtNS44Miw5Ljg0LTcuNTRaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTMxMS41LDcyLjY4Yy0uNDktLjUzLS42Mi0uNy0uOTgtMS4wNy40NS0uMTIuNzQtLjIxLjk4LS4yOSwzLjUzLS45OCw0LjE4LTEuMjMsNi4zMS0yLjA1LDEuODktLjc0LDIuOTUtMS41MiwyLjk1LTIuMTMsMC0uODItMS4zNS0xLjI3LTMuOTQtMS4yNy0yLjk1LDAtNy4xMy43OC0xMC40MSwxLjg5LTMuMTIsMS4wNy01LjI5LDIuNzUtNS4yOSw0LjA2LDAsLjYyLjQ5LDEuMTEsMS40OCwxLjQ0LjMzLjEyLjY2LjIxLDEuOC40MS41My4xMiwxLjE1LjIxLDEuNzIuMzMsNS43OC45OCw3LjgzLDEuNDQsOS40NywyLjA1LDMuMTYsMS4xNSw0LjUxLDIuNzUsNC41MSw1LjIxLDAsMy4xNi0yLjI1LDUuNDEtNy40Niw3LjU0LTQuNDcsMS44NC0xMC42NiwzLjA4LTE1LjI1LDMuMDhzLTcuNDYtMS42NC03LjQ2LTQuMjIsMi4yNS00LjU5LDYuNi02LjE1YzIuNjItLjk4LDYuMDctMS42LDExLjMyLTIuMDVsMS4xMS0uMDhjLjA0LjIxLjA4LjMzLjEyLjM3bC4zMy44Mi40MS45NGMuMDQuMDguMTIuMjEuMjEuNDEtMy42NS4wNC01LC4xMi02Ljg5LjQxLTMuNDQuNDktNS45LDEuMTUtNy42MywyLjA1LTEuODQuOTQtMi45OSwyLjA5LTIuOTksMi45OSwwLDEuMzksMS44OSwyLjIxLDUuMDgsMi4yMSw0LjQzLDAsOS45Mi0xLjE1LDE0LjI3LTIuOTksMy44NS0xLjYsNS42Ni0zLjI0LDUuNjYtNS4yMSwwLTEuNDQtMS4wNy0yLjQ2LTMuNTMtMy4yOC0xLjQzLS40OS0yLjk5LS44Mi04LjYxLTEuODQtMS40OC0uMjktMi43OS0uNTctMy44OS0uODYtMi4wMS0uNTctMy4xMi0xLjcyLTMuMTItMy4yNCwwLTIuNTQsMi40Mi00Ljg0LDYuODEtNi40OCwzLjI4LTEuMTksNy44Ny0yLjAxLDExLjY0LTIuMDEsNC4xLDAsNi42NCwxLjE5LDYuNjQsMy4xNnMtMS40MywzLjItNS4xNyw0LjhjLTEuNzYuNzQtMy40LDEuMjctNi4wMywyLjAxLS4zMy0uMzctLjQ5LS41Ny0uNzgtLjk0WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0zMzMuNDMsODcuNzJjLTIuNDIsMy41Ny00Ljg4LDUuMzMtNy4zNCw1LjMzLTIuMjEsMC0zLjczLTEuODQtMy43My00LjUxLDAtMy40NCwyLjEzLTguNzcsNS4xNy0xMi44MywyLjU0LTMuMzYsNC42My00Ljg4LDYuODEtNC44OCwyLjM0LDAsMy44NSwxLjY4LDMuODUsNC4yMiwwLDMuNjEtMS43Miw4LjI0LTQuNzYsMTIuNjdaTTMzNC4wMSw3My41Yy0xLjM1LDAtMy4yLDEuNjQtNS4wNCw0LjQ3LTIuMjUsMy40OS0zLjk0LDcuOTEtMy45NCwxMC4zMywwLDEuMzEuNTcsMi4wOSwxLjUyLDIuMDksMS40NCwwLDMuMjQtMS42NCw1LjIxLTQuNjcsMi4zNC0zLjYxLDMuNzctNy42MywzLjc3LTEwLjQxLDAtMS4xOS0uNTMtMS44LTEuNTItMS44WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0zNTEuNTYsNjQuODVjLTEuMzksMi42Mi0yLjUsNC45Ni00LjEsOC42OS0xLjg1LDQuMjItMy43Myw4LjktNC44OCwxMS45My0uOTgsMi41OC0xLjU2LDQuMjItMi41OCw3LjM4LS4xNi0uMDgtLjMzLS4xNi0uNDEtLjIxbC0uOTQtLjQ1LS44Ni0uNDEtLjQxLS4xNmMuMzMtLjc0LjQ1LTEuMTUuNDktMS4yM2wxLjc2LTQuNzFjMS4zOS0zLjY5LDQuMDItOS45Miw2LjY4LTE1Ljg3LDEuMTktMi43MSwyLjA5LTQuNTksMy40LTcuMTMuMzMuMjUuNDEuMjksMS4wMi42Ni40MS4yNS43LjQxLDEuMTkuNzhsLS4zNy43NFoiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNMzU3LjM4LDkyLjExbC0uOTgtLjY2LS43OC0uNDVjLS4wOC0uMDQtLjIxLS4xMi0uMzMtLjI1LjEyLS4zNy4yNS0uNjYuMzMtLjgybDEuOC0zLjk0LDEuNzItMy43N2MuMDgtLjE2LjI5LS41Ny42Mi0xLjMxLTEuMjMsMS41Ni0xLjg0LDIuMjEtMy4yNCwzLjY1LTEuNzYsMS44LTIuNDYsMi40Ni01LjQ5LDUuMTctMS4zMSwxLjE1LTEuNzYsMS42LTIuNjIsMi41OGwtLjM3LS4yOWMtLjM3LS4zNy0uNy0uNjItLjg2LS43NGwtLjktLjctLjMzLS4yNS40MS0uOTRjLjM3LS44Mi45NC0yLjA1LDEuNjgtMy42OSwyLjI1LTUuMTIsMy40NC03LjY3LDQuOTYtMTAuNTRsMi4yNS00LjM5cy4xNi0uMzMuNDUtLjgyYy4xNi4xMi4zMy4yMS4zNy4yNWwuODYuNDEuODYuNDVjLjA4LjA0LjI1LjEyLjUzLjI1bC0uNjYsMS4xMWMtMi43OSw0Ljg0LTQuMTgsNy40Mi03LjMsMTMuODZsLS43OCwxLjZjMi4zLTEuOCwzLjk4LTMuNDQsNi40NC02LjA3LDIuODctMy4wNyw1LjQ5LTYuNDQsOC4yLTEwLjM3bC42Mi0uOTQuMzcuMjVjLjkuNTcsMS4xOS43NCwyLjA1LDEuMTVsLS40MS42NmMtMS44NSwyLjk1LTMuMjQsNS42Mi00LjYzLDguNjktLjYxLDEuMzEtMS4zOSwzLjI0LTIuMzgsNS42Ni0uNzQsMS44OS0xLjMxLDMuMzYtMS43Miw0LjM5bC0uNDEsMS4wMmMtLjE2LS4wOC0uMjktLjE2LS4zMy0uMloiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNMzc5LjU2LDgyLjg5Yy01LjY2LDMuNzMtOC44Niw2LjIzLTEyLjA5LDkuNDMtLjIxLS4xNi0uMzctLjI5LS40MS0uMzdsLS43LS42Mi0uNjEtLjUzYy0uMDQtLjA4LS4xNi0uMTYtLjI5LS4yOWwuNDktMS4xMWMuNDUtLjk4Ljc0LTEuNiwxLjE1LTIuNTQuNTMtMS4xNS41Ny0xLjI3Ljc4LTEuNzJsMi4xNy01LDEuNzYtNC4wNi4yOS0uN2MtLjI1LjA0LS40MS4wNC0uNDkuMDhsLTEuMTEuMTYtLjk0LjEyYy0uMTIsMC0uMzMuMDQtLjUzLjA4LS4wNC0uMjEtLjA4LS4zNy0uMTItLjQxbC0uMi0uOWMtLjA4LS40NS0uMTYtLjc0LS4zNy0xLjI3LjQ1LS4wNC43NC0uMDguOS0uMDhsMS44LS4yMSwxLjY4LS4xNmMuMTIsMCwuMzctLjA0LjY2LS4wOGwuNDUtMS4wM2MxLjYtMy4zNiwyLjA1LTQuMzUsMi45OS02LjE1bC4zMy4yMWMuMjkuMjEuNTcuMzcuODIuNTMuNjYuNDUuODIuNTMsMS4xNS44MmwtLjMzLjYyYy0uOTgsMS43Ni0xLjM1LDIuNDItMS45NywzLjc3bC0uNDEuOS43OC0uMDgsMi45MS0uMzMsMi43OS0uMzcsMS4xNS0uMTZjLjIxLDEuMjMuMzcsMS45Ny41NywyLjY3LTEuMzksMC0yLjI1LjA0LTMuMjguMTZsLTIuNjIuMjktMi40Ni4yNWMtLjI1LjA0LS42Mi4wOC0xLjExLjE2LS4yMS4zNy0uMzMuNy0uNDUuODZsLTEuMjcsMi45NS0xLjY0LDMuNjktMS4zMSwyLjk5Yy0uMTYuMzMtLjM3Ljg2LS43LDEuNTJsMS4xNS0uOWMzLjA4LTIuNSwzLjg5LTMuMDgsNi42OC00Ljk2bC43NC0uNDljLjMzLjI1LjM3LjI5LjkuODIuMTYuMTIuNDEuMzcuNy42NmwuMzMuMjktLjcuNDlaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTM4OS4yOCw3Ni4wNGMtLjQxLjg2LS44MiwxLjc2LTEuNiwzLjQ4LS40NSwxLjAzLS45LDEuOTctMS4zMSwyLjkxbC0yLjE3LDQuOTZjLS4zNy43OC0uNywxLjU2LTEuMDMsMi4zNC0uNTMsMS4yMy0uNTcsMS4yNy0uOTQsMi4zLS45OC0uNzgtMS42LTEuMjMtMi4yMS0xLjYuNzgtMS41MiwxLjIzLTIuNDYsMi4zLTQuOTIsMS4zOS0zLjE2LDMuMi03LjMsNC4zOS05LjkyLjk4LTIuMjEsMS4yNy0yLjk1LDEuOC00LjE4LjE2LjEyLjI5LjIxLjI5LjIxbC44Ni42MmMuNDUuMzcuNy41MywxLjE1LjgyLS42NiwxLjE1LS44NiwxLjYtMS41MiwyLjk5Wk0zOTIuNzYsNjguNWMtLjY2LDEuMzUtLjgyLDEuNjgtMS4zMSwyLjY3cS0uMjktLjI1LTEuMDItLjc4Yy0uMjUtLjE2LS40OS0uMzMtLjgyLS41N2wtLjI5LS4yMWMuNy0xLjI3LDEuMDctMi4wMSwxLjM1LTIuNjdsLjc0LTEuNjguMjUtLjUzYy4yMS4xMi4zNy4yNS40MS4yOWwuNzQuNTdjLjMzLjI5LjYxLjQ5LDEuMDcuODItLjQ1Ljc0LS42MSwxLjExLTEuMTEsMi4wOVoiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNNDAwLjgsODcuNzJjLTIuNDIsMy41Ny00Ljg4LDUuMzMtNy4zNCw1LjMzLTIuMjEsMC0zLjczLTEuODQtMy43My00LjUxLDAtMy40NCwyLjEzLTguNzcsNS4xNy0xMi44MywyLjU0LTMuMzYsNC42My00Ljg4LDYuODEtNC44OCwyLjM0LDAsMy44NSwxLjY4LDMuODUsNC4yMiwwLDMuNjEtMS43Miw4LjI0LTQuNzYsMTIuNjdaTTQwMS4zNyw3My41Yy0xLjM1LDAtMy4yLDEuNjQtNS4wNCw0LjQ3LTIuMjUsMy40OS0zLjk0LDcuOTEtMy45NCwxMC4zMywwLDEuMzEuNTcsMi4wOSwxLjUyLDIuMDksMS40NCwwLDMuMjQtMS42NCw1LjIxLTQuNjcsMi4zNC0zLjYxLDMuNzctNy42MywzLjc3LTEwLjQxLDAtMS4xOS0uNTMtMS44LTEuNTItMS44WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik00MTMuNTEsOTIuMzJjLjU3LTEuNzYuNzgtMi4zOCwxLjQzLTQuMjIuNzQtMi4wMSwxLjc2LTQuNjMsMi4zNC02LjA3Ljc4LTEuODksMS40My0zLjMyLDIuODctNi4yNy0yLjg3LDIuMzgtNi4xOSw1LjQ5LTguMzYsNy45MS0yLjEzLDIuMzgtMy43Myw0LjkyLTUuMTcsOC4xMmwtLjQxLS4xNmMtLjM3LS4xNi0uNjYtLjI5LS44Mi0uMzNsLS43OC0uMzNzLS4xMi0uMDQtLjI1LS4wOGMxLjIzLTIuNjIsMS45My00LjI2LDQuNDctMTAuMjksMi43NS02LjUyLDMuMjgtNy43OSw0LjA2LTEwLjA0LjQ1LjI1LjY2LjMzLDEuMzUuNTdsLjg2LjMzLjQxLjE2Yy0uMTIuNDEtLjI1LjY2LS4zMy44NmwtMS4wNywyLjQyLS45NCwyLjIxYy0uNDUuOTQtLjg2LDEuODktMS42OCwzLjU3LDEuMTktMS4yMywxLjYtMS42NCwyLjcxLTIuNzEuNjItLjU3LDEuMjctMS4xOSwyLjA5LTEuOTMuODItLjc0LDEuMTUtMS4wMywxLjU2LTEuMzlsMi4yNi0xLjkzYy40NS0uMzcuODYtLjc0LDEuMjctMS4xMS44Ni0uNy44Ni0uNzQsMS42LTEuMzFsLjI5LjI5Yy4yOS4zMy40OS41Ny42Mi42NmwuNjYuNjFzLjEyLjEyLjI5LjI1Yy0uMTYuMzMtLjMzLjU3LS40NS44MmwtMS4xOSwyLjNjLS4zMy42Mi0uNywxLjM5LTEuMzEsMi44My0uNTMsMS4yMy0xLjM5LDMuMjQtMi4xMyw1LS4zNy45NC0uNzQsMS44OS0xLjExLDIuODMtLjM3LjktLjUzLDEuMjctLjc0LDEuODlsLTEuNTYsNC40Ny0uNDEsMS4xNWMtLjktLjQ1LTEuNzItLjgyLTIuNDItMS4wN1oiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNNDM4LjYsNzcuOTJsLS45OC0uODItLjc4LS42MWMtLjA4LS4wOC0uMjEtLjE2LS4zNy0uMzMsMi4wMS0uMzcsMy4xNi0uNyw0LjU5LTEuMzEsMS44LS43NCwyLjcxLTEuMzksMi43MS0xLjkzcy0uNTctLjc0LTEuODktLjc0Yy0yLjEzLDAtNS40MS42Mi03LjgzLDEuNDgtMi41NC45NC0zLjc3LDEuOC0zLjc3LDIuNTQsMCwuNjEuNzgsMS4xNSwyLjMsMS40My4xMi4wNC41My4xMiwxLjc2LjQ5LjQxLjA4Ljc4LjIxLDEuMTkuMzNsMi42Ny43YzMuNjksMS4wMiw1LjQ1LDIuNTgsNS40NSw0Ljc2cy0xLjY4LDQuMjItNC41NSw1LjQ1Yy0yLjk5LDEuMjctNi42OCwxLjk3LTEwLjIxLDEuOTctNC41NSwwLTYuOTMtMS4xMS02LjkzLTMuMnMxLjcyLTMuNTMsNS40OS00Ljg4YzEuNzYtLjYyLDMuNTMtMS4wNyw2LjY4LTEuNjguMzMuMzMuNDEuNDEuODYuOTRsLjcuODJzLjEyLjE2LjI5LjMzYy0uNDkuMDgtLjgyLjE2LTEuMDcuMjEtLjc0LjE2LTEuNDguMjktMi4yMS40NS0yLjA5LjQxLTQuMTQuOTgtNS45OSwxLjcyLTEuMzUuNTMtMi4xNywxLjIzLTIuMTcsMS44LDAsLjk0LDEuMzEsMS4zOSw0LjM1LDEuMzksMi43MSwwLDYuMDctLjY2LDguNzMtMS42NCwyLjA5LS44MiwzLjQ0LTIuMTMsMy40NC0zLjM2cy0xLjMxLTIuMjEtNC4wNi0yLjkxbC0zLjQtLjljLTEuMDctLjI5LTIuMTctLjYyLTMuMjQtLjk4LTIuMDUtLjY2LTMuMTItMS42LTMuMTItMi43NSwwLTEuODksMi4xMy0zLjczLDUuOTUtNS4wOCwyLjYyLS45NCw2LjQtMS41Niw5LjIzLTEuNTYsMi41NCwwLDQuMjYsMS4wMyw0LjI2LDIuNTQsMCwxLjk3LTIuMDEsMy40NC03LjY3LDUuNjItLjIxLS4xNi0uMzctLjI1LS40MS0uMjlaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PC9zdmc+" alt="R&amp;E Home Solutions"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Services</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Contact</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+118438861658">📞 (843) 886-1658</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Charleston, SC</p>
+    <h1>We audited randehomesolutions.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.6<small>/5</small></div>
+        <div class="score-bar"><i style="width:72%"></i></div>
+      </div>
+      <p class="verdict">A Charleston home-services shop with 24/7 emergency claimed and 800+ five-star reviews claimed — but after hours it's a form, and those 800 reviews never appear where the booking happens.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 900+ HVAC sites reviewed across GA, FL, AL, TN, SC, NC, MS, LA, KY &amp; VA</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on randehomesolutions.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>24/7 claimed, forms only</h3>
+        <p>"24/7 Emergency Services" is claimed — but <strong>no live chat or instant answering</strong> was detected. The emergency visitor fills a form and hopes.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Theo answers in 8 seconds, triages the emergency, and books the tech — overnight, weekends, holidays.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Costing you trust</span>
+        <h3>800+ reviews claimed, none shown at booking</h3>
+        <p>"Over 800 5-Star Reviews On Google" is claimed on the homepage — yet the booking flow <strong>never shows a single one</strong> at the decision point. Eight hundred voices, zero of them heard.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> A live review feed beside every booking button — the proof shows up where the doubt hits.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>A restoration catalog on an HVAC site</h3>
+        <p>The service menu spans duct cleaning, mold remediation, water damage, and attic insulation — the <strong>HVAC customer navigates a restoration catalog</strong> to reach a repair.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat asks one question — 'what's going on?' — and routes from there. No catalog required.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>A dozen pages to confirm coverage</h3>
+        <p>The service-area sprawl runs a dozen neighborhood pages — James Island, Folly Beach, Kiawah. Coverage is proven for SEO, but the visitor has to <strong>confirm it themselves, in one more click</strong>.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> The AI confirms coverage from the address in the first exchange.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The quote form submits into silence</h3>
+        <p>A quote form exists — but <strong>no instant confirmation or text-back is promised</strong>. The customer submits into silence.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Every submission gets an instant text confirmation with a callback window — silence eliminated.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:#4ade80">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is randehomesolutions.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the dead AC.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 R&amp;E Home Solutions</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on R&amp;E Home Solutions's real services — air duct cleaning, HVAC cleaning, mold remediation, and water damage restoration — and the Charleston and the Lowcountry service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The rating is claimed.<br>The site doesn't show it.</h2>
+    <p class="section-sub">Claimed on the company's own site — the same proof the fixed homepage would showcase.</p>
+    <div class="rev-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>via via the company's own homepage copy</small>
+      </div>
+      <div><strong>5.0</strong><small>average claimed · over 800 five-star reviews claimed</small></div>
+    </div>
+    <p class="rev-note">Rating claimed in the company's own site copy (5.0, average claimed · over 800 five-star reviews claimed). No public review quotes were available at build time — the fixed version collects and displays real quotes automatically.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20R%26E%20Home%20Solutions">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © R&amp;E Home Solutions (randehomesolutions.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iTGF5ZXJfMyIgdmlld0JveD0iMCAwIDQ0Ni42OCAxMTQuNjQiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMzAuOTgiIHkxPSIxMy4wNiIgeDI9IjExNy4zMyIgeTI9Ijk5LjQyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNDFjODM5Ij48L3N0b3A+PHN0b3Agb2Zmc2V0PSIuNDkiIHN0b3AtY29sb3I9IiM2NWQzNWYiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMmEwMmMiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSI0NC40OSIgeTE9IjEyLjMyIiB4Mj0iMTI1LjAxIiB5Mj0iOTIuODMiIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQiPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjE2Ljg5IiB5MT0iMTMuOTQiIHgyPSIxMDcuOTIiIHkyPSIxMDQuOTciIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQiPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjI5LjE4IiB5MT0iMTEuOTciIHgyPSIxMTYuMzQiIHkyPSI5OS4xMyIgeGxpbms6aHJlZj0iI2xpbmVhci1ncmFkaWVudCI+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC01IiB4MT0iMzUuMzEiIHkxPSI2LjQxIiB4Mj0iMTI0LjEiIHkyPSI5NS4yIiB4bGluazpocmVmPSIjbGluZWFyLWdyYWRpZW50Ij48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTYiIHgxPSIyOC4xNCIgeTE9Ijg5LjcxIiB4Mj0iMTY4IiB5Mj0iODkuNzEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM5ODk5OWEiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3ZjgwODEiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTciIHgxPSIwIiB5MT0iMTguMDgiIHgyPSI4Mi4yNSIgeTI9IjE4LjA4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjN2Y4MDgxIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOTg5OTlhIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iNzIuNjgiIHk9IjU0Ljc2IiB3aWR0aD0iOS41OCIgaGVpZ2h0PSI5LjU4IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiPjwvcmVjdD48cmVjdCB4PSI4Ni45NCIgeT0iNTQuNzYiIHdpZHRoPSI5LjU4IiBoZWlnaHQ9IjkuNTgiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTIpIj48L3JlY3Q+PHJlY3QgeD0iNzIuNjgiIHk9IjY5LjczIiB3aWR0aD0iOS41OCIgaGVpZ2h0PSI5LjU4IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0zKSI+PC9yZWN0PjxyZWN0IHg9Ijg2Ljk0IiB5PSI2OS43MyIgd2lkdGg9IjkuNTgiIGhlaWdodD0iOS41OCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNCkiPjwvcmVjdD48cGF0aCBkPSJNODMuOTQsMTAuMDZjLTI5LjA3LTIuNzctNTIuMyw0LjEzLTY0LjQ2LDEyLjkzLTExLjMyLDguMi0xNC4zOCwxOC4zMi0xNC4zMywyOC4wOC4xLDE5LjM4LDQwLjY4LDU5LjY0LDEwNi45NCw0MS41NiwwLDAtNDYuMjIsNS4yMS03OS4zMi0xNi45OWw1Mi4zNS00NC41OCw0NS4wOCwzOS41OSwxMi40Mi02LjM1LTQ3LjAyLTQzLjE0YzExLjUyLDIuMDYsMjMuNSw1LjI0LDM0LjU1LDExLjI0LDIxLjg0LDExLjg2LDI0LjA5LDI2LjczLDI0LjA5LDI2LjczbDcuOTEtMS45OXMtNS42NS00MC4xOC03OC4yMi00Ny4wOFpNNDkuODgsNDMuNTd2LTYuOTRoLTEyLjcxdjE4LjE2bC0xNC4zMSwxMi42NGMtMTMuOTEtMTQuNjUtMTEuMzktMzEuMjMsOC4yOC00MC4zMSwxMi4yMS01LjYzLDI4LjU1LTguNjQsNDYuMzMtNy45NGwtMjcuNjEsMjQuMzlaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC01KSI+PC9wYXRoPjxwYXRoIGQ9Ik0xNjgsOTIuNDRsLTQuNzEtMjcuNjctMjYuNTQsMTAuNTQsOS45Niw1LjQ2aDBjLTUuMjksNS44NC0xOC44MSwxNy44OC00OC4xNywyMi4yMS0zOS4xMSw1Ljc3LTcwLjQtMTAuNTQtNzAuNC0xMC41NCwwLDAsMjMuMzQsMjIuMTksNjUuNjcsMjIuMTksNDkuMTUsMCw2NS42Ny0yNi44Niw2NS42Ny0yNi44NmgwbDguNTEsNC42N1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTYpIj48L3BhdGg+PHBhdGggZD0iTTAsMzYuMTZTMTQuMDgtLjM2LDgyLjI1LDMuNDFjMCwwLTIwLjYxLTYuNTktNDUuMzYtMS40NUMxNy4wOCw2LjA4LDMuMjksMTguMDgsMCwzNi4xNloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTcpIj48L3BhdGg+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgMCkgc2tld1goLTEwKSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDFjODM5IiBzdHJva2Utd2lkdGg9IjMuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTk0IDU2IEMxOTggNDQgMjAxIDMyIDIwNCAyMCBNMjAxIDIyIEMyMTUgMTcgMjI1IDIwIDIyMyAyOSBDMjIyIDM3IDIxMSA0MSAxOTkgNDAgTTIxMCA0MCBMMjI0IDU2Ij48L3BhdGg+PHBhdGggZD0iTTI0OSAzMSBDMjQ4IDI0IDI0MSAyMyAyMzcgMjcgQzIzMSAzMyAyMzggNDAgMjQ0IDQ0IEMyNTEgNDkgMjU3IDU0IDI2MyA1NiBNMjU5IDM0IEMyNTUgNDMgMjQ5IDUwIDI0MyA1NCBDMjM3IDU4IDIzMCA1NiAyMzEgNTAgQzIzMiA0NCAyNDAgNDEgMjQ5IDM4Ij48L3BhdGg+PHBhdGggZD0iTTI3NiAyMSBDMjg3IDIwIDI5NiAyMCAzMDUgMjEgTTI4MCAyMSBDMjc4IDMyIDI3NSA0NCAyNzIgNTYgTTI3NyAzOCBDMjg2IDM3IDI5MyAzNyAyOTkgMzcgTTI3MiA1NiBDMjgyIDU1IDI5MCA1NSAyOTggNTYiPjwvcGF0aD48L2c+PHBhdGggZD0iTTIxMS41OCw5MS40NmMtLjctLjQ1LS43OC0uNTMtMS4xMS0uNzhsLjYyLTEuNDgsMS45Ny00LjYzLDEuODktNC41OWMxLjExLTIuNzEsMS4yNy0zLjE2LDEuODQtNC41OWgtMS41MmwtMy41Ny4wOGMtLjg2LDAtMS4zOS4wNC0yLjI1LjA0LTEuMDMuMDQtMS4xNS4wNC0xLjQ4LjA0bC0zLjMyLjEyLTEuNTYuMDQtLjU3LDEuMzEtMS45Myw0LjM5Yy0uNDUsMS4wMi0uODYsMi4wNS0xLjMxLDMuMDctLjM3Ljg2LS42MiwxLjM5LS45LDIuMDVsLTEuODQsNC40N2MtLjA4LjEyLS4yNS41My0uNTcsMS4yMy0uNDEtLjI1LS41My0uMzMtMS4xNS0uNzgtLjQ1LS4zNy0uNjYtLjQ5LTEuMDctLjc4bC42Ni0xLjQ4LDEuNjQtMy42OWMuNy0xLjYsMS4zNS0zLjEyLDEuOTMtNC41MS4zMy0uNy43OC0xLjc2LDEuMDctMi41LjY2LTEuNTIuNjYtMS41NiwxLjE5LTIuNzUtMS4xMS4wNC0xLjUyLjA0LTIuODcuMjEuMDgtLjc0LjEyLTEuMTUuMTItMS42OHYtLjdsLS4wNC0uMzdjLjYyLjA0LjgyLjA0LDEuMzUuMDQuODYsMCwxLjY4LDAsMi41LS4wNGwuNjItMS4zNWMuMjUtLjU3LjQ5LTEuMTEsMS4xMS0yLjU0LjU3LTEuMjcsMS4wMy0yLjM0LDEuMzktMy4yNC41Ny0xLjM1Ljc4LTEuOC45OC0yLjM0bC4zMy0uNzhjLjE2LjEyLjMzLjIxLjM3LjI1bC43OC41Ny43NC40NWMuMDguMDguMjEuMTYuMzcuMjlsLS40MS44NmMtLjQ1LDEuMDctLjk0LDIuMTctMS40MywzLjMybC0xLjM5LDMuMzYtLjQ5LDEuMTVjMi42Ny0uMDQsNC4wMi0uMDgsOC4yNC0uMjFsNC4xLS4xNiwxLjMxLS4wNC42MS0xLjUyLDEuNzItNC4xNGMuOTQtMi4yNSwxLjE5LTIuOTEsMS42NC00LjE4Ljc4LjYxLDEuMDMuNzgsMi4wMSwxLjM1bC4zNy4yMS0uNywxLjZjLTEuNzYsMy45NC0yLjMsNS4yMS00Ljg0LDExLjRsLTIuODMsNi44NWMtLjQ1LDEuMTEtLjksMi4yNS0xLjM5LDMuMzYtLjQxLDEuMDctLjYyLDEuNTYtLjksMi4yNWwtLjksMi4yNmMtLjQ1LS4zMy0uNy0uNDktMS4xMS0uNzhaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTIzMS44OCw4Ny43MmMtMi40MiwzLjU3LTQuODgsNS4zMy03LjM0LDUuMzMtMi4yMSwwLTMuNzMtMS44NC0zLjczLTQuNTEsMC0zLjQ0LDIuMTMtOC43Nyw1LjE3LTEyLjgzLDIuNTQtMy4zNiw0LjYzLTQuODgsNi44MS00Ljg4LDIuMzQsMCwzLjg1LDEuNjgsMy44NSw0LjIyLDAsMy42MS0xLjcyLDguMjQtNC43NiwxMi42N1pNMjMyLjQ1LDczLjVjLTEuMzUsMC0zLjIsMS42NC01LjA0LDQuNDctMi4yNSwzLjQ5LTMuOTQsNy45MS0zLjk0LDEwLjMzLDAsMS4zMS41NywyLjA5LDEuNTIsMi4wOSwxLjQ0LDAsMy4yNC0xLjY0LDUuMjEtNC42NywyLjM0LTMuNjEsMy43Ny03LjYzLDMuNzctMTAuNDEsMC0xLjE5LS41My0xLjgtMS41Mi0xLjhaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTI1NC4xNCw5Mi4wM2wuNTctMS4zNSwxLjUyLTMuNTdjMS4zMS0zLjAzLDIuMy01LjE3LDQuMTgtOC45NGwuNzQtMS40NC0xLjM1LDEuMjNjLTIuNjcsMi4zNC0zLjY1LDMuMjgtNS40MSw1LjA4LTMuNDQsMy40OS00LjY3LDUuMDgtNi41Miw4LjQ5bC0yLjA1LTEuMTEsNS44Ni0xNC4wNmMtMS43MiwxLjI3LTIuNTgsMi4wMS01LjEyLDQuMjYtNS4wNCw0LjU5LTUuNzgsNS40MS04LjY5LDEwLjQxbC0uNDUtLjI1Yy0uOTQtLjQ1LTEuMTktLjU3LTEuODUtLjg2LjI5LS41Ny41My0xLjAyLjY2LTEuMzVsMS42OC0zLjYxLDIuMjEtNC43NiwyLjEzLTQuODRjLjQ1LS45OC45LTEuOTcsMS4zNS0yLjk5LjctMS41Mi43NC0xLjY0LDEuMjctMi44Ny42Ni40NS45OC41NywyLjEzLDEuMTFsLjM3LjE2Yy0uMTYuNDEtLjMzLjc0LS40MS45bC0xLjIzLDIuNTgtMS40OCwzLjA4Yy0uMTYuMzMtLjMzLjY2LS44NiwxLjc2bC0uMjkuNTctLjI5LjYyLS45NCwxLjg5YzIuNzktMi43OSw0LjEtMy45OCw3LjQyLTYuNzZsMi42Mi0yLjI1YzEuMjctMS4wNywxLjcyLTEuNTIsMi40Ni0yLjM4LjM3LjI5LjU3LjQ5LjkuNjZsLjc0LjQ5cy4xNi4wOC4zMy4yMWMtMS4xMSwxLjgtMS42NCwyLjc1LTIuODcsNS41NC0uNDEuOS0xLjIzLDIuNzUtMS43MiwzLjg1LS4yMS40OS0uMzcuOTQtLjgyLDEuOTNsMS4yNy0xLjMxYzMuMDMtMy4yLDUtNS4wNCw4LjY1LTguMTYuNDktLjQxLDEuMDItLjg2LDEuNTItMS4yNy44Ni0uNzQuOS0uNzgsMS42LTEuNDRsLjM3LjI1Yy42MS40NS45NC43LDEuNTIsMS4wN2wuMjUuMTZjLTIuNTgsNC41NS01LjE3LDkuODQtNy4zOCwxNS4yMWwtMS43Niw0LjM5LS4zMy44NmMtMS4yNy0uNy0xLjY4LS45LTIuNS0xLjE5WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0yNjguNTcsOTIuNzdjLTIuMywwLTMuOTQtMi4xMy0zLjk0LTUuMDgsMC00LjE0LDIuNDYtOS4wNiw2LjQ0LTEyLjgzLDIuNzEtMi41NCw1LjQ5LTMuOTgsNy43OS0zLjk4LDEuNiwwLDIuNTguOSwyLjU4LDIuMzgsMCwyLjE3LTEuNzIsNC4zOS01LjI5LDYuODktMi43NSwxLjg5LTQuNTUsMi45MS03LjE4LDQuMDJsLS40OS0xLjg5Yy0uOTQsMi4zNC0xLjI3LDMuNjktMS4yNyw1LjE3LDAsMS42NC43LDIuNzUsMS43NiwyLjc1Ljk4LDAsMi4yNi0uODIsMy42MS0yLjIxLjktLjk4LDEuNDgtMS44LDIuNjctMy42OWwuNDEtLjYyYy4yOS4yOS4zMy4zMy45LjgyLjE2LjEyLjM3LjI5LjYyLjQ5bC4zNy4zM2MtMy4xNiw0Ljg4LTYuMjMsNy40Ni04Ljk4LDcuNDZaTTI3OC42Niw3NC4wM2MwLS4zMy0uMjUtLjU3LS42Mi0uNTctMi4xMywwLTYuODUsNC4xNC05LjIzLDguMTIsNS0yLjA5LDkuODQtNS44Miw5Ljg0LTcuNTRaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTMxMS41LDcyLjY4Yy0uNDktLjUzLS42Mi0uNy0uOTgtMS4wNy40NS0uMTIuNzQtLjIxLjk4LS4yOSwzLjUzLS45OCw0LjE4LTEuMjMsNi4zMS0yLjA1LDEuODktLjc0LDIuOTUtMS41MiwyLjk1LTIuMTMsMC0uODItMS4zNS0xLjI3LTMuOTQtMS4yNy0yLjk1LDAtNy4xMy43OC0xMC40MSwxLjg5LTMuMTIsMS4wNy01LjI5LDIuNzUtNS4yOSw0LjA2LDAsLjYyLjQ5LDEuMTEsMS40OCwxLjQ0LjMzLjEyLjY2LjIxLDEuOC40MS41My4xMiwxLjE1LjIxLDEuNzIuMzMsNS43OC45OCw3LjgzLDEuNDQsOS40NywyLjA1LDMuMTYsMS4xNSw0LjUxLDIuNzUsNC41MSw1LjIxLDAsMy4xNi0yLjI1LDUuNDEtNy40Niw3LjU0LTQuNDcsMS44NC0xMC42NiwzLjA4LTE1LjI1LDMuMDhzLTcuNDYtMS42NC03LjQ2LTQuMjIsMi4yNS00LjU5LDYuNi02LjE1YzIuNjItLjk4LDYuMDctMS42LDExLjMyLTIuMDVsMS4xMS0uMDhjLjA0LjIxLjA4LjMzLjEyLjM3bC4zMy44Mi40MS45NGMuMDQuMDguMTIuMjEuMjEuNDEtMy42NS4wNC01LC4xMi02Ljg5LjQxLTMuNDQuNDktNS45LDEuMTUtNy42MywyLjA1LTEuODQuOTQtMi45OSwyLjA5LTIuOTksMi45OSwwLDEuMzksMS44OSwyLjIxLDUuMDgsMi4yMSw0LjQzLDAsOS45Mi0xLjE1LDE0LjI3LTIuOTksMy44NS0xLjYsNS42Ni0zLjI0LDUuNjYtNS4yMSwwLTEuNDQtMS4wNy0yLjQ2LTMuNTMtMy4yOC0xLjQzLS40OS0yLjk5LS44Mi04LjYxLTEuODQtMS40OC0uMjktMi43OS0uNTctMy44OS0uODYtMi4wMS0uNTctMy4xMi0xLjcyLTMuMTItMy4yNCwwLTIuNTQsMi40Mi00Ljg0LDYuODEtNi40OCwzLjI4LTEuMTksNy44Ny0yLjAxLDExLjY0LTIuMDEsNC4xLDAsNi42NCwxLjE5LDYuNjQsMy4xNnMtMS40MywzLjItNS4xNyw0LjhjLTEuNzYuNzQtMy40LDEuMjctNi4wMywyLjAxLS4zMy0uMzctLjQ5LS41Ny0uNzgtLjk0WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0zMzMuNDMsODcuNzJjLTIuNDIsMy41Ny00Ljg4LDUuMzMtNy4zNCw1LjMzLTIuMjEsMC0zLjczLTEuODQtMy43My00LjUxLDAtMy40NCwyLjEzLTguNzcsNS4xNy0xMi44MywyLjU0LTMuMzYsNC42My00Ljg4LDYuODEtNC44OCwyLjM0LDAsMy44NSwxLjY4LDMuODUsNC4yMiwwLDMuNjEtMS43Miw4LjI0LTQuNzYsMTIuNjdaTTMzNC4wMSw3My41Yy0xLjM1LDAtMy4yLDEuNjQtNS4wNCw0LjQ3LTIuMjUsMy40OS0zLjk0LDcuOTEtMy45NCwxMC4zMywwLDEuMzEuNTcsMi4wOSwxLjUyLDIuMDksMS40NCwwLDMuMjQtMS42NCw1LjIxLTQuNjcsMi4zNC0zLjYxLDMuNzctNy42MywzLjc3LTEwLjQxLDAtMS4xOS0uNTMtMS44LTEuNTItMS44WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik0zNTEuNTYsNjQuODVjLTEuMzksMi42Mi0yLjUsNC45Ni00LjEsOC42OS0xLjg1LDQuMjItMy43Myw4LjktNC44OCwxMS45My0uOTgsMi41OC0xLjU2LDQuMjItMi41OCw3LjM4LS4xNi0uMDgtLjMzLS4xNi0uNDEtLjIxbC0uOTQtLjQ1LS44Ni0uNDEtLjQxLS4xNmMuMzMtLjc0LjQ1LTEuMTUuNDktMS4yM2wxLjc2LTQuNzFjMS4zOS0zLjY5LDQuMDItOS45Miw2LjY4LTE1Ljg3LDEuMTktMi43MSwyLjA5LTQuNTksMy40LTcuMTMuMzMuMjUuNDEuMjksMS4wMi42Ni40MS4yNS43LjQxLDEuMTkuNzhsLS4zNy43NFoiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNMzU3LjM4LDkyLjExbC0uOTgtLjY2LS43OC0uNDVjLS4wOC0uMDQtLjIxLS4xMi0uMzMtLjI1LjEyLS4zNy4yNS0uNjYuMzMtLjgybDEuOC0zLjk0LDEuNzItMy43N2MuMDgtLjE2LjI5LS41Ny42Mi0xLjMxLTEuMjMsMS41Ni0xLjg0LDIuMjEtMy4yNCwzLjY1LTEuNzYsMS44LTIuNDYsMi40Ni01LjQ5LDUuMTctMS4zMSwxLjE1LTEuNzYsMS42LTIuNjIsMi41OGwtLjM3LS4yOWMtLjM3LS4zNy0uNy0uNjItLjg2LS43NGwtLjktLjctLjMzLS4yNS40MS0uOTRjLjM3LS44Mi45NC0yLjA1LDEuNjgtMy42OSwyLjI1LTUuMTIsMy40NC03LjY3LDQuOTYtMTAuNTRsMi4yNS00LjM5cy4xNi0uMzMuNDUtLjgyYy4xNi4xMi4zMy4yMS4zNy4yNWwuODYuNDEuODYuNDVjLjA4LjA0LjI1LjEyLjUzLjI1bC0uNjYsMS4xMWMtMi43OSw0Ljg0LTQuMTgsNy40Mi03LjMsMTMuODZsLS43OCwxLjZjMi4zLTEuOCwzLjk4LTMuNDQsNi40NC02LjA3LDIuODctMy4wNyw1LjQ5LTYuNDQsOC4yLTEwLjM3bC42Mi0uOTQuMzcuMjVjLjkuNTcsMS4xOS43NCwyLjA1LDEuMTVsLS40MS42NmMtMS44NSwyLjk1LTMuMjQsNS42Mi00LjYzLDguNjktLjYxLDEuMzEtMS4zOSwzLjI0LTIuMzgsNS42Ni0uNzQsMS44OS0xLjMxLDMuMzYtMS43Miw0LjM5bC0uNDEsMS4wMmMtLjE2LS4wOC0uMjktLjE2LS4zMy0uMloiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNMzc5LjU2LDgyLjg5Yy01LjY2LDMuNzMtOC44Niw2LjIzLTEyLjA5LDkuNDMtLjIxLS4xNi0uMzctLjI5LS40MS0uMzdsLS43LS42Mi0uNjEtLjUzYy0uMDQtLjA4LS4xNi0uMTYtLjI5LS4yOWwuNDktMS4xMWMuNDUtLjk4Ljc0LTEuNiwxLjE1LTIuNTQuNTMtMS4xNS41Ny0xLjI3Ljc4LTEuNzJsMi4xNy01LDEuNzYtNC4wNi4yOS0uN2MtLjI1LjA0LS40MS4wNC0uNDkuMDhsLTEuMTEuMTYtLjk0LjEyYy0uMTIsMC0uMzMuMDQtLjUzLjA4LS4wNC0uMjEtLjA4LS4zNy0uMTItLjQxbC0uMi0uOWMtLjA4LS40NS0uMTYtLjc0LS4zNy0xLjI3LjQ1LS4wNC43NC0uMDguOS0uMDhsMS44LS4yMSwxLjY4LS4xNmMuMTIsMCwuMzctLjA0LjY2LS4wOGwuNDUtMS4wM2MxLjYtMy4zNiwyLjA1LTQuMzUsMi45OS02LjE1bC4zMy4yMWMuMjkuMjEuNTcuMzcuODIuNTMuNjYuNDUuODIuNTMsMS4xNS44MmwtLjMzLjYyYy0uOTgsMS43Ni0xLjM1LDIuNDItMS45NywzLjc3bC0uNDEuOS43OC0uMDgsMi45MS0uMzMsMi43OS0uMzcsMS4xNS0uMTZjLjIxLDEuMjMuMzcsMS45Ny41NywyLjY3LTEuMzksMC0yLjI1LjA0LTMuMjguMTZsLTIuNjIuMjktMi40Ni4yNWMtLjI1LjA0LS42Mi4wOC0xLjExLjE2LS4yMS4zNy0uMzMuNy0uNDUuODZsLTEuMjcsMi45NS0xLjY0LDMuNjktMS4zMSwyLjk5Yy0uMTYuMzMtLjM3Ljg2LS43LDEuNTJsMS4xNS0uOWMzLjA4LTIuNSwzLjg5LTMuMDgsNi42OC00Ljk2bC43NC0uNDljLjMzLjI1LjM3LjI5LjkuODIuMTYuMTIuNDEuMzcuNy42NmwuMzMuMjktLjcuNDlaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PHBhdGggZD0iTTM4OS4yOCw3Ni4wNGMtLjQxLjg2LS44MiwxLjc2LTEuNiwzLjQ4LS40NSwxLjAzLS45LDEuOTctMS4zMSwyLjkxbC0yLjE3LDQuOTZjLS4zNy43OC0uNywxLjU2LTEuMDMsMi4zNC0uNTMsMS4yMy0uNTcsMS4yNy0uOTQsMi4zLS45OC0uNzgtMS42LTEuMjMtMi4yMS0xLjYuNzgtMS41MiwxLjIzLTIuNDYsMi4zLTQuOTIsMS4zOS0zLjE2LDMuMi03LjMsNC4zOS05LjkyLjk4LTIuMjEsMS4yNy0yLjk1LDEuOC00LjE4LjE2LjEyLjI5LjIxLjI5LjIxbC44Ni42MmMuNDUuMzcuNy41MywxLjE1LjgyLS42NiwxLjE1LS44NiwxLjYtMS41MiwyLjk5Wk0zOTIuNzYsNjguNWMtLjY2LDEuMzUtLjgyLDEuNjgtMS4zMSwyLjY3cS0uMjktLjI1LTEuMDItLjc4Yy0uMjUtLjE2LS40OS0uMzMtLjgyLS41N2wtLjI5LS4yMWMuNy0xLjI3LDEuMDctMi4wMSwxLjM1LTIuNjdsLjc0LTEuNjguMjUtLjUzYy4yMS4xMi4zNy4yNS40MS4yOWwuNzQuNTdjLjMzLjI5LjYxLjQ5LDEuMDcuODItLjQ1Ljc0LS42MSwxLjExLTEuMTEsMi4wOVoiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNNDAwLjgsODcuNzJjLTIuNDIsMy41Ny00Ljg4LDUuMzMtNy4zNCw1LjMzLTIuMjEsMC0zLjczLTEuODQtMy43My00LjUxLDAtMy40NCwyLjEzLTguNzcsNS4xNy0xMi44MywyLjU0LTMuMzYsNC42My00Ljg4LDYuODEtNC44OCwyLjM0LDAsMy44NSwxLjY4LDMuODUsNC4yMiwwLDMuNjEtMS43Miw4LjI0LTQuNzYsMTIuNjdaTTQwMS4zNyw3My41Yy0xLjM1LDAtMy4yLDEuNjQtNS4wNCw0LjQ3LTIuMjUsMy40OS0zLjk0LDcuOTEtMy45NCwxMC4zMywwLDEuMzEuNTcsMi4wOSwxLjUyLDIuMDksMS40NCwwLDMuMjQtMS42NCw1LjIxLTQuNjcsMi4zNC0zLjYxLDMuNzctNy42MywzLjc3LTEwLjQxLDAtMS4xOS0uNTMtMS44LTEuNTItMS44WiIgZmlsbD0iIzdmODA4MSI+PC9wYXRoPjxwYXRoIGQ9Ik00MTMuNTEsOTIuMzJjLjU3LTEuNzYuNzgtMi4zOCwxLjQzLTQuMjIuNzQtMi4wMSwxLjc2LTQuNjMsMi4zNC02LjA3Ljc4LTEuODksMS40My0zLjMyLDIuODctNi4yNy0yLjg3LDIuMzgtNi4xOSw1LjQ5LTguMzYsNy45MS0yLjEzLDIuMzgtMy43Myw0LjkyLTUuMTcsOC4xMmwtLjQxLS4xNmMtLjM3LS4xNi0uNjYtLjI5LS44Mi0uMzNsLS43OC0uMzNzLS4xMi0uMDQtLjI1LS4wOGMxLjIzLTIuNjIsMS45My00LjI2LDQuNDctMTAuMjksMi43NS02LjUyLDMuMjgtNy43OSw0LjA2LTEwLjA0LjQ1LjI1LjY2LjMzLDEuMzUuNTdsLjg2LjMzLjQxLjE2Yy0uMTIuNDEtLjI1LjY2LS4zMy44NmwtMS4wNywyLjQyLS45NCwyLjIxYy0uNDUuOTQtLjg2LDEuODktMS42OCwzLjU3LDEuMTktMS4yMywxLjYtMS42NCwyLjcxLTIuNzEuNjItLjU3LDEuMjctMS4xOSwyLjA5LTEuOTMuODItLjc0LDEuMTUtMS4wMywxLjU2LTEuMzlsMi4yNi0xLjkzYy40NS0uMzcuODYtLjc0LDEuMjctMS4xMS44Ni0uNy44Ni0uNzQsMS42LTEuMzFsLjI5LjI5Yy4yOS4zMy40OS41Ny42Mi42NmwuNjYuNjFzLjEyLjEyLjI5LjI1Yy0uMTYuMzMtLjMzLjU3LS40NS44MmwtMS4xOSwyLjNjLS4zMy42Mi0uNywxLjM5LTEuMzEsMi44My0uNTMsMS4yMy0xLjM5LDMuMjQtMi4xMyw1LS4zNy45NC0uNzQsMS44OS0xLjExLDIuODMtLjM3LjktLjUzLDEuMjctLjc0LDEuODlsLTEuNTYsNC40Ny0uNDEsMS4xNWMtLjktLjQ1LTEuNzItLjgyLTIuNDItMS4wN1oiIGZpbGw9IiM3ZjgwODEiPjwvcGF0aD48cGF0aCBkPSJNNDM4LjYsNzcuOTJsLS45OC0uODItLjc4LS42MWMtLjA4LS4wOC0uMjEtLjE2LS4zNy0uMzMsMi4wMS0uMzcsMy4xNi0uNyw0LjU5LTEuMzEsMS44LS43NCwyLjcxLTEuMzksMi43MS0xLjkzcy0uNTctLjc0LTEuODktLjc0Yy0yLjEzLDAtNS40MS42Mi03LjgzLDEuNDgtMi41NC45NC0zLjc3LDEuOC0zLjc3LDIuNTQsMCwuNjEuNzgsMS4xNSwyLjMsMS40My4xMi4wNC41My4xMiwxLjc2LjQ5LjQxLjA4Ljc4LjIxLDEuMTkuMzNsMi42Ny43YzMuNjksMS4wMiw1LjQ1LDIuNTgsNS40NSw0Ljc2cy0xLjY4LDQuMjItNC41NSw1LjQ1Yy0yLjk5LDEuMjctNi42OCwxLjk3LTEwLjIxLDEuOTctNC41NSwwLTYuOTMtMS4xMS02LjkzLTMuMnMxLjcyLTMuNTMsNS40OS00Ljg4YzEuNzYtLjYyLDMuNTMtMS4wNyw2LjY4LTEuNjguMzMuMzMuNDEuNDEuODYuOTRsLjcuODJzLjEyLjE2LjI5LjMzYy0uNDkuMDgtLjgyLjE2LTEuMDcuMjEtLjc0LjE2LTEuNDguMjktMi4yMS40NS0yLjA5LjQxLTQuMTQuOTgtNS45OSwxLjcyLTEuMzUuNTMtMi4xNywxLjIzLTIuMTcsMS44LDAsLjk0LDEuMzEsMS4zOSw0LjM1LDEuMzksMi43MSwwLDYuMDctLjY2LDguNzMtMS42NCwyLjA5LS44MiwzLjQ0LTIuMTMsMy40NC0zLjM2cy0xLjMxLTIuMjEtNC4wNi0yLjkxbC0zLjQtLjljLTEuMDctLjI5LTIuMTctLjYyLTMuMjQtLjk4LTIuMDUtLjY2LTMuMTItMS42LTMuMTItMi43NSwwLTEuODksMi4xMy0zLjczLDUuOTUtNS4wOCwyLjYyLS45NCw2LjQtMS41Niw5LjIzLTEuNTYsMi41NCwwLDQuMjYsMS4wMyw0LjI2LDIuNTQsMCwxLjk3LTIuMDEsMy40NC03LjY3LDUuNjItLjIxLS4xNi0uMzctLjI1LS40MS0uMjlaIiBmaWxsPSIjN2Y4MDgxIj48L3BhdGg+PC9zdmc+" alt="R&amp;E Home Solutions">
+    <p>Audit demo built by <a href="../">agenticrx</a> for R&amp;E Home Solutions · Charleston, SC · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "R&E Home Solutions", botName: "Theo" };
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById("navToggle"),links=document.getElementById("navLinks");
+  if(toggle&&links){toggle.addEventListener("click",function(){links.classList.toggle("open")});
+  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open")})});}
+})();
+(function () {
+  const chat = document.getElementById("demoChat");
+  const quick = document.getElementById("demoQuick");
+  const input = document.getElementById("demoInput");
+  const send = document.getElementById("demoSend");
+  const receipt = document.getElementById("demoReceipt");
+  if (!chat) return;
+  const CFG = Object.assign({ company: "Sample Heating & Air", botName: "Ava" },
+    (typeof window !== "undefined" && window.DEMO_CONFIG) || {});
+  let dState = "start";
+  let dSlot = "Wed 9\u201311 AM";
+  const log = [];
+  const R = html => { log.push(html); receipt.innerHTML = log.map(i => "<li>" + i + "</li>").join(""); };
+  const scroll = () => { chat.scrollTop = chat.scrollHeight; };
+  const msg = (html, who) => {
+    const d = document.createElement("div");
+    d.className = "bubble " + who; d.innerHTML = html;
+    chat.appendChild(d); scroll();
+  };
+  const typing = cb => {
+    const t = document.createElement("div");
+    t.className = "bubble bot typing"; t.innerHTML = "<span></span><span></span><span></span>";
+    chat.appendChild(t); scroll();
+    setTimeout(() => { t.remove(); cb(); }, 900 + Math.random() * 600);
+  };
+  const bot = (html, replies) => typing(() => { msg(html, "bot"); chips(replies || []); });
+  const chips = replies => {
+    quick.innerHTML = "";
+    replies.forEach(r => {
+      const b = document.createElement("button");
+      b.textContent = r;
+      b.onclick = () => userSay(r);
+      quick.appendChild(b);
+    });
+  };
+  const userSay = text => {
+    if (!text.trim()) return;
+    msg(text.replace(/</g, "&lt;"), "me");
+    quick.innerHTML = "";
+    setTimeout(() => respond(text), 350);
+  };
+  const MENU = ["\u2744\uFE0F AC not cooling", "\uD83D\uDD25 Heater issue", "\uD83E\uDDB0 Schedule tune-up", "\uD83D\uDCA2 Pricing question"];
+  function respond(raw) {
+    const t = raw.toLowerCase();
+    if (dState === "await_name") {
+      const name = raw.trim().split(" ")[0].replace(/[^a-z']/gi, "") || "friend";
+      const cap = name.charAt(0).toUpperCase() + name.slice(1);
+      R("\u2713 <strong>Job booked: " + dSlot + "</strong> \u2014 " + cap);
+      R("\u2713 Confirmation text sent to customer");
+      R("\u2713 Owner got a 1-line summary \u2014 not a 2 AM wake-up");
+      bot("You're booked, " + cap + "! \u2705 <strong>" + dSlot + "</strong> with our senior tech. I just texted you a confirmation \u2014 he'll call when he's on the way. Anything else?", ["No thanks", "\uD83D\uDCA2 Pricing question"]);
+      dState = "booked"; return;
+    }
+    if (dState === "await_phone") {
+      R("\u2713 Callback queued \u2014 owner calls within 15 min");
+      bot("Got it \u2014 we'll call <strong>" + raw.trim().replace(/</g, "&lt;") + "</strong> within 15 minutes. Anything else I can do?", ["No thanks"]);
+      dState = "booked"; return;
+    }
+    if (/human|real person|someone real|agent|owner/.test(t)) return dHuman();
+    if (/call me|ring me|phone me/.test(t)) return dCallback();
+    if (/price|cost|how much|quote|estimate/.test(t)) return dPricing();
+    if (/thank|no thanks|bye|done/.test(t) && dState !== "start") {
+      bot("Anytime! We're here 24/7 \u2014 literally. \uD83D\uDC4B", ["Back to start"]);
+      dState = "menu"; return;
+    }
+    if (/back to start|start over|menu/.test(t)) {
+      bot("What can I help with?", MENU); dState = "menu"; return;
+    }
+    switch (dState) {
+      case "start":
+      case "menu":
+        if (/ac\b|cool|air cond/.test(t)) return dAC();
+        if (/heat|furnace|warm house|cold/.test(t)) return dHeat();
+        if (/tune|maintenance|checkup/.test(t)) return dTuneup();
+        bot("I can help with that \u2014 tap an option below and I'll take it from there. \uD83D\uDC47", MENU);
+        return;
+      case "ac_q":
+        if (/warm/.test(t)) return dOfferSlot("Warm air \u2014 that's usually a quick fix (often refrigerant or a capacitor). ");
+        return dOfferSlot("Not turning on at all \u2014 I'll flag it priority. ");
+      case "book_offer":
+        if (/yes|book|sure|ok|lock/.test(t)) return dAskName();
+        return dAltTime();
+      case "alt_offer":
+        if (/work|yes|thursday|thu/.test(t)) { dSlot = "Thu 1\u20133 PM"; return dAskName(); }
+        return dCallback();
+      case "tuneup_offer":
+        if (/yes|book|sure|ok/.test(t)) { dSlot = "Wed 9\u201311 AM"; return dAskName(); }
+        return dPricing();
+      case "pricing":
+        if (/book|tune/.test(t)) { dSlot = "Wed 9\u201311 AM"; return dAskName(); }
+        return dHuman();
+      default:
+        bot("Tap an option below and I'll take it from there. \uD83D\uDC47", MENU);
+        dState = "menu";
+    }
+  }
+  function dAC() {
+    dState = "ac_q";
+    bot("Sorry to hear that \u2014 quick question so I send the right help: is it <strong>blowing warm air</strong>, or <strong>not turning on</strong> at all?", ["Blowing warm air", "Won't turn on"]);
+  }
+  function dHeat() {
+    dState = "book_offer"; dSlot = "Wed 9\u201311 AM";
+    bot("No heat in this weather is miserable \u2014 I'll get you <strong>priority scheduling</strong>. I have <strong>Wed 9\u201311 AM</strong> with our senior tech. Want me to lock it in?", ["Yes, book it", "Need a different time"]);
+  }
+  function dOfferSlot(prefix) {
+    dState = "book_offer"; dSlot = "Wed 9\u201311 AM";
+    bot(prefix + "I have <strong>Wed 9\u201311 AM</strong> open with our senior tech. Shall I lock it in?", ["Yes, book it", "Need a different time"]);
+  }
+  function dAltTime() {
+    dState = "alt_offer";
+    bot("No problem \u2014 how about <strong>Thu 1\u20133 PM</strong> instead?", ["That works", "Just call me"]);
+  }
+  function dAskName() {
+    dState = "await_name";
+    bot("Perfect \u2014 what <strong>name</strong> should I put on the booking?");
+  }
+  function dTuneup() {
+    dState = "tuneup_offer";
+    bot("Smart move \u2014 tune-ups are <strong>$89 this month</strong> (normally $129). Want me to book one for <strong>Wed 9\u201311 AM</strong>?", ["Yes, book it", "Just the pricing"]);
+  }
+  function dPricing() {
+    dState = "pricing";
+    R("\u2713 Pricing answered instantly \u2014 no \u201Cwe'll call you back\u201D");
+    bot("Straight pricing, no games: tune-up <strong>$89</strong> \u00B7 service call <strong>$129</strong> (waived with any repair) \u00B7 <strong>free estimates</strong> on full installs. Want me to book something?", ["Book tune-up", "Talk to a human"]);
+  }
+  function dHuman() {
+    R("\u2713 Escalated to owner \u2014 per your rules");
+    bot("Of course \u2014 connecting you now\u2026 <em>(in the live version this rings the owner directly)</em> \uD83D\uDC4B", ["Back to start"]);
+    dState = "menu";
+  }
+  function dCallback() {
+    dState = "await_phone";
+    bot("Done \u2014 I'll have the owner call you <strong>within 15 minutes</strong>. What's the best number?");
+  }
+  send.onclick = () => { const v = input.value; input.value = ""; userSay(v); input.focus(); };
+  input.addEventListener("keydown", e => { if (e.key === "Enter") send.onclick(); });
+  setTimeout(() => {
+    bot("Hi! \uD83D\uDC4B Thanks for reaching <strong>" + CFG.company + "</strong> \u2014 I'm " + CFG.botName + ", the AI assistant. What can I help with tonight?", MENU);
+    dState = "menu";
+    R("\u2713 <strong>Answered in 8 seconds</strong> \u2014 11:04 PM, no human needed");
+  }, 1200);
+})();
+
+</script>
+</body>
+</html>
