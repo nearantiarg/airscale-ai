@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Blue Ridge Services (3.0/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited blueridgeservicesinc.net: 3.0/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a2540;--teal:#2b9fff;--orange:#2b9fff;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Raleway',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#3a1c08;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#3a1c08;font-weight:800}
+  /* header — white bar, navy/teal logo, orange pill call button */
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Raleway',sans-serif;box-shadow:0 4px 14px rgba(244,126,77,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(244,126,77,.45)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  /* hero */
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(72,185,199,.18),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(244,126,77,.14),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef6f8;border:1px solid #d7e8ed;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  /* scorecard */
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,58,93,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding-left:14px;color:var(--ink);font-size:.92rem;background:#f0f9fb;border-radius:0 8px 8px 0;padding-top:10px;padding-bottom:10px}
+  .fix strong{color:#0e7d8c}
+  /* demo */
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),#0a5a86);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--teal);font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0 0 0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  /* reviews */
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  /* cta */
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),#0a5a86);text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--teal)}
+  .lede{color:#cfe0ea;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9db4c4}
+  /* footer */
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow.pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:8px}
+@media(max-width:900px){.demo-grid{grid-template-columns:1fr}}
+.demo-chat{height:380px;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+.demo-chat .bubble{max-width:88%;padding:11px 14px;border-radius:15px;font-size:.86rem;line-height:1.5;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.demo-chat .bubble.bot{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-bottom-left-radius:5px;align-self:flex-start;color:#e8eef8}
+.demo-chat .bubble.me{background:var(--orange);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.bubble.typing{display:flex;gap:5px;padding:14px 16px}
+.bubble.typing span{width:8px;height:8px;border-radius:50%;background:#8fa1bd;animation:blink 1.1s infinite}
+.bubble.typing span:nth-child(2){animation-delay:.18s}
+.bubble.typing span:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:4px 16px 12px;min-height:52px}
+.demo-quick button{background:rgba(22,163,74,.14);border:1.5px solid #16a34a;color:#4ade80;font-size:.78rem;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit;transition:background .12s}
+.demo-quick button:hover{background:rgba(22,163,74,.3)}
+.demo-inputrow{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(255,255,255,.08);background:#0a1122}
+.demo-inputrow input{flex:1;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;font-family:inherit}
+.demo-inputrow input:focus{outline:none;border-color:var(--orange)}
+.demo-inputrow input::placeholder{color:#5b6b85}
+.demo-inputrow button{background:var(--orange);border:0;color:#fff;width:44px;border-radius:10px;font-size:1.1rem;cursor:pointer}
+.demo-receipt li{background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.4);border-radius:12px;padding:13px 16px;font-size:.92rem;color:#dbe4f2;animation:pop .3s ease}
+.demo-receipt li.dim{background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.2);color:#7e90ad}
+.logo-wordmark{font-weight:900;font-size:1.35rem;letter-spacing:-.01em;text-decoration:none;line-height:1.1}
+header.nav.dark{background:#0c0c0c}
+header.nav.dark .nav-links a{color:#eef2f7}
+header.nav.dark .nav-links a:hover{color:var(--orange)}
+header.nav.dark .nav-toggle{color:#eef2f7}
+
+  body{font-family:'Playfair Display',sans-serif}
+  .btn{font-family:'Playfair Display',sans-serif}
+  .demo-inputrow input,.demo-quick button{font-family:'Playfair Display',sans-serif}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Blue Ridge Services</strong> · Score: 3.0/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo-wordmark" style="color:#0a2540">Blue Ridge Services</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+14349777318">📞 (434) 977-7318</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Charlottesville, VA</p>
+    <h1>We audited blueridgeservicesinc.net. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">3.0<small>/5</small></div>
+        <div class="score-bar"><i style="width:60%"></i></div>
+      </div>
+      <p class="verdict">A Charlottesville Carrier dealer with named Google reviews on the site — and a free-estimate form that still makes homeowners wait.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 139 HVAC sites audited across GA &amp; FL</span>
+      <span>📉 35 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on blueridgeservicesinc.net — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>The free estimate still waits for office hours</h3>
+        <p>The estimate form collects <strong>first name, last name, email, phone, and ZIP</strong> — then the homeowner waits for a callback. No chat, no AI, no instant engagement.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Clara engages instantly — estimate details captured in chat, callback scheduled, nothing waits.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>Emergency = the same phone number</h3>
+        <p>"Emergency HVAC Services Available" is advertised with the main number — <strong>no triage, no priority lane</strong>, just dial and hope someone's there.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> The AI triages every emergency contact and escalates it past routine requests.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Great reviews, no review engine</h3>
+        <p>The site shows <strong>named Google reviews</strong> — real proof — but nothing <strong>asks new customers for reviews automatically</strong>. The proof doesn't grow by itself.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Automatic review requests texted after every job — the proof compounds.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No chat or text option</h3>
+        <p>Every path is <strong>call or form</strong>. The homeowner comparing Carrier dealers at 10 PM has no way to start a conversation.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Chat and text-back built in — the conversation starts the second they land.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No online booking</h3>
+        <p>No calendar, no time picker — the estimate and the service call both begin with <strong>waiting</strong>.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Real slots offered in chat — tap a time, give a name, booked.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is blueridgeservicesinc.net at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you're the homeowner with the failed heat pump.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Blue Ridge Services</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Blue Ridge Services's real services — residential and commercial HVAC, emergency service, and water heaters — and the the Charlottesville area service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>The rating exists.<br>Your site shows it — statically.</h2>
+    <p class="section-sub">Pulled from the company's public review presence — the same proof the fixed homepage would keep growing.</p>
+    <div class="rev-badge">
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>customer reviews displayed on blueridgeservicesinc.net</small>
+      </div>
+      <div><strong>5★</strong><small>named Google reviews shown</small></div>
+    </div>
+    <p class="rev-note">The site displays named Google customer reviews (e.g. long-term customers praising service and installs). The fixed version adds automatic collection so new reviews keep coming.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20Blue%20Ridge%20Services">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Blue Ridge Services (blueridgeservicesinc.net) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="foot-logo" style="display:inline-flex;align-items:center;font-weight:900;color:#0a2540;font-size:1rem">Blue Ridge Services</span>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Blue Ridge Services · Charlottesville, VA · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Blue Ridge Services", botName: "Clara" };
+(function(){var t=document.getElementById("navToggle"),l=document.getElementById("navLinks");if(t&&l){t.addEventListener("click",function(){l.classList.toggle("open")});l.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){l.classList.remove("open")})});}})();
+</script>
+<script>
+   ================================================================ */
+(function () {
+  const chat = document.getElementById("demoChat");
+  const quick = document.getElementById("demoQuick");
+  const input = document.getElementById("demoInput");
+  const send = document.getElementById("demoSend");
+  const receipt = document.getElementById("demoReceipt");
+  if (!chat) return;
+
+  const CFG = Object.assign({
+    company: "Sample Heating & Air",
+    botName: "Ava"
+  }, (typeof window !== "undefined" && window.DEMO_CONFIG) || {});
+  let dState = "start";
+  let dSlot = "Wed 9–11 AM";
+  const log = [];
+  const R = html => { log.push(html); receipt.innerHTML = log.map(i => "<li>" + i + "</li>").join(""); };
+
+  const scroll = () => { chat.scrollTop = chat.scrollHeight; };
+  const msg = (html, who) => {
+    const d = document.createElement("div");
+    d.className = "bubble " + who; d.innerHTML = html;
+    chat.appendChild(d); scroll();
+  };
+  const typing = cb => {
+    const t = document.createElement("div");
+    t.className = "bubble bot typing"; t.innerHTML = "<span></span><span></span><span></span>";
+    chat.appendChild(t); scroll();
+    setTimeout(() => { t.remove(); cb(); }, 900 + Math.random() * 600);
+  };
+  const bot = (html, replies) => typing(() => { msg(html, "bot"); chips(replies || []); });
+  const chips = replies => {
+    quick.innerHTML = "";
+    replies.forEach(r => {
+      const b = document.createElement("button");
+      b.textContent = r;
+      b.onclick = () => userSay(r);
+      quick.appendChild(b);
+    });
+  };
+  const userSay = text => {
+    if (!text.trim()) return;
+    msg(text.replace(/</g, "&lt;"), "me");
+    quick.innerHTML = "";
+    setTimeout(() => respond(text), 350);
+  };
+
+  const MENU = ["❄️ AC not cooling", "🔥 Heater issue", "🧰 Schedule tune-up", "💲 Pricing question"];
+
+  function respond(raw) {
+    const t = raw.toLowerCase();
+
+    if (dState === "await_name") {
+      const name = raw.trim().split(" ")[0].replace(/[^a-z']/gi, "") || "friend";
+      const cap = name.charAt(0).toUpperCase() + name.slice(1);
+      R("✓ <strong>Job booked: " + dSlot + "</strong> — " + cap);
+      R("✓ Confirmation text sent to customer");
+      R("✓ Owner got a 1-line summary — not a 2 AM wake-up");
+      bot("You're booked, " + cap + "! ✅ <strong>" + dSlot + "</strong> with our senior tech. I just texted you a confirmation — he'll call when he's on the way. Anything else?", ["No thanks", "💲 Pricing question"]);
+      dState = "booked";
+      return;
+    }
+    if (dState === "await_phone") {
+      R("✓ Callback queued — owner calls within 15 min");
+      bot("Got it — we'll call <strong>" + raw.trim().replace(/</g, "&lt;") + "</strong> within 15 minutes. Anything else I can do?", ["No thanks"]);
+      dState = "booked";
+      return;
+    }
+
+    // global intents
+    if (/human|real person|someone real|agent|owner/.test(t)) return dHuman();
+    if (/call me|ring me|phone me/.test(t)) return dCallback();
+    if (/price|cost|how much|quote|estimate/.test(t)) return dPricing();
+    if (/thank|no thanks|bye|done/.test(t) && dState !== "start") {
+      bot("Anytime! We're here 24/7 — literally. 👋", ["Back to start"]);
+      dState = "menu"; return;
+    }
+    if (/back to start|start over|menu/.test(t)) {
+      bot("What can I help with?", MENU); dState = "menu"; return;
+    }
+
+    switch (dState) {
+      case "start":
+      case "menu":
+        if (/ac\b|cool|air cond/.test(t)) return dAC();
+        if (/heat|furnace|warm house|cold/.test(t)) return dHeat();
+        if (/tune|maintenance|checkup/.test(t)) return dTuneup();
+        bot("I can help with that — tap an option below and I'll take it from there. 👇", MENU);
+        return;
+      case "ac_q":
+        if (/warm/.test(t)) return dOfferSlot("Warm air — that's usually a quick fix (often refrigerant or a capacitor). ");
+        return dOfferSlot("Not turning on at all — I'll flag it priority. ");
+      case "book_offer":
+        if (/yes|book|sure|ok|lock/.test(t)) return dAskName();
+        return dAltTime();
+      case "alt_offer":
+        if (/work|yes|thursday|thu/.test(t)) { dSlot = "Thu 1–3 PM"; return dAskName(); }
+        return dCallback();
+      case "tuneup_offer":
+        if (/yes|book|sure|ok/.test(t)) { dSlot = "Wed 9–11 AM"; return dAskName(); }
+        return dPricing();
+      case "pricing":
+        if (/book|tune/.test(t)) { dSlot = "Wed 9–11 AM"; return dAskName(); }
+        return dHuman();
+      default:
+        bot("Tap an option below and I'll take it from there. 👇", MENU);
+        dState = "menu";
+    }
+  }
+
+  function dAC() {
+    dState = "ac_q";
+    bot("Sorry to hear that — quick question so I send the right help: is it <strong>blowing warm air</strong>, or <strong>not turning on</strong> at all?", ["Blowing warm air", "Won't turn on"]);
+  }
+  function dHeat() {
+    dState = "book_offer"; dSlot = "Wed 9–11 AM";
+    bot("No heat in this weather is miserable — I'll get you <strong>priority scheduling</strong>. I have <strong>Wed 9–11 AM</strong> with our senior tech. Want me to lock it in?", ["Yes, book it", "Need a different time"]);
+  }
+  function dOfferSlot(prefix) {
+    dState = "book_offer"; dSlot = "Wed 9–11 AM";
+    bot(prefix + "I have <strong>Wed 9–11 AM</strong> open with our senior tech. Shall I lock it in?", ["Yes, book it", "Need a different time"]);
+  }
+  function dAltTime() {
+    dState = "alt_offer";
+    bot("No problem — how about <strong>Thu 1–3 PM</strong> instead?", ["That works", "Just call me"]);
+  }
+  function dAskName() {
+    dState = "await_name";
+    bot("Perfect — what <strong>name</strong> should I put on the booking?");
+  }
+  function dTuneup() {
+    dState = "tuneup_offer";
+    bot("Smart move — tune-ups are <strong>$89 this month</strong> (normally $129). Want me to book one for <strong>Wed 9–11 AM</strong>?", ["Yes, book it", "Just the pricing"]);
+  }
+  function dPricing() {
+    dState = "pricing";
+    R("✓ Pricing answered instantly — no “we'll call you back”");
+    bot("Straight pricing, no games: tune-up <strong>$89</strong> · service call <strong>$129</strong> (waived with any repair) · <strong>free estimates</strong> on full installs. Want me to book something?", ["Book tune-up", "Talk to a human"]);
+  }
+  function dHuman() {
+    R("✓ Escalated to owner — per your rules");
+    bot("Of course — connecting you now… <em>(in the live version this rings the owner directly)</em> 👋", ["Back to start"]);
+    dState = "menu";
+  }
+  function dCallback() {
+    dState = "await_phone";
+    bot("Done — I'll have the owner call you <strong>within 15 minutes</strong>. What's the best number?");
+  }
+
+  send.onclick = () => { const v = input.value; input.value = ""; userSay(v); input.focus(); };
+  input.addEventListener("keydown", e => { if (e.key === "Enter") send.onclick(); });
+
+  // kick off
+  setTimeout(() => {
+    bot("Hi! 👋 Thanks for reaching <strong>" + CFG.company + "</strong> — I'm " + CFG.botName + ", the AI assistant. What can I help with tonight?", MENU);
+    dState = "menu";
+    R("✓ <strong>Answered in 8 seconds</strong> — 11:04 PM, no human needed");
+  }, 1200);
+})();
+
+</script>
+</body>
+</html>

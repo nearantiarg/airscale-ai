@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: America’s Choice Air and Refrigeration (2.7/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited americaschoiceair.com: 2.7/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--brand:#1B3A8F;--brand-d:#102358;--accent:#E50000;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Oswald',sans-serif;margin:0}
+  h1,h2,h3{color:var(--brand);line-height:1.15}
+  .audit-bar{background:var(--accent);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--brand);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0;position:relative}
+  .logo-img{height:52px;width:auto;display:block}
+  .logo-word{font-weight:900;font-size:1.35rem;color:var(--brand);text-decoration:none;letter-spacing:-.01em;line-height:1.05}
+  .logo-word small{display:block;font-size:.68rem;font-weight:700;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--brand);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--brand);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(27,58,143,0.16),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(229,0,0,0.14),transparent 60%),#fff}
+  .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--accent)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:54%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--brand);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f7;border:1px solid #d7e2ec;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--brand)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--brand);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--brand);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#f4f7fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--brand)}
+  .demo{padding:80px 0;background:var(--brand-d);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#c9d8e2}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--brand-d),var(--brand));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--accent);font-size:.82rem;font-weight:700}
+  .demo-chat{min-height:220px;max-height:300px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 10px}
+  .demo-quick button{border:1px solid #d7e2ec;background:#f4f7fa;border-radius:999px;padding:8px 14px;font-size:.82rem;font-weight:700;color:var(--brand);cursor:pointer}
+  .demo-inputrow{display:flex;gap:8px;padding:12px 16px 16px}
+  .demo-inputrow input{flex:1;border:1px solid #d7e2ec;border-radius:999px;padding:12px 16px;font-size:.95rem}
+  .demo-inputrow button{background:var(--accent);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--brand);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--accent);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-quote{background:var(--paper);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 16px;max-width:680px}
+  .rev-quote p{margin:0 0 8px;font-size:1rem}
+  .rev-quote cite{font-style:normal;font-weight:700;color:var(--brand);font-size:.88rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--brand-d),var(--brand));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#e6eef4;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#c9d8e2}
+  footer{background:#101c28;padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-word{font-weight:900;color:#fff;font-size:1.05rem}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid,.demo-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>America’s Choice Air and Refrigeration</strong> · Score: 2.7/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/png;base64,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" alt="America’s Choice Air and Refrigeration"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+19417024288">📞 (941) 702-4288</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Bradenton, FL</p>
+    <h1>We audited americaschoiceair.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.7<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">Sarasota/Bradenton commercial + residential HVAC — a site with no quote form, no booking, and no chat. Just a phone number.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 Independent website audit — americaschoiceair.com</span>
+      <span>📋 5 findings, 5 fixes below</span>
+      <span>🤖 No AI answering found on the site</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on americaschoiceair.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>The site is call-or-nothing</h3>
+        <p>No quote form, no online booking, and no chat were detectable — not even a contact form. Every single customer must dial <strong>(941) 702-4288</strong> or leave.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Rex answers in 8 seconds on-site, captures the job, and texts a confirmation — the site finally converts the customers who won’t call.</div>
+      </div>      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No emergency or after-hours path at all</h3>
+        <p>No 24/7 claim and no emergency mention were found anywhere. Sarasota/Bradenton summers don’t wait for business hours — but the site assumes they will.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> AI triage 24/7: the emergency gets captured and dispatched, the routine question gets a morning callback — automatically.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Commercial + residential, one undifferentiated phone line</h3>
+        <p>A restaurant with a down cooler and a homeowner with a tune-up question get the same door and the same queue — no way to signal which one is losing money by the hour.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Intake that asks “home or business?” first — the commercial emergency jumps the queue with full context.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>The proof lives on Facebook</h3>
+        <p>Visitors are sent to Facebook to hear from happy customers — which means the homepage, where the hiring decision happens, shows none of them. Most visitors never make the trip.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Live reviews pulled onto the homepage automatically — the proof meets the customer instead of asking them to travel.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No text-back option</h3>
+        <p>No SMS path was found. The customer who’d text but won’t call has no door — and after hours, they have no door at all.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Missed-call text-back plus on-site text chat: every attempt to reach you becomes a captured lead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--accent)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is americaschoiceair.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with the restaurant cooler failing before dinner rush.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 America’s Choice Air and Refrigeration</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on America’s Choice Air and Refrigeration’s real services — commercial and residential HVAC service — and the Bradenton, FL service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Happy customers exist.<br>They’re on Facebook, not the site.</h2>
+    <p class="section-sub">Where americaschoiceair.com keeps its proof — and where the customer decides.</p>
+    <p class="rev-note" style="font-size:1rem;max-width:680px">The site points visitors to <strong>Facebook to ‘Hear From Our Happy Customers’</strong> — instead of showing any of those customers where the hiring decision actually happens. The fixed version pulls live reviews onto the homepage automatically — and asks every happy customer for one by text after the job.</p>
+  </div>
+</section>
+
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20America%E2%80%99s%20Choice%20Air%20and%20Refrigeration">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © America’s Choice Air and Refrigeration (americaschoiceair.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/png;base64,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" alt="America’s Choice Air and Refrigeration">
+    <p>Audit demo built by <a href="../">agenticrx</a> for America’s Choice Air and Refrigeration · Bradenton, FL · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "America’s Choice Air and Refrigeration", botName: "Rex" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
