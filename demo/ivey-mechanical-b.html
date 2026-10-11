@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Ivey Mechanical LLC (2.7/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited iveymechanical.com: 2.7/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--brand:#7A1F1F;--brand-d:#4b1313;--accent:#0E9F6E;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Cairo',sans-serif;margin:0}
+  h1,h2,h3{color:var(--brand);line-height:1.15}
+  .audit-bar{background:var(--accent);color:#fff;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#fff;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--brand);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0;position:relative}
+  .logo-img{height:52px;width:auto;display:block}
+  .logo-word{font-weight:900;font-size:1.35rem;color:var(--brand);text-decoration:none;letter-spacing:-.01em;line-height:1.05}
+  .logo-word small{display:block;font-size:.68rem;font-weight:700;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--brand);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--brand);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(122,31,31,0.16),transparent 60%),radial-gradient(600px 320px at 10% 90%,rgba(14,159,110,0.14),transparent 60%),#fff}
+  .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--accent)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:54%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--brand);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f7;border:1px solid #d7e2ec;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--brand)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--brand);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--brand);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#f4f7fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--brand)}
+  .demo{padding:80px 0;background:var(--brand-d);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#c9d8e2}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--brand-d),var(--brand));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:var(--accent);font-size:.82rem;font-weight:700}
+  .demo-chat{min-height:220px;max-height:300px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .demo-quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 10px}
+  .demo-quick button{border:1px solid #d7e2ec;background:#f4f7fa;border-radius:999px;padding:8px 14px;font-size:.82rem;font-weight:700;color:var(--brand);cursor:pointer}
+  .demo-inputrow{display:flex;gap:8px;padding:12px 16px 16px}
+  .demo-inputrow input{flex:1;border:1px solid #d7e2ec;border-radius:999px;padding:12px 16px;font-size:.95rem}
+  .demo-inputrow button{background:var(--accent);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--brand);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--accent);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--brand)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-quote{background:var(--paper);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 16px;max-width:680px}
+  .rev-quote p{margin:0 0 8px;font-size:1rem}
+  .rev-quote cite{font-style:normal;font-weight:700;color:var(--brand);font-size:.88rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--brand-d),var(--brand));text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:#fff;opacity:.85}
+  .lede{color:#e6eef4;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#c9d8e2}
+  footer{background:#101c28;padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .foot-word{font-weight:900;color:#fff;font-size:1.05rem}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid,.demo-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Ivey Mechanical LLC</strong> · Score: 2.7/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/png;base64,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" alt="Ivey Mechanical LLC"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+16622340837">📞 (662) 234-0837</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · Oxford, MS</p>
+    <h1>We audited iveymechanical.com. <span class="grade">Here’s the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.7<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">An Oxford, MS commercial mechanical contractor — no quote form, no project intake; the facility manager’s only move is a cold call.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 Independent website audit — iveymechanical.com</span>
+      <span>📋 5 findings, 5 fixes below</span>
+      <span>🤖 No AI answering found on the site</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on iveymechanical.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>A commercial contractor with no commercial intake</h3>
+        <p>The site describes designing, building, and maintaining <strong>commercial HVAC, plumbing, and process piping systems</strong> — yet no quote form or project inquiry path exists. A facility manager with a down system must cold-call and hope.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Ivy captures project inquiries conversationally — facility type, system, timeline — and routes them to estimating with full context.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Two phone numbers, no labels</h3>
+        <p>Both <strong>662.289.3646</strong> and <strong>662.289.3713</strong> appear, with no indication which is service and which is the office. The facility manager shouldn’t have to guess.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> One primary number, tracked to the source — every call, text, and chat in a single inbox.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No after-hours path</h3>
+        <p>No 24/7 or emergency mention was found. Commercial downtime doesn’t wait for business hours — a production floor losing climate control at 9 PM has no door.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> AI coverage after hours: the emergency is captured with facility details and dispatched — the routine inquiry waits for morning.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No project proof on the homepage</h3>
+        <p>No case studies, client logos, or testimonials were found in the readable content. Commercial buyers hire on evidence — and there’s none at the decision moment.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Project highlights and client proof on the homepage, collected automatically from completed work.</div>
+      </div>      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>No chat or text-back</h3>
+        <p>No live channel of any kind was found. The buyer comparing mechanical contractors at 8 PM can’t ask a single question without dialing.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> On-site AI chat for the researchers; text-back for the callers. Every inquiry becomes a captured lead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--accent)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is iveymechanical.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you’re the homeowner with the rooftop unit down on a production floor.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Ivey Mechanical LLC</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Ivey Mechanical LLC’s real services — commercial HVAC, plumbing, and process piping design, build, and maintenance — and the Oxford, MS service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>Commercial-grade work.<br>No commercial-grade intake.</h2>
+    <p class="section-sub">What iveymechanical.com offers facility managers — and the hoops to get it.</p>
+    <p class="rev-note" style="font-size:1rem;max-width:680px">No public review rating was verifiable on iveymechanical.com at build time. That doesn’t mean the work isn’t five-star — it means the proof isn’t where the customer decides. The fixed version collects real reviews by text after every job and displays them on the homepage automatically.</p>
+  </div>
+</section>
+
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We’ll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20Ivey%20Mechanical%20LLC">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Ivey Mechanical LLC (iveymechanical.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="data:image/png;base64,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" alt="Ivey Mechanical LLC">
+    <p>Audit demo built by <a href="../">agenticrx</a> for Ivey Mechanical LLC · Oxford, MS · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = { company: "Ivey Mechanical LLC", botName: "Ivy" };
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

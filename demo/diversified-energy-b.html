@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website audit: Diversified Energy (2.8/5) — agenticrx</title>
+<meta name="description" content="agenticrx audited diversifiede.com: 2.8/5. The findings, and what the fixed version looks like — live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  :root{--navy:#0f766e;--teal:#14324a;--orange:#14324a;--ink:#1c2b3a;--muted:#5c6b7d;--paper:#f6f9fb}
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;margin:0}
+  h1,h2,h3{color:var(--navy);line-height:1.15}
+  .audit-bar{background:var(--orange);color:#231303;text-align:center;font-size:.82rem;font-weight:700;padding:10px 16px;letter-spacing:.02em}
+  .audit-bar a{color:#231303;font-weight:800}
+  header.nav{background:#fff;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:50}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:12px 0}
+  .logo-img{height:52px;width:auto;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--navy);font-weight:700;font-size:.95rem;text-decoration:none}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;border:none;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Inter',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-sm{padding:10px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;margin-left:auto}
+  .a-hero{padding:88px 0 64px;background:radial-gradient(700px 340px at 85% 10%,rgba(0,0,0,.06),transparent 60%),#fff}
+  .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin:0 0 12px}
+  .a-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin:0 0 6px}
+  .a-hero h1 .grade{color:var(--orange)}
+  .score-wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .score-big{font-size:clamp(4.5rem,11vw,7rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+  .score-big small{font-size:.32em;color:var(--muted);font-weight:700;letter-spacing:0}
+  .score-bar{height:14px;background:#e3eaf1;border-radius:99px;overflow:hidden;max-width:420px;margin-top:14px}
+  .score-bar i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--navy),var(--orange));border-radius:99px}
+  .verdict{font-size:1.3rem;font-weight:700;color:var(--navy);max-width:560px;margin:0}
+  .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .audit-meta span{background:#eef3f7;border:1px solid #d7e2ec;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;color:var(--navy)}
+  .fine{margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .scorecard{padding:80px 0;background:var(--paper)}
+  .scorecard h2,.a-reviews h2,.demo h2,.a-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin:0 0 10px}
+  .section-sub{color:var(--muted);font-size:1.02rem;max-width:640px;margin:0 0 30px}
+  .find-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:8px}
+  .finding{background:#fff;border:1px solid #e2e9f0;border-top:5px solid var(--teal);border-radius:14px;padding:30px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .sev{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.09em;padding:6px 13px;border-radius:999px;text-transform:uppercase}
+  .sev.red{background:#fdeceb;color:#c2410c;border:1px solid #f9c9a8}
+  .sev.amber{background:#fff7e8;color:#b45309;border:1px solid #f5d78e}
+  .finding h3{font-size:1.18rem;margin:0}
+  .finding p{color:var(--muted);font-size:.95rem;margin:0}
+  .finding p strong{color:var(--ink)}
+  .fix{border-left:4px solid var(--teal);padding:10px 0 10px 14px;color:var(--ink);font-size:.92rem;background:#f4f8fa;border-radius:0 8px 8px 0}
+  .fix strong{color:var(--navy)}
+  .demo{padding:80px 0;background:var(--navy);color:#eaf3f8}
+  .demo h2,.demo .demo-side h3{color:#fff}
+  .demo .section-sub{color:#b9c9d6}
+  .demo-phone{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .demo-sitebar{background:linear-gradient(90deg,var(--navy),var(--teal));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .demo-live{color:#7CFC9A;font-size:.82rem;font-weight:700}
+  .demo-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 18px;color:#c9d8e2;font-size:.9rem;margin-top:18px}
+  .demo-receipt{background:#fff;border-radius:12px;padding:18px;list-style:none;margin:0;color:var(--ink);font-size:.92rem}
+  .demo-receipt .dim{color:var(--muted)}
+  .a-reviews{padding:80px 0;background:#fff}
+  .rev-badge{display:flex;align-items:center;gap:18px;background:var(--paper);border:2px solid var(--teal);border-radius:16px;padding:22px 28px;max-width:640px;margin:6px 0 26px}
+  .rev-badge .stars{font-size:1.6rem;color:var(--orange);letter-spacing:.1em}
+  .rev-badge strong{font-size:1.9rem;font-weight:900;color:var(--navy)}
+  .rev-badge small{color:var(--muted);display:block;font-size:.8rem}
+  .rev-note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:640px}
+  .a-cta{padding:90px 0;background:linear-gradient(135deg,var(--navy),#000);text-align:center;color:#fff}
+  .a-cta .wrap{max-width:720px}
+  .a-cta h2{color:#fff}
+  .a-cta .eyebrow{color:var(--teal)}
+  .lede{color:#cfe0ea;font-size:1.05rem;margin:0 0 28px}
+  .cta-row{display:flex;justify-content:center}
+  .disclosure{margin-top:26px;font-size:.82rem;color:#9db4c4}
+  footer{background:var(--navy);padding:36px 0;color:#9db4c4}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-inner p{font-size:.85rem;margin:0}
+  .foot-inner a{color:#cfe0ea;text-decoration:none}
+  .foot-logo{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 12px}
+  .concept{font-weight:400;font-size:.78rem;color:#9db4c4}
+  @media(max-width:900px){.find-grid{grid-template-columns:1fr}.score-wrap{gap:24px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:14px;box-shadow:0 12px 24px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-links a{color:var(--navy)}.nav-toggle{display:block}}
+</style>
+</head>
+<body>
+
+<div class="audit-bar">📋 WEBSITE AUDIT — built by <a href="../">agenticrx</a> for <strong>Diversified Energy</strong> · Score: 2.8/5 · <a href="../">← Back to agenticrx</a></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top"><img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWcAAAAtBAMAAACAIrcAAAAAG1BMVEU9OTVAOjXxayHzbCE9OTXzbCE9OTXzbCE9OTV5daPtAAAAB3RSTlMAHUOTndbZhyy0hAAABKxJREFUeNrtmLtr40oUh4/1cFRqIRiXIiG4NasirQ1iUWnuEtRqwYXKsMFM64Aw82dfzms0eiW+t9Yp7BnNQ59+OnPOjAAWW2yxxRZbbDEAKNB+cDkqDhAVR9eScmtRFNrRddXqAXhE1NUf+Yct5ZZjSoPCnG0P8CTzPOcZ/rB1RW2GJ7qKIzOdIgOLduY5E3uFxLbyBNYCNJYNXFG6PkrDFWBtP/HH1bf2AFBKPYUE/26sRGzYTgAvAvVq9vjDlrniByNCUBnzOwMIDfYDgAfsxXO3KUPXzMqVtrt3B83PFEnF1gPoehra2uMAenf6Etp8OGZjLhlAZf7SFfpvPJQ13tPiPQFve+1Ba5Gat/ZupdfeMIV+B9hdvoY2J27VJ4ipVRRvbFH8kjkJmmBB4Et7FteUYmkREay9OR9eM3mr9W1/ILU0LEtsLm9oe4Cd+ceHpstvmSsaEjY0xmDZZBDQo8IrvYLmxh6KKBuETpwDkLxuxUqxxOYIJVQTpT+1LtDagSZdlTQiphuT7Vg5hc7A+XjGzRcW+ifAMz0AXQn4DTS3lF+3Ki1OzezdvbW4sjfs04IHfZWfSei1/UPDsEMf+q8HvR9AB8bQD72OF+cYD/yopDTOeRBocWr2khloD/FbpXlS2OJz9qHp/jPQUJkM/dgLzrgEZTmy0sxIb1JwFX0IDaz0591Kb0hpfoED6I8voPGRdhIxQIOdBj5WWuWq1THEScbQEbfeRkpfv1YaGpsOoR3v2KdDFPnVnDzogKIfeEoTC89PvLIcS3v8geaKjw0irqw9y+UuelDH1EEfpc4+jVcOEJuPJ7QMod9IaoH+SddBi88VtlX0ANpC8e8dPKVXCMnuQZ4hgW8qTtdd5ewpPRenZVK67Mdps68wFMzG6XeB7gQOZRk4pVed0gQsKWYCmvr7GUOUnsuIqrQPjRnRnGKEmYPmLNj3Cs2KPaUFOrGtJvMx9O3gN7RwR0acURpVNqfdNPRlDyOlaczIp+VNRva2kUBcWrfLo2KpYWNVcHpMZzOi7vI2fZ/WXR4ChMZcROnfusujIuc98ek8zwX6oYMeRg906kaCQS8jEmDr72sbju7/L3qcRNaJ6BEypYuEM0pvWa7avfsDTIW8lZ+/cVR9Z0bEkTCCDvy450EHvOJ20j0YQ3fbI13oidX96ShON/I0un2tv1V64xbKGJqi9VRyqaj1QWCDaaXX3d6DI3U7A136Cfy/KN2M9h4nCQ1T0JwLA0mA8aTSkcYBhgarCCPopOfU9/t0Sa9yBA0vkz6tmBVFvlCPBB00LnPxYXUPWunj6JG6HaucCH/50WMIrQM3GFdK3U/3ogdzDaNHBs6pMZLnuZ4IfOjByYUd0Mmr4Va1k+2gHcXpIfR3JxcBiEdxOgPn1FD5Z68O2k8ZiUJH7QBaQpY69dqOM+I0NOgZ8c/wjKgAr5PQssEL+fp+ClrSXOLuXEPvPSCvQCecOr29R4JKJ/5+uh4fbM+6uxwqDfGpB10xoQaOZ82O4IXA0XcPtrT/dYO/e0ifovvKkbpR3VCI8PKjGzjz3SPMde0Nv3vwySXPe989ZPh++VC12GKLLbbYYs7+BZphWec5ujHMAAAAAElFTkSuQmCC" alt="Diversified Energy"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#fixed">See it fixed</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#cta">Next step</a>
+    </nav>
+    <a class="btn btn-sm" href="tel:+115042737779">📞 (504) 273-7779</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="a-hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Your site, graded · New Orleans, LA</p>
+    <h1>We audited diversifiede.com. <span class="grade">Here's the score.</span></h1>
+    <div class="score-wrap">
+      <div>
+        <div class="score-big">2.8<small>/5</small></div>
+        <div class="score-bar"><i></i></div>
+      </div>
+      <p class="verdict">A New Orleans home-performance specialist — insulation, blower-door tests, Manual J — with no emergency path and a “We&#x27;re hiring!” banner sharing the header.</p>
+    </div>
+    <div class="audit-meta">
+      <span>🔍 300+ HVAC sites audited across 8 states</span>
+      <span>📉 4 in 10 scored under 3.5</span>
+      <span>🤖 0 had AI answering</span>
+    </div>
+    <p class="fine">Scores rate the website — not the workmanship. Every finding below is verifiable on the live site today.</p>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard" id="scorecard">
+  <div class="wrap">
+    <p class="eyebrow">The scorecard</p>
+    <h2>Five findings.<br>Five fixes.</h2>
+    <p class="section-sub">What the audit found on diversifiede.com — and what the agenticrx version does about each one.</p>
+    <div class="find-grid">
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No 24/7 or emergency language anywhere</h3>
+        <p>We found <strong>no after-hours or emergency path</strong> stated on the site. HVAC failures don't keep office hours — and neither do the competitors who answer.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Hank covers nights and weekends: triage the failure, book the visit, text the confirmation.</div>
+      </div>
+      <div class="finding">
+        <span class="sev red">🔴 Costing you jobs</span>
+        <h3>No online booking observed</h3>
+        <p>Audits, insulation quotes, Manual J — everything routes through <strong>contact forms and phone</strong>. High-consideration services need low-friction starts.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> “Book my energy audit” in chat: address → slot → confirmed, in under a minute.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>“We're hiring!” competes with “call us”</h3>
+        <p>A hiring banner shares the header with the customer phone number. <strong>Job seekers and paying customers</strong> get equal billing — they shouldn't.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Separate the flows: customers get instant booking; applicants get an application path. Both handled by AI.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Technical services, no instant quote path</h3>
+        <p>Blower-door testing, duct testing, Manual J/S/D — <strong>impressive expertise, zero instant quoting</strong>. Prospects can't even start without a conversation.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Guided quote capture: home size, age, symptoms → estimate request confirmed instantly.</div>
+      </div>
+      <div class="finding">
+        <span class="sev amber">🟡 Leaving money on the table</span>
+        <h3>Reviews linked, not leveraged</h3>
+        <p>A reviews link exists in the nav — but the homepage tells the home-performance story <strong>without customer proof</strong>.</p>
+        <div class="fix"><strong>The agenticrx fix:</strong> Review feed on the homepage plus automatic post-project review requests.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT FIXED -->
+<section class="demo" id="fixed">
+  <div class="wrap">
+    <p class="eyebrow pulse" style="color:var(--teal)">● Live demo — go ahead, type in it</p>
+    <h2>See it fixed.</h2>
+    <p class="section-sub">This is diversifiede.com at 11:04 PM <strong>with agenticrx on it</strong>. Type below like you&#x27;re the homeowner with sky-high energy bills.</p>
+    <div class="demo-grid">
+      <div class="demo-phone">
+        <div class="demo-sitebar"><span>🔧 Diversified Energy</span><span class="demo-live">● AI online</span></div>
+        <div class="demo-chat" id="demoChat"></div>
+        <div class="demo-quick" id="demoQuick"></div>
+        <div class="demo-inputrow">
+          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
+          <button id="demoSend" aria-label="Send">➤</button>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>What just happened</h3>
+        <ul class="demo-receipt" id="demoReceipt">
+          <li class="dim">Start chatting — this receipt fills in live…</li>
+        </ul>
+        <div class="demo-note">Trained on Diversified Energy's real services — insulation, home performance testing, air sealing, and HVAC — and the New Orleans service area. The owner approves every word before it goes live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="a-reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">What customers actually say</p>
+    <h2>No customer proof<br>where it matters.</h2>
+    <p class="section-sub">Pulled from the company's public review profile — the same one the fixed homepage would showcase.</p>
+    <div class="rev-badge">
+      <div><strong style="font-size:1.15rem;font-weight:700">No customer reviews on the homepage we audited</strong><small>ratings · testimonials · review count — none displayed</small></div>
+    </div>
+    <p class="rev-note">The fixed version collects and displays real customer quotes automatically — no invented testimonials, ever.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="a-cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Want the fixed version?</h2>
+    <p class="lede">15 minutes. We'll walk through every finding above and show you exactly what the rebuilt site does — then the demo is yours to keep either way.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:agenticrx@gmail.com?subject=AI%20receptionist%20concept%20for%20Diversified%20Energy">Book a 15-minute walkthrough →</a>
+    </div>
+    <p class="disclosure">Interactive concept — not a production install. Built by the <strong>agenticrx team</strong>, Atlanta GA.<br>All company info © Diversified Energy (diversifiede.com) · Audit of the public website only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#top"><img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWcAAAAtBAMAAACAIrcAAAAAG1BMVEU9OTVAOjXxayHzbCE9OTXzbCE9OTXzbCE9OTV5daPtAAAAB3RSTlMAHUOTndbZhyy0hAAABKxJREFUeNrtmLtr40oUh4/1cFRqIRiXIiG4NasirQ1iUWnuEtRqwYXKsMFM64Aw82dfzms0eiW+t9Yp7BnNQ59+OnPOjAAWW2yxxRZbbDEAKNB+cDkqDhAVR9eScmtRFNrRddXqAXhE1NUf+Yct5ZZjSoPCnG0P8CTzPOcZ/rB1RW2GJ7qKIzOdIgOLduY5E3uFxLbyBNYCNJYNXFG6PkrDFWBtP/HH1bf2AFBKPYUE/26sRGzYTgAvAvVq9vjDlrniByNCUBnzOwMIDfYDgAfsxXO3KUPXzMqVtrt3B83PFEnF1gPoehra2uMAenf6Etp8OGZjLhlAZf7SFfpvPJQ13tPiPQFve+1Ba5Gat/ZupdfeMIV+B9hdvoY2J27VJ4ipVRRvbFH8kjkJmmBB4Et7FteUYmkREay9OR9eM3mr9W1/ILU0LEtsLm9oe4Cd+ceHpstvmSsaEjY0xmDZZBDQo8IrvYLmxh6KKBuETpwDkLxuxUqxxOYIJVQTpT+1LtDagSZdlTQiphuT7Vg5hc7A+XjGzRcW+ifAMz0AXQn4DTS3lF+3Ki1OzezdvbW4sjfs04IHfZWfSei1/UPDsEMf+q8HvR9AB8bQD72OF+cYD/yopDTOeRBocWr2khloD/FbpXlS2OJz9qHp/jPQUJkM/dgLzrgEZTmy0sxIb1JwFX0IDaz0591Kb0hpfoED6I8voPGRdhIxQIOdBj5WWuWq1THEScbQEbfeRkpfv1YaGpsOoR3v2KdDFPnVnDzogKIfeEoTC89PvLIcS3v8geaKjw0irqw9y+UuelDH1EEfpc4+jVcOEJuPJ7QMod9IaoH+SddBi88VtlX0ANpC8e8dPKVXCMnuQZ4hgW8qTtdd5ewpPRenZVK67Mdps68wFMzG6XeB7gQOZRk4pVed0gQsKWYCmvr7GUOUnsuIqrQPjRnRnGKEmYPmLNj3Cs2KPaUFOrGtJvMx9O3gN7RwR0acURpVNqfdNPRlDyOlaczIp+VNRva2kUBcWrfLo2KpYWNVcHpMZzOi7vI2fZ/WXR4ChMZcROnfusujIuc98ek8zwX6oYMeRg906kaCQS8jEmDr72sbju7/L3qcRNaJ6BEypYuEM0pvWa7avfsDTIW8lZ+/cVR9Z0bEkTCCDvy450EHvOJ20j0YQ3fbI13oidX96ShON/I0un2tv1V64xbKGJqi9VRyqaj1QWCDaaXX3d6DI3U7A136Cfy/KN2M9h4nCQ1T0JwLA0mA8aTSkcYBhgarCCPopOfU9/t0Sa9yBA0vkz6tmBVFvlCPBB00LnPxYXUPWunj6JG6HaucCH/50WMIrQM3GFdK3U/3ogdzDaNHBs6pMZLnuZ4IfOjByYUd0Mmr4Va1k+2gHcXpIfR3JxcBiEdxOgPn1FD5Z68O2k8ZiUJH7QBaQpY69dqOM+I0NOgZ8c/wjKgAr5PQssEL+fp+ClrSXOLuXEPvPSCvQCecOr29R4JKJ/5+uh4fbM+6uxwqDfGpB10xoQaOZ82O4IXA0XcPtrT/dYO/e0ifovvKkbpR3VCI8PKjGzjz3SPMde0Nv3vwySXPe989ZPh++VC12GKLLbbYYs7+BZphWec5ujHMAAAAAElFTkSuQmCC" alt="Diversified Energy"></a>
+    <p>Audit demo built by <a href="../">agenticrx</a> for Diversified Energy · New Orleans, LA · <span class="concept">concept demo</span></p>
+  </div>
+</footer>
+
+<script>
+window.DEMO_CONFIG = {"company": "Diversified Energy", "botName": "Hank"};
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
