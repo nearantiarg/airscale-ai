@@ -1,688 +1,1276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>agenticrx — The AI Front Desk for HVAC Contractors</title>
-<meta name="description" content="agenticrx answers your business line 24/7, texts back every missed call in seconds, and turns reviews into booked jobs. Try the live demo.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>AYIGIRI — Indian Jewelry Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #FBF6EC;
+      --paper: #FFF9ED;
+      --ink: #2B030E;
+      --muted: #6D4A53;
+      --line: #C19A4B;
+      --maroon: #2B030E;
+      --maroon-2: #2B030E;
+      --gold: #C19A4B;
+      --olive: #2B030E;
+      --soft: #F3E8D4;
+      --ok: #2B030E;
+      --shadow: 0 18px 46px rgba(60, 31, 19, .11);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #160108;
+        --paper: #2B030E;
+        --ink: #C19A4B;
+        --muted: #E7D7B7;
+        --line: #C19A4B;
+        --maroon: #2B030E;
+        --maroon-2: #2B030E;
+        --gold: #C19A4B;
+        --olive: #2B030E;
+        --soft: #3B111C;
+        --ok: #D9C087;
+        --shadow: 0 18px 50px rgba(0,0,0,.28);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.52; }
+    button, select, a { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+    .utility { border-bottom: 1px solid var(--line); padding: 9px 16px; text-align: center; color: var(--muted); font-size: .76rem; letter-spacing: .06em; }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: flex-end; gap: 24px; }
+    nav a { font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .brand-badge { margin-right: auto; width: 58px; height: 58px; border-radius: 50%; background: var(--maroon); color: var(--gold); border: 1px solid var(--gold); display: grid; place-items: center; font-family: 'Playfair Display',serif; font-size: .68rem; letter-spacing: .1em; font-weight: 700; }
+    .brand-badge:hover { color: var(--gold); }
+    nav a:hover { color: var(--maroon); }
+    .nav-order { background: var(--maroon); color: var(--gold); padding: 10px 16px; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); min-height: 590px; }
+    .hero-copy { padding: clamp(62px, 8vw, 112px) max(30px, calc((100vw - 1240px)/2)); padding-right: clamp(40px, 7vw, 110px); display: flex; flex-direction: column; justify-content: center; }
+    .eyebrow { margin: 0 0 17px; color: var(--maroon); font-weight: 800; font-size: .76rem; letter-spacing: .15em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.03; margin-top: 0; }
+    h1 { font-size: clamp(3.5rem, 6.6vw, 6.9rem); letter-spacing: -.055em; margin-bottom: 25px; }
+    .hero-copy > p:not(.eyebrow) { color: var(--muted); max-width: 570px; font-size: 1.06rem; margin: 0 0 32px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn { min-height: 46px; padding: 0 18px; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; cursor: pointer; }
+    .btn.primary { background: var(--maroon); border-color: var(--maroon); color: var(--gold); }
+    .btn:hover { opacity: .84; }
+    .hero-visual { position: relative; overflow: hidden; min-height: 540px; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .image-disclosure { position: absolute; left: 16px; bottom: 16px; background: rgba(43,3,14,.93); color: var(--gold); padding: 7px 10px; font-size: .7rem; letter-spacing: .04em; }
+    .strip { border-block: 1px solid var(--line); padding: 15px 0; overflow: hidden; color: var(--olive); font-weight: 700; white-space: nowrap; }
+    .strip div { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px 42px; padding: 0 20px; }
+    .strip span::before { content: "◆"; color: var(--gold); font-size: .55em; margin-right: 12px; vertical-align: middle; }
+    #catalog { padding: 92px 0 110px; }
+    .catalog-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; margin-bottom: 42px; }
+    .catalog-head h2 { font-size: clamp(2.8rem, 5vw, 5.4rem); letter-spacing: -.05em; margin-bottom: 0; }
+    .catalog-head p { color: var(--muted); margin: 0; max-width: 520px; }
+    .catalog-shell { display: grid; grid-template-columns: 240px minmax(0,1fr); gap: 36px; align-items: start; }
+    .filter-rail { position: sticky; top: 16px; border-top: 2px solid var(--ink); }
+    .filter-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 12px; border-bottom: 1px solid var(--line); }
+    .filter-top strong { font-size: 1rem; }
+    .clear { border: 0; background: transparent; padding: 0; color: var(--maroon); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-weight: 700; }
+    .filter-group { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .filter-group h3 { font-family: "DM Sans",sans-serif; font-size: .82rem; margin: 0 0 12px; letter-spacing: .05em; }
+    .filter-options { display: grid; gap: 7px; }
+    .filter-btn { border: 0; background: transparent; color: var(--muted); padding: 3px 0; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+    .filter-btn::before { content: ""; width: 15px; height: 15px; border: 1px solid var(--line); background: var(--paper); flex: 0 0 auto; }
+    .filter-btn.active { color: var(--ink); font-weight: 700; }
+    .filter-btn.active::before { background: var(--maroon); border-color: var(--gold); box-shadow: inset 0 0 0 3px var(--paper); }
+    .size-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .size-grid .filter-btn { border: 1px solid var(--line); padding: 6px 4px; justify-content: center; font-size: .76rem; }
+    .size-grid .filter-btn::before { display: none; }
+    .size-grid .filter-btn.active { background: var(--maroon); color: var(--gold); border-color: var(--gold); }
+    .mobile-filter-label { display: none; }
+    .catalog-main { min-width: 0; }
+    .toolbar { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+    .count { font-weight: 800; }
+    .tools { display: flex; align-items: center; gap: 10px; }
+    .view-toggle { display: flex; border: 1px solid var(--line); }
+    .view-toggle button { border: 0; background: transparent; min-width: 42px; height: 40px; cursor: pointer; font-size: 1.1rem; }
+    .view-toggle button.active { background: var(--maroon); color: var(--gold); }
+    select { height: 42px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 0 34px 0 12px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px 18px; }
+    .product-card { min-width: 0; }
+    .product-card[hidden] { display: none !important; }
+    .product-media { aspect-ratio: 4/5; overflow: hidden; background: var(--soft); position: relative; }
+    .product-media img { width: 100%; height: 100%; object-fit: cover; }
+    .badge { position: absolute; top: 12px; left: 12px; padding: 6px 8px; background: var(--paper); color: var(--ink); font-size: .68rem; font-weight: 800; }
+    .source-link { position: absolute; right: 10px; bottom: 10px; background: rgba(43,3,14,.93); color: var(--gold); padding: 6px 8px; text-decoration: none; font-size: .68rem; font-weight: 700; }
+    .source-link:hover { background: var(--maroon); color: var(--gold); }
+    .card-copy { padding: 15px 2px 0; }
+    .card-type { margin: 0 0 6px; color: var(--muted); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; }
+    .card-copy h3 { font-family: "DM Sans",sans-serif; font-size: 1rem; line-height: 1.35; margin: 0 0 8px; }
+    .price { color: var(--maroon); font-weight: 800; margin: 0 0 6px; }
+    .delivery { color: var(--ok); font-size: .78rem; margin: 0 0 12px; }
+    .product-meta { color: var(--muted); font-size: .78rem; margin: 0 0 12px; min-height: 38px; }
+    .ask-link { border: 0; background: transparent; padding: 0; color: var(--ink); font-weight: 800; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+    .product-grid.list-view { grid-template-columns: 1fr; gap: 0; }
+    .product-grid.list-view .product-card { display: grid; grid-template-columns: 190px 1fr; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .product-grid.list-view .product-media { aspect-ratio: 1/1; }
+    .product-grid.list-view .card-copy { padding-top: 8px; }
+    .product-grid.list-view .product-meta { min-height: 0; }
+    .load-wrap { display: flex; justify-content: center; padding-top: 46px; }
+    .empty { display: none; padding: 54px 20px; background: var(--soft); text-align: center; color: var(--muted); }
+    .empty.show { display: block; }
+    .note { margin-top: 28px; padding: 17px 20px; background: var(--soft); color: var(--muted); font-size: .85rem; }
+    .note strong { color: var(--ink); }
+    .order-section { background: var(--maroon); color: var(--gold); padding: 86px 0; }
+    .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .order-section h2 { font-size: clamp(3rem,5vw,5.4rem); letter-spacing: -.05em; margin-bottom: 18px; }
+    .order-section p { color: #E5D0A3; }
+    .order-section .btn { border-color: var(--gold); color: var(--gold); }
+    .order-section .btn.primary { background: var(--maroon); border-color: var(--gold); color: var(--gold); }
+    .steps { counter-reset: order; }
+    .step { counter-increment: order; display: grid; grid-template-columns: 46px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid rgba(193,154,75,.55); }
+    .step::before { content: "0" counter(order); color: var(--gold); font-weight: 800; }
+    .step:last-child { border-bottom: 1px solid rgba(193,154,75,.55); }
+    .step strong { display: block; margin-bottom: 4px; }
+    .step p { margin: 0; font-size: .9rem; }
+    .footer { background: var(--maroon); color: var(--gold); padding: 56px 0 calc(56px + env(safe-area-inset-bottom)); }
+    .footer-grid { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; }
+    .footer h2 { font-size: clamp(2.6rem,5vw,5.2rem); letter-spacing: -.05em; margin-bottom: 14px; max-width: 720px; }
+    .footer p { color: #E5D0A3; margin: 0; }
+    .footer-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer .btn { border-color: var(--gold); color: var(--gold); }
+    .footer .btn.primary { background: var(--maroon); border-color: var(--gold); color: var(--gold); }
+
+    .sticky-wa { display: none; position: fixed; left: 14px; right: 14px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 40; min-height: 52px; align-items: center; justify-content: center; background: var(--maroon); color: var(--gold); border: 1px solid var(--gold); box-shadow: 0 16px 36px rgba(43,3,14,.36); text-decoration: none; font-weight: 800; }
+    @media (max-width: 1020px) {
+      .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 820px) {
+      .hero, .catalog-head, .catalog-shell, .order-grid { grid-template-columns: 1fr; }
+      .hero-copy { padding: 70px 24px 54px; }
+      .hero-visual { min-height: 510px; }
+      .catalog-shell { gap: 22px; }
+      .filter-rail { position: static; }
+      .filter-rail details { border: 1px solid var(--line); background: var(--paper); }
+      .mobile-filter-label { display: flex; padding: 14px 16px; align-items: center; justify-content: space-between; font-weight: 800; cursor: pointer; }
+      .mobile-filter-label::-webkit-details-marker { display: none; }
+      .mobile-filter-label::after { content: "+"; font-size: 1.25rem; }
+      .filter-rail details[open] .mobile-filter-label::after { content: "−"; }
+      .filter-inner { padding: 0 16px 16px; }
+      .filter-options:not(.size-grid) { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .size-grid { grid-template-columns: repeat(5,1fr); }
+      .order-grid { gap: 36px; }
+    }
+    @media (min-width: 821px) { .filter-rail details > summary { display: none; } .filter-rail details:not([open]) > .filter-inner { display: block; } }
+    @media (max-width: 590px) {
+      .wrap { width: min(100% - 28px,1240px); }
+      nav { gap: 14px; }
+      .brand-badge { display: block !important; width: 56px; height: 56px; }
+      nav a:not(.nav-order) { display: none; }
+      h1 { font-size: clamp(3.3rem,16vw,4.8rem); }
+      .strip div { justify-content: flex-start; }
+      #catalog { padding-block: 70px 86px; }
+      .catalog-head { gap: 16px; margin-bottom: 30px; }
+      .toolbar { align-items: flex-start; flex-direction: column; }
+      .tools { width: 100%; justify-content: space-between; min-width: 0; }
+      .tools label { flex: 1; min-width: 0; }
+      .tools select { width: 100%; min-width: 0; }
+      .product-grid { grid-template-columns: 1fr; gap: 34px; }
+      .product-media { aspect-ratio: 4/5; }
+      .product-grid.list-view .product-card { grid-template-columns: 112px 1fr; gap: 14px; }
+      .product-grid.list-view .product-media { aspect-ratio: 3/4; }
+      .product-grid.list-view .badge, .product-grid.list-view .source-link { display: none; }
+      .product-grid.list-view .product-meta { display: none; }
+      .size-grid { grid-template-columns: repeat(5,1fr); }
+      .footer-actions { width: 100%; }
+      .footer-actions .btn { flex: 1; }
+      .sticky-wa { display: flex; }
+      body { padding-bottom: 76px; }
+    }
+    /* Refined storefront treatment */
+    :root {
+      --bg: #f7f3ec;
+      --paper: #fffdf9;
+      --ink: #25171b;
+      --muted: #6f5a60;
+      --line: #ded3c2;
+      --maroon: #4b0d1e;
+      --maroon-2: #321019;
+      --gold: #b68c3f;
+      --olive: #3f332d;
+      --soft: #eee7dc;
+      --ok: #4d6752;
+      --shadow: 0 16px 38px rgba(57, 29, 35, .10);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #160e11;
+        --paper: #21171a;
+        --ink: #f4eadb;
+        --muted: #c7b6b3;
+        --line: #514047;
+        --maroon: #6f1b34;
+        --maroon-2: #2f0b17;
+        --gold: #d6b46b;
+        --olive: #e1d3c0;
+        --soft: #2c2225;
+        --ok: #a9c4aa;
+        --shadow: 0 18px 46px rgba(0,0,0,.3);
+      }
+    }
+    body { font-size: 15px; }
+    .utility { background: var(--maroon-2); border: 0; color: #f1dfbc; padding: 7px 16px; font-size: .69rem; letter-spacing: .09em; }
+    nav { min-height: 76px; }
+    nav a { font-size: .82rem; font-weight: 600; }
+    .brand-lockup { margin-right: auto; display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-badge { margin-right: 0; width: 62px; height: 62px; flex: 0 0 62px; border: 0; border-radius: 50%; overflow: hidden; background: transparent; box-shadow: none; padding: 0; }
+    .brand-badge img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-tagline { max-width: 150px; color: var(--maroon); font-family: "Playfair Display", serif; font-size: .78rem; font-weight: 600; line-height: 1.28; }
+    .nav-order { padding: 11px 17px; color: #f6e7c7; letter-spacing: .02em; }
+    .hero { width: min(1240px, calc(100% - 40px)); margin: 0 auto 0; min-height: 520px; grid-template-columns: .82fr 1.18fr; border: 1px solid var(--line); background: var(--paper); }
+    .hero-copy { padding: clamp(48px, 6vw, 82px); }
+    .eyebrow { color: var(--gold); font-size: .69rem; letter-spacing: .18em; margin-bottom: 14px; }
+    h1 { font-size: clamp(3rem, 5vw, 5.2rem); line-height: .99; letter-spacing: -.045em; margin-bottom: 22px; }
+    .hero-copy > p:not(.eyebrow) { font-size: 1rem; line-height: 1.7; max-width: 470px; }
+    .hero-visual { min-height: 520px; }
+    .image-disclosure { left: 14px; bottom: 14px; font-size: .62rem; background: rgba(35,10,17,.82); }
+    .btn { min-height: 44px; padding: 0 17px; font-size: .82rem; letter-spacing: .02em; }
+    .btn.primary { color: #f5e4be; }
+    .strip { border-block: 0; padding: 13px 0; background: var(--paper); }
+    .strip div { gap: 10px 34px; }
+    .strip span { font-size: .75rem; color: var(--muted); }
+    .strip span::before { color: var(--gold); }
+
+    .collection-nav { padding: 74px 0 36px; }
+    .section-line { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 24px; }
+    .section-line h2 { margin: 0; font-size: clamp(2rem, 3.4vw, 3.2rem); letter-spacing: -.035em; }
+    .section-line p { margin: 0 0 5px; color: var(--muted); max-width: 430px; }
+    .collection-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .collection-card { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--soft); color: #fff; text-decoration: none; }
+    .collection-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .collection-card::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(20,5,10,.82)); }
+    .collection-card span { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 16px; font-family: "Playfair Display",serif; font-size: 1.45rem; line-height: 1.08; }
+    .collection-card:hover img { transform: scale(1.025); }
+
+    #catalog { padding: 66px 0 96px; }
+    .catalog-head { grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 34px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .catalog-head h2 { font-size: clamp(2.4rem, 4vw, 4.2rem); }
+    .catalog-head p { justify-self: end; line-height: 1.7; }
+    .catalog-shell { grid-template-columns: 214px minmax(0,1fr); gap: 38px; }
+    .filter-rail { top: 18px; border-top: 1px solid var(--ink); }
+    .filter-top { padding-top: 13px; }
+    .filter-top strong { font-family: "Playfair Display",serif; font-size: 1.12rem; }
+    .filter-group { padding: 17px 0; }
+    .filter-group h3 { font-size: .68rem; letter-spacing: .11em; }
+    .filter-btn { font-size: .82rem; gap: 9px; }
+    .filter-btn::before { width: 13px; height: 13px; }
+    .toolbar { margin-bottom: 18px; }
+    .count { font-size: .82rem; }
+    .view-toggle button { font-size: .95rem; }
+    .product-grid { gap: 36px 20px; }
+    .product-media { aspect-ratio: 4 / 5; }
+    .product-media img { transition: transform .55s ease; }
+    .product-card:hover .product-media img { transform: scale(1.018); }
+    .badge { display: none; }
+    .badge.disclosure-badge { display: block; top: 10px; left: 10px; background: rgba(255,253,249,.92); color: #25171b; font-size: .6rem; }
+    .source-link { background: rgba(35,10,17,.82); color: #f1dcae; font-size: .62rem; font-weight: 600; }
+    .card-copy { padding-top: 13px; }
+    .card-type { color: var(--gold); font-size: .64rem; letter-spacing: .11em; }
+    .card-copy h3 { font-family: "Playfair Display",serif; font-size: 1.12rem; line-height: 1.23; margin-bottom: 8px; }
+    .price { color: var(--ink); font-size: .83rem; }
+    .delivery { color: var(--ok); font-size: .72rem; }
+    .product-meta { font-size: .75rem; line-height: 1.55; }
+    .ask-link { font-size: .78rem; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+    .load-wrap { padding-top: 42px; }
+    .note { margin-top: 30px; padding: 14px 16px; border: 1px solid var(--line); background: transparent; }
+
+    .order-section { padding: 72px 0; background: var(--maroon-2); }
+    .order-grid { gap: 90px; }
+    .order-section h2 { font-size: clamp(2.5rem, 4vw, 4.3rem); }
+    .order-section p, .footer p { color: #dccaa5; }
+    .footer { background: #20060e; padding: 46px 0 calc(44px + env(safe-area-inset-bottom)); }
+    .footer h2 { font-size: clamp(2.1rem, 3.4vw, 3.6rem); margin-bottom: 10px; }
+    .footer-grid { align-items: center; }
+    .footer-logo { width: 76px; height: 76px; object-fit: cover; border-radius: 50%; margin-bottom: 18px; border: 1px solid rgba(193,154,75,.55); }
+    .footer .eyebrow { margin-bottom: 10px; }
+
+    @media (max-width: 1020px) {
+      .collection-grid { grid-template-columns: repeat(2,1fr); }
+      .collection-card { aspect-ratio: 5 / 4; }
+    }
+    @media (max-width: 820px) {
+      .hero, .catalog-head, .catalog-shell, .order-grid { grid-template-columns: 1fr; }
+      .hero { width: 100%; border-inline: 0; }
+      .hero-copy { padding: 62px 24px 48px; }
+      .collection-card { cursor: default; }
+      .hero-visual { min-height: 470px; }
+      .section-line { align-items: start; flex-direction: column; gap: 10px; }
+      .catalog-head { gap: 16px; }
+      .catalog-head p { justify-self: start; }
+      .catalog-shell { gap: 22px; }
+      .filter-rail { position: static; }
+      .filter-rail details { border: 1px solid var(--line); background: var(--paper); }
+      .filter-inner { padding: 0 16px 16px; }
+      .filter-btn { min-height: 42px; }
+      .size-grid .filter-btn { min-height: 44px; }
+      .tools { min-width: 0; }
+      .tools label { flex: 1; min-width: 0; }
+      .tools select { width: 100%; min-width: 0; }
+      .order-grid { gap: 44px; }
+    }
+    @media (max-width: 590px) {
+      .utility { font-size: .61rem; }
+      nav { min-height: 68px; }
+      .hero { min-height: 0; }
+      .hero-copy { padding-top: 50px; }
+      h1 { font-size: clamp(2.75rem, 14vw, 4rem); }
+      .hero-visual { min-height: 410px; }
+      .strip { overflow: visible; }
+      .strip div { justify-content: center; white-space: normal; gap: 8px 18px; }
+      .collection-nav { padding: 54px 0 24px; }
+      .collection-grid { gap: 10px; }
+      .collection-card { aspect-ratio: 4 / 5; }
+      .collection-card span { left: 12px; right: 12px; bottom: 11px; font-size: 1.05rem; }
+      #catalog { padding-top: 54px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 30px 11px; }
+      .product-media { aspect-ratio: 3 / 4; }
+      .source-link { display: none; }
+      .card-copy { padding-top: 10px; }
+      .card-copy h3 { font-size: .94rem; }
+      .card-type { font-size: .57rem; }
+      .product-meta { display: none; }
+      .delivery { margin-bottom: 9px; }
+      .ask-link { font-size: .72rem; }
+      .product-grid.list-view { grid-template-columns: 1fr; }
+      .product-grid.list-view .product-card { grid-template-columns: 112px 1fr; }
+      .order-section { padding: 58px 0; }
+    }
+    /* Editorial collections refresh */
+    :root {
+      --bg: #fbf7f0;
+      --paper: #fffdf8;
+      --ink: #2B030E;
+      --muted: #705b61;
+      --line: #dfd2bc;
+      --maroon: #2B030E;
+      --maroon-2: #210109;
+      --gold: #C19A4B;
+      --soft: #f0e8dc;
+    }
+    .collection-nav { padding: 96px 0 72px; }
+    .collection-intro { display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:end; margin-bottom:34px; }
+    .collection-intro h2 { font-size:clamp(3rem,6vw,6rem); letter-spacing:-.055em; margin:0; }
+    .collection-intro p { color:var(--muted); max-width:500px; line-height:1.8; margin:0 0 8px; }
+    .editorial-collections { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+    .collection-card { border:0; padding:0; cursor:pointer; text-align:left; font:inherit; min-height:520px; grid-column:span 6; aspect-ratio:auto; isolation:isolate; }
+    .collection-card:nth-child(1), .collection-card:nth-child(4) { grid-column:span 7; min-height:650px; }
+    .collection-card:nth-child(2), .collection-card:nth-child(3) { grid-column:span 5; }
+    .collection-card:nth-child(5), .collection-card:nth-child(6) { min-height:480px; }
+    .collection-card::after { inset:34% 0 0; background:linear-gradient(transparent,rgba(22,2,8,.9)); z-index:0; }
+    .collection-card .collection-copy { position:absolute; z-index:2; left:clamp(20px,3vw,38px); right:clamp(20px,3vw,38px); bottom:clamp(20px,3vw,34px); color:#fff; }
+    .collection-card .collection-copy span { position:static; display:block; font-size:clamp(1.7rem,3vw,3rem); margin-bottom:9px; }
+    .collection-card .collection-copy small { display:block; max-width:500px; color:#eadcbf; font-size:.78rem; line-height:1.55; letter-spacing:.02em; }
+    .collection-card .collection-copy b { display:inline-block; margin-top:16px; color:#fff; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; border-bottom:1px solid var(--gold); padding-bottom:4px; }
+    .campaign { margin:0 auto 96px; width:min(1240px,calc(100% - 40px)); display:grid; grid-template-columns:1fr 1.2fr; background:var(--maroon); color:#fff; overflow:hidden; }
+    .campaign-copy { padding:clamp(42px,6vw,82px); align-self:center; }
+    .campaign h2 { font-size:clamp(2.5rem,5vw,5rem); margin-bottom:18px; }
+    .campaign p { color:#eadcbf; max-width:480px; }
+    .campaign img { width:100%; height:100%; min-height:520px; object-fit:cover; }
+    .campaign .eyebrow { color:var(--gold); }
+    .lookbook { padding:88px 0; background:var(--maroon-2); color:#fff; overflow:hidden; }
+    .lookbook-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:28px; }
+    .lookbook h2 { font-size:clamp(2.5rem,4vw,4.4rem); margin:0; }
+    .lookbook-head p { color:#d9c7a4; max-width:420px; margin:0; }
+    .lookbook-grid { display:grid; grid-template-columns:1.15fr .85fr 1fr; gap:14px; }
+    .look { position:relative; min-height:480px; overflow:hidden; }
+    .look:nth-child(2) { margin-top:72px; }
+    .look img { width:100%; height:100%; object-fit:cover; }
+    .look span { position:absolute; inset:auto 0 0; padding:48px 18px 18px; background:linear-gradient(transparent,rgba(22,2,8,.86)); font-family:"Playfair Display",serif; font-size:1.45rem; }
+    .size-guide { padding:100px 0; }
+    .size-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:start; }
+    .size-guide h2 { font-size:clamp(2.7rem,4.5vw,4.8rem); margin-bottom:20px; }
+    .size-guide p { color:var(--muted); }
+    .size-table { border-top:1px solid var(--ink); }
+    .size-row { display:grid; grid-template-columns:.7fr 1.3fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); }
+    .size-row strong { font-family:"Playfair Display",serif; font-size:1.25rem; }
+    .instagram { padding:88px 0; background:var(--paper); }
+    .instagram-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:28px; }
+    .instagram-grid a { aspect-ratio:1; overflow:hidden; background:var(--soft); }
+    .instagram-grid img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+    .instagram-grid a:hover img { transform:scale(1.035); }
+    .concierge { margin:0; padding:64px 0; background:var(--gold); color:var(--maroon); }
+    .concierge .wrap { display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .concierge h2 { font-size:clamp(2rem,4vw,3.8rem); margin:0 0 8px; }
+    .concierge p { margin:0; }
+    .concierge .btn { flex:0 0 auto; background:var(--maroon); color:#f5e8cb; border-color:var(--maroon); }
+    .collection-active { color:var(--gold); }
+    .motion-showcase { padding: 22px 0 104px; }
+    .motion-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:28px; }
+    .motion-intro h2 { font-size:clamp(2.7rem,5vw,5.2rem); letter-spacing:-.05em; margin:0; }
+    .motion-intro p { color:var(--muted); max-width:490px; justify-self:end; margin:0 0 6px; line-height:1.75; }
+    .motion-grid { display:grid; grid-template-columns:1.18fr .91fr .91fr; gap:14px; }
+    .motion-tile { margin:0; position:relative; min-height:540px; overflow:hidden; background:var(--maroon-2); color:#fff; }
+    .motion-tile video { width:100%; height:100%; min-height:540px; display:block; object-fit:cover; background:var(--maroon-2); }
+    .motion-tile figcaption { pointer-events:none; position:absolute; z-index:2; inset:auto 0 0; padding:70px 18px 18px; background:linear-gradient(transparent,rgba(22,2,8,.86)); font-family:"Playfair Display",serif; font-size:1.3rem; }
+    .motion-tile figcaption small { display:block; margin-top:5px; color:#eadcbf; font-family:"DM Sans",sans-serif; font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; }
+    @media (max-width:820px) {
+      .collection-intro, .campaign, .size-layout { grid-template-columns:1fr; }
+      .editorial-collections { gap:10px; }
+      .collection-card, .collection-card:nth-child(n) { grid-column:span 6; min-height:430px; }
+      .campaign { width:100%; }
+      .campaign img { min-height:450px; }
+      .size-layout { gap:34px; }
+      .instagram-grid { grid-template-columns:repeat(3,1fr); }
+      .instagram-grid a:nth-child(n+4) { display:none; }
+      .motion-intro { grid-template-columns:1fr; gap:14px; }
+      .motion-intro p { justify-self:start; }
+      .motion-grid { grid-template-columns:1.2fr .8fr; }
+      .motion-tile { min-height:440px; }
+      .motion-tile video { min-height:440px; }
+      .motion-tile:last-child { grid-column:1 / -1; min-height:500px; }
+      .motion-tile:last-child video { min-height:500px; }
+    }
+    @media (max-width:590px) {
+      .collection-nav { padding:62px 0 50px; }
+      .collection-intro { gap:16px; }
+      .collection-intro h2 { font-size:clamp(2.7rem,13vw,4.2rem); }
+      .editorial-collections { display:block; }
+      .collection-card, .collection-card:nth-child(n) { width:100%; min-height:540px; margin-bottom:12px; }
+      .collection-card .collection-copy span { font-size:2rem; }
+      .campaign { margin-bottom:64px; }
+      .campaign-copy { padding:46px 24px; }
+      .campaign img { min-height:400px; }
+      .lookbook { padding:60px 0; }
+      .lookbook-head { display:block; }
+      .lookbook-head p { margin-top:12px; }
+      .lookbook-grid { grid-template-columns:1fr 1fr; }
+      .look { min-height:340px; }
+      .look:nth-child(2) { margin-top:38px; }
+      .look:nth-child(3) { display:none; }
+      .size-guide { padding:68px 0; }
+      .concierge .wrap { align-items:flex-start; flex-direction:column; }
+      .concierge .btn { width:100%; }
+      .brand-lockup { gap:8px; }
+      .brand-badge { width:54px; height:54px; flex-basis:54px; }
+      .brand-tagline { max-width:112px; font-size:.66rem; }
+      .motion-showcase { padding:8px 0 68px; }
+      .motion-grid { grid-template-columns:1fr 1fr; gap:9px; }
+      .motion-tile, .motion-tile video { min-height:360px; }
+      .motion-tile:first-child { grid-column:1 / -1; min-height:500px; }
+      .motion-tile:first-child video { min-height:500px; }
+      .motion-tile:last-child { grid-column:auto; min-height:360px; }
+      .motion-tile:last-child video { min-height:360px; }
+      .motion-tile figcaption { padding:58px 12px 12px; font-size:1.05rem; }
+    }
+
+    .inventory-label { position:absolute; left:10px; bottom:10px; padding:6px 8px; background:rgba(33,1,9,.88); color:#f4dfb1; font-size:.61rem; letter-spacing:.06em; text-transform:uppercase; }
+    .product-media img { object-position:center; }
+    @media (max-width:590px) { .inventory-label { font-size:.52rem; left:7px; bottom:7px; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .collection-card img, .product-media img, .instagram-grid img { transition: none; }
+    }
+
+    /* Maximalist jewelry-house campaign */
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(193,154,75,.12) 1px, transparent 1.2px),
+        linear-gradient(90deg, transparent 49.8%, rgba(193,154,75,.045) 50%, transparent 50.2%);
+      background-size: 28px 28px, 180px 100%;
+    }
+    nav.wrap { position:relative; }
+    nav.wrap::after { content:""; position:absolute; left:50%; bottom:-1px; width:92px; height:8px; transform:translateX(-50%); background:linear-gradient(90deg,transparent,var(--gold) 28%,var(--gold) 72%,transparent); clip-path:polygon(0 45%,38% 45%,50% 0,62% 45%,100% 45%,100% 58%,62% 58%,50% 100%,38% 58%,0 58%); }
+    .hero-carousel { position:relative; width:100%; min-height:clamp(650px,78vh,860px); overflow:hidden; background:#170108; color:#fff; isolation:isolate; }
+    .hero-carousel::before { content:""; position:absolute; z-index:5; inset:18px; border:1px solid rgba(193,154,75,.72); pointer-events:none; }
+    .hero-carousel::after { content:"✦"; position:absolute; z-index:6; left:50%; top:10px; transform:translateX(-50%); color:var(--gold); font-size:20px; width:54px; text-align:center; background:#170108; pointer-events:none; }
+    .carousel-track { position:relative; min-height:inherit; }
+    .carousel-slide { position:absolute; inset:0; min-height:inherit; opacity:0; visibility:hidden; transition:opacity .85s ease, visibility .85s; }
+    .carousel-slide.active { opacity:1; visibility:visible; z-index:1; }
+    .carousel-slide > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:var(--focus,center); transform:scale(1.035); transition:transform 7s ease; }
+    .carousel-slide.active > img { transform:scale(1); }
+    .carousel-slide::before { content:""; position:absolute; z-index:1; inset:0; background:
+      linear-gradient(90deg,rgba(24,0,8,.97) 0%,rgba(35,2,13,.86) 34%,rgba(35,2,13,.34) 61%,rgba(22,0,7,.12) 100%),
+      linear-gradient(0deg,rgba(20,0,7,.76) 0%,transparent 48%); }
+    .carousel-slide::after { content:""; position:absolute; z-index:1; inset:0; opacity:.38; background-image:
+      radial-gradient(circle at 72% 22%,rgba(247,215,146,.9) 0 1px,transparent 2px),
+      radial-gradient(circle at 82% 37%,rgba(247,215,146,.7) 0 2px,transparent 3px),
+      radial-gradient(circle at 63% 67%,rgba(247,215,146,.7) 0 1px,transparent 2px),
+      radial-gradient(circle at 91% 71%,rgba(247,215,146,.7) 0 1.5px,transparent 2.5px);
+      background-size:91px 91px,137px 137px,73px 73px,119px 119px; }
+    .carousel-content { position:relative; z-index:3; width:min(1240px,calc(100% - 80px)); min-height:inherit; margin:0 auto; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:90px 0 140px; }
+    .carousel-content::before { content:""; width:88px; height:24px; margin-bottom:24px; background:
+      radial-gradient(circle,var(--gold) 0 2px,transparent 3px) center/16px 16px,
+      linear-gradient(var(--gold),var(--gold)) center/100% 1px no-repeat; filter:drop-shadow(0 0 8px rgba(193,154,75,.45)); }
+    .carousel-kicker { margin:0 0 16px; color:#e0be76; font-size:.72rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    .carousel-title { max-width:690px; margin:0 0 22px; color:#fff8e9; font-size:clamp(4.2rem,7.4vw,8.4rem); line-height:.88; letter-spacing:-.055em; text-shadow:0 3px 24px rgba(0,0,0,.45); }
+    .carousel-copy { max-width:560px; margin:0 0 30px; color:#eadfc9; font-size:1.04rem; line-height:1.72; }
+    .carousel-content .btn { border-color:#d8b76d; color:#fff3da; background:rgba(35,2,13,.42); backdrop-filter:blur(5px); }
+    .carousel-content .btn.primary { background:var(--gold); border-color:var(--gold); color:#2b030e; }
+    .hero-product-frame { position:absolute; z-index:4; right:clamp(46px,7vw,112px); bottom:70px; width:clamp(150px,17vw,250px); aspect-ratio:4/5; padding:8px; background:#fff7e5; border:1px solid var(--gold); box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 0 6px rgba(193,154,75,.2); transform:rotate(2deg); }
+    .hero-product-frame::before,.hero-product-frame::after { content:""; position:absolute; width:32px; height:32px; border-color:var(--gold); }
+    .hero-product-frame::before { left:-11px; top:-11px; border-left:2px solid var(--gold); border-top:2px solid var(--gold); }
+    .hero-product-frame::after { right:-11px; bottom:-11px; border-right:2px solid var(--gold); border-bottom:2px solid var(--gold); }
+    .hero-product-frame img { width:100%; height:100%; object-fit:cover; }
+    .hero-product-frame span { position:absolute; left:18px; right:18px; bottom:18px; padding:7px 9px; background:rgba(43,3,14,.92); color:#efd28f; font-size:.58rem; font-weight:700; letter-spacing:.1em; text-align:center; text-transform:uppercase; }
+    .carousel-controls { position:absolute; z-index:8; left:50%; bottom:34px; width:min(1240px,calc(100% - 80px)); transform:translateX(-50%); display:flex; align-items:center; gap:14px; }
+    .carousel-arrow { width:46px; height:46px; border:1px solid rgba(226,192,119,.75); border-radius:50%; background:rgba(35,2,13,.65); color:#f5d994; cursor:pointer; font-size:1.35rem; display:grid; place-items:center; }
+    .carousel-arrow:hover,.carousel-arrow:focus-visible { background:var(--gold); color:var(--maroon); }
+    .carousel-dots { display:flex; align-items:center; gap:9px; margin-left:6px; }
+    .carousel-dot { width:24px; height:3px; padding:0; border:0; background:rgba(255,244,218,.38); cursor:pointer; transition:width .25s ease,background .25s ease; }
+    .carousel-dot.active { width:54px; background:var(--gold); }
+    .carousel-counter { margin-left:auto; color:#eadfc9; font-family:"Playfair Display",serif; font-size:.94rem; letter-spacing:.12em; }
+    .carousel-counter strong { color:var(--gold); font-size:1.35rem; }
+
+    .ornament-divider { display:flex; align-items:center; justify-content:center; gap:14px; height:62px; color:var(--gold); background:var(--paper); overflow:hidden; }
+    .ornament-divider::before,.ornament-divider::after { content:""; width:min(33vw,390px); height:1px; background:linear-gradient(90deg,transparent,var(--gold)); }
+    .ornament-divider::after { transform:scaleX(-1); }
+    .ornament-divider span { width:38px; height:38px; display:grid; place-items:center; border:1px solid var(--gold); transform:rotate(45deg); }
+    .ornament-divider i { font-style:normal; transform:rotate(-45deg); }
+
+    .collection-nav,.size-guide { position:relative; overflow:hidden; background:
+      radial-gradient(circle at 50% 50%,transparent 0 45px,rgba(193,154,75,.08) 46px 47px,transparent 48px 62px,rgba(193,154,75,.06) 63px 64px,transparent 65px) 0 0/160px 160px,
+      var(--bg); }
+    .collection-nav::before,.size-guide::before { content:""; position:absolute; width:420px; height:420px; border:1px solid rgba(193,154,75,.16); border-radius:50%; left:-250px; top:90px; box-shadow:0 0 0 34px rgba(193,154,75,.035),0 0 0 68px rgba(193,154,75,.025); }
+    .collection-intro,.catalog-head,.motion-intro,.lookbook-head,.section-line { position:relative; }
+    .collection-intro h2,.catalog-head h2,.motion-intro h2,.lookbook h2,.size-guide h2,.instagram h2 { text-shadow:0 1px 0 rgba(255,255,255,.25),0 10px 34px rgba(75,13,30,.08); }
+    .collection-intro::after,.catalog-head::after,.motion-intro::after,.lookbook-head::after,.section-line::after { content:"✦  ◆  ✦"; position:absolute; color:var(--gold); letter-spacing:.7em; font-size:.62rem; left:0; bottom:-20px; }
+    .editorial-collections { gap:22px; }
+    .collection-card { box-shadow:0 22px 54px rgba(43,3,14,.17); outline:1px solid rgba(193,154,75,.65); outline-offset:-9px; }
+    .collection-card::before { content:""; position:absolute; z-index:2; inset:18px; border:1px solid rgba(255,226,165,.54); pointer-events:none; }
+    .collection-card .collection-copy { text-shadow:0 2px 16px rgba(0,0,0,.6); }
+    .campaign { position:relative; border:1px solid var(--gold); box-shadow:0 28px 80px rgba(43,3,14,.28); background-image:
+      radial-gradient(circle at 0 0,transparent 0 34px,rgba(193,154,75,.12) 35px 36px,transparent 37px),
+      linear-gradient(135deg,#210109,#4a0b20); }
+    .campaign::before { content:""; position:absolute; z-index:3; inset:15px; border:1px solid rgba(193,154,75,.52); pointer-events:none; }
+    .campaign-copy { position:relative; z-index:4; }
+    .campaign-copy::after { content:"✦"; display:block; color:var(--gold); margin-top:28px; font-size:1.3rem; }
+    .motion-showcase { background:linear-gradient(180deg,var(--bg),var(--paper)); }
+    .motion-tile { border:1px solid rgba(193,154,75,.7); box-shadow:0 22px 48px rgba(43,3,14,.18); }
+    .motion-tile::after,.look::after { content:""; position:absolute; z-index:3; inset:10px; border:1px solid rgba(244,215,151,.45); pointer-events:none; }
+    #catalog { position:relative; background:var(--paper); }
+    #catalog::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.55; background-image:radial-gradient(circle at 10px 10px,rgba(193,154,75,.1) 1px,transparent 1.5px); background-size:34px 34px; }
+    #catalog > .wrap { position:relative; }
+    .product-media { border:1px solid rgba(193,154,75,.46); box-shadow:0 14px 30px rgba(43,3,14,.1); }
+    .product-media::after { content:""; position:absolute; inset:7px; border:1px solid rgba(255,245,219,.52); pointer-events:none; }
+    .product-card:nth-child(3n+2) .product-media { transform:translateY(14px); }
+    .lookbook { position:relative; background:
+      radial-gradient(circle at 20% 40%,rgba(193,154,75,.13) 0 1px,transparent 2px) 0 0/37px 37px,
+      linear-gradient(135deg,#180007,#330413 65%,#1f0109); }
+    .look { border:1px solid rgba(193,154,75,.68); box-shadow:0 28px 60px rgba(0,0,0,.32); }
+    .instagram { background-image:linear-gradient(90deg,transparent,rgba(193,154,75,.08),transparent); }
+    .instagram-grid a { position:relative; border:1px solid rgba(193,154,75,.58); box-shadow:0 14px 28px rgba(43,3,14,.12); }
+    .instagram-grid a::after { content:""; position:absolute; inset:6px; border:1px solid rgba(255,244,218,.5); pointer-events:none; }
+    .order-section { position:relative; overflow:hidden; background:
+      radial-gradient(circle at 82% 32%,transparent 0 75px,rgba(193,154,75,.13) 76px 77px,transparent 78px 105px,rgba(193,154,75,.09) 106px 107px,transparent 108px),
+      linear-gradient(135deg,#210109,#3b0618); }
+    .order-section::before { content:""; position:absolute; inset:16px; border:1px solid rgba(193,154,75,.42); pointer-events:none; }
+    .footer { border-top:1px solid var(--gold); background-image:linear-gradient(135deg,#140006,#2b030e); }
+
+    @media (max-width:820px) {
+      .hero-carousel { min-height:760px; }
+      .carousel-content { width:min(100% - 46px,1240px); justify-content:flex-end; padding:210px 0 124px; }
+      .carousel-slide::before { background:linear-gradient(0deg,rgba(25,0,8,.98) 0%,rgba(35,2,13,.88) 42%,rgba(35,2,13,.26) 77%,rgba(22,0,7,.08) 100%); }
+      .carousel-title { max-width:590px; font-size:clamp(3.6rem,12vw,6.4rem); }
+      .hero-product-frame { width:132px; right:30px; top:38px; bottom:auto; }
+      .carousel-controls { width:calc(100% - 46px); bottom:28px; }
+      .carousel-copy { max-width:520px; }
+    }
+    @media (max-width:590px) {
+      .hero-carousel { min-height:720px; }
+      .hero-carousel::before { inset:10px; }
+      .hero-carousel::after { top:2px; }
+      .carousel-content { width:calc(100% - 42px); padding:210px 0 112px; }
+      .carousel-content::before { margin-bottom:16px; }
+      .carousel-kicker { font-size:.61rem; margin-bottom:10px; }
+      .carousel-title { font-size:clamp(3.05rem,14vw,4.8rem); margin-bottom:16px; }
+      .carousel-copy { font-size:.9rem; line-height:1.55; margin-bottom:20px; }
+      .carousel-content .actions .btn { min-height:42px; }
+      .hero-product-frame { width:104px; top:30px; right:24px; padding:5px; }
+      .hero-product-frame span { display:none; }
+      .carousel-controls { width:calc(100% - 42px); bottom:88px; gap:8px; }
+      .carousel-arrow { width:40px; height:40px; }
+      .carousel-dot { width:13px; }
+      .carousel-dot.active { width:30px; }
+      .carousel-counter { display:none; }
+      .ornament-divider { height:50px; }
+      .collection-intro::after,.catalog-head::after,.motion-intro::after,.lookbook-head::after,.section-line::after { bottom:-16px; }
+      .collection-card { outline-offset:-6px; }
+      .collection-card::before { inset:12px; }
+      .campaign::before { inset:9px; }
+      .product-card:nth-child(3n+2) .product-media { transform:none; }
+      .product-media::after { inset:5px; }
+    }
+
+    .worn-by-you { position:relative; overflow:hidden; padding:104px 0 112px; color:#fff8e9; background:
+      radial-gradient(circle at 8% 18%,transparent 0 70px,rgba(193,154,75,.12) 71px 72px,transparent 73px 98px,rgba(193,154,75,.08) 99px 100px,transparent 101px),
+      radial-gradient(circle at 92% 82%,transparent 0 90px,rgba(193,154,75,.1) 91px 92px,transparent 93px 123px,rgba(193,154,75,.07) 124px 125px,transparent 126px),
+      linear-gradient(145deg,#170007,#340513 62%,#23010b); }
+    .worn-by-you::before { content:""; position:absolute; inset:18px; border:1px solid rgba(193,154,75,.36); pointer-events:none; }
+    .worn-head { position:relative; z-index:2; display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:end; margin-bottom:42px; }
+    .worn-head h2 { margin:0; max-width:720px; color:#fff8e9; font-size:clamp(3.2rem,6vw,6.7rem); line-height:.9; letter-spacing:-.055em; }
+    .worn-head p { margin:0 0 8px; max-width:520px; color:#dbcbaa; font-size:.96rem; line-height:1.75; }
+    .worn-head .eyebrow { color:var(--gold); }
+    .worn-gallery { position:relative; z-index:2; display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:14px; }
+    .worn-card { position:relative; overflow:hidden; margin:0; border:1px solid rgba(214,180,107,.7); box-shadow:0 25px 58px rgba(0,0,0,.34); background:#2b030e; }
+    .worn-card:nth-child(1) { grid-column:span 5; grid-row:span 6; }
+    .worn-card:nth-child(2) { grid-column:span 4; grid-row:span 4; }
+    .worn-card:nth-child(3) { grid-column:span 3; grid-row:span 5; }
+    .worn-card:nth-child(4) { grid-column:6 / span 4; grid-row:5 / span 5; }
+    .worn-card:nth-child(5) { grid-column:10 / span 3; grid-row:6 / span 4; }
+    .worn-card:nth-child(6) { grid-column:span 5; grid-row:span 5; }
+    .worn-card:nth-child(7) { grid-column:span 3; grid-row:span 5; }
+    .worn-card:nth-child(8) { grid-column:span 4; grid-row:span 5; }
+    .worn-card:nth-child(9) { grid-column:span 4; grid-row:span 5; }
+    .worn-card:nth-child(10) { grid-column:span 8; grid-row:span 5; }
+    .worn-card::after { content:""; position:absolute; inset:9px; border:1px solid rgba(255,235,192,.42); pointer-events:none; }
+    .worn-card > img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+    .worn-card:hover > img { transform:scale(1.025); }
+    .worn-card figcaption { position:absolute; z-index:2; inset:auto 0 0; padding:72px 18px 18px; background:linear-gradient(transparent,rgba(18,0,6,.9)); font-family:"Playfair Display",serif; font-size:1.3rem; }
+    .worn-card figcaption small { display:block; margin-top:5px; color:#e2c98f; font-family:"DM Sans",sans-serif; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; }
+    .worn-product { position:absolute; z-index:3; top:18px; right:18px; width:76px; aspect-ratio:1; padding:3px; background:#fff7e5; border:1px solid var(--gold); box-shadow:0 12px 24px rgba(0,0,0,.3); transform:rotate(2deg); }
+    .worn-product img { width:100%; height:100%; object-fit:cover; }
+    @media (max-width:820px) {
+      .worn-by-you { padding:78px 0 86px; }
+      .worn-head { grid-template-columns:1fr; gap:16px; }
+      .worn-gallery { grid-template-columns:repeat(2,1fr); grid-auto-rows:auto; gap:10px; }
+      .worn-card,.worn-card:nth-child(n) { grid-column:auto; grid-row:auto; min-height:0; aspect-ratio:3/4; }
+      .worn-card:nth-child(3n+1) { aspect-ratio:4/5; }
+    }
+    @media (max-width:590px) {
+      .worn-by-you::before { inset:10px; }
+      .worn-head h2 { font-size:clamp(3.1rem,15vw,4.7rem); }
+      .worn-card figcaption { padding:52px 12px 12px; font-size:.98rem; }
+      .worn-product { width:52px; top:12px; right:12px; }
+      .worn-card::after { inset:5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-slide,.carousel-slide > img,.carousel-dot,.worn-card > img { transition:none; }
+    }
+
+    /* Editorial commerce polish: quieter hierarchy, richer collection storytelling. */
+    .collection-nav { padding-block: 92px 84px; background: var(--paper); }
+    .collection-intro { align-items: center; margin-bottom: 40px; }
+    .collection-intro h2 { max-width: 760px; font-size: clamp(2.9rem, 5.6vw, 5.7rem); }
+    .collection-intro p { font-size: 1rem; }
+    .editorial-collections { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .collection-card,
+    .collection-card:nth-child(n) { grid-column: auto; min-height: 560px; }
+    .collection-card::before { inset: 14px; }
+    .collection-card .collection-copy small { max-width: 440px; font-family: "Playfair Display", serif; font-size: 1rem; font-style: italic; line-height: 1.5; }
+    .collection-card .collection-copy b { margin-top: 18px; }
+
+    .for-everyone { padding: 96px 0 106px; background: var(--bg); }
+    .for-everyone-head { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: end; margin-bottom: 34px; }
+    .for-everyone-head h2 { margin: 0; max-width: 650px; font-size: clamp(2.8rem, 5vw, 5.2rem); letter-spacing: -.05em; }
+    .for-everyone-head p { margin: 0 0 7px; max-width: 520px; color: var(--muted); line-height: 1.75; }
+    .everyone-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .everyone-card { position: relative; min-height: 540px; overflow: hidden; padding: 0; border: 0; background: var(--maroon); color: #fff8e9; text-align: left; cursor: pointer; isolation: isolate; box-shadow: 0 18px 48px rgba(43,3,14,.15); }
+    .everyone-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--everyone-focus, center); transition: transform .55s ease; }
+    .everyone-card::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, transparent 38%, rgba(31,1,9,.9) 100%); }
+    .everyone-card::after { content: ""; position: absolute; z-index: 2; inset: 10px; border: 1px solid rgba(231,198,124,.58); pointer-events: none; }
+    .everyone-card:hover img { transform: scale(1.025); }
+    .everyone-copy { position: absolute; z-index: 3; left: 28px; right: 28px; bottom: 28px; }
+    .everyone-copy strong { display: block; margin-bottom: 7px; font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 2.6vw, 2.8rem); line-height: 1; }
+    .everyone-copy span { display: block; color: #eadfc9; font-size: .82rem; line-height: 1.55; }
+    .everyone-copy b { display: inline-block; margin-top: 14px; padding-bottom: 3px; border-bottom: 1px solid var(--gold); color: #fff; font-size: .69rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    .offer-badge { position: absolute; z-index: 4; top: 12px; left: 12px; padding: 7px 10px; background: var(--maroon); color: #f5dfad; border: 1px solid rgba(193,154,75,.75); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 8px 22px rgba(43,3,14,.22); }
+    .offer-badge.gold { background: var(--gold); color: var(--maroon); }
+    .offer-badge.light { background: rgba(255,253,248,.94); color: var(--maroon); }
+    .catalog-head p { font-family: "Playfair Display", serif; font-size: 1.05rem; }
+    .card-copy h3 { font-size: 1.2rem; }
+    .ask-link { color: var(--maroon); border-bottom-color: var(--gold); }
+
+    @media (max-width: 820px) {
+      .collection-nav { padding-block: 72px 62px; }
+      .editorial-collections { gap: 12px; }
+      .collection-card,.collection-card:nth-child(n) { min-height: 470px; }
+      .for-everyone-head { grid-template-columns: 1fr; gap: 14px; }
+      .everyone-grid { grid-template-columns: 1fr; }
+      .everyone-card { min-height: 520px; }
+    }
+    @media (max-width: 590px) {
+      nav a.brand-lockup { display: flex !important; }
+      nav.wrap { gap: 8px; }
+      .nav-order { padding-inline: 12px; font-size: .72rem; }
+      .collection-nav { padding-block: 58px 50px; }
+      .collection-intro { margin-bottom: 30px; }
+      .collection-intro h2 { font-size: clamp(2.55rem, 12vw, 4rem); }
+      .editorial-collections { display: grid; grid-template-columns: 1fr; }
+      .collection-card,.collection-card:nth-child(n) { min-height: 440px; margin: 0; }
+      .collection-card .collection-copy small { font-size: .92rem; }
+      .for-everyone { padding: 68px 0 76px; }
+      .for-everyone-head h2 { font-size: clamp(2.5rem, 12vw, 3.8rem); }
+      .everyone-card { min-height: 440px; }
+      .everyone-card img { object-position: var(--everyone-mobile-focus, center 68%); }
+      .everyone-copy { left: 22px; right: 22px; bottom: 24px; }
+      .offer-badge { top: 8px; left: 8px; padding: 6px 8px; font-size: .54rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .everyone-card img { transition: none; }
+    }
+
+    /* Mobile art direction: jewelry leads; faces and decorative framing stay secondary. */
+    .mobile-art { display:none; }
+    @media (max-width:590px) {
+      .hero-carousel { min-height:650px; background:#210109; }
+      .carousel-slide > img { height:230px; bottom:auto; object-position:var(--mobile-focus,center 64%); transform:none; }
+      .carousel-slide > img.desktop-art { display:none; }
+      .carousel-slide > img.mobile-art { display:block; }
+      .carousel-slide::before {
+        background:linear-gradient(0deg,#210109 0 51%,rgba(33,1,9,.9) 55%,rgba(33,1,9,.12) 72%,rgba(22,0,7,.04) 100%);
+      }
+      .carousel-slide::after { opacity:.18; }
+      .carousel-content { width:calc(100% - 42px); justify-content:flex-start; padding:258px 0 104px; }
+      .carousel-content::before { display:none; }
+      .carousel-kicker { margin-bottom:9px; }
+      .carousel-title { font-size:clamp(2.4rem,11vw,3.55rem); line-height:.9; margin-bottom:10px; }
+      .carousel-copy { max-width:340px; font-size:.78rem; line-height:1.42; margin-bottom:13px; }
+      .carousel-content .actions { flex-wrap:nowrap; width:100%; }
+      .carousel-content .actions .btn { flex:1; min-width:0; padding-inline:10px; font-size:.7rem; white-space:nowrap; }
+      .hero-product-frame { width:120px; top:98px; right:22px; z-index:6; }
+      .carousel-controls { bottom:72px; }
+
+      .collection-card, .collection-card:nth-child(n) { min-height:450px; }
+      .collection-card img.desktop-art { display:none; }
+      .collection-card img.mobile-art { display:block; }
+      .collection-card img { object-position:var(--mobile-focus,center 66%); }
+      .collection-card:nth-child(4) img { object-position:center 76%; }
+      .collection-card::after { inset:46% 0 0; }
+      .collection-card .collection-copy { left:20px; right:20px; bottom:22px; }
+
+      .campaign img.desktop-art { display:none; }
+      .campaign img.mobile-art { display:block; min-height:430px; max-height:430px; object-fit:cover; object-position:center 70%; }
+
+      .look picture { display:contents; }
+      .look img.desktop-art { display:none; }
+      .look img.mobile-art { display:block; }
+      .look img { object-position:var(--mobile-focus,center 66%); }
+      .look { min-height:390px; }
+      .look:nth-child(2) { margin-top:24px; }
+
+      .worn-card > img.desktop-art { display:none; }
+      .worn-card > img.mobile-art { display:block; }
+      .worn-card > img { object-position:var(--mobile-focus,center 68%); }
+      .worn-card:nth-child(1) > img { object-position:center 72%; }
+      .worn-card:nth-child(2) > img { object-position:center 70%; }
+      .worn-card:nth-child(3) > img { object-position:center 76%; }
+      .worn-card:nth-child(4) > img { object-position:center 66%; }
+      .worn-card:nth-child(5) > img { object-position:center 64%; }
+      .worn-card:nth-child(6) > img { object-position:center 62%; }
+      .worn-card:nth-child(7) > img { object-position:center 66%; }
+      .worn-card:nth-child(8) > img { object-position:center 66%; }
+      .worn-card:nth-child(9) > img { object-position:center 67%; }
+      .worn-card:nth-child(10) > img { object-position:center 62%; }
+    }
+  </style>
 </head>
 <body>
+  <div class="utility">Cumming, Georgia · Shipping across the USA · WhatsApp ordering</div>
+  <nav class="wrap" aria-label="Primary navigation">
+    <a class="brand-lockup" href="#" aria-label="AYIGIRI home — Divine by Her. Designed for You."><span class="brand-badge"><img src="./img001.jpg" alt="AYIGIRI logo"></span><span class="brand-tagline">Divine by Her. Designed for You.</span></a>
+    <a href="#catalog">Browse catalog</a>
+    <a href="#order">How to order</a>
+    <a class="nav-order" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20was%20browsing%20your%20website%20and%20would%20like%20help%20choosing%20jewelry." target="_blank" rel="noopener">Order on WhatsApp ↗</a>
+  </nav>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="brand-mark">◈</span> agenticrx</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#products">Products</a>
-      <a href="#why">Why us</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn btn-sm" href="#audit">Book my walkthrough</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-  </div>
-</header>
-
-<!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="wrap hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="live-dot"></span> The AI front desk for HVAC contractors</p>
-      <h1>Every call answered.<br>Every job booked.<br><span class="accent">Even at 2 AM.</span></h1>
-      <p class="lede">agenticrx is a done-for-you AI system for HVAC shops. It answers your business line around the clock, texts back every missed call in seconds, and turns your Google reviews into a job-winning machine. Live in about a week.</p>
-      <div class="cta-row">
-        <a class="btn btn-lg" href="#demo">▶ Try the live demo</a>
-        <a class="btn btn-ghost btn-lg" href="#products">See what's included</a>
+  <main>
+    <header class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="AYIGIRI festive campaigns">
+      <div class="carousel-track">
+        <article class="carousel-slide active" data-slide="0" aria-label="1 of 5: Navaratri Nights" style="--focus:center 44%">
+          <img class="desktop-art" src="./img002.jpg" alt="Indian women in festive Navaratri looks wearing colorful jewelry styled from AYIGIRI inventory">
+          <img class="mobile-art" src="./img003.jpg" alt="Close portrait of an Indian woman showing colorful AYIGIRI-inspired bangle stacks and jhumkas" style="--mobile-focus:center 67%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h1 class="carousel-title">Navaratri<br>Nights.</h1><p class="carousel-copy">Nine nights. Infinite color. Build a Garba-ready story with vibrant stacks, dancing jhumkas and oxidized statements.</p><div class="actions"><a class="btn primary" href="#catalog">Shop Navaratri</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Navaratri%20Nights%20collection%20%E2%80%94%20can%20you%20share%20prices%3F" target="_blank" rel="noopener">Style on WhatsApp ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img004.jpg" alt="Actual AYIGIRI orange and royal purple bangle stack"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="1" aria-label="2 of 5: The Premium Edit" style="--focus:center 38%" aria-hidden="true">
+          <img class="desktop-art" src="./img005.jpg" alt="Indian women wearing jewel-tone bangle stacks inspired by AYIGIRI Raindrop inventory">
+          <img class="mobile-art" src="./img006.jpg" alt="Close portrait of an Indian woman showing a purple AYIGIRI-inspired Raindrop bangle stack" style="--mobile-focus:center 72%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">The Premium<br>Edit.</h2><p class="carousel-copy">Raindrop sparkle, Kashmiri detail and saturated jewel tones—composed for entrances that linger in memory.</p><div class="actions"><a class="btn primary" href="#catalog">Discover premium</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Premium%20Edit%20collection%20%E2%80%94%20can%20you%20share%20prices%20and%20available%20sizes%3F" target="_blank" rel="noopener">Ask about your size ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img007.jpg" alt="Actual AYIGIRI Raindrop Premium bangle edit"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="2" aria-label="3 of 5: Bridal and Wedding" style="--focus:center 34%" aria-hidden="true">
+          <img class="desktop-art" src="./img008.jpg" alt="Indian women wearing oxidized necklace, jhumka and bangle designs inspired by AYIGIRI inventory">
+          <img class="mobile-art" src="./img009.jpg" alt="Close portrait of an Indian woman showing an oxidized necklace and colorful AYIGIRI-inspired bangle stacks" style="--mobile-focus:center 68%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">Bridal<br>Rituals.</h2><p class="carousel-copy">Jewelry for the sangeet, the wedding morning and every radiant moment between—layered in red, gold and heirloom drama.</p><div class="actions"><a class="btn primary" href="#catalog">Enter the wedding edit</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Bridal%20%26%20Wedding%20collection%20%E2%80%94%20can%20you%20help%20me%20build%20a%20look%3F" target="_blank" rel="noopener">Build a bridal look ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img010.jpg" alt="Actual AYIGIRI red and gold Premium Edit bangles"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="3" aria-label="4 of 5: Diwali in Full Color" style="--focus:center 46%" aria-hidden="true">
+          <img class="desktop-art" src="./img011.jpg" alt="Indian women in festive styling wearing vivid bangle stacks inspired by AYIGIRI inventory">
+          <img class="mobile-art" src="./img012.jpg" alt="Close portrait of an Indian woman showing vivid jewel-tone AYIGIRI-inspired bangle stacks" style="--mobile-focus:center 70%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">Diwali, in<br>Full Color.</h2><p class="carousel-copy">Match the glow—emerald, ruby, amethyst and champagne crystal stacks, styled around your sari, lehenga or kurta palette.</p><div class="actions"><a class="btn primary" href="#catalog">Shop festive color</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Diwali%20in%20Full%20Color%20collection%20%E2%80%94%20can%20you%20help%20match%20jewelry%20to%20my%20outfit%3F" target="_blank" rel="noopener">Send your outfit ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img013.jpg" alt="Actual AYIGIRI red and green elegance stack"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="4" aria-label="5 of 5: Gifting and Return Gifts" style="--focus:center 45%" aria-hidden="true">
+          <img class="desktop-art" src="./img014.jpg" alt="Indian woman in a festive jewelry campaign setting">
+          <img class="mobile-art" src="./img015.jpg" alt="Close view of an Indian woman presenting a gold AYIGIRI-inspired bangle stack" style="--mobile-focus:center 54%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">Gifts with<br>Color.</h2><p class="carousel-copy">Celebration-ready favors, joyful kids’ pieces and 30+ shades—thoughtful gifts for hosts, families and little divas.</p><div class="actions"><a class="btn primary" href="#catalog">Explore gifting</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Gifting%20%26%20Return%20Gifts%20collection%20%E2%80%94%20can%20you%20share%20prices%20and%20quantity%20options%3F" target="_blank" rel="noopener">Plan a gift order ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img016.jpg" alt="Actual AYIGIRI celebration return-gift bangles"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="5" aria-label="6 of 7: Signature Stacks" style="--focus:center 36%" aria-hidden="true">
+          <img class="desktop-art" src="./img012.jpg" alt="Indian model wearing colorful bangle stacks styled from AYIGIRI inventory">
+          <img class="mobile-art" src="./img017.jpg" alt="Close-up of a wrist filled with colorful AYIGIRI-inspired bangles and statement kadas" style="--mobile-focus:center 56%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">Signature<br>Stacks.</h2><p class="carousel-copy">Purple Raindrop, crystal gold and vivid interchangeable color—real AYIGIRI references, styled into one expressive campaign moment.</p><div class="actions"><a class="btn primary" href="#catalog">Find your stack</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Signature%20Stacks%20collection%20%E2%80%94%20can%20you%20help%20match%20a%20stack%20to%20my%20look%3F" target="_blank" rel="noopener">Match your look ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img018.jpg" alt="Actual AYIGIRI multicolor interchangeable bangles"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
+        <article class="carousel-slide" data-slide="6" aria-label="7 of 7: Oxidized Soul" style="--focus:center 34%" aria-hidden="true">
+          <img class="desktop-art" src="./img009.jpg" alt="Indian model wearing an oxidized jewelry and bangle look styled from AYIGIRI inventory">
+          <img class="mobile-art" src="./img009.jpg" alt="Close portrait emphasizing an oxidized necklace and stacked AYIGIRI-inspired bangles" style="--mobile-focus:center 68%">
+          <div class="carousel-content"><p class="carousel-kicker">Divine by Her. Designed for You.</p><h2 class="carousel-title">Oxidized<br>Soul.</h2><p class="carousel-copy">Sculptural kadas, bell jhumkas and layered three-piece drama, grounded in AYIGIRI’s original oxidized collection.</p><div class="actions"><a class="btn primary" href="#catalog">Explore oxidized</a><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Oxidized%20Soul%20collection%20%E2%80%94%20can%20you%20share%20current%20pieces%20and%20prices%3F" target="_blank" rel="noopener">Ask for current pieces ↗</a></div></div>
+          <figure class="hero-product-frame"><img src="./img019.jpg" alt="Actual AYIGIRI oxidized statement kadas"><span>Actual AYIGIRI inventory</span></figure>
+        </article>
       </div>
-      <p class="micro">Built from our audit of 139 HVAC websites across Georgia &amp; Florida.</p>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hv-card hv-main">
-        <div class="hv-head"><span class="hv-dot"></span> agenticrx · Saturday 2:14 AM</div>
-        <div class="hv-line"><span class="hv-ico">📞</span><div><strong>No-cool call answered in 6 seconds</strong><span>Booked Wed 9–11 AM · confirmation texted</span></div><em class="hv-tag">Voice</em></div>
-        <div class="hv-line"><span class="hv-ico">💬</span><div><strong>Missed call → texted back in 40 seconds</strong><span>Tune-up booked for Thursday · $89</span></div><em class="hv-tag">Text-Back</em></div>
-        <div class="hv-line"><span class="hv-ico">⭐</span><div><strong>5-star review collected</strong><span>Reply drafted — waiting for your approval</span></div><em class="hv-tag">Reviews</em></div>
-      </div>
-      <div class="hv-card hv-float1"><strong>+$2,140</strong><span>booked this weekend</span></div>
-      <div class="hv-card hv-float2"><strong>0</strong><span>calls to voicemail</span></div>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="hero-stats">
-      <div class="hstat"><strong data-count="139">0</strong><span>HVAC websites audited<br>across Georgia &amp; Florida</span></div>
-      <div class="hstat"><strong data-count="35">0</strong><span>scored under 3.5&nbsp;/&nbsp;5<br>on the basics</span></div>
-      <div class="hstat"><strong data-count="0">0</strong><span>had AI answering<br>their phones</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRODUCTS ============ -->
-<section class="products" id="products">
-  <div class="wrap">
-    <p class="eyebrow">The system</p>
-    <h2>One system. Three products.<br>Zero missed jobs.</h2>
-    <p class="section-sub">Everything below is included in every install — trained on your services, your prices, your rules.</p>
-
-    <div class="prod-grid">
-      <article class="prod">
-        <div class="prod-top"><span class="prod-ico">📞</span><span class="prod-tag">Most popular</span></div>
-        <h3>agenticrx Voice</h3>
-        <p class="prod-sub">Your AI receptionist. It picks up your business line 24/7 and works it like your best dispatcher.</p>
-        <ul class="prod-list">
-          <li>Answers in seconds — nights, weekends, holidays</li>
-          <li>Books straight into your real calendar</li>
-          <li>Quotes your windows and your prices</li>
-          <li>True emergencies reach your on-call tech; the rest book for morning</li>
-        </ul>
-        <a class="prod-link" href="#voice">Watch it take a call →</a>
-      </article>
-
-      <article class="prod">
-        <div class="prod-top"><span class="prod-ico">💬</span></div>
-        <h3>agenticrx Text-Back</h3>
-        <p class="prod-sub">No missed call goes cold. On a roof or under a house when the phone rings? Covered.</p>
-        <ul class="prod-list">
-          <li>Texts back every missed call in under a minute — from your number</li>
-          <li>Keeps the conversation going until they're booked</li>
-          <li>You see every thread; jump in anytime</li>
-          <li>Works when you're on a job, not just after hours</li>
-        </ul>
-        <a class="prod-link" href="#textback">See a 47-second save →</a>
-      </article>
-
-      <article class="prod">
-        <div class="prod-top"><span class="prod-ico">⭐</span></div>
-        <h3>agenticrx Reviews</h3>
-        <p class="prod-sub">Turns happy customers into the proof that wins the next job.</p>
-        <ul class="prod-list">
-          <li>Automatically asks for a review after every job</li>
-          <li>Unhappy customers reach you privately — before they post</li>
-          <li>Drafts a reply to every review for your approval</li>
-          <li>Your best reviews, showcased where customers decide</li>
-        </ul>
-        <a class="prod-link" href="#reviews">Try the review flow →</a>
-      </article>
-    </div>
-
-    <div class="included">
-      <span class="included-label">Also included in every install:</span>
-      <span class="pill">🖥️ Website chat that books</span>
-      <span class="pill">🔁 Estimate follow-up</span>
-      <span class="pill">🚨 After-hours triage</span>
-      <span class="pill">📋 Every transcript, searchable</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRODUCT 01: VOICE ============ -->
-<section class="pdemo" id="voice">
-  <div class="wrap">
-    <p class="eyebrow pulse">● Product 01 — agenticrx Voice</p>
-    <h2>Every call answered in under 3 seconds.<br><span class="accent">Even at 2 AM on Sundays.</span></h2>
-    <p class="section-sub dark">Meet Ava — your AI receptionist. She triages safety issues, qualifies the job, and books it straight into your calendar. Tap "Answer as Ava" and listen in.</p>
-    <ul class="pf-list">
-      <li>Answers in seconds — nights, weekends, holidays</li>
-      <li>Safety triaged first, always</li>
-      <li>Books straight into your real calendar</li>
-      <li>True emergencies reach your on-call tech</li>
-    </ul>
-    <div class="pdemo-grid">
-      <div>
-        <div class="demo-phone">
-          <div class="demo-sitebar"><span>❄️ Johnson Heating &amp; Air</span><span class="demo-live">● Ava online</span></div>
-          <div class="call-idle" id="callIdle">
-            <div class="call-avatar">📞</div>
-            <div class="call-name">Incoming call…</div>
-            <div class="call-sub">(404) 555-0132 · Sunday 2:13 AM</div>
-            <button class="btn" id="answerBtn">Answer as Ava</button>
-          </div>
-          <div class="call-active" id="callActive">
-            <div class="call-top">
-              <span class="call-live">LIVE</span>
-              <span id="callTimer">00:00</span>
-            </div>
-            <div class="transcript" id="transcript"></div>
-          </div>
-          <div class="call-summary" id="callSummary">
-            <div class="sum-card">
-              <h4>✅ Call summary sent to owner</h4>
-              <dl>
-                <dt>Caller intent</dt><dd>Furnace banging + burning smell</dd>
-                <dt>Safety triage</dt><dd><span class="flag">SAFETY CHECKED</span> — no gas smell, dust burn-off likely</dd>
-                <dt>Booked</dt><dd>Tomorrow 9–11 AM · 88 Lanier Ridge Dr</dd>
-                <dt>Recording</dt><dd>Saved — full transcript emailed</dd>
-              </dl>
-            </div>
-          </div>
+      <div class="carousel-controls" aria-label="Carousel controls">
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous campaign">←</button>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Next campaign">→</button>
+        <div class="carousel-dots" role="tablist" aria-label="Choose a campaign">
+          <button class="carousel-dot active" type="button" role="tab" aria-label="Show Navaratri Nights" aria-selected="true" data-go="0"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show The Premium Edit" aria-selected="false" data-go="1"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show Bridal and Wedding" aria-selected="false" data-go="2"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show Diwali campaign" aria-selected="false" data-go="3"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show Gifting campaign" aria-selected="false" data-go="4"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show Signature Stacks campaign" aria-selected="false" data-go="5"></button>
+          <button class="carousel-dot" type="button" role="tab" aria-label="Show Oxidized Soul campaign" aria-selected="false" data-go="6"></button>
         </div>
-        <div class="demo-ctrl"><button class="btn btn-ghost btn-sm" id="callReplay" style="display:none">↻ Play the call again</button></div>
+        <div class="carousel-counter" aria-hidden="true"><strong>01</strong> / 07</div>
       </div>
-      <div class="demo-side">
-        <h3>What the owner sees</h3>
-        <ul class="demo-receipt" id="callReceipt">
-          <li class="dim">Answer the call — this receipt fills in live…</li>
-        </ul>
-        <div class="demo-note">Ava runs on your rules: your services, your prices, your booking windows, your escalation triggers. You approve every script before it goes live.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- ============ PRODUCT 02: TEXT-BACK ============ -->
-<section class="pdemo alt" id="textback">
-  <div class="wrap">
-    <p class="eyebrow pulse">● Product 02 — agenticrx Text-Back</p>
-    <h2>Missed call at 9:42 PM.<br><span class="accent">Booked job by 9:43.</span></h2>
-    <p class="section-sub dark">agenticrx watches your line 24/7 and texts back every missed call in seconds — from your own number, in your voice — before the caller dials your competitor. Watch it play out below.</p>
-    <ul class="pf-list">
-      <li>Texts back in under a minute, from your number</li>
-      <li>Keeps the conversation going until they're booked</li>
-      <li>You see every thread; jump in anytime</li>
-      <li>Works on a roof or under a house — not just after hours</li>
-    </ul>
-    <div class="pdemo-grid">
-      <div>
-        <div class="demo-phone">
-          <div class="demo-sitebar"><span>💬 (404) 555-0132</span><span class="demo-live">● AI online</span></div>
-          <div class="demo-chat" id="tbChat" style="min-height:380px"></div>
-        </div>
-        <div class="demo-ctrl"><button class="btn btn-ghost btn-sm" id="tbReplay">↻ Replay demo</button></div>
-      </div>
-      <div class="demo-side">
-        <h3>What the owner sees</h3>
-        <ul class="demo-receipt" id="tbOwner">
-          <li class="dim" id="tbOwnerEmpty">Nothing yet — the demo fills this in live…</li>
-        </ul>
-        <div class="demo-note">Every step is real product behavior — your number, your services, your booking rules. You approve the script before it ever texts a customer.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="strip" aria-label="Featured ranges"><div><span>Premium bangles</span><span>Designer bangles</span><span>Kashmiri styles</span><span>Oxidized jewelry</span><span>Anti-tarnish edit</span><span>Gifting & celebrations</span></div></div>
+    <div class="ornament-divider" aria-hidden="true"><span><i>✦</i></span></div>
 
-<!-- ============ PRODUCT 03: REVIEWS ============ -->
-<section class="pdemo" id="reviews">
-  <div class="wrap">
-    <p class="eyebrow pulse">● Product 03 — agenticrx Reviews</p>
-    <h2>Your best techs earn 5 stars daily.<br><span class="accent">Most shops just never ask.</span></h2>
-    <p class="section-sub dark">The Review Engine asks every customer automatically after every job. Happy ones land on Google in one tap. Unhappy ones reach you privately — before they ever post. Click through it.</p>
-    <ul class="pf-list">
-      <li>Automatically asks after every job</li>
-      <li>Unhappy customers reach you privately first</li>
-      <li>Drafts a reply to every review for your approval</li>
-      <li>Your best reviews, showcased where customers decide</li>
-    </ul>
-
-    <div class="re-pills" id="rePills" style="margin-top:36px">
-      <button class="re-pill active" data-stage="1">1 · Job done</button>
-      <button class="re-pill" data-stage="2">2 · The ask</button>
-      <button class="re-pill" data-stage="3">3 · Owner dashboard</button>
-    </div>
-
-    <div class="re-stage on" id="stage1">
-      <div class="stage-grid">
-        <div>
-          <div class="jobcard">
-            <h4>🔧 Tech app — Johnson Heating &amp; Air</h4>
-            <p class="jmeta">Today's route · Tech: Marcus</p>
-            <div class="jobrow"><span>No-cool diagnostic<br><small style="color:#8fa1bd">1420 Peachtree Hills Ave</small></span><span class="ok">✓ Done</span></div>
-            <button class="btn btn-wide" id="completeJob">Tap to complete job</button>
-          </div>
-        </div>
-        <div class="demo-side">
-          <h3>Stage 1 — Job done</h3>
-          <ul class="demo-receipt">
-            <li>🔧 <strong>Tech taps "Complete"</strong> in the app after the job</li>
-            <li class="dim">That tap is the trigger — the ask fires automatically, 15 minutes later</li>
-          </ul>
-          <div class="demo-note">No front-desk reminder needed. No awkward "could you leave us a review?" at the door. The system handles the timing.</div>
+    <section class="collection-nav" aria-labelledby="collectionTitle">
+      <div class="wrap">
+        <div class="collection-intro"><div><p class="eyebrow">Fresh from the AYIGIRI studio</p><h2 id="collectionTitle">New stories, shaped in color.</h2></div><p>Four signature edits drawn from the rituals, movement and warmth of Indian celebration—each one designed to feel personal, never prescribed.</p></div>
+        <div class="editorial-collections">
+          <button class="collection-card" type="button" data-collection-filter="navaratri"><img class="desktop-art" src="./img011.jpg" alt="Indian women wearing red, green, orange and purple bangle stacks based on AYIGIRI inventory"><img class="mobile-art" src="./img003.jpg" alt="Indian woman presenting colorful bangle stacks and jhumkas in a Garba look" style="--mobile-focus:center 68%"><span class="collection-copy"><span>Navaratri Nights</span><small>Nine evenings of movement, told in jewel-bright stacks and silver rhythm.</small><b>Enter the story</b></span></button>
+          <button class="collection-card" type="button" data-collection-filter="premium"><img src="./img007.jpg" alt="Actual AYIGIRI Raindrop premium bangles in jewel-tone colors"><span class="collection-copy"><span>The Premium Edit</span><small>Raindrop light and Kashmiri detail, composed for the entrance that lingers.</small><b>Enter the story</b></span></button>
+          <button class="collection-card" type="button" data-collection-filter="bridal"><img class="desktop-art" src="./img008.jpg" alt="Indian women wearing oxidized necklace, jhumka and bangle designs based on AYIGIRI inventory"><img class="mobile-art" src="./img009.jpg" alt="Indian woman showing an oxidized necklace and stacked bangles in a wedding look" style="--mobile-focus:center 68%"><span class="collection-copy"><span>Bridal &amp; Wedding</span><small>For vows, sangeet laughter and the quiet gold of a wedding morning.</small><b>Enter the story</b></span></button>
+          <button class="collection-card" type="button" data-collection-filter="little"><img src="./img020.jpg" alt="Actual AYIGIRI Garba necklace and earring set"><span class="collection-copy"><span>Little Divas</span><small>Small treasures with big celebration energy, made for her first festive memories.</small><b>Enter the story</b></span></button>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="re-stage" id="stage2">
-      <div class="stage-grid">
-        <div>
-          <div class="re-sms">
-            <div class="demo-sitebar"><span>💬 Johnson Heating &amp; Air</span><span class="demo-live">● SMS</span></div>
-            <div class="re-thread" id="askThread">
-              <div class="re-bubble bot">Hi! This is Johnson Heating &amp; Air. How was your service today? Tap your rating:</div>
-              <div class="stars" id="starRow">
-                <button data-stars="1">1</button>
-                <button data-stars="2">2</button>
-                <button data-stars="3">3</button>
-                <button data-stars="4">4</button>
-                <button data-stars="5">5</button>
+    <section class="for-everyone" aria-labelledby="everyoneTitle">
+      <div class="wrap">
+        <div class="for-everyone-head"><div><p class="eyebrow">Jewelry for every celebration</p><h2 id="everyoneTitle">Chosen for every woman, every little diva, every joyful gift.</h2></div><p>Begin with who you are choosing for. AYIGIRI brings the color, scale and occasion together—then helps you confirm the right piece on WhatsApp.</p></div>
+        <div class="everyone-grid">
+          <button class="everyone-card" type="button" data-collection-filter="premium" style="--everyone-focus:center 60%;--everyone-mobile-focus:center 70%"><img src="./img006.jpg" alt="Indian woman showing a purple AYIGIRI-inspired Raindrop bangle stack"><span class="everyone-copy"><strong>For Her</strong><span>Statement stacks, oxidized stories and easy gold for every version of her.</span><b>Explore her edit</b></span></button>
+          <button class="everyone-card" type="button" data-collection-filter="little" style="--everyone-focus:center 64%;--everyone-mobile-focus:center 67%"><img src="./img021.jpg" alt="AYIGIRI festive jewelry and bangles selected for young celebrants"><span class="everyone-copy"><strong>For Little Divas</strong><span>Bright, joyful pieces for Garba steps, family photos and first celebrations.</span><b>Explore little divas</b></span></button>
+          <button class="everyone-card" type="button" data-collection-filter="gifting" style="--everyone-focus:center 54%;--everyone-mobile-focus:center 58%"><img src="./img016.jpg" alt="Actual AYIGIRI colorful bangles prepared as celebration return gifts"><span class="everyone-copy"><strong>For Gifting</strong><span>Celebration-ready color for hosts, families, return gifts and thoughtful surprises.</span><b>Explore gifting</b></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="campaign" aria-labelledby="campaignTitle">
+      <div class="campaign-copy"><p class="eyebrow">The festive campaign</p><h2 id="campaignTitle">Diwali, in full color.</h2><p>Build a stack around your sari, lehenga or kurta palette. Share your outfit, size and celebration date; AYIGIRI will show you current combinations.</p><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20loved%20your%20Diwali%20in%20Full%20Color%20collection%20%E2%80%94%20can%20you%20help%20style%20jewelry%20for%20my%20outfit%3F" target="_blank" rel="noopener">Start festive styling ↗</a></div>
+      <img class="desktop-art" src="./img011.jpg" alt="Indian women wearing AYIGIRI red, green, orange and purple bangle stacks based on real inventory">
+      <img class="mobile-art" src="./img012.jpg" alt="Indian woman presenting vivid AYIGIRI-inspired bangle stacks in a Diwali look">
+    </section>
+
+    <section class="motion-showcase" aria-labelledby="motionTitle">
+      <div class="wrap">
+        <div class="motion-intro"><div><p class="eyebrow">Actual AYIGIRI pieces</p><h2 id="motionTitle">Jewelry, in motion.</h2></div><p>Short films created from AYIGIRI’s own inventory photography, so the color, texture and detailing stay connected to the pieces you can ask for today.</p></div>
+        <div class="motion-grid">
+          <figure class="motion-tile"><video class="motion-video" autoplay muted loop playsinline controls preload="auto" poster="./img022.jpg" aria-label="Purple Raindrop Kashmiri bangles in motion"><source src="./v1.mp4" type="video/mp4">Your browser does not support MP4 video.</video><figcaption>Raindrop Kashmiri<small>From AYIGIRI inventory</small></figcaption></figure>
+          <figure class="motion-tile"><video class="motion-video" autoplay muted loop playsinline controls preload="auto" poster="./img013.jpg" aria-label="Red and green elegance bangles in motion"><source src="./v2.mp4" type="video/mp4">Your browser does not support MP4 video.</video><figcaption>Red &amp; green elegance<small>From AYIGIRI inventory</small></figcaption></figure>
+          <figure class="motion-tile"><video class="motion-video" autoplay muted loop playsinline controls preload="auto" poster="./img023.jpg" aria-label="Oxidized three-piece jewelry set in motion"><source src="./v3.mp4" type="video/mp4">Your browser does not support MP4 video.</video><figcaption>Oxidized three-piece set<small>From AYIGIRI inventory</small></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog">
+      <div class="wrap">
+        <div class="catalog-head">
+          <div><p class="eyebrow">The AYIGIRI showcase</p><h2>Pieces with a story to tell.</h2></div>
+          <p>From the soft rain of crystal bangles to the deep rhythm of oxidized silver, each piece begins with a celebration in mind. Explore AYIGIRI’s real inventory, then connect on WhatsApp for color, size, price and availability.</p>
+        </div>
+
+        <div class="catalog-shell">
+          <aside class="filter-rail" aria-label="Catalog filters">
+            <details>
+              <summary class="mobile-filter-label">Filter catalog</summary>
+              <div class="filter-inner">
+                <div class="filter-top"><strong>Filters</strong><button class="clear" id="clearAll" type="button">Clear All</button></div>
+                <div class="filter-group" data-group="type">
+                  <h3>JEWELRY TYPE</h3>
+                  <div class="filter-options">
+                    <button class="filter-btn" data-filter="type" data-value="bangles" type="button">Bangles</button>
+                    <button class="filter-btn" data-filter="type" data-value="jhumkas" type="button">Jhumkas</button>
+                    <button class="filter-btn" data-filter="type" data-value="kadas" type="button">Kadas</button>
+                    <button class="filter-btn" data-filter="type" data-value="necklace-sets" type="button">Necklace sets</button>
+                    <button class="filter-btn" data-filter="type" data-value="kids" type="button">Kids</button>
+                  </div>
+                </div>
+                <div class="filter-group" data-group="occasion">
+                  <h3>OCCASION</h3>
+                  <div class="filter-options">
+                    <button class="filter-btn" data-filter="occasion" data-value="navaratri" type="button">Navaratri / Garba</button>
+                    <button class="filter-btn" data-filter="occasion" data-value="diwali" type="button">Diwali / Karwa Chauth</button>
+                    <button class="filter-btn" data-filter="occasion" data-value="weddings" type="button">Weddings / Rakhi</button>
+                    <button class="filter-btn" data-filter="occasion" data-value="everyday" type="button">Everyday</button>
+                  </div>
+                </div>
+                <div class="filter-group" data-group="price">
+                  <h3>PRICE BAND</h3>
+                  <div class="filter-options">
+                    <button class="filter-btn" data-filter="price" data-value="under25" type="button">Under $25</button>
+                    <button class="filter-btn" data-filter="price" data-value="25to50" type="button">$25–$50</button>
+                    <button class="filter-btn" data-filter="price" data-value="over50" type="button">$50+</button>
+                    <button class="filter-btn" data-filter="price" data-value="ask" type="button">WhatsApp for price</button>
+                  </div>
+                </div>
+                <div class="filter-group" data-group="size">
+                  <h3>DESIRED BANGLE SIZE</h3>
+                  <div class="filter-options size-grid">
+                    <button class="filter-btn" data-filter="size" data-value="2x2" type="button">2×2</button>
+                    <button class="filter-btn" data-filter="size" data-value="2x4" type="button">2×4</button>
+                    <button class="filter-btn" data-filter="size" data-value="2x6" type="button">2×6</button>
+                    <button class="filter-btn" data-filter="size" data-value="2x8" type="button">2×8</button>
+                    <button class="filter-btn" data-filter="size" data-value="2x10" type="button">2×10</button>
+                  </div>
+                </div>
               </div>
-              <div id="askResult"></div>
+            </details>
+          </aside>
+
+          <div class="catalog-main">
+            <div class="toolbar">
+              <div class="count" id="count">Items 1–6 of 19</div>
+              <div class="tools">
+                <div class="view-toggle" aria-label="Catalog view">
+                  <button class="active" type="button" id="gridView" aria-label="Grid view" aria-pressed="true">▦</button>
+                  <button type="button" id="listView" aria-label="List view" aria-pressed="false">☰</button>
+                </div>
+                <label><span style="position:absolute;left:-9999px">Sort products</span><select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
+              </div>
             </div>
+
+            <div class="product-grid" id="productGrid">
+              <article class="product-card" data-featured="1" data-name="Raindrop Kashmiri Bangles" data-type="bangles" data-occasion="navaratri diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><span class="offer-badge gold">Selling Fast</span><img src="./img022.jpg" alt="Actual AYIGIRI raindrop kashmiri bangles from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Premium bangles</p><h3>Raindrop Kashmiri Bangles</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Purple, pink and green raindrop-detail bangles photographed from AYIGIRI inventory.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Raindrop%20Kashmiri%20Bangles.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="2" data-name="Raindrop Premium Edit" data-type="bangles" data-occasion="diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><span class="offer-badge light">Limited Pieces</span><img src="./img007.jpg" alt="Actual AYIGIRI raindrop premium edit from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Premium bangles</p><h3>Raindrop Premium Edit</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Jewel-tone premium bangle stacks with crystal and textured details.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Raindrop%20Premium%20Edit.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="3" data-name="Red & Green Elegance Stack" data-type="bangles" data-occasion="diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><span class="offer-badge">Diwali Offer</span><img src="./img013.jpg" alt="Actual AYIGIRI red & green elegance stack from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Designer bangles</p><h3>Red & Green Elegance Stack</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Rich red and emerald stack with gold-tone crystal accents.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Red%20%26%20Green%20Elegance%20Stack.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="4" data-name="Orange & Royal Purple Stack" data-type="bangles" data-occasion="navaratri diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img004.jpg" alt="Actual AYIGIRI orange & royal purple stack from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Designer bangles</p><h3>Orange & Royal Purple Stack</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Orange, royal purple and crystal bangles styled as a festive statement stack.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Orange%20%26%20Royal%20Purple%20Stack.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="5" data-name="Champagne Crystal Stack" data-type="bangles" data-occasion="diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img024.jpg" alt="Actual AYIGIRI champagne crystal stack from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Premium bangles</p><h3>Champagne Crystal Stack</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Champagne-gold bangles with clear crystal and filigree details.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Champagne%20Crystal%20Stack.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="6" data-name="Crystal Gold Bangles" data-type="bangles" data-occasion="diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img025.jpg" alt="Actual AYIGIRI crystal gold bangles from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Premium bangles</p><h3>Crystal Gold Bangles</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Gold-tone bangles with green and clear crystal accents.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Crystal%20Gold%20Bangles.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="7" data-name="Multicolor Interchangeable Bangles" data-type="bangles" data-occasion="navaratri diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img018.jpg" alt="Actual AYIGIRI multicolor interchangeable bangles from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Interchangeable bangles</p><h3>Multicolor Interchangeable Bangles</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">A vivid interchangeable stack in purple, blue, green, pink, orange and red.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Multicolor%20Interchangeable%20Bangles.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="8" data-name="Chapter One Bangle Collection" data-type="bangles" data-occasion="navaratri diwali" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img026.jpg" alt="Actual AYIGIRI chapter one bangle collection from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Glass bangles</p><h3>Chapter One Bangle Collection</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Textured glass bangles in deep blue, orange, magenta, green and gold.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Chapter%20One%20Bangle%20Collection.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="9" data-name="The Premium Edit" data-type="bangles" data-occasion="diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img010.jpg" alt="Actual AYIGIRI the premium edit from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Premium bangles</p><h3>The Premium Edit</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Red and gold ceremonial stacks with ornate central bangles.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20The%20Premium%20Edit.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="10" data-name="Fashion Mela Collection" data-type="jhumkas necklace-sets" data-occasion="navaratri diwali weddings" data-price="ask">
+                <div class="product-media"><img src="./img027.jpg" alt="Actual AYIGIRI fashion mela collection from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Oxidized jewelry</p><h3>Fashion Mela Collection</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">A broad AYIGIRI table display of oxidized necklace and earring designs.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Fashion%20Mela%20Collection.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="11" data-name="30+ Shades Gifting Edit" data-type="bangles kids" data-occasion="navaratri diwali weddings" data-price="ask" data-size="all">
+                <div class="product-media"><img src="./img028.jpg" alt="Actual AYIGIRI 30+ shades gifting edit from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Bangles · Gifting</p><h3>30+ Shades Gifting Edit</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Color-led bangle gifts across bright festive shades.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%2030%2B%20Shades%20Gifting%20Edit.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="12" data-name="Navaratri Oxidized Collection" data-type="jhumkas necklace-sets" data-occasion="navaratri" data-price="ask">
+                <div class="product-media"><img src="./img029.jpg" alt="Actual AYIGIRI navaratri oxidized collection from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Oxidized jewelry</p><h3>Navaratri Oxidized Collection</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Garba-ready oxidized designs presented in AYIGIRI’s Navaratri collection.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Navaratri%20Oxidized%20Collection.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="13" data-name="Garba Oxidized Styling" data-type="jhumkas necklace-sets" data-occasion="navaratri weddings" data-price="ask">
+                <div class="product-media"><img src="./img030.jpg" alt="Actual AYIGIRI garba oxidized styling from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Oxidized set</p><h3>Garba Oxidized Styling</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">A complete oxidized Garba look with layered statement jewelry.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Garba%20Oxidized%20Styling.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="14" data-name="Oxidized Three-Piece Set" data-type="jhumkas necklace-sets" data-occasion="navaratri diwali weddings" data-price="ask">
+                <div class="product-media"><img src="./img023.jpg" alt="Actual AYIGIRI oxidized three-piece set from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Necklace set · Jhumkas</p><h3>Oxidized Three-Piece Set</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Multicolor oxidized necklace, matching jhumkas and maang tikka.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Oxidized%20Three-Piece%20Set.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="15" data-name="Oxidized Statement Kadas" data-type="kadas" data-occasion="navaratri diwali" data-price="ask">
+                <div class="product-media"><img src="./img019.jpg" alt="Actual AYIGIRI oxidized statement kadas from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Kadas</p><h3>Oxidized Statement Kadas</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Statement oxidized kadas with colorful stone and engraved detailing.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Oxidized%20Statement%20Kadas.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="16" data-name="Oxidized Jhumkas" data-type="jhumkas" data-occasion="navaratri diwali weddings" data-price="ask">
+                <div class="product-media"><span class="offer-badge light">Festive Pick</span><img src="./img031.jpg" alt="Actual AYIGIRI oxidized jhumkas from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Jhumkas</p><h3>Oxidized Jhumkas</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Large oxidized jhumkas with layered bell silhouettes and engraved details.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Oxidized%20Jhumkas.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="17" data-name="Anti-Tarnish Everyday Edit" data-type="kadas" data-occasion="everyday diwali" data-price="ask">
+                <div class="product-media"><img src="./img032.jpg" alt="Actual AYIGIRI anti-tarnish everyday edit from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Anti-tarnish</p><h3>Anti-Tarnish Everyday Edit</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Gold-tone everyday bracelets and kadas with enamel and charm details.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Anti-Tarnish%20Everyday%20Edit.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="18" data-name="Celebration Return Gifts" data-type="kids bangles" data-occasion="diwali weddings" data-price="10" data-priceband="under25" data-size="all">
+                <div class="product-media"><img src="./img016.jpg" alt="Actual AYIGIRI celebration return gifts from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Gifting</p><h3>Celebration Return Gifts</h3><p class="price">$6–$15 each</p><p class="delivery">Ships across USA</p><p class="product-meta">Festive bangles prepared for celebration gifting. Ask about quantity options.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Celebration%20Return%20Gifts.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+              <article class="product-card" data-featured="19" data-name="Garba Necklace Sets" data-type="necklace-sets jhumkas" data-occasion="navaratri" data-price="ask">
+                <div class="product-media"><img src="./img020.jpg" alt="Actual AYIGIRI garba necklace sets from current inventory" loading="lazy"><span class="inventory-label">AYIGIRI inventory</span></div>
+                <div class="card-copy"><p class="card-type">Necklace sets</p><h3>Garba Necklace Sets</h3><p class="price">WhatsApp for price</p><p class="delivery">Ships across USA</p><p class="product-meta">Oxidized necklace and earring sets with colorful bead accents for Garba nights.</p><a class="ask-link" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%27m%20interested%20in%20the%20Garba%20Necklace%20Sets.%20Is%20it%20available%3F%20%28sent%20from%20your%20website%29" target="_blank" rel="noopener">Order on WhatsApp ↗</a></div>
+              </article>
+            </div>
+            <div class="empty" id="emptyState"><strong>No exact matches yet.</strong><br>Clear one or more filters, or send the combination you want on WhatsApp.</div>
+            <div class="load-wrap"><button class="btn" id="loadMore" type="button">Load more products</button></div>
+            <div class="note"><strong>About sizes and prices:</strong> the Instagram catalog does not publish exact size inventory or fixed prices for most pieces. The size filter helps you narrow to bangle-capable collections; AYIGIRI confirms whether your selected size is available.</div>
           </div>
-          <div style="text-align:center"><button class="re-reset" id="askReset">↻ Try a different rating</button></div>
-        </div>
-        <div class="demo-side">
-          <h3>Stage 2 — The ask</h3>
-          <ul class="demo-receipt" id="askReceipt">
-            <li class="dim">Pick a star rating — see the two paths…</li>
-          </ul>
-          <div class="demo-note"><strong style="color:#fff">4–5 stars → Google.</strong> One tap, review posted, reputation grows.<br><strong style="color:#fff">1–3 stars → you, privately.</strong> The owner gets alerted and calls within the hour — the complaint gets fixed, never published.</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="re-stage" id="stage3">
-      <h3 style="margin-bottom:18px">Stage 3 — Owner dashboard</h3>
-      <div class="dash-grid">
-        <div class="dash-card"><strong>47</strong><span>reviews this month</span></div>
-        <div class="dash-card"><strong>4.9★</strong><span>average rating</span></div>
-        <div class="dash-card"><strong>6</strong><span>at-risk customers recovered</span></div>
-      </div>
-      <p class="dash-note">Sample dashboard — Johnson Heating &amp; Air (illustrative demo data)</p>
-      <div class="demo-note" style="margin-top:22px;max-width:640px">Every recovered customer is a 1-star review that never happened — plus a customer who stays. The dashboard shows you which techs earn the love and which jobs need a callback.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY AGENTICRX ============ -->
-<section class="why" id="why">
-  <div class="wrap">
-    <p class="eyebrow">Why agenticrx</p>
-    <h2>Expect every call handled<br>like your best dispatcher would.</h2>
-    <p class="section-sub">Not an answering service that takes messages — a system that books jobs.</p>
-    <div class="why-grid">
-      <div class="why-card"><span>⚡</span><h3>Answered in seconds</h3><p>Nights, weekends, holidays. No caller ever listens to your voicemail greeting again.</p></div>
-      <div class="why-card"><span>💬</span><h3>Every missed call texted back</h3><p>Under a minute, from your own number, in your voice — before they dial your competitor.</p></div>
-      <div class="why-card"><span>✅</span><h3>You approve everything</h3><p>Every script, every text, every escalation rule — signed off by you before a single customer hears it.</p></div>
-      <div class="why-card"><span>📝</span><h3>Every word recorded</h3><p>Full transcripts and recordings, searchable. Know exactly what was said on every call.</p></div>
-      <div class="why-card"><span>🚨</span><h3>Safety triaged first</h3><p>Gas smells and true emergencies escalate to your on-call tech instantly — per your rules.</p></div>
-      <div class="why-card"><span>🔓</span><h3>No contracts</h3><p>Month to month. If it doesn't book jobs that pay for itself many times over, cancel.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ LIVE DEMO: WEBSITE CHAT ============ -->
-<section class="demo" id="demo">
-  <div class="wrap">
-    <p class="eyebrow pulse">● Live demo — website chat</p>
-    <h2>Don't take our word for it.<br>Take it for a spin.</h2>
-    <p class="section-sub dark">This is what your customer experiences at 11 PM on a site running agenticrx. Type like you're the homeowner — the receipt fills in live.</p>
-    <div class="demo-grid">
-      <div class="demo-phone">
-        <div class="demo-sitebar"><span>❄️ Sample Heating &amp; Air</span><span class="demo-live">● AI online</span></div>
-        <div class="demo-chat" id="demoChat"></div>
-        <div class="demo-quick" id="demoQuick"></div>
-        <div class="demo-inputrow">
-          <input id="demoInput" type="text" placeholder="Type a message…" autocomplete="off" maxlength="200">
-          <button id="demoSend" aria-label="Send">➤</button>
+    <section class="lookbook" aria-labelledby="lookbookTitle">
+      <div class="wrap">
+        <div class="lookbook-head"><h2 id="lookbookTitle">Style it your way.</h2><p>One stack can turn with the occasion: add silver for Garba, crystal for an evening reception, or let a single kada lead.</p></div>
+        <div class="lookbook-grid">
+          <div class="look"><img class="desktop-art" src="./img011.jpg" alt="Indian women wearing red, green, orange and purple stacks styled from AYIGIRI inventory"><img class="mobile-art" src="./img012.jpg" alt="Indian woman presenting red, green and crystal bangle stacks" style="--mobile-focus:center 70%"><span>Garba color story</span></div>
+          <div class="look"><img class="desktop-art" src="./img005.jpg" alt="Indian women wearing purple, green and pink stacks styled from AYIGIRI Raindrop inventory"><img class="mobile-art" src="./img006.jpg" alt="Indian woman presenting a purple Raindrop-inspired bangle stack" style="--mobile-focus:center 72%"><span>The mixed stack</span></div>
+          <div class="look"><img src="./img033.jpg" alt="Indian woman wearing an everyday bangle stack based on AYIGIRI anti-tarnish inventory" style="--mobile-focus:center 70%"><span>Quiet gold</span></div>
         </div>
       </div>
-      <div class="demo-side">
-        <h3>What just happened</h3>
-        <ul class="demo-receipt" id="demoReceipt">
-          <li class="dim">Start chatting — this receipt fills in live…</li>
-        </ul>
-        <div class="demo-note">Interactive preview — it runs entirely in your browser. The live product connects to your phones, calendar, and reviews, and you approve every script before it talks to a customer.</div>
-        <a class="btn btn-wide" href="#audit" style="margin-top:18px">I want this on my site</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ============ SAMPLE WEEK ============ -->
-<section class="week">
-  <div class="wrap">
-    <p class="eyebrow">A week with agenticrx</p>
-    <h2>What Monday morning<br>looks like now</h2>
-    <p class="section-sub">Illustrative sample — your numbers, your jobs, your report.</p>
-    <div class="feed">
-      <div class="feed-item"><span class="feed-time">Sat 2:14 AM</span><span class="feed-ico">📞</span><p><strong>No-cool call answered in 6 seconds.</strong> Diagnosed, booked Wed 9–11 AM, confirmation texted. You slept.</p><em>Voice</em></div>
-      <div class="feed-item"><span class="feed-time">Sat 9:41 AM</span><span class="feed-ico">💬</span><p><strong>Missed call on a roof.</strong> Text-back in 40 seconds — tune-up booked for Thursday, $89.</p><em>Text-Back</em></div>
-      <div class="feed-item"><span class="feed-time">Sun 3:05 PM</span><span class="feed-ico">⭐</span><p><strong>5-star review collected</strong> after Saturday's install. Reply drafted, waiting for your thumbs-up.</p><em>Reviews</em></div>
-      <div class="feed-item"><span class="feed-time">Sun 8:20 PM</span><span class="feed-ico">🔁</span><p><strong>Estimate follow-up sent</strong> on Tuesday's $4,200 quote. Homeowner replied: "Let's do Thursday."</p><em>Follow-up</em></div>
-      <div class="feed-item total"><span class="feed-time">Mon 8:00 AM</span><span class="feed-ico">📋</span><p><strong>Weekend report:</strong> 11 calls answered · 6 jobs booked · $2,140 scheduled · 0 to voicemail.</p><em>Report</em></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ROI CALCULATOR ============ -->
-<section class="calc" id="calculator">
-  <div class="wrap">
-    <p class="eyebrow">Do your own math</p>
-    <h2>What are missed calls<br>costing you?</h2>
-    <p class="section-sub dark">Drag the sliders to your numbers. No email required, no sales pitch — just arithmetic.</p>
-    <div class="calc-grid">
-      <div class="calc-inputs">
-        <div class="slider-row">
-          <div class="slider-head"><label>Average job value</label><output id="oJob">$450</output></div>
-          <input type="range" id="rJob" min="150" max="2500" step="25" value="450">
-        </div>
-        <div class="slider-row">
-          <div class="slider-head"><label>Missed calls per week</label><output id="oMissed">8</output></div>
-          <input type="range" id="rMissed" min="0" max="40" step="1" value="8">
-        </div>
-        <div class="slider-row">
-          <div class="slider-head"><label>Jobs you'd close from those calls</label><output id="oClose">40%</output></div>
-          <input type="range" id="rClose" min="10" max="80" step="5" value="40">
-        </div>
-        <div class="slider-row">
-          <div class="slider-head"><label>Share AI could recover</label><output id="oRec">70%</output></div>
-          <input type="range" id="rRec" min="20" max="95" step="5" value="70">
+    <section class="worn-by-you" aria-labelledby="wornTitle">
+      <div class="wrap">
+        <div class="worn-head"><div><p class="eyebrow">The AYIGIRI model lookbook</p><h2 id="wornTitle">Worn by you.</h2></div><p>Ten campaign scenes, each styled directly from AYIGIRI’s original jewelry photography. Look for the matching inventory detail inset, then ask for the piece, color and size on WhatsApp.</p></div>
+        <div class="worn-gallery">
+          <figure class="worn-card"><img src="./img006.jpg" alt="Indian model wearing a purple Raindrop-inspired AYIGIRI bangle stack" loading="lazy"><span class="worn-product"><img src="./img022.jpg" alt="Actual AYIGIRI purple Raindrop bangles"></span><figcaption>Purple Raindrop<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img src="./img012.jpg" alt="Indian model wearing rich red, green and crystal bangle stacks styled from AYIGIRI inventory" loading="lazy"><span class="worn-product"><img src="./img013.jpg" alt="Actual AYIGIRI red and green stack"></span><figcaption>Ruby &amp; emerald<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img src="./img033.jpg" alt="Indian woman wearing an everyday gold-tone bangle stack based on AYIGIRI anti-tarnish inventory" loading="lazy"><span class="worn-product"><img src="./img032.jpg" alt="Actual AYIGIRI anti-tarnish pieces"></span><figcaption>Quiet gold<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img src="./img009.jpg" alt="Indian model wearing an oxidized jewelry look styled from AYIGIRI inventory" loading="lazy"><span class="worn-product"><img src="./img023.jpg" alt="Actual AYIGIRI oxidized three-piece set"></span><figcaption>Oxidized drama<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img class="desktop-art" src="./img005.jpg" alt="Indian women wearing purple, green and pink stacks styled from AYIGIRI Raindrop inventory" loading="lazy"><img class="mobile-art" src="./img006.jpg" alt="Indian woman presenting a purple Raindrop-inspired bangle stack" loading="lazy"><span class="worn-product"><img src="./img007.jpg" alt="Actual AYIGIRI Raindrop Premium bangles"></span><figcaption>Raindrop trio<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img src="./img003.jpg" alt="Indian model wearing a colorful layered Garba jewelry look styled from AYIGIRI inventory" loading="lazy"><span class="worn-product"><img src="./img020.jpg" alt="Actual AYIGIRI Garba necklace and earring set"></span><figcaption>Garba layered<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img class="desktop-art" src="./img008.jpg" alt="Indian women wearing oxidized necklace, jhumka and bangle designs based on AYIGIRI inventory" loading="lazy"><img class="mobile-art" src="./img009.jpg" alt="Indian woman presenting an oxidized necklace and colorful bangle stacks" loading="lazy"><span class="worn-product"><img src="./img031.jpg" alt="Actual AYIGIRI oxidized jhumkas"></span><figcaption>Jhumka rhythm<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img class="desktop-art" src="./img002.jpg" alt="Indian women in Navaratri looks wearing colorful jewelry styled from AYIGIRI inventory" loading="lazy"><img class="mobile-art" src="./img003.jpg" alt="Indian woman presenting Garba bangles and jhumkas" loading="lazy"><span class="worn-product"><img src="./img004.jpg" alt="Actual AYIGIRI orange and royal purple bangles"></span><figcaption>Navaratri color<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img class="desktop-art" src="./img011.jpg" alt="Indian women wearing red, green, orange and purple stacks styled from AYIGIRI inventory" loading="lazy"><img class="mobile-art" src="./img012.jpg" alt="Indian woman presenting red, green and crystal bangle stacks" loading="lazy"><span class="worn-product"><img src="./img018.jpg" alt="Actual AYIGIRI multicolor interchangeable bangles"></span><figcaption>Color, multiplied<small>Matched to original inventory</small></figcaption></figure>
+          <figure class="worn-card"><img src="./img015.jpg" alt="Indian model wearing a festive bangle look" loading="lazy"><span class="worn-product"><img src="./img024.jpg" alt="Actual AYIGIRI champagne crystal bangles"></span><figcaption>Champagne light<small>Matched to original inventory</small></figcaption></figure>
         </div>
       </div>
-      <div class="calc-out">
-        <p class="co-label">Revenue walking out the door</p>
-        <div class="co-big" id="coAnnual">$0</div>
-        <p class="co-sub">per year</p>
-        <div class="co-rows">
-          <div><span>Per week</span><strong id="coWeek">$0</strong></div>
-          <div><span>Per month</span><strong id="coMonth">$0</strong></div>
+    </section>
+
+    <section class="size-guide" aria-labelledby="sizeTitle">
+      <div class="wrap size-layout">
+        <div><p class="eyebrow">Bangle sizing</p><h2 id="sizeTitle">Find your Indian bangle size.</h2><p>Measure the inside diameter of a rigid bangle that already fits you comfortably. Send the measurement or a photo on WhatsApp and the AYIGIRI concierge will help match it.</p><a class="btn primary" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20was%20browsing%20your%20website%20and%20need%20help%20with%20sizing." target="_blank" rel="noopener">Not sure? Chat with us ↗</a></div>
+        <div class="size-table" aria-label="Indian bangle size guide">
+          <div class="size-row"><strong>2×2</strong><span>Inside diameter about 2.125 in / 54 mm</span></div>
+          <div class="size-row"><strong>2×4</strong><span>Inside diameter about 2.25 in / 57 mm</span></div>
+          <div class="size-row"><strong>2×6</strong><span>Inside diameter about 2.375 in / 60 mm</span></div>
+          <div class="size-row"><strong>2×8</strong><span>Inside diameter about 2.5 in / 64 mm</span></div>
+          <div class="size-row"><strong>2×10</strong><span>Inside diameter about 2.625 in / 67 mm</span></div>
         </div>
-        <div class="co-recover">
-          <p>Recoverable with agenticrx</p>
-          <strong id="coRec">$0 / yr</strong>
-        </div>
-        <a class="btn btn-wide" href="#audit">Plug the leak — free walkthrough</a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section class="how" id="how">
-  <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>From kickoff to live<br>in about a week.</h2>
-    <p class="section-sub">Done for you — not a DIY project. You stay in charge the whole way.</p>
-    <div class="timeline">
-      <div class="tstep"><span class="tnum">Day 1</span><h3>Kickoff call</h3><p>15 minutes. We learn your services, prices, service area, and exactly how you want calls handled.</p></div>
-      <div class="tstep"><span class="tnum">Days 2–4</span><h3>We build &amp; connect</h3><p>The AI is trained on your business and plugged into your phone number and calendar. Nothing for you to install.</p></div>
-      <div class="tstep"><span class="tnum">Days 5–6</span><h3>You approve everything</h3><p>Every script, every text, every escalation rule — signed off by you before it talks to a single customer.</p></div>
-      <div class="tstep"><span class="tnum">Day 7</span><h3>Go live</h3><p>Every call answered from here on. You get transcripts and a weekly report — that's the whole job.</p></div>
-    </div>
-  </div>
-</section>
+    <section class="instagram" aria-labelledby="instagramTitle">
+      <div class="wrap">
+        <div class="section-line"><div><p class="eyebrow">From the AYIGIRI feed</p><h2 id="instagramTitle">@ayigiri.co</h2></div><a class="btn" href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener">Follow on Instagram ↗</a></div>
+        <div class="instagram-grid">
+          <a href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener"><img src="./img022.jpg" alt="AYIGIRI Raindrop Kashmiri bangles"></a>
+          <a href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener"><img src="./img013.jpg" alt="AYIGIRI red and green bangle stack"></a>
+          <a href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener"><img src="./img023.jpg" alt="AYIGIRI oxidized three-piece set"></a>
+          <a href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener"><img src="./img031.jpg" alt="AYIGIRI oxidized jhumkas"></a>
+          <a href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener"><img src="./img032.jpg" alt="AYIGIRI anti-tarnish jewelry"></a>
+        </div>
+      </div>
+    </section>
 
-<!-- ============ AUDIT / LEAD FORM ============ -->
-<section class="audit" id="audit">
-  <div class="wrap audit-inner">
-    <div class="audit-copy">
-      <p class="eyebrow">Free walkthrough</p>
-      <h2>See it on <em>your</em><br>business first.</h2>
-      <p>Book a 15-minute walkthrough and we'll show you the AI working on <strong>your</strong> website and <strong>your</strong> phone number — plus your scorecard from our 139-site audit.</p>
-      <ul class="checklist">
-        <li>Your website score vs. the top shops in your metro</li>
-        <li>How many after-hours calls you're likely missing</li>
-        <li>The 3 fixes with the fastest payback</li>
-      </ul>
-    </div>
-    <form class="audit-form" id="auditForm" novalidate>
-      <h3>Book my free walkthrough</h3>
-      <label>Your name<input type="text" name="name" required placeholder="Mike Johnson"></label>
-      <label>Company<input type="text" name="company" required placeholder="Johnson Heating & Air"></label>
-      <label>Website<input type="text" name="website" placeholder="johnsonheating.com"></label>
-      <label>Phone<input type="tel" name="phone" required placeholder="(404) 555-0132"></label>
-      <button class="btn btn-wide" type="submit">Book my walkthrough</button>
-      <p class="form-note" id="formNote">We reply within one business day. No spam, ever.</p>
-    </form>
-  </div>
-</section>
+    <section class="concierge" aria-label="WhatsApp sizing concierge"><div class="wrap"><div><h2>Not sure of your size?</h2><p>Send a photo of a bangle that fits. We’ll help you choose.</p></div><a class="btn" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20was%20browsing%20your%20website%20and%20need%20help%20with%20sizing." target="_blank" rel="noopener">Chat with AYIGIRI · +1 (943) 238-3422 ↗</a></div></section>
 
-<!-- ============ FAQ ============ -->
-<section class="faq" id="faq">
-  <div class="wrap">
-    <p class="eyebrow">Straight answers</p>
-    <h2>Asked by every contractor</h2>
-    <details open><summary>Is this a real product or still being built?</summary><p>It's real and installable today — the demos on this site are interactive previews. Your install is trained on your business, connected to your phone number and calendar, and nothing talks to a customer until you've approved it.</p></details>
-    <details><summary>Will it sound like a robot?</summary><p>No. It's trained on your business — your services, your prices, your tone. Warm, short, human. And you approve every script before it goes live.</p></details>
-    <details><summary>What if a caller asks something it can't handle?</summary><p>It escalates — transfers the call or texts you a summary instantly. You set the rules for what counts as "get me the owner."</p></details>
-    <details><summary>Do I keep my phone number?</summary><p>Yes. Everything runs on your existing number. Customers notice nothing except that someone always picks up.</p></details>
-    <details><summary>Am I locked into a contract?</summary><p>No. Month to month. If it doesn't book jobs that pay for itself many times over, cancel.</p></details>
-    <details><summary>How is this different from an answering service?</summary><p>Answering services take messages. This books jobs — it checks your calendar, quotes windows, sends confirmations, and follows up. It's a closer, not a mailbox.</p></details>
-  </div>
-</section>
+    <section class="order-section" id="order">
+      <div class="wrap order-grid">
+        <div><p class="eyebrow" style="color:var(--gold)">Order in three steps</p><h2>Send the look. Get the right options.</h2><p>Use any product name in this catalog as your reference. Share your saree or festive outfit color, Indian bangle size (2×2–2×10), quantity, occasion and ZIP code.</p><div class="actions"><a class="btn primary" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20would%20like%20to%20place%20an%20order%20from%20your%20website." target="_blank" rel="noopener">Open WhatsApp ↗</a><button class="btn" type="button" data-copy-number>Copy +1 (943) 238-3422</button></div></div>
+        <div class="steps"><div class="step"><div><strong>Choose a catalog piece</strong><p>Open its original Instagram post if you want to see the reel or photo.</p></div></div><div class="step"><div><strong>Share size, color & occasion</strong><p>For rigid bangles, measure the inside diameter of one that already fits.</p></div></div><div class="step"><div><strong>Confirm before payment</strong><p>AYIGIRI shares current photos, availability, pricing and shipping details.</p></div></div></div>
+      </div>
+    </section>
+  </main>
 
-<!-- ============ FINAL CTA ============ -->
-<section class="final">
-  <div class="wrap final-inner">
-    <h2>Your competitor's phone gets answered at 2 AM.<br>Make sure yours does too.</h2>
-    <div class="cta-row center">
-      <a class="btn btn-lg" href="#demo">▶ Try the live demo</a>
-      <a class="btn btn-ghost btn-lg" href="#audit">Book my free walkthrough</a>
-    </div>
-  </div>
-</section>
+  <footer class="footer">
+    <div class="wrap footer-grid"><div><img class="footer-logo" src="./img001.jpg" alt="AYIGIRI — Divine by Her. Designed for You."><p class="eyebrow" style="color:var(--gold)">Divine by Her. Designed for You.</p><h2>Color for every celebration.</h2><p>Cumming, GA · Shipping across the USA</p></div><div class="footer-actions"><a class="btn primary" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20have%20a%20question%20about%20your%20jewelry." target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.instagram.com/ayigiri.co?exln=anFzZ2x1NmZsY25y" target="_blank" rel="noopener">Instagram ↗</a></div></div>
+  </footer>
 
-<footer>
-  <div class="wrap foot-inner">
-    <a class="brand" href="#top"><span class="brand-mark">◈</span> agenticrx</a>
-    <p>AI phone, chat &amp; follow-up for HVAC contractors.<br>© <span id="year"></span> agenticrx · Atlanta, GA</p>
-  </div>
-</footer>
+  <a class="sticky-wa" href="https://wa.me/19432383422?text=Hi%20AYIGIRI%21%20I%20was%20browsing%20your%20website%20and%20need%20help%20with%20sizing." target="_blank" rel="noopener">Order on WhatsApp · +1 (943) 238-3422 ↗</a>
 
-<div class="sticky-cta"><a class="btn btn-wide" href="#audit">Book my free walkthrough</a></div>
+  <script>
+  (function(){
+    var carousel = document.getElementById('heroCarousel');
+    var slides = carousel ? Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide')) : [];
+    var dots = carousel ? Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot')) : [];
+    var counter = carousel ? carousel.querySelector('.carousel-counter strong') : null;
+    var currentSlide = 0;
+    var carouselTimer = null;
+    var touchStartX = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-<script>window.DEMO_CONFIG = { company: "Sample Heating & Air", botName: "Ava" };</script>
-<script src="script.js"></script>
-<script>
-/* ============ DEMO 1: missed-call text-back (auto-plays on scroll) ============ */
-(function(){
-var chat=document.getElementById('tbChat'),
-    ownerList=document.getElementById('tbOwner'),
-    ownerEmpty=document.getElementById('tbOwnerEmpty'),
-    runId=0, played=false;
-function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
-function mk(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
-function scrollChat(){chat.scrollTop=chat.scrollHeight}
-function addSys(html,cls){chat.appendChild(mk('<div class="sms-sys'+(cls?' '+cls:'')+'">'+html+'</div>'));scrollChat()}
-function addMsg(who,text){
-  var badge=who==='ai'?'<span class="ai-badge">AI</span>':'';
-  chat.appendChild(mk('<div class="sms-row '+who+'">'+badge+'<div class="sms-bubble">'+text+'</div></div>'));
-  scrollChat();
-}
-function addCard(){
-  chat.appendChild(mk('<div class="sms-card">✅ <strong>Booked — No-cool diagnostic</strong><br>Tomorrow 8–10 AM · 1420 Peachtree Hills Ave<br><span class="sms-card-sub">Confirmation text sent to customer</span></div>'));
-  scrollChat();
-}
-function ownerItem(html){ownerEmpty.style.display='none';ownerList.appendChild(mk('<li>'+html+'</li>'))}
-async function runScript(id){
-  var pill=mk('<div class="sms-sys timer">agenticrx responding in <strong id="tbCd">8</strong>s…</div>');
-  chat.appendChild(pill);scrollChat();
-  for(var s=7;s>=0;s--){
-    await sleep(900);if(id!==runId)return;
-    var n=document.getElementById('tbCd');if(n)n.textContent=s;
-  }
-  if(id!==runId)return;pill.remove();
-  addMsg('ai','Hi, this is Johnson Heating &amp; Air — sorry we missed you! Is this about a repair or a new install?');
-  ownerItem('🔔 <strong>Lead captured</strong> — (404) 555-0132 texted back automatically at 9:42 PM');
-  await sleep(1900);if(id!==runId)return;
-  addMsg('me','AC stopped cooling, house is 84 degrees');
-  await sleep(1700);if(id!==runId)return;
-  addMsg('ai','Got it — a no-cool call. I can get a tech out first thing tomorrow. What&rsquo;s the service address?');
-  await sleep(1900);if(id!==runId)return;
-  addMsg('me','1420 Peachtree Hills Ave');
-  await sleep(1700);if(id!==runId)return;
-  addMsg('ai','You&rsquo;re booked: <strong>tomorrow 8–10 AM</strong>. The tech will text when en route. Anything else I can help with?');
-  ownerItem('📅 <strong>Job booked</strong> — no-cool diagnostic, tomorrow 8–10 AM');
-  ownerItem('💰 <strong>Est. value</strong> — ~$350 diagnostic');
-  await sleep(1900);if(id!==runId)return;
-  addMsg('me','That&rsquo;s it, thanks');
-  await sleep(1500);if(id!==runId)return;
-  addMsg('ai','You&rsquo;re welcome! We&rsquo;ll see you in the morning.');
-  addCard();
-  ownerItem('⏱ <strong>Time to book</strong> — 47 seconds from missed call');
-  ownerItem('😴 <strong>You</strong> — asleep. Zero effort.');
-}
-function startDemo(){
-  runId++;var id=runId;
-  chat.innerHTML='';ownerList.innerHTML='';
-  ownerEmpty=mk('<li class="dim">Nothing yet — the demo fills this in live…</li>');
-  ownerList.appendChild(ownerEmpty);
-  (async function(){
-    addSys('📵 Missed call · (404) 555-0132 · 9:42 PM');
-    await sleep(1300);if(id!==runId)return;
-    await runScript(id);
-  })();
-}
-document.getElementById('tbReplay').addEventListener('click',startDemo);
-var io2=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting&&!played){played=true;startDemo();io2.disconnect()}
-  });
-},{threshold:0.25});
-io2.observe(document.getElementById('textback'));
-})();
+    function showSlide(index, userInitiated){
+      if(!slides.length) return;
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach(function(slide,i){
+        var chosen = i === currentSlide;
+        slide.classList.toggle('active', chosen);
+        slide.setAttribute('aria-hidden', chosen ? 'false' : 'true');
+      });
+      dots.forEach(function(dot,i){
+        var chosen = i === currentSlide;
+        dot.classList.toggle('active', chosen);
+        dot.setAttribute('aria-selected', chosen ? 'true' : 'false');
+      });
+      if(counter) counter.textContent = String(currentSlide + 1).padStart(2,'0');
+      if(userInitiated) restartCarousel();
+    }
+    function stopCarousel(){ if(carouselTimer){ window.clearInterval(carouselTimer); carouselTimer = null; } }
+    function startCarousel(){
+      if(reduceMotion || !slides.length || document.hidden) return;
+      stopCarousel();
+      carouselTimer = window.setInterval(function(){ showSlide(currentSlide + 1,false); },6500);
+    }
+    function restartCarousel(){ stopCarousel(); startCarousel(); }
+    if(carousel){
+      carousel.querySelector('.carousel-prev').addEventListener('click',function(){ showSlide(currentSlide - 1,true); });
+      carousel.querySelector('.carousel-next').addEventListener('click',function(){ showSlide(currentSlide + 1,true); });
+      dots.forEach(function(dot){ dot.addEventListener('click',function(){ showSlide(Number(dot.getAttribute('data-go')),true); }); });
+      carousel.addEventListener('mouseenter',stopCarousel);
+      carousel.addEventListener('mouseleave',startCarousel);
+      carousel.addEventListener('focusin',stopCarousel);
+      carousel.addEventListener('focusout',function(e){ if(!carousel.contains(e.relatedTarget)) startCarousel(); });
+      carousel.addEventListener('touchstart',function(e){ touchStartX = e.changedTouches[0].clientX; stopCarousel(); },{passive:true});
+      carousel.addEventListener('touchend',function(e){ var delta = e.changedTouches[0].clientX - touchStartX; if(Math.abs(delta) > 46) showSlide(currentSlide + (delta < 0 ? 1 : -1),true); else startCarousel(); },{passive:true});
+      document.addEventListener('visibilitychange',function(){ if(document.hidden) stopCarousel(); else startCarousel(); });
+      showSlide(0,false);
+      startCarousel();
+    }
 
-/* ============ DEMO 2: AI voice receptionist (tap to answer) ============ */
-(function(){
-var CALL=[
-  {who:'ava',label:'Ava',text:"Thanks for calling Johnson Heating & Air, this is Ava. How can I help?"},
-  {who:'caller',label:'Caller',text:"Hi, my furnace is making a banging noise and there's a burning smell."},
-  {who:'ava',label:'Ava',text:"Thanks for letting me know. Quick safety check first — if you smell gas, please step outside right now and call 911. Does it smell like gas, or more like dust burning off?"},
-  {who:'caller',label:'Caller',text:"More like dust, I think. No gas smell."},
-  {who:'ava',label:'Ava',text:"Good — that's common when the heat kicks on after a while. Still, a banging furnace is worth a look today. I have tomorrow 9–11 AM or 1–3 PM — which works better?"},
-  {who:'caller',label:'Caller',text:"9 to 11 works. I'm Dana Whitfield, 88 Lanier Ridge Dr."},
-  {who:'ava',label:'Ava',text:"Perfect, Dana — you're booked tomorrow 9–11 AM at 88 Lanier Ridge Dr for a furnace check. I'll text a confirmation, and the tech will call when en route. Anything else?"},
-  {who:'caller',label:'Caller',text:"That's everything. Thanks!"},
-  {who:'ava',label:'Ava',text:"You're welcome! Talk soon."}
-];
-var RECEIPT=[
-  '📞 <strong>Call answered</strong> — 2.4 seconds, Sunday 2:13 AM',
-  '⚠️ <strong>Safety triage done</strong> — gas smell ruled out before booking',
-  '📅 <strong>Job booked</strong> — furnace check, tomorrow 9–11 AM',
-  '📝 <strong>Summary sent</strong> — recording + transcript to owner'
-];
-var idle=document.getElementById('callIdle'),
-    active=document.getElementById('callActive'),
-    summary=document.getElementById('callSummary'),
-    transcript=document.getElementById('transcript'),
-    timerEl=document.getElementById('callTimer'),
-    receipt=document.getElementById('callReceipt'),
-    replayBtn=document.getElementById('callReplay'),
-    runId=0, timerInt=null;
-function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
-function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
-async function typeLine(id,line){
-  var wrap=document.createElement('div');
-  wrap.className='tline '+line.who;
-  wrap.innerHTML='<span class="who">'+line.label+'</span><span class="txt typing-caret"></span>';
-  transcript.appendChild(wrap);
-  transcript.scrollTop=transcript.scrollHeight;
-  var txtEl=wrap.querySelector('.txt'),full=line.text;
-  for(var i=0;i<full.length;i++){
-    await sleep(16);if(id!==runId)return;
-    txtEl.textContent=full.slice(0,i+1);
-    if(i%6===0)transcript.scrollTop=transcript.scrollHeight;
-  }
-  txtEl.classList.remove('typing-caret');
-}
-function addReceipt(html){
-  if(receipt.querySelector('.dim'))receipt.innerHTML='';
-  var li=document.createElement('li');li.innerHTML=html;receipt.appendChild(li);
-}
-async function playCall(){
-  runId++;var id=runId;
-  idle.style.display='none';summary.style.display='none';replayBtn.style.display='none';
-  active.style.display='block';transcript.innerHTML='';receipt.innerHTML='<li class="dim">Listening…</li>';
-  var secs=0;timerEl.textContent='00:00';
-  clearInterval(timerInt);
-  timerInt=setInterval(function(){secs++;timerEl.textContent=fmt(secs)},1000);
-  await sleep(900);if(id!==runId)return;
-  for(var i=0;i<CALL.length;i++){
-    await typeLine(id,CALL[i]);if(id!==runId)return;
-    if(i<RECEIPT.length)addReceipt(RECEIPT[i]);
-    await sleep(650);if(id!==runId)return;
-  }
-  clearInterval(timerInt);
-  await sleep(700);if(id!==runId)return;
-  active.style.display='none';summary.style.display='block';
-  replayBtn.style.display='inline-block';
-}
-document.getElementById('answerBtn').addEventListener('click',playCall);
-replayBtn.addEventListener('click',playCall);
-})();
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
+    var grid = document.getElementById('productGrid');
+    var count = document.getElementById('count');
+    var loadMore = document.getElementById('loadMore');
+    var empty = document.getElementById('emptyState');
+    var active = {type:[], occasion:[], price:[], size:[]};
+    var visibleLimit = 6;
 
-/* ============ DEMO 3: review engine (click-through) ============ */
-(function(){
-var pills=document.querySelectorAll('#rePills .re-pill'),
-    rated=false;
-function showStage(n){
-  document.querySelectorAll('.re-stage').forEach(function(s){s.classList.remove('on')});
-  document.getElementById('stage'+n).classList.add('on');
-  pills.forEach(function(p){
-    var pn=parseInt(p.getAttribute('data-stage'),10);
-    p.classList.toggle('active',pn===n);
-    if(pn<n)p.classList.add('done');else if(pn>n)p.classList.remove('done');
-  });
-}
-pills.forEach(function(p){
-  p.addEventListener('click',function(){showStage(parseInt(p.getAttribute('data-stage'),10))});
-});
-document.getElementById('completeJob').addEventListener('click',function(){
-  this.textContent='✓ Job completed — ask scheduled';
-  this.disabled=true;this.style.opacity='.75';this.style.cursor='default';
-  pills[0].classList.add('done');
-  setTimeout(function(){showStage(2)},900);
-});
-function mk(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
-function addNote(html){
-  var r=document.getElementById('askReceipt');
-  if(r.querySelector('.dim'))r.innerHTML='';
-  r.appendChild(mk('<li>'+html+'</li>'));
-}
-document.querySelectorAll('#starRow button').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    if(rated)return;rated=true;
-    var s=parseInt(btn.getAttribute('data-stars'),10);
-    btn.classList.add('picked');
-    document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=true});
-    var res=document.getElementById('askResult');
-    var thread=document.getElementById('askThread');
-    thread.appendChild(mk('<div class="re-bubble me">'+s+' star'+(s>1?'s':'')+'</div>'));
-    setTimeout(function(){
-      if(s>=4){
-        thread.appendChild(mk('<div class="re-bubble bot">Glad to hear it! Would you mind sharing that on Google? It takes 20 seconds:</div>'));
-        var g=mk('<div style="align-self:flex-start;animation:pop .25s ease"><button class="gbtn" id="googleBtn">⭐ Review on Google</button></div>');
-        thread.appendChild(g);
-        document.getElementById('googleBtn').addEventListener('click',function(){
-          this.disabled=true;this.textContent='Opening Google…';
-          var self=this;
-          setTimeout(function(){
-            res.appendChild(mk('<div class="re-success">✅ <strong>Review posted.</strong> Thanks for helping Johnson Heating &amp; Air grow!</div>'));
-            addNote('⭐ <strong>'+s+'-star review posted</strong> to Google — reputation +1');
-            addNote('📈 <strong>Ask-to-review rate</strong> — tracked per tech, per job');
-            pills[1].classList.add('done');
-            self.textContent='✓ Done';
-          },900);
-        });
-        addNote('😊 <strong>Happy customer</strong> ('+s+' stars) — routed to Google');
-      }else{
-        thread.appendChild(mk('<div class="re-bubble bot">We&rsquo;re sorry it wasn&rsquo;t 5 stars. The owner will call you personally within the hour to make it right.</div>'));
-        setTimeout(function(){
-          res.appendChild(mk('<div class="re-private">🔒 <strong>Negative feedback kept private.</strong> Owner alerted — no public review link sent.</div>'));
-          addNote('🔒 <strong>'+s+'-star feedback kept private</strong> — owner alerted instantly');
-          addNote('📞 <strong>Save in progress</strong> — owner calls within the hour');
-          pills[1].classList.add('done');
-        },900);
+    function matches(card){
+      function groupMatch(group, attr){
+        if(!active[group].length) return true;
+        var values = (card.getAttribute(attr)||'').split(' ');
+        return active[group].some(function(v){ return values.indexOf(v) !== -1; });
       }
-    },800);
-  });
-});
-document.getElementById('askReset').addEventListener('click',function(){
-  rated=false;
-  document.querySelectorAll('#starRow button').forEach(function(b){b.disabled=false;b.classList.remove('picked')});
-  document.getElementById('askResult').innerHTML='';
-  var thread=document.getElementById('askThread');
-  thread.querySelectorAll('.re-bubble.me').forEach(function(b){b.remove()});
-  var extra=thread.querySelectorAll('.re-bubble.bot');
-  for(var i=1;i<extra.length;i++)extra[i].remove();
-  var gb=thread.querySelector('.gbtn');
-  if(gb)gb.parentElement.remove();
-  document.getElementById('askReceipt').innerHTML='<li class="dim">Pick a star rating — see the two paths…</li>';
-  pills[1].classList.remove('done');
-});
-})();
-</script>
+      var typeOK = groupMatch('type','data-type');
+      var occasionOK = groupMatch('occasion','data-occasion');
+      var priceOK = true;
+      if(active.price.length){
+        var price = card.getAttribute('data-price');
+        var band = card.getAttribute('data-priceband') || (price === 'ask' ? 'ask' : '');
+        priceOK = active.price.indexOf(band) !== -1;
+      }
+      var sizeOK = true;
+      if(active.size.length){ sizeOK = (card.getAttribute('data-type')||'').indexOf('bangles') !== -1; }
+      return typeOK && occasionOK && priceOK && sizeOK;
+    }
+
+    function render(){
+      var matchesAll = cards.filter(matches);
+      var shown = 0;
+      cards.forEach(function(card){
+        if(matches(card) && shown < visibleLimit){ card.hidden = false; shown++; }
+        else { card.hidden = true; }
+      });
+      count.textContent = matchesAll.length ? ('Items 1–' + shown + ' of ' + matchesAll.length) : 'Items 0 of 0';
+      loadMore.hidden = shown >= matchesAll.length;
+      empty.classList.toggle('show', matchesAll.length === 0);
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var group = btn.getAttribute('data-filter');
+        var value = btn.getAttribute('data-value');
+        var i = active[group].indexOf(value);
+        if(i === -1){ active[group].push(value); btn.classList.add('active'); }
+        else { active[group].splice(i,1); btn.classList.remove('active'); }
+        visibleLimit = 6;
+        render();
+      });
+    });
+    document.getElementById('clearAll').addEventListener('click',function(){
+      active = {type:[], occasion:[], price:[], size:[]};
+      document.querySelectorAll('.filter-btn.active').forEach(function(b){ b.classList.remove('active'); });
+      visibleLimit = 6; render();
+    });
+    loadMore.addEventListener('click',function(){ visibleLimit += 6; render(); });
+
+    document.getElementById('sort').addEventListener('change',function(e){
+      var value=e.target.value;
+      cards.sort(function(a,b){
+        if(value==='featured') return Number(a.dataset.featured)-Number(b.dataset.featured);
+        var ap=a.dataset.price==='ask' ? Infinity : Number(a.dataset.price);
+        var bp=b.dataset.price==='ask' ? Infinity : Number(b.dataset.price);
+        return value==='low' ? ap-bp : bp-ap;
+      });
+      cards.forEach(function(card){ grid.appendChild(card); }); render();
+    });
+
+    var gridButton=document.getElementById('gridView');
+    var listButton=document.getElementById('listView');
+    gridButton.addEventListener('click',function(){ grid.classList.remove('list-view'); gridButton.classList.add('active'); listButton.classList.remove('active'); gridButton.setAttribute('aria-pressed','true'); listButton.setAttribute('aria-pressed','false'); });
+    listButton.addEventListener('click',function(){ grid.classList.add('list-view'); listButton.classList.add('active'); gridButton.classList.remove('active'); listButton.setAttribute('aria-pressed','true'); gridButton.setAttribute('aria-pressed','false'); });
+
+    var collectionMap = {
+      navaratri: {occasion:['navaratri']},
+      premium: {type:['bangles']},
+      bridal: {occasion:['weddings']},
+      everyday: {occasion:['everyday']},
+      little: {type:['kids']},
+      gifting: {type:['kids'], occasion:['diwali']}
+    };
+    document.querySelectorAll('[data-collection-filter]').forEach(function(button){
+      button.addEventListener('click',function(){
+        var chosen = collectionMap[button.getAttribute('data-collection-filter')] || {};
+        active = {type:chosen.type || [], occasion:chosen.occasion || [], price:[], size:[]};
+        document.querySelectorAll('.filter-btn').forEach(function(filterButton){
+          var group = filterButton.getAttribute('data-filter');
+          var value = filterButton.getAttribute('data-value');
+          filterButton.classList.toggle('active', active[group].indexOf(value) !== -1);
+        });
+        visibleLimit = 6;
+        render();
+        document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    function legacyCopy(text,done){ var a=document.createElement('textarea'); a.value=text; a.style.position='fixed'; a.style.opacity='0'; document.body.appendChild(a); a.select(); try{document.execCommand('copy');done();}catch(e){} document.body.removeChild(a); }
+    function copy(text,done){ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,function(){legacyCopy(text,done);});}else{legacyCopy(text,done);} }
+    document.querySelectorAll('[data-copy-number]').forEach(function(btn){ btn.addEventListener('click',function(){ var old=btn.textContent; copy('+1 (943) 238-3422',function(){btn.textContent='Number copied';setTimeout(function(){btn.textContent=old;},2200);}); }); });
+
+    document.querySelectorAll('.motion-video').forEach(function(video){
+      function playMuted(){
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        var attempt = video.play();
+        if(attempt && typeof attempt.catch === 'function'){ attempt.catch(function(){}); }
+      }
+      if(video.readyState >= 2){ playMuted(); }
+      else { video.addEventListener('canplay', playMuted, {once:true}); }
+    });
+    render();
+  }());
+  </script>
 </body>
 </html>
